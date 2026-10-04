@@ -1,0 +1,688 @@
+<header class="ds-bar">
+  <div class="ds-bar-in">
+    <a class="ds-logo" href="#top" aria-label="Sloosh V4, back to top"><span data-logo data-height="30"></span></a>
+    <nav class="ds-index" aria-label="Sections">
+      <a href="#settled">Pricing v4</a><a href="#type">Type</a><a href="#colour">Colour</a><a href="#grounds">Grounds</a><a href="#shape">Shape</a><a href="#buttons">Buttons</a><a href="#controls">Controls</a><a href="#ink">Ink</a><a href="#hand">Hand</a><a href="#doodles">Doodles</a><a href="#flock">Flock</a><a href="#pointer">Pointer</a><a href="#logo">Logo</a><a href="#motion">Motion</a><a href="#components">Components</a><a href="#pricing">Pricing</a><a href="#rules">Rules</a><a href="#gaps">Open questions</a>
+    </nav>
+    <div class="ds-theme" role="group" aria-label="Theme">
+      <button type="button" id="th-dark" aria-pressed="true">Dark</button><button type="button" id="th-light" aria-pressed="false">Light</button>
+    </div>
+  </div>
+</header>
+
+<main data-ink-root>
+
+<!-- ═════════ COVER ═════════ -->
+<section class="ds-cover" id="top" data-ink-root>
+  <div class="ds-cover-logo" id="cover-logo"></div>
+  <h1>Sloosh <em>V4</em>, every piece on one page</h1>
+  <div><span class="ds-motto" id="motto" aria-label="precise at rest. alive when something happens."></span></div>
+  <p class="ds-lede">V4 keeps the Figma product exactly as it is and draws a living layer of pencil on top. This page shows both layers with the real engine, so everything here moves the way it will in the product. Sources: the V4 zip (DESIGN.md, tokens, SlooshInk engine) and the v4 pricing prototype.</p>
+
+  <div class="ds-layers">
+    <div class="ds-layer">
+      <div><h3>Base</h3><p>The Figma product: nav, tiles, keycaps, composer, fields. v3 values, untouched. Precise. Never wobbles, never tilts, never handwritten.</p></div>
+      <div class="ds-layer-demo"><button class="sl-btn" data-variant="primary" data-size="md">Run Space</button><button class="sl-btn" data-variant="secondary" data-size="md">See plans</button></div>
+    </div>
+    <div class="ds-layer" id="layer-ink" data-ink-root>
+      <div><h3>Ink</h3><p>A transparent drawing layer above the base. Arrives by being drawn, then coloured, then given a face. Leaves faster than it came.</p></div>
+      <div class="ds-layer-demo"><button class="sl-btn" data-variant="primary" data-size="md" id="ink-target" data-ink-press>Run Space</button><span class="sl-hand-md sl-ink-text" id="ink-tag"></span></div>
+    </div>
+  </div>
+
+  <h2 class="ds-h3" style="margin-top:28px">Ink lives in four places only</h2>
+  <p class="ds-lede">If a mark isn't doing one of these four jobs, it gets cut.</p>
+  <div class="ds-four">
+    <div class="ds-plate"><div class="art" id="four-pointer"></div><div><b>The pointer</b><span>Nub, a doodled arrow with the logo's eyes. Points, asks, acts.</span></div></div>
+    <div class="ds-plate"><div class="art" id="four-flock"></div><div><b>The flock</b><span>Seven inked critters, each with one job: loaders, empty states, toasts, plan cards.</span></div></div>
+    <div class="ds-plate"><div class="art" id="four-moment" data-ink-root></div><div><b>Moments</b><span>Waiting, arriving, succeeding, first run. Sketch skeletons, pencil progress, celebrations.</span></div></div>
+    <div class="ds-plate"><div class="art" id="four-react" data-ink-root><div class="sl-tile" style="width:150px;height:84px" data-ink-hover="brackets" tabindex="0"><div class="sl-media"><span class="ds-ph ph1"></span></div></div></div><div><b>Reactions</b><span>Brackets on hover, a drawn ring on selection, a burst on make-actions, drawn checks. Hover the tile.</span></div></div>
+  </div>
+</section>
+
+<!-- ═════════ SETTLED ON THE PRICING PAGE ═════════ -->
+<section class="ds-sec" id="settled">
+  <p class="ds-eyebrow">Settled on the pricing page · Oct 2026</p>
+  <h2 class="ds-h2">What building the pricing page decided</h2>
+  <p class="ds-lede">These rules came out of shipping the v4 pricing page. Where they disagree with older notes on this page, these win, and the sections below have been updated to match. Rules marked <b>pricing only</b> still need a call before they go system-wide.</p>
+
+  <h3 class="ds-h3">One type scale</h3>
+  <p class="ds-lede">Eight sizes, plus 60 held in reserve. Nothing under 12px, no weight under 500, and 12px is always caps. Line heights are percentages, not pixels: <b>120% for titles, 140% for everything else</b>. Every old size snapped to the nearest step; a tie went up (15 → 16, 18 → 20, 44 → 48). The pricing page went from 28 sizes to these.</p>
+  <div class="ds-plate" style="margin-top:16px">
+    <div class="ds-scale">
+      <div><span class="lab"><b>48 · 120%</b>section titles, prices, "You need"</span><span class="s d" style="font-size:48px;line-height:120%">Which plan fits your month?</span></div>
+      <div><span class="lab"><b>36 · 120%</b>section titles on phones</span><span class="s d" style="font-size:36px;line-height:120%">Every plan, side by side.</span></div>
+      <div><span class="lab"><b>28 · 120%</b>plan names, model tape</span><span class="s d" style="font-size:28px;line-height:120%">Pro</span></div>
+      <div><span class="lab"><b>24 · 120%</b>struck-through old price</span><span class="s d was" style="font-size:24px;line-height:120%">$49</span></div>
+      <div><span class="lab"><b>20 · 120%</b>card and group titles, FAQ questions · 600</span><span class="s" style="font:600 20px/120% var(--ds-sans)">What you make each month</span></div>
+      <div><span class="lab"><b>16 · 140%</b>body, buttons, slider labels · 500</span><span class="s" style="font:500 16px/140% var(--ds-sans)">60 2K images · 120.6 credits · 2.01 per 2K image</span></div>
+      <div><span class="lab"><b>14 · 140%</b>secondary, feature rows · 500</span><span class="s" style="font:500 14px/140% var(--ds-sans)">You save $120 per year</span></div>
+      <div><span class="lab"><b>12 · 140%</b>labels only · caps, +0.04em</span><span class="s" style="font:500 12px/140% var(--ds-sans);text-transform:uppercase;letter-spacing:.04em">Fits · 53.44 spare</span></div>
+    </div>
+    <p class="ds-spec"><b>Weights:</b> 500 is the floor for SF Pro and Caveat; 600 for emphasis, 700 for chips and numbers. Bowlby One only has 400, so the floor can't apply to it. <b>One size per line:</b> never mix two sizes on one line. <b>Line height:</b> titles (Bowlby, and SF Pro card or group titles) 120%; body, labels, buttons and everything else 140%. <b>Titles stay on one line</b> from 900px up and wrap below that so they never overflow.</p>
+  </div>
+
+  <h3 class="ds-h3">One spacing system</h3>
+  <p class="ds-lede">A title always gets more room than the items under it, and each relationship has one gap everywhere. An item is a row of content: a title, a slider with its label, a row of checkboxes, a stepper with its critters.</p>
+  <div class="ds-plate ds-matrix-wrap" style="margin-top:16px">
+    <table class="ds-matrix">
+      <thead><tr><th>Relationship</th><th>Desktop</th><th>Phone (≤760)</th></tr></thead>
+      <tbody>
+        <tr><th>Content ↔ section transition (tape or wave), both sides</th><td>144</td><td>96</td></tr>
+        <tr><th>Section title → first content</th><td>56</td><td>32</td></tr>
+        <tr><th>Title → its lede, kicker → title (a title group)</th><td>16</td><td>16</td></tr>
+        <tr><th>Card or group title → its content</th><td>32</td><td>28</td></tr>
+        <tr><th>Item ↔ item inside a group</th><td>24</td><td>20</td></tr>
+        <tr><th>Group ↔ group in a column</th><td>48</td><td>48</td></tr>
+        <tr><th>Card padding, and card edge or full-width rule ↔ nearest item</th><td>40</td><td>22–28</td></tr>
+        <tr><th>Plan name → "for" line</th><td>4</td><td>4</td></tr>
+        <tr><th>Footer column label → links</th><td>16</td><td>16</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ds-grid ds-g2">
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Control heights</b><span>radius follows height</span></div>
+      <div class="ds-hts">
+        <div><span class="ds-hbox h48">Subscribe to Pro</span><b>48 · r16</b><small>primary CTA on pricing cards</small></div>
+        <div><span class="ds-hbox h40">−&nbsp;&nbsp;1 seat&nbsp;&nbsp;+</span><b>40 · r12</b><small>standard, set by the seat stepper; first-section minimum</small></div>
+        <div><span class="ds-hbox h36">All 26 models included&nbsp;&nbsp;⌄</span><b>36 · r12</b><small>page minimum; models drawer</small></div>
+      </div>
+      <p class="ds-spec">The first section (hero, plan cards, Enterprise) holds every control to 40px or more; elsewhere 36 is the floor and 32 or 28 are allowed case by case (<b>pricing only</b>). Small +/− keep a 24px face but answer a 40×40 tap area.</p>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Savings chip</b><span>one style on every ground</span></div>
+      <div class="ds-chipdemo">
+        <span class="g y">You save <i class="ds-save">$120</i> per year</span>
+        <span class="g k">You save <i class="ds-save">$48</i> per year</span>
+        <span class="g w">You save <i class="ds-save">$240</i> per year</span>
+      </div>
+      <p class="ds-spec">Dark green <b>#047857</b> (<b>--sl-success</b>, light theme) with neutral-50 text: 5.5:1 and reads green on yellow, black and white. Tried and dropped: mint #55DB9C with dark text (clashed on yellow), mint text on white (1.75:1), dark-green text on white (read as teal).</p>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Depth</b><span>a flat 4px band, never blur</span></div>
+      <div class="ds-depth">
+        <div class="on-y"><span class="c k"></span><span class="c w"></span><small>on yellow · accent-600</small></div>
+        <div class="on-k"><span class="c y"></span><span class="c w"></span><small>on black · card's own darker step</small></div>
+      </div>
+      <p class="ds-spec">Only cards that contrast with their ground get one: <b>0 4px 0</b>, no blur, same language as the keycap lip. On yellow: accent-600 under black or white cards. On black: yellow card accent-700, white card neutral-300. Dark cards on dark grounds get none; the old blurred shadows and the Pro glow are gone.</p>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Rules</b><span>full width is solid; inset may dash</span></div>
+      <div class="ds-rules">
+        <div class="card"><b>What you make each month</b><hr class="full"><b>What you need</b></div>
+        <div class="card"><span>Image quality</span><hr class="dash"><span>Video length</span><hr class="dash"><span>Runs at once</span></div>
+      </div>
+      <p class="ds-spec">A rule that runs the full width of its card is <b>solid</b> and bleeds to the card's edges. Rules between rows inside an inset list may be <b>dashed</b>. No dividers between checkbox rows or around stats.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ TYPE ═════════ -->
+<section class="ds-sec" id="type">
+  <p class="ds-eyebrow">Type</p>
+  <h2 class="ds-h2">Three faces, three jobs</h2>
+  <p class="ds-lede"><b>Bowlby One</b> shouts: headlines, plan names, big numbers. <b>SF Pro</b> does the work: everything you read or operate. <b>Caveat</b> is the hand: six words or fewer, lowercase, only in ink moments.</p>
+
+  <div class="ds-faces">
+    <div class="ds-face">
+      <div class="who"><b>Bowlby One</b><span>display · one weight (400)</span></div>
+      <div class="aa f-display">Aa</div>
+      <div class="abc f-display">ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm 0123456789 $%&amp;?!</div>
+      <p>Very heavy, tight counters, built for size. It has no bold, no italic, and no fixed-width digits. Loaded from Google Fonts.</p>
+    </div>
+    <div class="ds-face">
+      <div class="who"><b>SF Pro</b><span>product · 400 and 510 · Inter fallback</span></div>
+      <div class="aa f-sans" style="font-weight:510">Aa</div>
+      <div class="abc f-sans">ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm 0123456789 $%&amp;?!</div>
+      <p>The system font on Apple devices; Inter elsewhere. Sentence case. Nav, buttons, labels, prices in product UI, credits, errors, legal.</p>
+    </div>
+    <div class="ds-face">
+      <div class="who"><b>Caveat</b><span>the hand · 600 and 700</span></div>
+      <div class="aa f-hand">Aa</div>
+      <div class="abc f-hand">abcdefghijklm nopqrstuvwxyz try this one · sharpen this?</div>
+      <p>Lowercase, six words or fewer, written in letter by letter. Never on nav, buttons, labels, prices, credits, data, errors, billing or legal.</p>
+    </div>
+  </div>
+
+  <h3 class="ds-h3">Bowlby One in use</h3>
+  <p class="ds-lede">Sizes from the shipped pricing page, all on the one type scale. The prototype's clamps (40–94, 36–76, 58–74) are retired.</p>
+  <div class="ds-plate" style="margin-top:16px">
+    <div class="ds-scale">
+      <div><span class="lab"><b>Hero and section titles</b>48 · 36 on phones · lh 120%</span><span class="s d" style="font-size:48px;line-height:120%">Every top model, <span style="color:var(--sl-accent-active)">every plan.</span></span></div>
+      <div><span class="lab"><b>Price</b>48 · lh 120% · −0.02em</span><span class="s d" style="font-size:48px;letter-spacing:-.02em">$39</span></div>
+      <div><span class="lab"><b>"You need" number</b>48 · yellow on black</span><span class="s d" style="font-size:48px">231.56</span></div>
+      <div><span class="lab"><b>Plan name, model tape</b>28 · lh 120%</span><span class="s d" style="font-size:28px">Pro</span></div>
+      <div><span class="lab"><b>Slider count</b>28 · next to a 16px label</span><span class="s d" style="font-size:28px">60</span></div>
+      <div><span class="lab"><b>Old price</b>24 · struck 3px, faint</span><span class="s d was" style="font-size:24px">$49</span></div>
+    </div>
+  </div>
+
+  <h3 class="ds-h3">Watch the digits</h3>
+  <p class="ds-lede">Bowlby One ignores <b>tabular-nums</b>, so every digit has its own width. A price that changes from $111 to $888 also changes width. SF Pro keeps digits the same width.</p>
+  <div class="ds-plate" style="margin-top:16px">
+    <div class="ds-digits">
+      <div class="col" id="dg-d"><span class="n-d">$111</span><span class="n-d">$888</span><small id="dg-d-note">Bowlby One</small></div>
+      <div class="col" id="dg-s"><span class="n-s">$111</span><span class="n-s">$888</span><small id="dg-s-note">SF Pro, tabular</small></div>
+    </div>
+  </div>
+
+  <h3 class="ds-h3">SF Pro, the product scale</h3>
+  <p class="ds-lede">These are the token values as shipped in the zip. On the pricing page they were brought onto the one scale: the 400 weights rise to 500, micro (11) becomes 12 in caps, and fixed pixel line heights give way to 120% for titles and 140% for text. See <a href="#settled">Pricing v4</a>.</p>
+  <div class="ds-plate" style="margin-top:16px">
+    <div class="ds-scale" id="sans-scale"></div>
+  </div>
+
+  <h3 class="ds-h3">Which face goes where</h3>
+  <div class="ds-plate ds-matrix-wrap" style="margin-top:16px">
+    <table class="ds-matrix">
+      <thead><tr><th>Use</th><th class="f-display">Bowlby</th><th>SF Pro</th><th class="f-hand">Caveat</th></tr></thead>
+      <tbody>
+        <tr><th>Page and section headlines</th><td class="yes">yes</td><td>small headings</td><td>no</td></tr>
+        <tr><th>Plan names, big stats</th><td class="yes">yes</td><td>no</td><td>no</td></tr>
+        <tr><th>Prices on the pricing page</th><td class="yes">yes (decided)</td><td>no</td><td>never</td></tr>
+        <tr><th>Body copy, FAQ answers</th><td>no</td><td class="yes">yes</td><td>no</td></tr>
+        <tr><th>Buttons, nav, form labels</th><td>no</td><td class="yes">yes</td><td>never</td></tr>
+        <tr><th>Credits, data, errors, legal</th><td>no</td><td class="yes">yes</td><td>never</td></tr>
+        <tr><th>Pointer tags, coach-mark titles</th><td>no</td><td>no</td><td class="yes">yes</td></tr>
+        <tr><th>Empty-state asides, loader lines</th><td>no</td><td>no</td><td class="yes">yes</td></tr>
+        <tr><th>Celebration words, margin notes</th><td>no</td><td>no</td><td class="yes">yes</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═════════ COLOUR ═════════ -->
+<section class="ds-sec" id="colour">
+  <p class="ds-eyebrow">Colour</p>
+  <h2 class="ds-h2">Dark studio, one yellow, cream ink</h2>
+  <p class="ds-lede">Base colours are v3, read live from the tokens, so they flip with the theme switch at the top. Ink has its own set: cream lines on dark, charcoal on light.</p>
+  <div id="swatches"></div>
+  <div class="ds-grid ds-g2" style="margin-top:36px">
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Yellow budget</b><span>about 2% of a Studio screen</span></div>
+      <div class="ds-budget" id="budget" aria-hidden="true"></div>
+      <p class="ds-spec">A drawn ring counts as yellow. If a screen already shows a primary keycap and the credit chip, the ring goes on the keycap or nowhere.</p>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Yellow strokes vs yellow fills</b><span>contrast</span></div>
+      <div class="ds-row" style="gap:20px">
+        <span style="display:inline-block;width:64px;height:40px;border-radius:8px;background:var(--sl-accent);box-shadow:inset 0 -2px 0 0 var(--sl-accent-lip)"></span>
+        <svg width="120" height="40" viewBox="0 0 120 40" aria-hidden="true"><path d="M4 26 C 30 10, 60 34, 116 16" fill="none" stroke="var(--sl-accent-active)" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </div>
+      <p class="ds-spec">Fills use <b>accent</b> #FECC15 in both themes. Lines use <b>accent-active</b>: #FAC01A on dark, #7A5C00 on light, so a ring keeps 3:1 on white. Eyes never change colour.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ GROUNDS ═════════ -->
+<section class="ds-sec" id="grounds">
+  <p class="ds-eyebrow">Grounds and edges · from the prototype</p>
+  <h2 class="ds-h2">Black, yellow, white, joined by sloosh edges</h2>
+  <p class="ds-lede">The prototype stacks whole sections on three grounds and joins them with a wavy edge instead of a straight cut. Each ground re-maps the tokens, so buttons and ink stay readable on it. These stay fixed in both themes.</p>
+  <p class="ds-spec" style="max-width:72ch"><b>Shipped rule:</b> the first join (plan cards → "Which plan fits") is the model tape, a white strip tilted −2.2°, with no wave. Every other join into or out of yellow is a wavy edge (56px band, 28 on phones; top and bottom paths differ). Content keeps <b>144px</b> clear of the tape or wave on both sides (96 on phones).</p>
+  <div class="ds-grounds" data-ink-root>
+    <div class="gr black" id="gr-black">
+      <span class="k">Black ground</span>
+      <h3>Every top model, every plan</h3>
+      <p>The default. Canvas #0A0A0A, cream ink, yellow keycaps.</p>
+      <div class="row"><button class="sl-btn" data-variant="primary" data-size="xl">Start creating</button><span class="aside">no card needed</span></div>
+      <span class="crit" data-critter="bird" data-size="84" data-gaze="none"></span>
+      <svg class="edge" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true" style="color:#0A0A0A"><path d="M0 0H1440V18C1380 34 1320 46 1240 40C1150 33 1110 10 1010 12C900 14 860 46 740 46C620 46 590 16 480 14C370 12 330 40 220 42C130 44 60 30 0 20Z"/></svg>
+    </div>
+    <div class="gr yellow" id="gr-yellow">
+      <span class="k">Yellow ground</span>
+      <h3>Own the outcome</h3>
+      <p>Ink turns black. Keycaps turn black with yellow labels. Critters stay yellow and keep a black outline.</p>
+      <div class="row"><button class="sl-btn" data-variant="ink" data-size="xl">Book a deployment call</button><span class="aside">takes 30s</span></div>
+      <span class="crit" data-critter="dog" data-size="84" data-gaze="none" data-flip></span>
+      <svg class="edge" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true" style="color:#FECC15"><path d="M0 0H1440V22C1360 44 1290 44 1200 30C1100 14 1040 12 940 28C830 46 760 48 660 34C560 20 500 10 400 22C290 36 230 50 130 44C80 41 40 32 0 24Z"/></svg>
+    </div>
+    <div class="gr white" id="gr-white">
+      <span class="k">White ground</span>
+      <h3>Which plan fits your month?</h3>
+      <p>Ink turns charcoal #2B2724. Yellow strokes darken to #7A5C00. Paper panels use #F6F4EE.</p>
+      <div class="row"><button class="sl-btn" data-variant="primary" data-size="xl">Subscribe to Pro</button><span class="aside">most picked</span></div>
+      <span class="crit" data-critter="cat" data-size="84" data-gaze="none"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ SHAPE ═════════ -->
+<section class="ds-sec" id="shape">
+  <p class="ds-eyebrow">Shape and elevation</p>
+  <h2 class="ds-h2">Flat cards, keycap lips</h2>
+  <p class="ds-lede">Radii and spacing are v3. The one new shape is the wobble radius, for sticky notes and Stage cards. Shadows stay rare: the lip under a key is the brand's depth.</p>
+  <div class="ds-grid ds-g2">
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Radii</b><span>tokens, plus the prototype's larger cards</span></div>
+      <div class="ds-radii">
+        <div><i style="border-radius:4px"></i><b>sm 4</b><small>thumbs in chips</small></div>
+        <div><i style="border-radius:8px"></i><b>lg 8</b><small>buttons, fields, chips</small></div>
+        <div><i style="border-radius:12px"></i><b>xl 12</b><small>tiles, toasts</small></div>
+        <div><i style="border-radius:16px"></i><b>2xl 16</b><small>cards, switch</small></div>
+        <div><i style="border-radius:24px"></i><b>sheet 24</b><small>sheets, modals</small></div>
+        <div><i style="border-radius:9999px"></i><b>full</b><small>pills, chips</small></div>
+        <div><i style="border-radius:var(--sl-radius-wobble);background:var(--sl-ink-sticky);box-shadow:none"></i><b>wobble</b><small>sticky notes, Stage</small></div>
+        <div class="off"><i style="border-radius:28px"></i><b>28</b><small>plan cards, calculator cards (shipped, not a token)</small></div>
+        <div class="off"><i style="border-radius:18px"></i><b>18</b><small>FAQ accordion (shipped, not a token)</small></div>
+      </div>
+    </div>
+    <div class="ds-plate" id="anat" data-ink-root>
+      <div class="ds-cap"><b>The keycap</b><span>press it</span></div>
+      <div class="ds-anat" id="anat-stage">
+        <button class="sl-btn" data-variant="primary" data-size="xl" id="anat-btn" data-ink-press>Generate (25)</button>
+        <span class="lbl" id="lb-face" style="left:6%;top:14%">yellow face</span>
+        <span class="lbl" id="lb-lip" style="right:4%;bottom:10%">the lip</span>
+      </div>
+      <p class="ds-spec">Face <b>#FECC15</b>, lip <b>#AF8705</b> as an inset bottom edge: 2px on normal keys, 4px on large ones. Press drops the face by the lip height and the lip collapses (80ms in, 160ms hop out).</p>
+    </div>
+  </div>
+  <div class="ds-grid ds-g2">
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Elevation</b><span>flat by default</span></div>
+      <div class="ds-elev">
+        <div style="box-shadow:var(--sl-shadow-float)">float · menus</div>
+        <div style="box-shadow:var(--sl-shadow-modal)">modal</div>
+        <div style="box-shadow:var(--sl-shadow-halo)">halo · recommended</div>
+        <div style="box-shadow:var(--sl-shadow-focus)">focus ring</div>
+      </div>
+      <p class="ds-spec">Ink never casts a shadow. The pointer has none. <b>Cards</b> use the flat 4px band from <a href="#settled">Pricing v4</a> instead of these, and only when they contrast with their ground; the halo is no longer used on the recommended plan.</p>
+    </div>
+    <div class="ds-plate" style="display:grid;place-items:center;min-height:220px">
+      <div class="ds-sticky">sticky note, wobble radius</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ BUTTONS ═════════ -->
+<section class="ds-sec" id="buttons">
+  <p class="ds-eyebrow">Buttons</p>
+  <h2 class="ds-h2">The Figma keycap, untouched</h2>
+  <p class="ds-lede">Ink only answers the press, and only on make-actions: Generate, Run Space, Recreate, Publish. Press those to see the burst.</p>
+  <div class="ds-plate" style="margin-top:32px;display:grid;gap:22px" data-ink-root>
+    <div class="ds-row"><span class="ds-k">primary</span><button class="sl-btn" data-variant="primary">Sign up</button><button class="sl-btn" data-variant="primary" data-size="md" data-ink-press>Run Space <span class="sl-cost">✦ 25</span></button><button class="sl-btn" data-variant="primary" data-size="lg" data-ink-press>Generate (25)</button></div>
+    <div class="ds-row"><span class="ds-k">secondary</span><button class="sl-btn" data-variant="secondary">Login</button><button class="sl-btn" data-variant="secondary" data-size="md">See plans</button><button class="sl-btn" data-variant="secondary" data-size="lg">Talk to us</button></div>
+    <div class="ds-row"><span class="ds-k">outline</span><button class="sl-btn" data-variant="outline" data-size="md">Subscribe to Max</button></div>
+    <div class="ds-row"><span class="ds-k">ghost, tinted</span><button class="sl-btn" data-variant="ghost">View all →</button><button class="sl-btn" data-variant="tinted">✦ 80 Credits</button></div>
+    <div class="ds-row"><span class="ds-k">loading</span><button class="sl-btn" data-variant="primary" data-size="md" aria-busy="true" style="width:140px"><span class="sl-btn-label">Generate</span><span class="sl-btn-eyes"><span class="sl-eyes" style="--s:12px"><i></i><i></i></span></span></button><span class="ds-k" style="min-width:0">eyes replace the label, width held</span></div>
+    <div class="ds-row"><span class="ds-k">disabled</span><button class="sl-btn" data-variant="primary" data-size="md" disabled>Publish</button><span class="sl-btn-note">needs a name first</span></div>
+    <div class="ds-row"><span class="ds-k">prototype xl</span><button class="sl-btn" data-variant="primary" data-size="xl">Start creating</button><button class="sl-btn" data-variant="ink" data-size="xl">Subscribe to Pro</button></div>
+  </div>
+  <p class="ds-spec">Sizes: 28 (default), 36 (md), 48 (lg). <b>Shipped on pricing:</b> the prototype's 56px xl was dropped; pricing-card CTAs (Subscribe, Talk to us, the calculator card) are 48 with radius 16 and a 4px lip, 16px semibold label. The ink keycap stays: black face, yellow label, #3A3A3A lip, on yellow and white grounds. Enterprise gets the same 48px button, no chat icon. Never wobble, tilt or handwrite a button.</p>
+</section>
+
+<!-- ═════════ CONTROLS ═════════ -->
+<section class="ds-sec" id="controls">
+  <p class="ds-eyebrow">Controls</p>
+  <h2 class="ds-h2">Tabs, chips, fields, toggles</h2>
+  <p class="ds-lede">All precise, all Figma. The only ink on controls: a squiggle and a hand "new" under a newly added filter, once per user.</p>
+  <div class="ds-grid ds-g2">
+    <div class="ds-plate" data-ink-root>
+      <div class="ds-cap"><b>Sliding tabs</b><span>the pill glides (M4, 200ms)</span></div>
+      <div style="display:grid;gap:14px">
+        <div class="sl-tabs" data-sliding id="tabs-a"><button class="sl-tab" aria-selected="true">Info</button><button class="sl-tab">Templates</button><button class="sl-tab">Canvas</button><button class="sl-tab">Generations</button></div>
+        <div class="sl-tabs" data-size="sm" data-sliding id="tabs-b"><button class="sl-tab" aria-selected="true">Outputs</button><button class="sl-tab">Character</button><button class="sl-tab">Poses</button><button class="sl-tab" id="tab-new">Backgrounds</button></div>
+      </div>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Chips and switch</b><span>28px chips, radius 8</span></div>
+      <div class="ds-row"><button class="sl-chip sl-chip-icon" aria-label="Add">+</button><button class="sl-chip"><span class="sl-thumb"></span>GPT Image 2</button><button class="sl-chip">16:9</button><button class="sl-chip">2K</button><button class="sl-chip">4 outputs</button></div>
+      <div class="sl-switch" style="margin-top:16px;max-width:260px;background:var(--sl-bg-canvas)" id="sw"><button aria-pressed="true">Image</button><button aria-pressed="false">Video</button></div>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Fields</b><span>36px, muted fill, radius 8</span></div>
+      <div style="display:grid;gap:14px">
+        <div><label class="sl-label" for="f-email">Email</label><input class="sl-field" id="f-email" placeholder="Try: maya@studio.com" style="width:100%"></div>
+        <div><label class="sl-label" for="f-err" style="color:var(--sl-danger)">Email</label><input class="sl-field" id="f-err" value="maya@" style="width:100%;box-shadow:inset 0 0 0 1px var(--sl-danger)"><div style="font-size:12px;color:var(--sl-danger);margin-top:6px">That email looks short of a domain.</div></div>
+      </div>
+      <p class="ds-spec">Errors are plain: a 1px danger outline and a fix. No ink, no critter.</p>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Billing toggle</b><span>shipped · 40px yellow keycap pill</span></div>
+      <div class="ds-toggle" id="bill" role="group" aria-label="Billing"><span class="pill" aria-hidden="true"></span><button type="button" aria-pressed="false">Monthly</button><button type="button" aria-pressed="true">Yearly <span class="save">−20%</span></button></div>
+      <p class="ds-spec">40px tall in the hero (36 elsewhere). The −20% is the dark-green savings chip at 14px, not mint text. On the yellow band the pill turns black. The compare table no longer repeats the toggle.</p>
+      <div class="ds-row" style="margin-top:18px"><span class="ds-k">seat stepper</span><div class="ds-stepper"><button type="button" id="st-m" aria-label="Fewer seats">−</button><output id="st-o">3 seats</output><button type="button" id="st-p" aria-label="More seats">+</button></div></div>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Calculator inputs</b><span>shipped · on white</span></div>
+      <div class="ds-paper">
+        <div class="lbl"><label for="rg"><b id="rg-v">40</b>2K images</label><span id="rg-c">80.4 credits <span class="rate">· 2.01 per 2K image</span></span></div>
+        <input type="range" class="ds-range" id="rg" min="0" max="100" value="40">
+        <label class="ds-need"><input type="checkbox" checked> Videos longer than 8 seconds</label>
+        <label class="ds-need"><input type="checkbox"> Batches of up to 200 items</label>
+      </div>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Accordion</b><span>prototype FAQ · opens into a yellow key</span></div>
+      <details class="ds-q" open><summary>Do unused credits roll over?<span class="pm" aria-hidden="true">+</span></summary><p>On Pro and Max, unused credits roll over for 3 months.</p></details>
+      <details class="ds-q"><summary>Can I change plans later?<span class="pm" aria-hidden="true">+</span></summary><p>Yes. Upgrades apply now; downgrades apply at the next bill.</p></details>
+      <p class="ds-spec">Shipped as the FAQ: question 20 semibold at 120%, radius 18; the yellow + (32px circle) turns 45° into a black × on the ui spring; one open at a time. In the compare table, explainable rows use a dotted underline only, no + icon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ INK ═════════ -->
+<section class="ds-sec" id="ink">
+  <p class="ds-eyebrow">The ink language</p>
+  <h2 class="ds-h2">Twelve marks, one hand</h2>
+  <p class="ds-lede">Every hand-drawn thing in Sloosh is built from these. Lines wobble a little and never repeat exactly. Click a cell to draw it again.</p>
+  <div class="ds-ink" id="ink-cells"></div>
+  <div class="ds-grid ds-g3">
+    <div class="ds-plate"><div class="ds-cap"><b>Pen widths</b></div><svg width="100%" height="70" viewBox="0 0 260 70" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14H254" stroke="var(--sl-ink-pen)" stroke-width="1.2" stroke-linecap="round"/><path d="M6 35H254" stroke="var(--sl-ink-pen)" stroke-width="1.6" stroke-linecap="round"/><path d="M6 56H254" stroke="var(--sl-ink-pen)" stroke-width="2.1" stroke-linecap="round"/></svg><p class="ds-spec">Fine 1.2 · pen 1.6 · bold 2.1 · yellow 2.2. Screen pixels, never scaled.</p></div>
+    <div class="ds-plate"><div class="ds-cap"><b>Roughness</b></div><p class="ds-spec" style="margin:0"><b>1.1</b> structure: skeletons, boxes. <b>0.4</b> faces: eyes and mouths stay cute. <b>1.5</b> fast marks: rings, underlines. Above 2 looks broken, below 0.6 looks like vector.</p></div>
+    <div class="ds-plate"><div class="ds-cap"><b>Placement</b></div><p class="ds-spec" style="margin:0">Beside, around or below a target, never on top of it. Rings sit outside the box. One ink event per region. Everything un-draws at 40% of its draw time.</p></div>
+  </div>
+</section>
+
+<!-- ═════════ HAND ═════════ -->
+<section class="ds-sec" id="hand">
+  <p class="ds-eyebrow">Handwriting</p>
+  <h2 class="ds-h2">The hand writes short</h2>
+  <p class="ds-lede">Caveat, written one letter at a time with a small random tilt: 38ms a letter for labels, 70ms for titles. Screen readers get the full text at once.</p>
+  <div class="ds-plate" style="margin-top:32px" id="hand-plate">
+    <button class="ds-again" type="button" id="hand-again">write again</button>
+    <div class="ds-hands">
+      <div><span class="lab"><b>hand-xl</b>44 / 700</span><span class="w sl-hand-xl" data-w="you made a thing!" data-per="70"></span></div>
+      <div><span class="lab"><b>hand-lg</b>30 / 700</span><span class="w sl-hand-lg" data-w="your first one!" data-per="70"></span></div>
+      <div><span class="lab"><b>hand-md</b>22 / 600</span><span class="w sl-hand-md" data-w="slooshing your workspace" data-per="38"></span></div>
+      <div><span class="lab"><b>hand-sm</b>18 / 600</span><span class="w sl-hand-sm" data-w="try this one" data-per="38"></span></div>
+      <div><span class="lab"><b>hand-xs</b>15 / 600</span><span class="w sl-hand-xs" data-w="needs a name first" data-per="38"></span></div>
+    </div>
+  </div>
+  <div class="ds-grid ds-g3">
+    <div class="ds-plate"><div class="ds-cap"><b>Statements</b><span>ink-pen</span></div><span class="sl-hand-md sl-ink-text">start here</span></div>
+    <div class="ds-plate"><div class="ds-cap"><b>Asides</b><span>ink-pen-soft</span></div><span class="sl-hand-md sl-ink-soft-text">psst. tap one</span></div>
+    <div class="ds-plate"><div class="ds-cap"><b>On the yellow tag</b><span>fg-on-accent</span></div><span class="sl-hand-md" style="display:inline-block;background:var(--sl-ink-sticky);color:#0A0A0A;padding:6px 12px;border-radius:6px;transform:rotate(-2deg)">sharpen this?</span></div>
+  </div>
+</section>
+
+<!-- ═════════ DOODLES ═════════ -->
+<section class="ds-sec" id="doodles">
+  <p class="ds-eyebrow">Doodles</p>
+  <h2 class="ds-h2">28 doodles from Sloosh's own nouns</h2>
+  <p class="ds-lede">48×48 pen drawings, at most one crayon fill. They replace emoji and sit beside controls, never inside a button, nav item or field. Click one to redraw it.</p>
+  <div id="doodles-wrap"></div>
+</section>
+
+<!-- ═════════ FLOCK ═════════ -->
+<section class="ds-sec" id="flock">
+  <p class="ds-eyebrow">The flock</p>
+  <h2 class="ds-h2">Seven critters, each with a job</h2>
+  <p class="ds-lede">The Figma animals redrawn in pen and crayon. A critter with no job is decoration, and decoration gets cut. One lead per view, except the plan flock. Click any critter to poke it.</p>
+  <div class="ds-plate" style="margin-top:32px">
+    <div class="ds-perch" id="perch"></div>
+    <div class="ds-cast" id="cast"></div>
+  </div>
+
+  <div class="ds-plate ds-matrix-wrap" style="margin-top:16px">
+    <div class="ds-cap"><b>Where critters sit</b><span>shipped on the pricing page</span></div>
+    <table class="ds-matrix">
+      <thead><tr><th>Place</th><th>Rule</th></tr></thead>
+      <tbody>
+        <tr><th>Everywhere</th><td>Solid fills in lighter crayon tones, no transparency. Behind cards, never on top. Cropped by an edge so they peek or stand behind something; never floating in mid-air.</td></tr>
+        <tr><th>Plan cards</th><td>The plan flock sits behind each card and pops up from behind it, staggered, as the card arrives (pop spring, no tilt, no drop from above).</td></tr>
+        <tr><th>Facing</th><td>Face into the content. In the calculator every critter faces right; cat, dog and squirrel are drawn facing left, so they are flipped.</td></tr>
+        <tr><th>Team card</th><td>Stand on a full-width line and sink 14px behind it.</td></tr>
+        <tr><th>Closing card</th><td>Peek in and out at random from the top or bottom edge: up to 3 at once, one per corner, 60–80% visible, 2.6–4s each, facing into the card.</td></tr>
+        <tr><th>Rows of critters</th><td>8px apart, 24px from the control they belong to.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="ds-h3">Moods and moves</h3>
+  <p class="ds-lede">The face carries the feeling; the body stays the brand. Never sad or grumpy on money, data loss or someone else's action.</p>
+  <div class="ds-play">
+    <div class="stage" id="mm-stage" data-ink-root><span class="now" id="mm-now">default</span><span id="mm-crit"></span></div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Who</b></div>
+      <div class="sl-tabs" data-size="sm" id="mm-who" style="flex-wrap:wrap"></div>
+      <div class="ds-cap" style="margin-top:18px"><b>Mood</b><span>critter.mood()</span></div>
+      <div class="ds-btns" id="mm-moods"></div>
+      <div class="ds-cap" style="margin-top:18px"><b>Move</b><span>critter.play()</span></div>
+      <div class="ds-btns" id="mm-moves"></div>
+    </div>
+  </div>
+
+  <h3 class="ds-h3">The doodle crew</h3>
+  <p class="ds-lede">Four line-only critters for tiny moments. Never a lead.</p>
+  <div class="ds-crew" id="crew"></div>
+</section>
+
+<!-- ═════════ POINTER ═════════ -->
+<section class="ds-sec" id="pointer">
+  <p class="ds-eyebrow">The pointer</p>
+  <h2 class="ds-h2">A second pointer that works next to you</h2>
+  <p class="ds-lede">It rests as two eyes in the top bar. When something matters it draws itself out, flies over, rings the target and writes a short tag. It never dims the page, never covers the target, never spends without a yes. Try the gestures.</p>
+  <div class="ds-app" id="ptr-app" style="margin-top:32px">
+    <nav class="sl-nav" style="background:transparent"><span data-logo data-height="26"></span><span style="flex:1"></span><span data-dock id="ptr-dock"></span><span class="sl-credit">✦ 80 Credits</span></nav>
+    <div class="ds-app-body">
+      <div>
+        <div class="ds-tiles">
+          <div class="sl-tile" id="pt-t1" style="height:120px"><div class="sl-media"><span class="ds-ph ph2"></span></div></div>
+          <div class="sl-tile" id="pt-t2" style="height:120px"><div class="sl-media"><span class="ds-ph ph3"></span></div></div>
+          <div class="sl-tile" id="pt-t3" style="height:120px"><div class="sl-media"><span class="ds-ph ph4"></span></div></div>
+        </div>
+        <div class="sl-sec-h" style="padding:20px 0 0" id="pt-h">Popular this week</div>
+      </div>
+      <div class="ds-composer">
+        <label class="ds-vh" for="pt-prompt">Prompt</label>
+        <input class="sl-field" id="pt-prompt" placeholder="Describe what to make">
+        <div class="ds-row" style="justify-content:space-between"><span class="ds-row" style="gap:6px"><span class="sl-chip">GPT Image 2</span><span class="sl-chip">16:9</span></span><button class="sl-btn" data-variant="primary" data-size="md" id="pt-gen" data-ink-press>Generate (25)</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="ds-btns" id="ptr-ctrls" style="margin-top:14px"></div>
+  <p class="ds-spec">Point, circle, underline, tap, drag, type, note, think, celebrate, shrug, tuck. At most one unsolicited appearance every 90 seconds and three a session. On touch it doesn't fly; it draws itself at the target.</p>
+</section>
+
+<!-- ═════════ LOGO ═════════ -->
+<section class="ds-sec" id="logo">
+  <p class="ds-eyebrow">The logo</p>
+  <h2 class="ds-h2">An arched mark with eyes that live</h2>
+  <p class="ds-lede">The new SLOOSH mark replaces the old wordmark everywhere. In the nav only the eyes move; they follow your cursor and blink. Letters move only on route change and on Stage.</p>
+  <div class="ds-plate" style="margin-top:32px">
+    <div class="ds-logo-stage"><div id="logo-big"></div><span class="ds-motto" id="logo-now" style="position:absolute;left:16px;top:12px;font-size:22px;color:var(--sl-ink-pen-soft)"></span></div>
+    <div class="ds-btns" id="logo-ctrls" style="margin-top:14px"></div>
+  </div>
+  <div class="ds-variants">
+    <div style="background:var(--sl-bg-card)"><span data-logo data-height="32"></span><small>Flat · nav 32, phone 28</small></div>
+    <div style="background:var(--sl-bg-card)"><span data-logo="ink" data-height="80"></span><small>Ink · Stage only, 64px and up</small></div>
+    <div style="background:#fff"><span data-logo data-on-light data-height="40"></span><small style="color:#525252">On light · black outline</small></div>
+    <div style="background:var(--sl-bg-card)"><span data-dock data-size="48"></span><small>Eyes alone · dock, favicon, loaders</small></div>
+  </div>
+  <p class="ds-spec">Never recolour the eyes, flip the arch, or set the name in a font. Clear space is one eye width. Minimum height 20px; below that use the eyes alone.</p>
+</section>
+
+<!-- ═════════ MOTION ═════════ -->
+<section class="ds-sec" id="motion">
+  <p class="ds-eyebrow">Motion</p>
+  <h2 class="ds-h2">Base moves like a tool, ink moves like a hand</h2>
+  <p class="ds-lede">Drawn first, then coloured, then given a face. Leave at 40% of the arrival time. Nothing alive moves more than 4px at rest. Under reduced motion, every duration except the keycap press drops to zero.</p>
+  <div class="ds-grid ds-g2">
+    <div class="ds-plate"><div class="ds-cap"><b>Durations</b><span>tokens</span></div><div class="ds-durs" id="durs"></div></div>
+    <div class="ds-plate"><div class="ds-cap"><b>Easings</b><span><button class="sl-demo-btn" type="button" id="ease-go">play</button></span></div><div class="ds-eases" id="eases"></div></div>
+  </div>
+
+  <h3 class="ds-h3">Shipped on the pricing page</h3>
+  <p class="ds-lede">Three springs cover everything that enters. Nothing tilts on the way in. Under reduced motion each one simply appears.</p>
+  <div class="ds-plate ds-matrix-wrap" style="margin-top:16px">
+    <table class="ds-matrix">
+      <thead><tr><th>Spring</th><th>Duration · bounce</th><th>Overshoot</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><th>card</th><td>0.55s · 0.15</td><td>under 1%</td><td>Cards rising in</td></tr>
+        <tr><th>pop</th><td>0.45s · 0.45</td><td>about 12%</td><td>Critters, chips, title letters</td></tr>
+        <tr><th>ui</th><td>0.40s · 0.25</td><td>about 3%</td><td>Toggles, steppers, the FAQ ×</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="ds-grid ds-g2">
+    <div class="ds-plate" id="tt-demo">
+      <div class="ds-cap"><b>Title letters</b><span><button class="sl-demo-btn" type="button" id="tt-go">replay</button></span></div>
+      <div class="ds-tt" id="tt-h">Which plan fits your month?</div>
+      <p class="ds-spec">Each letter fades in while sliding from a quarter-letter to its left, on the pop spring. First to last, 28ms apart, capped so a title lands in about 1.3s. Plays once per title as it scrolls in; the hero title plays first, just before the cards. Only the hero and section titles get it. After slush.app, without their slant (Bowlby One has no slant axis).</p>
+    </div>
+    <div class="ds-plate" id="rise-demo">
+      <div class="ds-cap"><b>Cards rising in</b><span><button class="sl-demo-btn" type="button" id="rise-go">replay</button></span></div>
+      <div class="ds-rise" id="rise"><i></i><i></i><i></i></div>
+      <p class="ds-spec">From below on the card spring, 110ms apart, no tilt, no blur. Used for plan cards, Enterprise, stats, calculator cards, compare table, option cards, team card, FAQ items and the closing masonry (48px rise, 40ms apart; replaced the pixel-dot loader). First-fold cards wait for the ink layer (1.8s fallback).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ COMPONENTS ═════════ -->
+<section class="ds-sec" id="components">
+  <p class="ds-eyebrow">Product components</p>
+  <h2 class="ds-h2">The Figma pieces, with their ink</h2>
+  <p class="ds-lede">Each one is the Figma component first. The ink is the extra layer V4 allows on it.</p>
+
+  <h3 class="ds-h3">Nav bar</h3>
+  <p class="ds-lede">61px. Logo eyes follow the cursor; the pointer's dock sits by the credits. Hover on pills is colour only.</p>
+  <div class="ds-navwrap" style="margin-top:14px"><nav class="sl-nav"><span data-logo data-height="32"></span><span class="sl-links"><a class="sl-pill">Explore</a><a class="sl-pill">Image</a><a class="sl-pill">Video</a><span class="sl-gap"></span><a class="sl-pill" aria-current="page">Spaces</a><a class="sl-pill">Spacelab</a><a class="sl-pill">Studio</a><span class="sl-gap"></span><a class="sl-pill">Assets</a><a class="sl-pill">MCP</a><a class="sl-pill">Pricing</a></span><span class="sl-right"><span data-dock></span><span class="sl-credit">✦ 80 Credits</span><span class="sl-avatar"><span data-critter="cat" data-size="20" data-gaze="none" style="margin-top:3px"></span></span></span></nav></div>
+
+  <h3 class="ds-h3">Media tiles</h3>
+  <p class="ds-lede">Media stays clean. Ink lives at the edges. Hover the first tile.</p>
+  <div class="ds-plate" style="margin-top:14px;padding:6px" id="tiles" data-ink-root>
+    <div class="ds-tilegrid">
+      <div><div class="sl-tile" data-ink-hover="brackets" tabindex="0"><div class="sl-media"><span class="ds-ph ph1"></span></div><div class="sl-cap"><b>Golden hour</b><span>Rest · hover me</span></div></div><div class="tl">Hover: corner brackets</div></div>
+      <div><div class="sl-tile" id="tile-sel"><div class="sl-media"><span class="ds-ph ph5"></span></div><div class="sl-cap"><b>Violet set</b><span>Selected</span></div></div><div class="tl">Selected: ring with a lift gap + drawn check</div></div>
+      <div><div class="sl-tile" id="tile-gen" style="background:var(--sl-bg-muted)"><div class="ds-pn" style="position:absolute;inset:0;background:transparent;min-height:0"><div class="mid"><span class="sl-eyes" style="--s:22px"><i></i><i></i></span><span class="sl-hand-sm sl-ink-soft-text" id="gen-pct">drawing it… 0%</span></div></div></div><div class="tl">Generating: eyes + pencil progress</div></div>
+      <div><div class="sl-tile" id="tile-love"><div class="sl-media"><span class="ds-ph ph6"></span></div><div class="sl-cap"><b>Ember</b><span>Loved</span></div></div><div class="tl">Loved: heart doodle in the corner</div></div>
+    </div>
+  </div>
+
+  <div class="ds-grid ds-g2">
+    <div class="ds-plate" id="toasts-p" data-ink-root>
+      <div class="ds-cap"><b>Toasts</b><span>critters bring good news only</span></div>
+      <div class="ds-toasts">
+        <div class="sl-toast" id="ts1"><span class="peek" id="ts-burb"></span><span id="ts-ck" style="width:22px;height:22px;position:relative;flex:none"></span><span style="flex:1">Video ready.</span><button class="sl-btn" data-variant="primary">View</button></div>
+        <div class="sl-toast" id="ts2"><span class="peek2" id="ts-stash"></span><span style="flex:1"><b style="font-weight:510">+175 credits</b> <span class="sl-muted">added to your balance</span></span></div>
+        <div class="sl-toast" id="ts3" style="box-shadow:inset 0 0 0 1px var(--sl-danger),var(--sl-shadow-float)"><span style="flex:1">That run didn't finish. Credits are back.</span><button class="sl-btn" data-variant="secondary">Try again</button></div>
+      </div>
+      <p class="ds-spec">Errors arrive alone: no critter, no joke, a fix.</p>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Banners</b><span>money and data banners stay plain</span></div>
+      <div style="display:grid;gap:10px">
+        <div class="sl-banner-site" style="border-radius:8px"><span data-doodle="megaphone" data-size="18"></span>&nbsp;GPT Image 2 is now available in Studio. <u>Try now</u></div>
+        <div class="sl-banner-inline"><span style="flex:1">You have 2 images left. Creator gives you 285 credits a month for $19.</span><button class="sl-btn" data-variant="primary">See plans</button></div>
+        <div class="sl-banner-inline is-danger"><span style="flex:1">Outputs from July expire tomorrow.</span><button class="sl-btn" data-variant="secondary">Download all</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ds-grid ds-g3">
+    <div class="ds-plate" id="prog" data-ink-root>
+      <div class="ds-cap"><b>Credits meter</b><span>Stash rides the fill</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-top:40px"><span>Credits</span><span class="sl-muted ds-num" id="cr-n">2,480 of 8,000 left</span></div>
+      <div class="ds-meter" id="cr-m" style="margin-top:8px"><i id="cr-f" style="width:31%"></i><span id="cr-stash" style="position:absolute;top:-50px;left:31%;transform:translateX(-50%);transition:left 600ms var(--sl-ease-out)"></span></div>
+      <button class="sl-btn" data-variant="primary" style="margin-top:16px" id="cr-top">Top up credits</button>
+    </div>
+    <div class="ds-plate ds-pn" id="loader" data-ink-root style="min-height:260px">
+      <div class="ds-cap"><b>Loader</b><span>only after 400ms</span></div>
+      <div class="mid"><span data-dock data-size="48"></span><span class="sl-hand-md sl-ink-text" id="ld-w" aria-label="slooshing your workspace"></span></div>
+      <span id="ld-burb" style="position:absolute;left:14px;bottom:-8px"></span>
+      <button class="ds-again" type="button" id="ld-again">again</button>
+    </div>
+    <div class="ds-plate ds-pn" id="empty" data-ink-root style="min-height:260px">
+      <div class="ds-cap"><b>Empty state</b><span>one critter, one line, one action</span></div>
+      <div class="mid"><span data-critter="cat" data-size="84"></span><b>Nothing here yet</b><button class="sl-btn" data-variant="primary" data-size="md" id="em-up">Upload</button></div>
+      <span class="sl-hand-sm sl-ink-soft-text" id="em-sh" style="position:absolute;right:14%;top:58%;transform:rotate(-4deg)">start here</span>
+    </div>
+  </div>
+
+  <div class="ds-grid ds-g2">
+    <div class="ds-plate" style="padding:0" data-ink-root>
+      <div class="ds-cap" style="padding:20px 20px 0"><b>Sketch skeleton</b><span>loading is a pencil sketch of the layout</span></div>
+      <div class="ds-sk" id="sk"><div data-sk class="wide"></div><div data-sk></div><div data-sk></div><div data-sk class="wide"></div></div>
+      <button class="ds-again" type="button" id="sk-again">again</button>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Drop zone</b><span>Boof waits, the outline marches</span></div>
+      <div class="ds-drop is-over" id="drop" data-ink-root><span style="font-size:20px" aria-hidden="true">↑</span><div>Drop it. I'll fetch.<small>Release to upload</small></div><span id="drop-boof" style="position:absolute;right:16px;bottom:-6px"></span></div>
+    </div>
+  </div>
+
+  <div class="ds-plate" id="celebrate" data-ink-root style="margin-top:16px;min-height:280px;display:grid;place-items:center;align-content:center;gap:10px">
+    <div class="ds-cap" style="position:absolute;left:20px;top:20px;margin:0"><b>Celebration</b><span>&nbsp;once per milestone, never looped</span></div>
+    <div id="cel-fl" style="display:flex;align-items:flex-end;gap:6px;min-height:80px"></div>
+    <span class="sl-hand-xl sl-ink-text" id="cel-w" aria-label="you made a thing!"></span>
+    <button class="ds-again" type="button" id="cel-again">again</button>
+  </div>
+</section>
+
+<!-- ═════════ PRICING ═════════ -->
+<section class="ds-sec" id="pricing">
+  <p class="ds-eyebrow">Pricing patterns · from the prototype</p>
+  <h2 class="ds-h2">Billing is serious. The flock is the one joke.</h2>
+  <p class="ds-lede">Pricing is a Billing screen: no critters except the plan flock on plan cards, and no jokes. The three plans sit on the three grounds and the flock grows with the plan. Updated to what shipped: no halo on Pro, a "Recommended" tag, flat 4px bands, the dark-green savings chip, a white model tape, yellow compare ticks, and one recommended card instead of the ladder.</p>
+  <div class="ds-proto" data-ink-root>
+    <div class="ds-row" style="justify-content:space-between">
+      <div style="font:400 clamp(28px,3.4vw,44px)/1.05 var(--ds-display)">Upgrade your <span style="color:var(--g-yellow);position:relative;display:inline-block" id="pr-hl">plan.</span></div>
+      <div class="ds-toggle" id="bill2" role="group" aria-label="Billing" style="background:#171717;box-shadow:inset 0 0 0 1px #262626"><span class="pill" aria-hidden="true"></span><button type="button" aria-pressed="false" style="color:#A3A3A3">Monthly</button><button type="button" aria-pressed="true">Yearly <span class="save">−20%</span></button></div>
+    </div>
+    <div class="ds-plans" id="plans">
+      <div class="ds-plan z-black" data-plan="creator"><div class="flock"></div><h4>Creator</h4><p>For one person making things.</p><div class="price"><span class="was">$19</span><span class="amt" data-m="19" data-y="15">$15</span><span class="per">per month</span></div><p class="bill">Billed <b>$180</b> once a year</p><button class="sl-btn" data-variant="secondary" data-size="lg">Subscribe to Creator</button><p class="keep">You save <i class="ds-save">$48</i> per year</p></div>
+      <div class="ds-plan z-yellow" data-plan="pro"><div class="flock"></div><span class="tag">Recommended</span><div class="most"><span class="ds-hand" id="most-w" aria-label="most picked"></span><svg id="most-svg" viewBox="0 0 50 52" aria-hidden="true"></svg></div><h4>Pro</h4><p>For teams shipping every week.</p><div class="price"><span class="was">$49</span><span class="amt" data-m="49" data-y="39">$39</span><span class="per">per seat<br>per month</span></div><p class="bill"><b>1 seat</b> · Billed <b>$468</b> once a year</p><button class="sl-btn" data-variant="ink" data-size="lg">Subscribe to Pro</button><p class="keep">You save <i class="ds-save">$120</i> per year</p></div>
+      <div class="ds-plan z-white" data-plan="max"><div class="flock"></div><h4>Max</h4><p>For brands running at scale.</p><div class="price"><span class="was">$99</span><span class="amt" data-m="99" data-y="79">$79</span><span class="per">per seat<br>per month</span></div><p class="bill"><b>1 seat</b> · Billed <b>$948</b> once a year</p><button class="sl-btn" data-variant="ink" data-size="lg">Subscribe to Max</button><p class="keep">You save <i class="ds-save">$240</i> per year</p></div>
+    </div>
+    <div class="ds-band-wrap" aria-hidden="true"><div class="ds-band"><div class="ds-band-track" id="band"></div></div></div>
+    <div class="ds-proto-grid">
+      <div><h5>Recommended plan card · replaces the ladder</h5>
+        <div class="ds-fit" id="fit"><div class="ds-fit-track" id="fit-track"></div></div>
+        <p class="ds-spec" style="color:#A3A3A3">One card at a time: the top of a plan card on the yellow theme with a "Best fit" tag. When the answer changes the cards swing along a bent arc (React Bits Circular Gallery motion, bend 7, pricing page only, not a system pattern): moving up a plan the new card enters from the right, down from the left. Spring-driven and interruptible; no drag, hover or click. Enterprise shows only "Custom" and one "Talk to us".</p>
+      </div>
+      <div><h5>Compare table cells</h5>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) repeat(3,48px);gap:12px 8px;align-items:center;font-size:14px" id="cmp">
+          <span style="color:#D4D4D4">4K outputs</span><span class="dash" style="width:14px;height:2px;background:#3A3A3A;border-radius:2px"></span><svg class="ds-chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><svg class="ds-chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+          <span style="color:#D4D4D4">Batch size</span><span style="font:400 20px/1 var(--ds-display)">1</span><span style="font:400 20px/1 var(--ds-display)">50</span><span style="font:400 20px/1 var(--ds-display)">200</span>
+          <span style="color:#D4D4D4">Agent MCP access</span><span style="width:14px;height:2px;background:#3A3A3A;border-radius:2px"></span><svg class="ds-chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><svg class="ds-chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+        </div>
+        <p class="ds-spec" style="color:#A3A3A3">Primary-yellow checks (accent-500) draw on, one after another, when the table enters. Was mint.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ RULES ═════════ -->
+<section class="ds-sec" id="rules">
+  <p class="ds-eyebrow">Rules</p>
+  <h2 class="ds-h2">How much ink, where</h2>
+  <p class="ds-lede">The test: if the screen is for making, it's Studio. If it's for arriving, celebrating or explaining, it's Stage. If money moves, it's Billing.</p>
+  <div class="ds-plate ds-reg" style="margin-top:32px">
+    <table>
+      <thead><tr><th>Register</th><th>Where</th><th>Ink allowed</th></tr></thead>
+      <tbody>
+        <tr><th>Studio</th><td>Composer and feed, Spaces run form, Canvas, Assets, Settings</td><td>Reactions and the pointer. One critter at most, only in a moment. None on Canvas.</td></tr>
+        <tr><th>Stage</th><td>Explore banners, Docs, onboarding, plan success, launches</td><td>Everything: ambient critters, margin doodles at 55%, handwritten asides, the ink logo.</td></tr>
+        <tr><th>Billing</th><td>Pricing, top-up, payment, invoices, gates</td><td>No critters except the plan flock. The pointer may point at the best allowed option. Never a joke.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="ds-dodont">
+    <div class="ds-plate do"><div class="ds-cap"><b>Do</b></div><ul><li>Build the Figma screen first, then add ink in the four places</li><li>Draw a ring beside or around the target</li><li>Keep one lead critter per view</li><li>Write six words or fewer in the hand</li><li>Show every state in text or fill as well as in ink</li><li>Use accent-active for yellow lines</li></ul></div>
+    <div class="ds-plate dont"><div class="ds-cap"><b>Don't</b></div><ul><li>Restyle base components with wobbly borders or tilts</li><li>Dim the page or spotlight the target</li><li>Stack Sloo, Burb and Purl in one Studio screen</li><li>Put a paragraph, a price or an error in handwriting</li><li>Leave rings and trails on screen after their moment</li><li>Draw #FECC15 lines on white</li></ul></div>
+  </div>
+</section>
+
+<!-- ═════════ OPEN QUESTIONS ═════════ -->
+<section class="ds-sec" id="gaps">
+  <p class="ds-eyebrow">Open questions</p>
+  <h2 class="ds-h2">Where the zip and the prototype disagree</h2>
+  <p class="ds-lede">These need a decision before V4 is final. Most important first.</p>
+  <ol class="ds-qs">
+    <li><div><b>Bowlby One has no rules in DESIGN.md</b><span>Still open. The pricing page now uses it only on the type scale (48, 36, 28, 24) for titles, prices, plan names and big numbers. It has one weight and reads heavy; keep it, or pick a display face with weights.</span></div></li>
+    <li class="done"><div><b>Prices: Bowlby or SF Pro?</b><span>Decided on pricing: Bowlby One at 48 for prices, plan names and stats.</span></div></li>
+    <li><div><b>Bowlby digits change width</b><span>Still open. Prices still shift sideways on the Monthly/Yearly toggle.</span></div></li>
+    <li class="done"><div><b>The display size tokens carry heavy weights</b><span>Settled on pricing: Bowlby stays at 400 (its only weight); every other face has a 500 floor. The display tokens still say 700/800 and should be updated.</span></div></li>
+    <li><div><b>The prototype's shapes sit outside the tokens</b><span>Still open, narrowed: radius 28 (cards) and 18 (FAQ) shipped and need tokens. The 56px button was dropped for 48; the ink keycap shipped and needs a spec entry.</span></div></li>
+    <li class="done"><div><b>The recommended plan has two treatments</b><span>Decided: Pro is a solid yellow card with a black "Recommended" tag and a flat 4px accent-700 band. No halo.</span></div></li>
+    <li class="parked"><div><b>Which pricing rules go system-wide?</b><span>Parked for later. The 40px first-section minimum, 12px always in caps, and 144px around transitions stay pricing-only until then.</span></div></li>
+    <li class="done"><div><b>Line heights</b><span>Decided: percentages, not pixels. 120% for titles, 140% for all other text, for now.</span></div></li>
+    <li class="done"><div><b>Carousel bend</b><span>Decided: stays at 7, on the pricing page only. Not part of the system.</span></div></li>
+  </ol>
+  <footer class="ds-foot"><span>Sloosh V4 specimen · built from sloosh-design-system-v4.zip, the v4 pricing prototype, and the shipped pricing page (Oct 2026)</span><span>Engine: SlooshInk · Fonts: Bowlby One, Caveat (Google Fonts), SF Pro / Inter</span></footer>
+</section>
+
+</main>
