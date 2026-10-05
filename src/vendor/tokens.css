@@ -628,31 +628,3 @@
 .type-hand-24 { font: var(--type-hand-24); }
 .type-hand-20 { font: var(--type-hand-20); }
 .type-hand-16 { font: var(--type-hand-16); }
-.text-12px-regular { font-family: var(--font-family); font-size: 12px; font-weight: 400; line-height: 18px; }
-.text-12px-medium { font-family: var(--font-family); font-size: 12px; font-weight: 500; line-height: 18px; }
-.text-14px-regular { font-family: var(--font-family); font-size: 14px; font-weight: 400; line-height: 20px; }
-.text-14px-medium { font-family: var(--font-family); font-size: 14px; font-weight: 500; line-height: 20px; }
-.text-16px-regular { font-family: var(--font-family); font-size: 16px; font-weight: 400; line-height: 24px; }
-.text-16px-medium { font-family: var(--font-family); font-size: 16px; font-weight: 500; line-height: 24px; }
-.text-16px-semibold { font-family: var(--font-family); font-size: 16px; font-weight: 600; line-height: 140%; }
-.text-20px-regular { font-family: var(--font-family); font-size: 20px; font-weight: 400; line-height: 30px; }
-.text-20px-medium { font-family: var(--font-family); font-size: 20px; font-weight: 500; line-height: 30px; }
-.text-20px-semibold { font-family: var(--font-family); font-size: 20px; font-weight: 600; line-height: 30px; }
-.display-24px-regular { font-family: var(--font-family); font-size: 24px; font-weight: 400; line-height: 32px; }
-.display-24px-medium { font-family: var(--font-family); font-size: 24px; font-weight: 500; line-height: 32px; }
-.display-24px-semibold { font-family: var(--font-family); font-size: 24px; font-weight: 600; line-height: 32px; }
-.display-28px-regular { font-family: var(--font-family); font-size: 28px; font-weight: 400; line-height: 36px; }
-.display-28px-medium { font-family: var(--font-family); font-size: 28px; font-weight: 500; line-height: 36px; }
-.display-28px-semibold { font-family: var(--font-family); font-size: 28px; font-weight: 600; line-height: 36px; }
-.display-32px-regular { font-family: var(--font-family); font-size: 32px; font-weight: 400; line-height: 40px; }
-.display-32px-medium { font-family: var(--font-family); font-size: 32px; font-weight: 500; line-height: 40px; }
-.display-32px-semibold { font-family: var(--font-family); font-size: 32px; font-weight: 600; line-height: 40px; }
-.display-36px-regular { font-family: var(--font-family); font-size: 36px; font-weight: 400; line-height: 44px; }
-.display-36px-medium { font-family: var(--font-family); font-size: 36px; font-weight: 500; line-height: 44px; }
-.display-36px-semibold { font-family: var(--font-family); font-size: 36px; font-weight: 600; line-height: 44px; }
-.display-48px-regular { font-family: var(--font-family); font-size: 48px; font-weight: 400; line-height: 60px; }
-.display-48px-medium { font-family: var(--font-family); font-size: 48px; font-weight: 500; line-height: 60px; }
-.display-48px-semibold { font-family: var(--font-family); font-size: 48px; font-weight: 600; line-height: 60px; }
-.display-60px-regular { font-family: var(--font-family); font-size: 60px; font-weight: 400; line-height: 72px; }
-.display-60px-medium { font-family: var(--font-family); font-size: 60px; font-weight: 500; line-height: 72px; }
-.display-60px-semibold { font-family: var(--font-family); font-size: 60px; font-weight: 600; line-height: 72px; }
