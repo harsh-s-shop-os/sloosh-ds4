@@ -3,8 +3,6 @@
 Open `index.html` in a browser. It works offline except for the two Google fonts (Bowlby One, Caveat).
 
 What's inside, in this order: type, colour, spacing, shape, buttons, controls, ink, icons, critters, the pointer, the logo, motion, product components, pricing patterns, open questions. Every section runs primitives → tokens or components → usage (any part can be skipped; the order never changes).
-handwriting, icons (Hugeicons, link to come), the flock (moods, moves, crew), the pointer, the logo and its motion, motion tokens,
-product components, pricing patterns, the rules, and the open questions where the zip and the prototype disagree.
 
 Sources: `sloosh-design-system-v4.zip` (DESIGN.md, tokens, the SlooshInk engine) and the v4 pricing prototype.
 
