@@ -1,5 +1,5 @@
 /* Sloosh design tokens v4. Colours: Figma primitives + the shadcn/ui semantic set (light from Figma "Color System", dark from the app's .dark).
-   The ink colour system lives on its own in ink-tokens.css. Hand-edited, Oct 2026. */
+   Ink colours live in ink-tokens.css and point back at these. Hand-edited, Oct 2026. */
 /* Dark is default (every Figma frame is dark). data-theme="light" for light, data-theme="system" to follow the OS. */
 
 :root {
@@ -94,8 +94,6 @@
   --violet-800: 263.4 69.3% 42.2%;   /* #5B21B6 */
   --violet-900: 263.5 67.4% 34.9%;   /* #4C1D95 */
   --violet-950: 244 47% 20%;   /* #1E1B4B */
-  /* not in Figma: kept for the audio data type */
-  --orange-400: 27 96% 61%;   /* #FB923C */
   /* ── shadcn: the core set, names exactly as shadcn/ui. HSL triples ── */
   --background: var(--neutral-950);
   --foreground: var(--neutral-50);
@@ -164,6 +162,17 @@
   --agents-blue: var(--blue-400);
   --agents-yellow: var(--yellow-500);
   --text-shimmer-base: #A1A1A1;   /* full colour: Figma text/shimmer */
+  /* data types (node ports and tags): status tokens, so they follow the theme */
+  --data-text: var(--success);
+  --data-text-foreground: var(--success-foreground);
+  --data-image: var(--info);
+  --data-image-foreground: var(--info-foreground);
+  --data-video: var(--violet);
+  --data-video-foreground: var(--violet-foreground);
+  --data-audio: var(--warning);
+  --data-audio-foreground: var(--warning-foreground);
+  --data-any: var(--muted);
+  --data-any-foreground: var(--muted-foreground);
   /* brand accent: the app's [data-brand="sloosh"] block, on Figma's creative-gen-accent ramp */
   --brand-accent: var(--creative-gen-accent-500);
   --brand-accent-foreground: var(--neutral-950);
@@ -188,17 +197,6 @@
   --layer-scrim: hsl(0 0% 0% / 0.6);
   --layer-warn: hsl(48 49% 15%);
   --layer-warn-foreground: hsl(47 76% 80%);
-  /* data types (node ports and tags), DS4 only, built from primitives */
-  --data-text: var(--emerald-950);
-  --data-text-foreground: var(--emerald-400);
-  --data-image: var(--blue-950);
-  --data-image-foreground: var(--blue-400);
-  --data-video: var(--violet-950);
-  --data-video-foreground: var(--violet-400);
-  --data-audio: var(--amber-950);
-  --data-audio-foreground: var(--orange-400);
-  --data-any: var(--neutral-800);
-  --data-any-foreground: var(--neutral-400);
   /* type */
   --sl-font-sans: 'SF Pro Text', 'SF Pro', -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, ui-sans-serif, system-ui, sans-serif;
   --sl-font-hand: 'Caveat', 'Segoe Print', 'Bradley Hand', 'Comic Neue', cursive;

@@ -286,7 +286,7 @@
       if (k === 'star') mk('path', { d: starD(x, y, 4.6, 1.9), 'class': 'ink-fill-yellow', stroke: 'none' }, m);
       else if (k === 'drop') mk('path', { d: dropD(x, y), 'class': 'ink-fill-sky' }, m);
       else if (k === 'heart') mk('path', { d: heartD(x, y, .9), 'class': 'ink-fill-rose' }, m);
-      else if (k === 'confetti') mk('rect', { x: x - 2, y: y - 4, width: 4, height: 8, rx: 1, fill: ['#FECC15', '#55DB9C', '#E9CCFF', '#4DA2FF', '#FB4903'][i % 5] }, m);
+      else if (k === 'confetti') mk('rect', { x: x - 2, y: y - 4, width: 4, height: 8, rx: 1, }, m).style.fill = CONFETTI[i % 5];
       else mk('path', { d: 'M' + x + ' ' + y + 'l' + f2(rnd(-1, 1)) + ' 6', 'class': 'ink-yellow', fill: 'none' }, m);
       if (RM) { m.style.opacity = 0; continue; }
       anim(m, [{ transform: 'translate(0,0) scale(.5)', opacity: 1 }, { transform: 'translate(' + f2(Math.cos(a) * dist) + 'px,' + f2(Math.sin(a) * dist - 8) + 'px) scale(1.1) rotate(' + f2(rnd(-40, 40)) + 'deg)', opacity: 0 }], { duration: o.dur || 560, easing: 'cubic-bezier(.2,.7,.3,1)', fill: 'forwards' });
@@ -323,6 +323,7 @@
   /* ───────────────────────── inkify: turn a flat SVG drawing into pen + crayon ───────────────────────── */
   // DS4 change (Oct 2026): critters default to a reduced hand ('low'); pass { hand: 'full' } or set SlooshInk.critterHand = 'full' for the original crayon look.
   var CRITTER_HAND = 'low';
+  var CONFETTI = ['var(--ink-fill)', 'var(--mark-check)', 'var(--mark-collaborator)', 'hsl(var(--violet-foreground))', 'var(--mark-spark)'];   // library colours, no stickers
   var YELLOWS = { '#FECC15': 'yellow', '#FECE00': 'yellow', '#FDD402': 'yellow', '#FAC01A': 'deep', '#FFE04D': 'yellow' };
   function inkShape(parent, t, a, fill, kpx, o) {
     o = o || {}; var d = shapeD(t, a), subs = sample(d, kpx); if (!subs.length) return null;
@@ -330,7 +331,7 @@
     var kind = YELLOWS[(fill || '').toUpperCase()];
     // DS4 change (Oct 2026): low-hand critters get a flat crayon fill, a near-clean edge and one outline stroke.
     if (o.low) {
-      if (kind) path.style.fill = kind === 'deep' ? 'var(--ink-crayon-deep)' : 'var(--ink-crayon)'; else if (fill) path.setAttribute('fill', fill);
+      if (kind) path.style.fill = kind === 'deep' ? 'var(--ink-fill-deep)' : 'var(--ink-fill)'; else if (fill) path.setAttribute('fill', fill);
       if (o.outline !== false) {
         var gl = mk('g', { 'class': 'pen' }, parent);
         subs.filter(function (s) { return s.L * kpx > 34; }).forEach(function (s) { mk('path', { d: penD(s, kpx, nextSeed(), 1.03, [0, 0], .35), 'class': 'ink-pen-bold' }, gl); });
@@ -507,7 +508,7 @@
       var g = mk('g', {}, fx), n = o3.n || 7, kinds = o3.kinds || ['star', 'drop', 'tick'];
       for (var i = 0; i < n; i++) { var a = i / n * Math.PI * 2 + rnd(-.3, .3), dist = rnd(18, 40), m = mk('g', {}, g), k = kinds[i % kinds.length];
         if (k === 'star') mk('path', { d: starD(x, y, 6, 2.4), 'class': 'ink-fill-yellow' }, m);
-        else if (k === 'confetti') mk('rect', { x: x - 2.5, y: y - 5, width: 5, height: 10, rx: 1, fill: ['#FECC15', '#55DB9C', '#E9CCFF', '#4DA2FF', '#FB4903'][i % 5] }, m);
+        else if (k === 'confetti') mk('rect', { x: x - 2.5, y: y - 5, width: 5, height: 10, rx: 1, }, m).style.fill = CONFETTI[i % 5];
         else if (k === 'drop') mk('path', { d: dropD(x, y, 1.3), 'class': 'ink-fill-sky' }, m);
         else if (k === 'heart') mk('path', { d: heartD(x, y, 1.2), 'class': 'ink-fill-rose' }, m);
         else { var p = mk('path', { d: 'M' + x + ' ' + y + 'l0 8', 'class': 'ink-yellow', fill: 'none' }, m); }
@@ -669,7 +670,7 @@
     o = o || {}; defs(); var size = o.size || 28, kpx = size / 40;
     var svg = mk('svg', { viewBox: '0 0 40 40', 'class': 'sl-ink' });
     var body = mk('g', { 'class': 'nub-body' }, svg);
-    var fill = mk('path', { d: NUB_BODY }, body); fill.style.fill = 'var(--ink-crayon)';
+    var fill = mk('path', { d: NUB_BODY }, body); fill.style.fill = 'var(--ink-fill)';
     var outl = [mk('path', { d: NUB_BODY, 'class': 'ink-pen-bold' }, body)];
     var eyes = mk('g', { 'class': 'nub-eyes' }, body), pupils = [], lids = [];
     [[9.2, 16.4], [14.4, 18.6]].forEach(function (c) {
@@ -677,7 +678,7 @@
       var pg = mk('g', { 'class': 'nub-pupil' }, eyes); mk('circle', { cx: c[0] - .3, cy: c[1] - .4, r: 1.35, fill: '#0A0A0A' }, pg); mk('circle', { cx: c[0] + .15, cy: c[1] - .9, r: .4, fill: '#FFFFFF' }, pg);
       pg.style.transition = 'transform 140ms ease-out'; pupils.push(pg);
       // the lid is body-coloured, sits above the eye top; scaleY(2) covers it
-      var lid = mk('ellipse', { cx: c[0], cy: c[1] - 3.1, rx: 2.6, ry: 1.6 }, eyes); lid.style.fill = 'var(--ink-crayon)';
+      var lid = mk('ellipse', { cx: c[0], cy: c[1] - 3.1, rx: 2.6, ry: 1.6 }, eyes); lid.style.fill = 'var(--ink-fill)';
       lid.style.transformBox = 'fill-box'; lid.style.transformOrigin = '50% 0'; lid.style.transform = 'scaleY(0)'; lid.style.transition = 'transform 110ms'; lids.push(lid);
     });
     return { svg: svg, body: body, fill: fill, outline: outl, pupils: pupils, lids: lids };

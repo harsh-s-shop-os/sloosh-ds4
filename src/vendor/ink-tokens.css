@@ -1,83 +1,33 @@
-/* Sloosh ink colour system (DS4). Kept separate from the shadcn colours in tokens.css: the pencil layer, critters, stickers and glow.
-   Full colours (hex), used as var(--x). Dark is default; light under data-theme="light" or "system". */
+/* Sloosh ink colours: the drawn layer (critters, the pointer, rings, notes) and its small marks.
+   Every value points at the colour library in tokens.css, so ink follows the theme by itself. Full colours, used as var(--x). */
 
 :root {
-  /* ink (dark) */
-  --ink-pen: #F3EBD3;
-  --ink-pen-soft: #BDB4A0;
-  --ink-pen-faint: #5E584D;
-  --ink-crayon: #FECC15;
-  --ink-crayon-line: #FFE04D;
-  --ink-crayon-deep: #FAC01A;
-  --ink-blue: #8AB8FF;
-  --ink-mint: #55DB9C;
-  --ink-rose: #F48A93;
-  --ink-sky: #7EC8F5;
-  --ink-ember: #FF8A3D;
-  --ink-blush: #EE8F92;
-  --ink-eye: #0A0A0A;
-  --ink-eye-white: #FFFFFF;
-  --ink-shadow: rgba(168,159,138,0.35);
-  --ink-sticky: #FECC15;
-  --ink-note: #1E1C18;
-  --ink-note-fg: #F3EBD3;
-  /* stickers: confetti on Stage */
-  --sticker-lavender: #E9CCFF;
-  --sticker-mint: #55DB9C;
-  --sticker-blue: #4DA2FF;
-  --sticker-ember: #FB4903;
-  --sticker-violet: #5C4ADE;
-  /* glow ramp: Stage and the ember gradient */
-  --glow-950: #190C03;              /* glow ramp, full colours: Stage and the ember gradient only */
+  /* ink */
+  --ink-line: hsl(var(--foreground));                    /* outlines, handwriting, arrows */
+  --ink-line-soft: hsl(var(--muted-foreground));         /* asides, second pen pass */
+  --ink-line-faint: hsl(var(--border-strong));           /* sketch boxes, trails */
+  --ink-fill: hsl(var(--brand-accent));                  /* critter and Nub body */
+  --ink-fill-light: hsl(var(--creative-gen-accent-300)); /* hatch strokes on ink marks */
+  --ink-fill-deep: hsl(var(--yellow-400));               /* Burb and Fin */
+  --ink-tag: hsl(var(--brand-accent));                   /* the pointer's tag */
+  --ink-note: hsl(var(--card));                          /* the pointer's note card */
+  --ink-note-foreground: hsl(var(--card-foreground));
+  --ink-pupil: hsl(var(--neutral-950));                  /* pupils: never change with the theme */
+  --ink-eye-white: hsl(var(--neutral-0));
+  --ink-shadow: hsl(var(--muted-foreground) / 0.3);      /* ground shadow under critters */
+  /* marks: small drawn accents */
+  --mark-check: hsl(var(--success-foreground));          /* drawn checks */
+  --mark-heart: hsl(var(--destructive-subtle-foreground)); /* hearts, tears */
+  --mark-drop: hsl(var(--blue-300));                     /* drops, bubbles */
+  --mark-collaborator: hsl(var(--info-foreground));      /* another person's marks */
+  --mark-spark: hsl(var(--warning-foreground));          /* sparks, the notice dot */
+  --mark-cheek: hsl(var(--red-300));                     /* critter cheeks */
+  /* glow: Stage and the ember gradient only (not in the library yet) */
+  --glow-950: #190C03;
   --glow-900: #241204;
   --glow-800: #371C07;
   --glow-700: #603610;
   --glow-400: #CF892A;
   --glow-300: #E7AB44;
   --glow-ember: #FC9001;
-}
-
-:root[data-theme="light"] {
-  /* ink (light) */
-  --ink-pen: #2B2724;
-  --ink-pen-soft: #6E675D;
-  --ink-pen-faint: #C9C1B2;
-  --ink-crayon: #FECC15;
-  --ink-crayon-line: #E9B308;
-  --ink-crayon-deep: #F2A60F;
-  --ink-blue: #2346C8;
-  --ink-mint: #0E7A50;
-  --ink-rose: #C2364A;
-  --ink-sky: #236E9F;
-  --ink-ember: #C2410C;
-  --ink-blush: #EE8F92;
-  --ink-eye: #0A0A0A;
-  --ink-eye-white: #FFFFFF;
-  --ink-shadow: rgba(120,110,90,0.28);
-  --ink-sticky: #FECC15;
-  --ink-note: #FFFBEA;
-  --ink-note-fg: #2B2724;
-}
-
-@media (prefers-color-scheme: light) {
-  :root[data-theme="system"] {
-    --ink-pen: #2B2724;
-    --ink-pen-soft: #6E675D;
-    --ink-pen-faint: #C9C1B2;
-    --ink-crayon: #FECC15;
-    --ink-crayon-line: #E9B308;
-    --ink-crayon-deep: #F2A60F;
-    --ink-blue: #2346C8;
-    --ink-mint: #0E7A50;
-    --ink-rose: #C2364A;
-    --ink-sky: #236E9F;
-    --ink-ember: #C2410C;
-    --ink-blush: #EE8F92;
-    --ink-eye: #0A0A0A;
-    --ink-eye-white: #FFFFFF;
-    --ink-shadow: rgba(120,110,90,0.28);
-    --ink-sticky: #FECC15;
-    --ink-note: #FFFBEA;
-    --ink-note-fg: #2B2724;
-  }
 }

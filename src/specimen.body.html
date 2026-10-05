@@ -210,8 +210,8 @@
 <!-- ═════════ COLOUR ═════════ -->
 <section class="ds-sec" id="colour">
   <p class="ds-eyebrow">Colour</p>
-  <h2 class="ds-h2">Dark studio, one yellow, cream ink</h2>
-  <p class="ds-lede">Two systems. <b>shadcn</b>: Figma's primitives and Color System under shadcn/ui names (background, foreground, card, muted, primary, accent, border, ring, chart, sidebar), extended in the same pattern for status, agents and the Sloosh brand accent. Light is Figma's; dark is the app's shadcn dark, since the Figma paste has light only. <b>Ink</b>: the pencil layer's own colours, kept separate. Read live, so they flip with the theme switch. <b>DS4</b> marks tokens that are in neither Figma nor the app.</p>
+  <h2 class="ds-h2">One colour library</h2>
+  <p class="ds-lede">One colour library. The palette is Figma's; the role names follow shadcn/ui. Below it, only the tokens we use, with where each one goes and what it points at. Ink and marks point back at the same library, so the drawn layer follows the theme with everything else. Read live, so it flips with the theme switch.</p>
   <div id="swatches"></div>
   <div class="ds-grid ds-g2" style="margin-top:36px">
     <div class="ds-plate">
@@ -240,7 +240,7 @@
     <div class="gr black" id="gr-black">
       <span class="k">Black ground</span>
       <h3>Every top model, every plan</h3>
-      <p>The default. Canvas #0A0A0A, cream ink, yellow keycaps.</p>
+      <p>The default. Canvas neutral-950, ink in foreground, yellow keycaps.</p>
       <div class="row"><button class="sl-btn" data-variant="primary" data-size="48">Start creating</button><span class="aside">no card needed</span></div>
       <span class="crit" data-critter="bird" data-size="84" data-gaze="none"></span>
       <svg class="edge" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true" style="color:hsl(var(--neutral-950))"><path d="M0 0H1440V18C1380 34 1320 46 1240 40C1150 33 1110 10 1010 12C900 14 860 46 740 46C620 46 590 16 480 14C370 12 330 40 220 42C130 44 60 30 0 20Z"/></svg>
@@ -256,7 +256,7 @@
     <div class="gr white" id="gr-white">
       <span class="k">White ground</span>
       <h3>Which plan fits your month?</h3>
-      <p>Ink turns charcoal #2B2724. Yellow strokes darken to creative-gen-accent-700 #AF8705. Paper panels use #F6F4EE.</p>
+      <p>Ink turns neutral-950. Yellow strokes darken to creative-gen-accent-700 #AF8705. Paper panels use #F6F4EE.</p>
       <div class="row"><button class="sl-btn" data-variant="primary" data-size="48">Subscribe to Pro</button><span class="aside">most picked</span></div>
       <span class="crit" data-critter="cat" data-size="84" data-gaze="none"></span>
     </div>
@@ -279,7 +279,7 @@
         <div><i style="border-radius:20px"></i><b>3xl 20</b><small>floating panels (Figma)</small></div>
         <div><i style="border-radius:24px"></i><b>sheet 24</b><small>sheets, modals</small></div>
         <div><i style="border-radius:9999px"></i><b>full</b><small>pills, chips</small></div>
-        <div><i style="border-radius:var(--sl-radius-wobble);background:var(--ink-sticky);box-shadow:none"></i><b>wobble</b><small>sticky notes, Stage</small></div>
+        <div><i style="border-radius:var(--sl-radius-wobble);background:var(--ink-tag);box-shadow:none"></i><b>wobble</b><small>sticky notes, Stage</small></div>
         <div class="off"><i style="border-radius:28px"></i><b>28</b><small>plan cards, calculator cards (shipped, not a token)</small></div>
         <div class="off"><i style="border-radius:18px"></i><b>18</b><small>FAQ accordion (shipped, not a token)</small></div>
       </div>
@@ -394,7 +394,7 @@
   <p class="ds-lede">Every hand-drawn thing in Sloosh is built from these. Lines wobble a little and never repeat exactly. Click a cell to draw it again.</p>
   <div class="ds-ink" id="ink-cells"></div>
   <div class="ds-grid ds-g3">
-    <div class="ds-plate"><div class="ds-cap"><b>Pen widths</b></div><svg width="100%" height="70" viewBox="0 0 260 70" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14H254" stroke="var(--ink-pen)" stroke-width="1.2" stroke-linecap="round"/><path d="M6 35H254" stroke="var(--ink-pen)" stroke-width="1.6" stroke-linecap="round"/><path d="M6 56H254" stroke="var(--ink-pen)" stroke-width="2.1" stroke-linecap="round"/></svg><p class="ds-spec">Fine 1.2 · pen 1.6 · bold 2.1 · yellow 2.2. Screen pixels, never scaled.</p></div>
+    <div class="ds-plate"><div class="ds-cap"><b>Pen widths</b></div><svg width="100%" height="70" viewBox="0 0 260 70" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14H254" stroke="var(--ink-line)" stroke-width="1.2" stroke-linecap="round"/><path d="M6 35H254" stroke="var(--ink-line)" stroke-width="1.6" stroke-linecap="round"/><path d="M6 56H254" stroke="var(--ink-line)" stroke-width="2.1" stroke-linecap="round"/></svg><p class="ds-spec">Fine 1.2 · pen 1.6 · bold 2.1 · yellow 2.2. Screen pixels, never scaled.</p></div>
     <div class="ds-plate"><div class="ds-cap"><b>Roughness</b></div><p class="ds-spec" style="margin:0"><b>1.1</b> structure: skeletons, boxes. <b>0.4</b> faces: eyes and mouths stay cute. <b>1.5</b> fast marks: rings. Above 2 looks broken, below 0.6 looks like vector.</p></div>
     <div class="ds-plate"><div class="ds-cap"><b>Placement</b></div><p class="ds-spec" style="margin:0">Beside, around or below a target, never on top of it. Rings sit outside the box. One ink event per region. Everything un-draws at 40% of its draw time.</p></div>
   </div>
@@ -418,7 +418,7 @@
   <div class="ds-grid ds-g3">
     <div class="ds-plate"><div class="ds-cap"><b>Statements</b><span>ink-pen</span></div><span class="sl-hand-md sl-ink-text">start here</span></div>
     <div class="ds-plate"><div class="ds-cap"><b>Asides</b><span>ink-pen-soft</span></div><span class="sl-hand-md sl-ink-soft-text">psst. tap one</span></div>
-    <div class="ds-plate"><div class="ds-cap"><b>On the yellow tag</b><span>brand-accent-foreground</span></div><span class="sl-hand-md" style="display:inline-block;background:var(--ink-sticky);color:hsl(var(--neutral-950));padding:6px 12px;border-radius:6px;transform:rotate(-2deg)">sharpen this?</span></div>
+    <div class="ds-plate"><div class="ds-cap"><b>On the yellow tag</b><span>brand-accent-foreground</span></div><span class="sl-hand-md" style="display:inline-block;background:var(--ink-tag);color:hsl(var(--neutral-950));padding:6px 12px;border-radius:6px;transform:rotate(-2deg)">sharpen this?</span></div>
   </div>
 </section>
 
@@ -514,7 +514,7 @@
   <h2 class="ds-h2">An arched mark with eyes that live</h2>
   <p class="ds-lede">The new SLOOSH mark replaces the old wordmark everywhere. In the nav only the eyes move; they follow your cursor and blink. Letters move only on route change and on Stage.</p>
   <div class="ds-plate" style="margin-top:32px">
-    <div class="ds-logo-stage"><div id="logo-big"></div><span class="ds-motto" id="logo-now" style="position:absolute;left:16px;top:12px;font-size:22px;color:var(--ink-pen-soft)"></span></div>
+    <div class="ds-logo-stage"><div id="logo-big"></div><span class="ds-motto" id="logo-now" style="position:absolute;left:16px;top:12px;font-size:22px;color:var(--ink-line-soft)"></span></div>
     <div class="ds-btns" id="logo-ctrls" style="margin-top:14px"></div>
   </div>
   <div class="ds-variants">
