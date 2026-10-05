@@ -239,7 +239,9 @@
     return d;
   }
   // underline: straight-ish pen line or a squiggle under text
-  function underline(target, o) {
+  // Drawn underlines are retired (Oct 2026): underline() draws nothing and returns a no-op handle.
+  function underline(target, o) { return { el: null, remove: function () {} }; }
+  function underlineRetired(target, o) {
     o = o || {}; var c = o.container || scopeOf(target), r = rel(target, c), g = decoGroup(c, 'ink-underline');
     var y = r.y + r.h + (o.gap == null ? 3 : o.gap), d = o.squiggle ? squiggleD(r.x - 2, y, r.w + 4, o.amp || 2.4) : 'M' + (r.x - 3) + ' ' + (y + 1) + 'C' + (r.x + r.w * .3) + ' ' + (y - 1.5) + ' ' + (r.x + r.w * .7) + ' ' + (y + 2) + ' ' + (r.x + r.w + 5) + ' ' + (y - 1);
     var p = mk('path', { d: rough(d, { amp: .8 }), 'class': o.cls || 'ink-yellow' }, g);
@@ -319,11 +321,22 @@
   }
 
   /* ───────────────────────── inkify: turn a flat SVG drawing into pen + crayon ───────────────────────── */
+  // DS4 change (Oct 2026): critters default to a reduced hand ('low'); pass { hand: 'full' } or set SlooshInk.critterHand = 'full' for the original crayon look.
+  var CRITTER_HAND = 'low';
   var YELLOWS = { '#FECC15': 'yellow', '#FECE00': 'yellow', '#FDD402': 'yellow', '#FAC01A': 'deep', '#FFE04D': 'yellow' };
   function inkShape(parent, t, a, fill, kpx, o) {
     o = o || {}; var d = shapeD(t, a), subs = sample(d, kpx); if (!subs.length) return null;
-    var seed = nextSeed(), path = mk('path', { d: subs.map(function (s) { return smoothD(wobble(s, kpx, o.amp == null ? 1.7 : o.amp, seed), s.closed); }).join('') }, parent);
+    var seed = nextSeed(), path = mk('path', { d: subs.map(function (s) { return smoothD(wobble(s, kpx, o.amp == null ? (o.low ? .45 : 1.7) : o.amp, seed), s.closed); }).join('') }, parent);
     var kind = YELLOWS[(fill || '').toUpperCase()];
+    // DS4 change (Oct 2026): low-hand critters get a flat crayon fill, a near-clean edge and one outline stroke.
+    if (o.low) {
+      if (kind) path.style.fill = kind === 'deep' ? 'var(--ink-crayon-deep)' : 'var(--ink-crayon)'; else if (fill) path.setAttribute('fill', fill);
+      if (o.outline !== false) {
+        var gl = mk('g', { 'class': 'pen' }, parent);
+        subs.filter(function (s) { return s.L * kpx > 34; }).forEach(function (s) { mk('path', { d: penD(s, kpx, nextSeed(), 1.03, [0, 0], .35), 'class': 'ink-pen-bold' }, gl); });
+      }
+      return path;
+    }
     if (kind) path.setAttribute('fill', hatch(kind, kpx)); else if (fill) path.setAttribute('fill', fill);
     if (o.outline !== false) {
       var g = mk('g', { 'class': 'pen' }, parent);
@@ -361,17 +374,18 @@
     o = o || {}; var data = CRITTER_DATA[kind]; if (!data) throw new Error('SlooshInk.critter: unknown "' + kind + '"');
     defs(); var id = 'cr' + (++critterCount), bb = BOX[kind], pad = 14;
     var vb = [bb[0] - pad, bb[1] - pad - 8, bb[2] + pad * 2, bb[3] + pad * 2 + 8];
-    var size = o.size || 96, ink = o.ink !== false;
+    var size = o.size || 96, ink = o.ink !== false, low = (o.hand || CRITTER_HAND) !== 'full';
     var wrap = D.createElement('span'); wrap.className = 'sl-critter' + (o.clickable === false ? '' : ' is-clickable');
     wrap.style.width = f2(size * vb[2] / vb[3]) + 'px'; wrap.setAttribute('data-critter', kind);
     if (o.label) { wrap.setAttribute('role', 'img'); wrap.setAttribute('aria-label', o.label); } else wrap.setAttribute('aria-hidden', 'true');
-    var svg = mk('svg', { viewBox: vb.join(' '), 'class': 'sl-ink' + (ink && o.boil !== false ? ' ink-boil' : '') }, wrap);
+    var svg = mk('svg', { viewBox: vb.join(' '), 'class': 'sl-ink' + (ink && !low && o.boil !== false ? ' ink-boil' : '') }, wrap);
     var kpx = size / vb[3] * data.k;
     // ground smudge
     var gs = mk('g', { 'class': 'cr-shadow' }, svg);
     if (kind !== 'fish' && o.ground !== false) {
       var gd = ellipseD(bb[0] + bb[2] / 2, bb[1] + bb[3] + 1, bb[2] * .42, 4.5);
-      mk('path', { d: ink ? rough(gd, { kpx: size / vb[3], amp: 1.2 }) : gd, fill: ink ? hatch('shadow', size / vb[3]) : 'rgba(120,110,90,.28)' }, gs);
+      if (ink && low) mk('path', { d: gd, 'class': 'cr-ground-flat' }, gs);
+      else mk('path', { d: ink ? rough(gd, { kpx: size / vb[3], amp: 1.2 }) : gd, fill: ink ? hatch('shadow', size / vb[3]) : 'rgba(120,110,90,.28)' }, gs);
     }
     var mv = mk('g', { 'class': 'cr-move' }, svg);
     var br = mk('g', { 'class': 'cr-breathe' + (o.breathe === false ? '' : ''), style: '--phase:' + f2(-Math.random() * 3.4) + 's' }, mv);
@@ -381,7 +395,7 @@
     var T = mk('g', { transform: 'translate(' + data.tx + ' ' + data.ty + ') scale(' + data.k + ')' }, flipG);
     // body
     data.body.forEach(function (b) {
-      if (ink) inkShape(T, b.s[0], b.s[1], b.fill, kpx, { outline: !b.ring || true });
+      if (ink) inkShape(T, b.s[0], b.s[1], b.fill, kpx, { outline: !b.ring || true, low: low });
       else { var e = mk(b.s[0], b.s[1], T); e.setAttribute('fill', b.fill); if (b.ring) { e.setAttribute('stroke', b.fill); e.setAttribute('stroke-width', '3'); } }
     });
     // eyes
@@ -502,7 +516,7 @@
     }
     function say(text, o3) {
       var t = mk('text', { x: f2(headX + (o3.dx || 0)), y: f2(headY - 6), 'text-anchor': 'middle', 'class': 'ink-text', 'font-size': o3.size || 24, transform: 'rotate(' + f2(rnd(-6, 6)) + ' ' + f2(headX) + ' ' + f2(headY) + ')' }, fx);
-      t.style.paintOrder = 'stroke'; t.style.stroke = 'var(--sl-bg-canvas)'; t.style.strokeWidth = '5px'; t.style.strokeLinejoin = 'round';
+      t.style.paintOrder = 'stroke'; t.style.stroke = 'hsl(var(--background))'; t.style.strokeWidth = '5px'; t.style.strokeLinejoin = 'round';
       var i = 0, step = function () { i++; t.textContent = text.slice(0, i); if (i < text.length) setTimeout(step, RM ? 0 : 70); }; step();
       setTimeout(function () { anim(t, [{ opacity: 1 }, { opacity: 0 }], { duration: 400, fill: 'forwards' }).then(function () { if (t.parentNode) t.parentNode.removeChild(t); }); }, o3.hold || (1300 + text.length * 70));
       return t;
@@ -763,8 +777,9 @@
           else for (var i = 0; i <= 64; i++) { var a = -2.2 + i / 64 * Math.PI * 2 * .96, wob = 1 + Math.sin(i * .7) * .02; d += (i ? 'L' : 'M') + f2(cx + rx * wob * Math.cos(a)) + ' ' + f2(cy + ry * wob * Math.sin(a)); }
           var p = mk('path', { d: rough(d, { amp: 1.6 }), 'class': 'ink-yellow' }, g), L = lenOf(p); p.style.strokeDasharray = L + ' ' + L; p.style.strokeDashoffset = L; deco.push({ remove: function () { return undraw([p], { dur: 300 }).then(function () { g.remove(); }); } });
           sfx.play('scratch'); return along(d, o2.dur || 760, { lean: false, linear: true, onStep: function (e) { p.style.strokeDashoffset = L * (1 - e); } }).then(function () { p.style.strokeDashoffset = '0'; if (o2.text) return showTag(o2.text, pos, o2); }); }); },
-      // swipe under text while a squiggle draws
-      underline: function (target, o2) { o2 = o2 || {}; var r = rel(target, container), y = r.y + r.h + 4, a = { x: r.x - 4, y: y }, b = { x: r.x + r.w + 4, y: y };
+      // underline gesture retired (Oct 2026): no drawn underline, the pointer just points
+      underline: function (target, o2) { return api.point(target, (o2 || {}).text || null, { ring: false }); },
+      underlineRetired: function (target, o2) { o2 = o2 || {}; var r = rel(target, container), y = r.y + r.h + 4, a = { x: r.x - 4, y: y }, b = { x: r.x + r.w + 4, y: y };
         return flyTo(a, o2).then(function () { clearDeco(); var g = decoGroup(container, 'ink-underline'), d = squiggleD(a.x, a.y, b.x - a.x, 2.6), p = mk('path', { d: rough(d, { amp: .6 }), 'class': 'ink-yellow' }, g), L = lenOf(p);
           p.style.strokeDasharray = L + ' ' + L; p.style.strokeDashoffset = L; deco.push({ remove: function () { return undraw([p], { dur: 300 }).then(function () { g.remove(); }); } });
           return along('M' + a.x + ' ' + a.y + 'L' + b.x + ' ' + b.y, o2.dur || 560, { lean: false, linear: true, onStep: function (e) { p.style.strokeDashoffset = L * (1 - e); } }).then(function () { if (o2.text) return showTag(o2.text, pos, o2); }); }); },
@@ -938,7 +953,7 @@
     root.querySelectorAll('[data-logo]:not([data-ink-ready])').forEach(function (n) { n.setAttribute('data-ink-ready', ''); var c = logo({ height: +n.getAttribute('data-height') || 32, ink: n.getAttribute('data-logo') === 'ink', onLight: n.hasAttribute('data-on-light'), sleep: n.getAttribute('data-sleep') !== 'false' }); n.appendChild(c.el); n._logo = c; });
     root.querySelectorAll('[data-dock]:not([data-ink-ready])').forEach(function (n) { n.setAttribute('data-ink-ready', ''); var c = dockEyes({ size: +n.getAttribute('data-size') || 28 }); n.appendChild(c.el); n._dock = c; });
     root.querySelectorAll('[data-ink-hover]').forEach(function (n) { if (n._inkHover) return; n._inkHover = true; var cur = null, kind = n.getAttribute('data-ink-hover');
-      var on = function () { if (cur || matchMedia('(hover: none)').matches) return; cur = kind === 'brackets' ? brackets(n) : kind === 'underline' ? underline(n, { squiggle: false }) : kind === 'squiggle' ? underline(n, { squiggle: true }) : ring(n); sfx.play('tick'); };
+      var on = function () { if (cur || matchMedia('(hover: none)').matches) return; cur = kind === 'brackets' ? brackets(n) : (kind === 'underline' || kind === 'squiggle') ? underline(n) : ring(n); sfx.play('tick'); };
       var off = function () { if (!cur) return; var c = cur; cur = null; c.remove(); };
       n.addEventListener('pointerenter', on); n.addEventListener('pointerleave', off); n.addEventListener('focus', on); n.addEventListener('blur', off); });
     root.querySelectorAll('[data-ink-press]').forEach(function (n) { if (n._inkPress) return; n._inkPress = true;
@@ -951,6 +966,7 @@
   function ready(fn) { var f = D.fonts && D.fonts.ready ? D.fonts.ready : Promise.resolve(); return f.then(function () { return new Promise(function (r) { requestAnimationFrame(function () { r(fn ? fn() : null); }); }); }); }
   var api = {
     version: '4.0.0', ready: ready, get reduced() { return RM; },
+    get critterHand() { return CRITTER_HAND; }, set critterHand(v) { CRITTER_HAND = v === 'full' ? 'full' : 'low'; },
     // primitives
     rough: rough, pen: pen, draw: draw, undraw: undraw, write: write, hatch: hatch, layer: layer, ellipseD: ellipseD, rectD: rectD, squiggleD: squiggleD,
     ring: ring, brackets: brackets, underline: underline, arrow: arrow, trail: trail, burst: burst, check: check, scribble: scribble, boil: boil,

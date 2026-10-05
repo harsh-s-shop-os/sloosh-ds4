@@ -71,20 +71,24 @@
 
   /* ── swatches, read live from the tokens ── */
   var SW = [
-    ['Base', 'v3 roles, from Figma', [
-      ['bg-canvas', 'page'], ['bg-card', 'cards, panels'], ['bg-muted', 'fields, chips, active pill'], ['bg-muted-hover', ''], ['bg-wash', 'light wash'], ['bg-inverse', 'inverse toast'],
-      ['line', 'default border'], ['line-strong', 'meters, strong rules'], ['fg', 'primary text'], ['fg-subtle', 'secondary text'], ['fg-muted', 'muted text'], ['fg-disabled', 'disabled'], ['fg-on-accent', 'text on yellow']]],
-    ['Accent', 'one yellow', [
-      ['accent', 'keycap face, fills'], ['accent-hover', ''], ['accent-pressed', ''], ['accent-lip', 'keycap lip'], ['accent-active', 'yellow text and lines'], ['accent-tint', 'credit chip'], ['accent-tint-soft', 'drop zone over'], ['accent-glow', 'halo glow']]],
-    ['Ink', 'the pencil layer', [
-      ['ink-pen', 'lines, handwriting'], ['ink-pen-soft', 'asides, margin doodles'], ['ink-pen-faint', 'sketches, tracks'], ['ink-crayon', 'critter fill'], ['ink-crayon-line', 'hatch strokes'], ['ink-crayon-deep', 'Burb, Fin'],
-      ['ink-sticky', 'pointer tag'], ['ink-note', 'paper note'], ['ink-note-fg', 'note text'], ['ink-eye', 'pupils, rims'], ['ink-eye-white', 'eye whites']]],
-    ['Supporting inks', 'small and purposeful', [
-      ['ink-mint', 'drawn checks'], ['ink-rose', 'hearts, tears'], ['ink-sky', 'drops, bubbles'], ['ink-blue', 'collaborator marks'], ['ink-ember', 'sparks, notice dot'], ['ink-blush', 'cheeks']]],
-    ['Stickers', 'confetti, Stage only', [
-      ['sticker-lavender', ''], ['sticker-mint', ''], ['sticker-blue', ''], ['sticker-ember', ''], ['sticker-violet', '']]],
-    ['Status', 'plain, never ink', [['success', ''], ['danger', 'field errors, failed runs'], ['link', '']]]
+    ['Neutral', 'primitives, the app\'s ramp', [['neutral-0',''],['neutral-50',''],['neutral-100',''],['neutral-150',''],['neutral-200',''],['neutral-300',''],['neutral-400',''],['neutral-500',''],['neutral-600',''],['neutral-700',''],['neutral-800',''],['neutral-900',''],['neutral-950','']]],
+    ['Yellow', 'the app has four steps', [['yellow-100','accent ring'],['yellow-400','yellow text and lines'],['yellow-500','keycap face, fills'],['yellow-700','keycap lip'],['yellow-600','DS4 only: card shadow on yellow', 't', 1]]],
+    ['Surfaces', 'semantic, follow the theme', [['background','page'],['card','cards, panels'],['popover','menus'],['muted','fields, chips, active tab'],['secondary',''],['accent','hover on muted'],['primary','inverse fill'],['surface-disabled','']]],
+    ['Text', '', [['foreground','primary text'],['foreground-subtle','secondary text'],['muted-foreground','muted text'],['disabled-foreground','disabled'],['primary-foreground','text on inverse'],['layer-dim','placeholder','f']]],
+    ['Lines', '', [['border','default border'],['border-strong','hover, meters'],['input','field edge'],['ring','focus'],['layer-line','hairline','f'],['layer-line-strong','strong hairline','f']]],
+    ['Brand accent', 'the app\'s [data-brand="sloosh"]', [['brand-accent','fills'],['brand-accent-foreground','text on yellow'],['brand-accent-edge','keycap lip'],['brand-accent-text','yellow text and lines'],['brand-accent-subtle','credit chip, tinted','f'],['brand-accent-ring',''],['brand-accent-chip','pill on a yellow button','f'],['brand-accent-glow','DS4 only: halo','f',1]]],
+    ['Layers', 'the mobile prototype\'s ladder', [['layer-1','sheets','f'],['layer-2','','f'],['layer-3','','f'],['layer-4','','f'],['layer-scrim','sheet scrim','f'],['dialog-overlay','modal backdrop','f']]],
+    ['Status', 'plain, never ink', [['success','fill'],['success-foreground','text, savings'],['destructive','errors, failed runs'],['destructive-subtle','error fill'],['warning',''],['warning-foreground',''],['info',''],['info-foreground','links'],['violet',''],['violet-foreground','']]],
+    ['Data types', 'DS4 only, built from app primitives', [['data-text','','t',1],['data-text-foreground','','t',1],['data-image','','t',1],['data-image-foreground','','t',1],['data-video','','t',1],['data-video-foreground','','t',1],['data-audio','','t',1],['data-audio-foreground','orange-400, not in the app','t',1],['data-any','','t',1],['data-any-foreground','','t',1]]],
+    ['Ink', 'DS4 only: the pencil layer', [
+      ['ink-pen', 'lines, handwriting','f',1], ['ink-pen-soft', 'asides','f',1], ['ink-pen-faint', 'sketches, tracks','f',1], ['ink-crayon', 'critter fill','f',1], ['ink-crayon-line', 'hatch strokes','f',1], ['ink-crayon-deep', 'Burb, Fin','f',1],
+      ['ink-sticky', 'pointer tag','f',1], ['ink-note', 'paper note','f',1], ['ink-note-fg', 'note text','f',1], ['ink-eye', 'pupils, rims','f',1], ['ink-eye-white', 'eye whites','f',1]]],
+    ['Supporting inks', 'DS4 only, small and purposeful', [
+      ['ink-mint', 'drawn checks','f',1], ['ink-rose', 'hearts, tears','f',1], ['ink-sky', 'drops, bubbles','f',1], ['ink-blue', 'collaborator marks','f',1], ['ink-ember', 'sparks, notice dot','f',1], ['ink-blush', 'cheeks','f',1]]],
+    ['Stickers', 'DS4 only, confetti on Stage', [['sticker-lavender','','f',1],['sticker-mint','','f',1],['sticker-blue','','f',1],['sticker-ember','','f',1],['sticker-violet','','f',1]]]
   ];
+  function toHex(c) { var m = c.match(/rgba?\(([^)]+)\)/); if (!m) return c; var p = m[1].split(/[ ,\/]+/).filter(Boolean).map(Number);
+    var h = '#' + p.slice(0, 3).map(function (v) { return ('0' + Math.round(v).toString(16)).slice(-2); }).join('').toUpperCase(); return p.length > 3 && p[3] < 1 ? h + ' · ' + Math.round(p[3] * 100) + '%' : h; }
   function paintSwatches() {
     var host = $('swatches'); if (!host) return;
     if (!host.firstChild) {
@@ -93,14 +97,15 @@
         sec.innerHTML = '<h4>' + g[0] + ' <span>' + g[1] + '</span></h4>';
         var grid = document.createElement('div'); grid.className = 'ds-sw';
         g[2].forEach(function (t) {
-          var d = document.createElement('div');
-          d.innerHTML = '<div class="chip" style="background:var(--sl-' + t[0] + ')"></div><b>' + t[0] + '</b><code data-v="--sl-' + t[0] + '"></code>' + (t[1] ? '<small>' + t[1] + '</small>' : '');
+          var d = document.createElement('div'), expr = t[2] === 'f' ? 'var(--' + t[0] + ')' : 'hsl(var(--' + t[0] + '))';
+          if (t[3]) d.className = 'ext';
+          d.innerHTML = '<div class="chip" style="background:' + expr + '"></div><b>' + t[0] + '</b><code></code>' + (t[1] ? '<small>' + t[1] + '</small>' : '');
           grid.appendChild(d);
         });
         sec.appendChild(grid); host.appendChild(sec);
       });
     }
-    host.querySelectorAll('code[data-v]').forEach(function (c) { c.textContent = cssVar(c.getAttribute('data-v')).toUpperCase(); });
+    host.querySelectorAll('.ds-sw > div').forEach(function (d) { d.querySelector('code').textContent = toHex(getComputedStyle(d.querySelector('.chip')).backgroundColor); });
   }
   safe('swatches', paintSwatches);
   safe('budget', function () {
@@ -217,7 +222,7 @@
         S.util.mk('path', { d: d, 'class': 'ink-faint' }, g);
         var p = S.util.mk('path', { d: d, 'class': 'ink-yellow' }, g);
         var len = p.getTotalLength(); p.style.strokeDasharray = len + ' ' + len; p.style.strokeDashoffset = len;
-        var pw = document.createElement('span'); pw.style.cssText = 'position:absolute;left:0;top:0;pointer-events:none;transition:transform 300ms linear'; host.appendChild(pw); S.doodle('pencil', { size: 26, mount: pw });
+        var pw = document.createElement('span'); pw.style.cssText = 'position:absolute;left:0;top:0;pointer-events:none;transition:transform 300ms linear'; host.appendChild(pw);   // pencil doodle retired; the yellow line draws on its own
         var v = 0, set = function (x) { p.style.transition = 'stroke-dashoffset 300ms linear'; p.style.strokeDashoffset = len * (1 - x); var pt = p.getPointAtLength(len * x); pw.style.transform = 'translate(' + (pt.x - 5) + 'px,' + (pt.y - 23) + 'px)'; };
         set(0); if (!RM) loopWhileVisible(host, function () { v = v >= 1 ? 0 : v + .05; set(v); }, 320); else set(.6);
       });
@@ -248,12 +253,12 @@
 
     /* ── controls ── */
     safe('tabs', function () {
-      S.tabs($('tabs-a')); S.tabs($('tabs-b'));
+      S.tabs($('tabs-m')); S.tabs($('tabs-a')); S.tabs($('tabs-b'));
       onView($('tabs-b'), function () {
         var t = $('tab-new'); setTimeout(function () {
-          S.underline(t, { squiggle: true });
+          // no drawn underline (removed, Oct 2026): the hand "new" sits above the tab's top-right corner
           var host = t.closest('[data-ink-root]'), r = S.util.rel(t, host);
-          var n = document.createElement('span'); n.className = 'sl-hand-sm sl-ink-text'; n.style.cssText = 'position:absolute;left:' + (r.x + r.w - 6) + 'px;top:' + (r.y + r.h + 4) + 'px;transform:rotate(-6deg)';
+          var n = document.createElement('span'); n.className = 'sl-hand-sm sl-ink-text'; n.style.cssText = 'position:absolute;left:' + (r.x + r.w - 10) + 'px;top:' + (r.y - 16) + 'px;transform:rotate(-6deg)';
           host.appendChild(n); S.write(n, 'new', { per: 60 });
         }, 500);
       });
@@ -283,21 +288,20 @@
       r.addEventListener('input', upd); upd();
     });
 
-    /* ── the twelve ink primitives ── */
+    /* ── the eleven ink primitives (underline removed) ── */
     safe('ink', function () {
       var CELLS = [
         ['pen', 'Pen stroke', 'Two passes: one full, one partial and offset.', function (c, a) { var L = S.layer(c), g = S.util.mk('g', { 'class': 'ink-deco' }, L), r = S.util.rel(a, c); S.draw(S.pen(g, 'M' + (r.x + 6) + ' ' + (r.y + 84) + 'C' + (r.x + 60) + ' ' + (r.y + 20) + ' ' + (r.x + 130) + ' ' + (r.y + 120) + ' ' + (r.x + r.w - 10) + ' ' + (r.y + 40), {}), { dur: 800 }); }],
         ['ring', 'Ring', 'Yellow, 2.2px, with a 4 to 6% lift gap. Attention and selection.', function (c, a) { a.innerHTML = '<span class="word" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)">Generate</span>'; S.ring(a.firstChild, { container: c, pad: 10 }); }],
-        ['brackets', 'Brackets', 'Four corner ticks, 6px outside. Hover on tiles and cards.', function (c, a) { a.innerHTML = '<div style="position:absolute;inset:14px 34px;border-radius:12px;background:var(--sl-bg-muted)"></div>'; S.brackets(a.firstChild, { container: c }); }],
-        ['underline', 'Underline / squiggle', 'New filters, docs titles, the active word.', function (c, a) { a.innerHTML = '<span class="word" style="position:absolute;left:12px;top:44px;background:none;padding:0;font-size:18px">Popular this week</span>'; S.underline(a.firstChild, { container: c, squiggle: true }); }],
+        ['brackets', 'Brackets', 'Four corner ticks, 6px outside. Hover on tiles and cards.', function (c, a) { a.innerHTML = '<div style="position:absolute;inset:14px 34px;border-radius:12px;background:hsl(var(--muted))"></div>'; S.brackets(a.firstChild, { container: c }); }],
         ['arrow', 'Curly arrow', 'From a note to its target. One optional loop.', function (c, a) { var r = S.util.rel(a, c); S.arrow(c, { x: r.x + 14, y: r.y + 100 }, { x: r.x + r.w - 18, y: r.y + 20 }, { cls: 'ink-pen', loop: true }); }],
         ['trail', 'Dotted trail', 'A dot every 10px. The pointer\'s flight, drag demos.', function (c, a) { var r = S.util.rel(a, c); S.trail(c, 'M' + (r.x + 8) + ' ' + (r.y + 104) + 'Q' + (r.x + r.w / 2) + ' ' + (r.y - 30) + ' ' + (r.x + r.w - 8) + ' ' + (r.y + 96), { cls: 'ink-dot-yellow' }); }],
-        ['hatch', 'Crayon hatch', 'Fills at −44°, 3.9px gap. Critter bodies, doodle fills.', function (c, a) { var L = S.layer(c), r = S.util.rel(a, c), g = S.util.mk('g', { 'class': 'ink-deco' }, L); var cx = r.x + r.w / 2, cy = r.y + r.h / 2, rx = Math.min(r.w / 2 - 10, 80), ry = r.h / 2 - 10; S.util.mk('path', { d: S.rough(S.ellipseD(cx, cy, rx, ry), { amp: 1.6 }), fill: S.hatch('yellow', 1) }, g); S.draw(S.pen(g, S.ellipseD(cx, cy, rx, ry), { cls: 'ink-pen-bold' }), { dur: 600 }); }],
+        ['hatch', 'Crayon hatch', 'Fills at −44°, 3.9px gap. Ink marks only; critters now use a flat fill.', function (c, a) { var L = S.layer(c), r = S.util.rel(a, c), g = S.util.mk('g', { 'class': 'ink-deco' }, L); var cx = r.x + r.w / 2, cy = r.y + r.h / 2, rx = Math.min(r.w / 2 - 10, 80), ry = r.h / 2 - 10; S.util.mk('path', { d: S.rough(S.ellipseD(cx, cy, rx, ry), { amp: 1.6 }), fill: S.hatch('yellow', 1) }, g); S.draw(S.pen(g, S.ellipseD(cx, cy, rx, ry), { cls: 'ink-pen-bold' }), { dur: 600 }); }],
         ['scribble', 'Scribble', 'Six loops redrawn every 154ms. Thinking, verifying.', function (c, a) { var r = S.util.rel(a, c); S.scribble(c, r.x + r.w / 2 - 44, r.y + 40, 88, 40); }],
         ['burst', 'Burst', 'Seven marks fly 16 to 34px and fade. Make-actions, pokes.', function (c, a) { var r = S.util.rel(a, c); S.burst(c, r.x + r.w / 2, r.y + r.h / 2, { n: 9, kinds: ['star', 'drop', 'tick'] }); }],
         ['check', 'Check', 'Mint, 2.4px, three points, 360ms. Done, saved, sent.', function (c, a) { var r = S.util.rel(a, c); S.check(c, r.x + r.w / 2, r.y + r.h / 2, 44, { w: 3 }); }],
         ['sketch', 'Sketch box', 'Faint outline plus pen hatch. Loading skeletons.', function (c, a) { a.innerHTML = '<div data-sk style="position:absolute;inset:8px 24px;border-radius:12px"></div>'; S.sketch(a); }],
-        ['boil', 'Boil', 'Lines re-jitter at 6.5fps while on screen. Critters, doodles.', function (c, a) { var w = document.createElement('div'); w.style.cssText = 'position:absolute;inset:0;display:grid;place-items:center'; a.appendChild(w); S.doodle('star', { size: 84, mount: w, boil: true }).draw(); }]
+        ['boil', 'Boil', 'Lines re-jitter at 6.5fps while on screen. Ink marks only; critters no longer boil.', function (c, a) { var w = document.createElement('div'); w.style.cssText = 'position:absolute;inset:0;display:grid;place-items:center'; a.appendChild(w); var r = S.util.rel(a, c), L = S.layer(c); L.classList.add('ink-boil'); var pth = S.pen(L, S.rough('M' + (r.x + r.w / 2 - 50) + ' ' + (r.y + r.h / 2) + ' C' + (r.x + r.w / 2 - 20) + ' ' + (r.y + r.h / 2 - 26) + ' ' + (r.x + r.w / 2 + 20) + ' ' + (r.y + r.h / 2 + 26) + ' ' + (r.x + r.w / 2 + 50) + ' ' + (r.y + r.h / 2), { amp: .6 }), { cls: 'ink-pen-bold' }); S.draw(pth, { dur: 500 }); }]   // was a star doodle
       ];
       var host = $('ink-cells');
       CELLS.forEach(function (k, i) {
@@ -317,24 +321,14 @@
     onView($('hand-plate'), writeAll);
     $('hand-again').addEventListener('click', writeAll);
 
-    /* ── doodles ── */
-    safe('doodles', function () {
-      var G = [['Making', ['camera', 'clapper', 'film', 'pencil', 'palette', 'bulb', 'sparkle', 'bolt']], ['Structure', ['node', 'box', 'polaroid', 'upload', 'search', 'arrow']], ['Learning', ['book', 'question', 'chat']], ['Account', ['key', 'acorn', 'gift', 'bell', 'megaphone']], ['Moments', ['check', 'cross', 'heart', 'star', 'cloud', 'eyes']]];
-      var host = $('doodles-wrap'), all = [];
-      G.forEach(function (g) {
-        var sec = document.createElement('div'); sec.className = 'ds-dgroup'; sec.innerHTML = '<h4>' + g[0] + ' · ' + g[1].length + '</h4>';
-        var grid = document.createElement('div'); grid.className = 'ds-dl';
-        g[1].forEach(function (name) {
-          var c = document.createElement('div'); c.tabIndex = 0; c.setAttribute('role', 'button'); c.setAttribute('aria-label', 'Redraw ' + name);
-          var art = document.createElement('span'); c.appendChild(art);
-          var lab = document.createElement('span'); lab.textContent = name; c.appendChild(lab);
-          var mount = function () { art.innerHTML = ''; var d = S.doodle(name, { size: 48, mount: art }); d.draw(); };
-          c.addEventListener('click', mount); c.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); mount(); } });
-          grid.appendChild(c); all.push(mount);
+    /* ── doodles: retired (Oct 2026). Icons come from Hugeicons. ── */
+    safe('hand-compare', function () {
+      ['bird', 'cat', 'squirrel', 'dog'].forEach(function (k) {
+        [['hand-low', 'low'], ['hand-full', 'full']].forEach(function (h) {
+          var w = document.createElement('span'); $(h[0]).appendChild(w);
+          S.critter(k, { size: 72, mount: w, gaze: 'none', hand: h[1], flip: k === 'cat' || k === 'dog' || k === 'squirrel' });
         });
-        sec.appendChild(grid); host.appendChild(sec);
       });
-      onView(host, function () { all.forEach(function (m, i) { setTimeout(m, RM ? 0 : i * 45); }); }, '0px 0px -5% 0px');
     });
 
     /* ── the flock ── */
@@ -347,11 +341,11 @@
         var w = document.createElement('span'); perch.appendChild(w);
         var c = S.critter(k, { size: size[k], mount: w, clickable: true, ground: k !== 'fish' }); w.style.opacity = '0'; crits.push([w, c]);
         var info = S.cast[k], d = document.createElement('div');
-        d.innerHTML = '<b>' + info.name + '</b><i>' + info.species + (info.species !== k ? ' · key "' + k + '"' : '') + '</i><span>' + info.role + '</span><span style="color:var(--sl-fg-muted)">' + homes[k] + '</span><em>"' + info.words[0] + '"</em>';
+        d.innerHTML = '<b>' + info.name + '</b><i>' + info.species + (info.species !== k ? ' · key "' + k + '"' : '') + '</i><span>' + info.role + '</span><span style="color:hsl(var(--muted-foreground))">' + homes[k] + '</span><em>"' + info.words[0] + '"</em>';
         cast.appendChild(d);
       });
       var nw = document.createElement('span'); perch.appendChild(nw); S.nub({ size: 60, mount: nw }); nw.style.alignSelf = 'center';
-      var nd = document.createElement('div'); nd.innerHTML = '<b>Nub</b><i>the pointer</i><span>Guide. Points, asks, acts.</span><span style="color:var(--sl-fg-muted)">Top-bar dock, everywhere</span><em>"try this one"</em>'; cast.appendChild(nd);
+      var nd = document.createElement('div'); nd.innerHTML = '<b>Nub</b><i>the pointer</i><span>Guide. Points, asks, acts.</span><span style="color:hsl(var(--muted-foreground))">Top-bar dock, everywhere</span><em>"try this one"</em>'; cast.appendChild(nd);
       onView(perch, function () { crits.forEach(function (p, i) { setTimeout(function () { p[0].style.opacity = '1'; p[1].play('dropin'); }, RM ? 0 : 120 + i * 110); }); });
     });
 
@@ -388,7 +382,6 @@
       var G = {
         'point + tag': function () { return P.point($('pt-t2'), 'try this one', { buttons: [{ label: 'Recreate', primary: true }, { label: 'Later', onClick: function () { P.tuck(); } }] }); },
         'circle': function () { return P.circle($('pt-gen'), { text: '25 credits' }); },
-        'underline': function () { return P.underline($('pt-h'), { text: 'fresh this week' }); },
         'tap': function () { return P.tap($('pt-gen')); },
         'drag': function () { return P.drag($('pt-t3'), $('pt-prompt')); },
         'type': function () { $('pt-prompt').value = ''; return P.type($('pt-prompt'), 'a corgi astronaut, film grain, 35mm'); },
@@ -425,12 +418,12 @@
 
     /* ── motion ── */
     safe('motion', function () {
-      var D = [['instant', 'keycap press'], ['fast', 'hover, colour'], ['base', 'menus, tabs'], ['ring', 'ring or brackets'], ['slow', 'modals, toasts'], ['fly', 'pointer flight'], ['pop', 'critter pop-in'], ['lazy', 'critter entrances'], ['underline', 'underline draw'], ['draw', 'a figure draws itself'], ['breathe', 'idle breath']];
+      var D = [['instant', 'keycap press'], ['fast', 'hover, colour'], ['base', 'menus, tabs'], ['ring', 'ring or brackets'], ['slow', 'modals, toasts'], ['fly', 'pointer flight'], ['pop', 'critter pop-in'], ['lazy', 'critter entrances'], ['draw', 'a figure draws itself'], ['breathe', 'idle breath']];
       var host = $('durs'), max = 3400;
       D.forEach(function (d) {
         var v = cssVar('--sl-dur-' + d[0]); var ms = parseFloat(v) || 0;
         var row = document.createElement('div');
-        row.innerHTML = '<span><b style="font-weight:510;color:var(--sl-fg)">' + d[0] + '</b><br>' + d[1] + '</span><i style="width:' + Math.max(1, Math.sqrt(ms / max) * 100) + '%"></i><em>' + Math.round(ms) + 'ms</em>';
+        row.innerHTML = '<span><b style="font-weight:510;color:hsl(var(--foreground))">' + d[0] + '</b><br>' + d[1] + '</span><i style="width:' + Math.max(1, Math.sqrt(ms / max) * 100) + '%"></i><em>' + Math.round(ms) + 'ms</em>';
         host.appendChild(row);
       });
       var E = [['out', 'default'], ['in-out', 'sheets, carousels'], ['hop', 'pops, hops, tags'], ['lip', 'keycap press'], ['draw', 'pen strokes'], ['squash', 'squash and stretch'], ['fly', 'the pointer\'s arc']];
@@ -456,7 +449,7 @@
         var W = $('tiles'), sel = $('tile-sel');
         S.ring(sel, { container: W, shape: 'box', pad: 5 });
         var r = S.util.rel(sel, W), b = document.createElement('span');
-        b.style.cssText = 'position:absolute;left:' + (r.x + r.w - 30) + 'px;top:' + (r.y + 8) + 'px;width:22px;height:22px;border-radius:50%;background:var(--sl-accent);z-index:2';
+        b.style.cssText = 'position:absolute;left:' + (r.x + r.w - 30) + 'px;top:' + (r.y + 8) + 'px;width:22px;height:22px;border-radius:50%;background:hsl(var(--brand-accent));z-index:2';
         W.appendChild(b);
         var ck = S.check(W, r.x + r.w - 19, r.y + 19, 12, { cls: 'ink-pen', w: 2.2 }); ck.el.querySelector('path').style.stroke = '#0A0A0A';
         // generating: pencil progress along the bottom
@@ -466,9 +459,7 @@
         var len = p.getTotalLength(); p.style.strokeDasharray = len + ' ' + len; p.style.strokeDashoffset = len;
         var v = 0, tick = function () { v = v >= 1 ? 0 : v + .04; p.style.transition = 'stroke-dashoffset 300ms linear'; p.style.strokeDashoffset = len * (1 - v); $('gen-pct').textContent = 'drawing it… ' + Math.round(v * 100) + '%'; };
         tick(); if (!RM) loopWhileVisible(g, tick, 360);
-        // loved: heart doodle in the corner + a small burst
-        var lv = $('tile-love'), hw = document.createElement('span'); hw.style.cssText = 'position:absolute;right:8px;top:8px;z-index:3'; lv.appendChild(hw);
-        setTimeout(function () { S.doodle('heart', { size: 30, mount: hw }).draw(); var rr = S.util.rel(lv, W); S.burst(W, rr.x + rr.w - 22, rr.y + 22, { n: 6, kinds: ['heart'] }); }, 700);
+        // loved: the heart doodle is retired; a Hugeicons heart goes here once the library is linked
       });
     });
     safe('toasts', function () {
