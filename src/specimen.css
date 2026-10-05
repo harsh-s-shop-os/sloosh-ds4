@@ -545,3 +545,10 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
 .ds-types .use { font: var(--type-body-14); color: hsl(var(--muted-foreground)); min-width: 220px; }
 .ds-types tr.grp th { font: var(--type-caps-12); letter-spacing: var(--type-caps-tracking); text-transform: uppercase; color: hsl(var(--muted-foreground)); padding-top: 28px; }
 @media (max-width: 760px) { .ds-h2, .ds-cover h1 { font: var(--type-display-36); } }
+
+/* older-app marker: a variation kept beside DS4 until it's decided */
+.ds-old { display: inline-block; vertical-align: middle; margin-left: 8px; padding: 0 6px; border-radius: 6px; font: var(--type-caps-12); letter-spacing: var(--type-caps-tracking); text-transform: uppercase; font-style: normal; background: hsl(var(--muted)); color: hsl(var(--muted-foreground)); }
+.ds-h3 .ds-old { vertical-align: 3px; }
+.ds-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+.ds-cards .sl-card { height: 280px; }
+.ds-cards .ds-ph { display: block; width: 100%; height: 100%; }

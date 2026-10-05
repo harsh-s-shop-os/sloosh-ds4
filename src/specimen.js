@@ -54,6 +54,11 @@
     $('th-dark').setAttribute('aria-pressed', t !== 'light'); $('th-light').setAttribute('aria-pressed', t === 'light');
   });
 
+  /* ── filter pills: one pressed per group ── */
+  safe('pills', function () {
+    document.addEventListener('click', function (e) { var b = e.target.closest('.sl-pills .sl-pill'); if (!b) return; b.parentElement.querySelectorAll('.sl-pill').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); });
+  });
+
   /* ── index bar: mark the section in view ── */
   safe('index', function () {
     var links = [].slice.call(document.querySelectorAll('.ds-index a'));

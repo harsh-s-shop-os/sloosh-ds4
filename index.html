@@ -288,6 +288,20 @@
   --sl-shadow-modal: 0 24px 64px -12px hsl(var(--neutral-950) / 0.65), 0 0 0 1px hsl(var(--border));
   --sl-shadow-halo: 0 0 0 1px hsl(var(--brand-accent)), 0 0 24px -4px var(--brand-accent-glow);
   --sl-shadow-focus: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--brand-accent));
+  /* older app (Sloosh-design-main): kept beside DS4 until the contradictions are sorted (DS4 change, Oct 2026) */
+  --sl-shadow-surface: 0 12px 16px 0 hsl(var(--neutral-950) / 0.02);
+  --sl-shadow-panel: 0 4px 24px 0 hsl(var(--neutral-950) / 0.12);
+  --sl-shadow-toast: 0 12px 12px 0 hsl(var(--neutral-950) / 0.5);
+  --sl-shadow-float-app: 0 12px 24px 0 hsl(var(--neutral-950) / 0.5);
+  --sl-radius-md: 6px;
+  --motion-duration-micro: 150ms;
+  --motion-duration-enter: 200ms;
+  --motion-duration-exit: 200ms;
+  --motion-duration-toast: 220ms;
+  --motion-duration-screen: 280ms;
+  --motion-ease-out: cubic-bezier(0.32, 0.72, 0, 1);
+  --motion-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --press-scale: 0.97;
   --sl-gradient-scrim: linear-gradient(to bottom, hsl(var(--neutral-950) / 0) 0%, hsl(var(--neutral-950) / 0.6) 100%);
   --sl-gradient-fade-up: linear-gradient(to top, hsl(var(--background)) 7.2%, hsl(var(--neutral-950) / 0) 54.5%);
   --sl-gradient-glow-amber: radial-gradient(120% 140% at 70% 0%, var(--glow-400) 0%, var(--glow-700) 38%, var(--glow-900) 70%, var(--glow-950) 100%);
@@ -673,14 +687,14 @@
   --sl-gradient-glow-ember: linear-gradient(135deg, var(--glow-950) 0%, #7A3A05 40%, var(--glow-ember) 100%);
   --slx-lip-muted: inset 0 -2px 0 0 hsl(var(--card));
   --slx-focus: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--brand-accent));
-  --slx-float: 0 12px 32px -6px rgba(0,0,0,0.55), 0 0 0 1px hsl(var(--border));
-  --slx-modal: 0 24px 64px -12px rgba(0,0,0,0.65), 0 0 0 1px hsl(var(--border));
+  --slx-float: var(--sl-shadow-float);
+  --slx-modal: var(--sl-shadow-modal);
 }
 [data-theme="light"] {
   --slx-lip-muted: inset 0 -2px 0 0 hsl(var(--border));
   --slx-focus: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--foreground));
-  --slx-float: 0 12px 32px -8px rgba(10,10,10,0.18), 0 0 0 1px hsl(var(--border));
-  --slx-modal: 0 24px 64px -12px rgba(10,10,10,0.25), 0 0 0 1px hsl(var(--border));
+  --slx-float: var(--sl-shadow-float);
+  --slx-modal: var(--sl-shadow-modal);
 }
 
 /* ───────────── base ───────────── */
@@ -820,7 +834,7 @@ textarea.sl-field { height: auto; min-height: 68px; padding: 10px 12px; resize: 
 .sl-tile .sl-ink-layer { inset: -14px; }
 
 /* composer (Figma Studio) */
-.sl-composer { background: hsl(var(--card)); border-radius: 16px; padding: 12px; display: grid; gap: 10px; position: relative; box-shadow: 0 12px 16px rgba(0,0,0,.02); }
+.sl-composer { background: hsl(var(--card)); border-radius: 16px; padding: 12px; display: grid; gap: 10px; position: relative; box-shadow: var(--sl-shadow-surface); }
 .sl-composer textarea { font: var(--type-body-14); background: none; border: 0; outline: none; resize: none; color: hsl(var(--foreground)); min-height: 44px; width: 100%; }
 .sl-composer textarea::placeholder { color: var(--layer-dim); }
 .sl-composer .sl-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
@@ -983,6 +997,84 @@ svg.sl-ink-layer { width: 100%; height: 100%; }
 
 /* DS4 change (Oct 2026): flat ground shadow under low-hand critters */
 .cr-ground-flat { fill: var(--ink-shadow, rgba(120,110,90,.28)); }
+
+
+/* ───────────── merged from the older app (Sloosh-design-main), DS4 change Oct 2026 ─────────────
+   New pieces follow DS4 (keycap press, radius 12, type tokens). Where the older app disagrees with DS4,
+   the older version is kept beside it under [data-legacy] until it's decided. */
+
+/* default: the inverse button (white on dark) */
+.sl-btn[data-variant="default"] { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+.sl-btn[data-variant="default"]:hover { background: hsl(var(--primary) / 0.9); }
+.sl-btn[data-variant="default"]:active { transform: translateY(var(--lip)); }
+
+/* older app buttons: radius 8, press scales to 0.97, weight 500, ghost hover fills, disabled fades to 50% */
+.sl-btn[data-legacy] { border-radius: var(--sl-radius-lg, 8px); font: var(--type-body-14); transition: transform var(--motion-duration-micro) var(--motion-ease-out), filter var(--motion-duration-micro), background-color var(--motion-duration-micro); }
+.sl-btn[data-legacy][data-size="28"] { font: var(--type-caption-12); letter-spacing: 0; text-transform: none; }
+.sl-btn[data-legacy][data-size="48"] { font: var(--type-body-16); }
+.sl-btn[data-legacy][data-variant="primary"] { box-shadow: inset 0 -2px 0 0 hsl(var(--brand-accent-edge)); }
+.sl-btn[data-legacy][data-variant="primary"]:hover { background: hsl(var(--brand-accent)); filter: brightness(1.06); }
+.sl-btn[data-legacy][data-variant="secondary"] { box-shadow: inset 0 -2px 0 0 hsl(var(--card)); }
+.sl-btn[data-legacy][data-variant="ghost"]:hover { background: hsl(var(--muted)); color: hsl(var(--foreground)); }
+.sl-btn[data-legacy][data-variant]:active { transform: scale(var(--press-scale)); }
+.sl-btn[data-legacy][data-variant="primary"]:active { box-shadow: inset 0 -2px 0 0 hsl(var(--brand-accent-edge)); }
+.sl-btn[data-legacy][data-variant="secondary"]:active { box-shadow: inset 0 -2px 0 0 hsl(var(--card)); }
+.sl-btn.sl-btn[data-legacy]:is([disabled], [aria-disabled="true"]) { opacity: .5; pointer-events: none; }
+.sl-icon-btn[data-size="32"] { width: 32px; height: 32px; border-radius: var(--sl-radius-lg, 8px); }
+
+/* filter pills: the nav pill as a toggle (aria-pressed) */
+.sl-pill[aria-pressed="true"] { background: hsl(var(--muted)); color: hsl(var(--foreground)); }
+.sl-pills { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+/* older app field: bordered, on the page background, focus turns the edge yellow. 40 default, 48 and 32 sizes */
+.sl-field[data-legacy] { height: 40px; background: hsl(var(--background)); box-shadow: none; border: 1px solid hsl(var(--input)); }
+.sl-field[data-legacy]:focus { box-shadow: none; border-color: hsl(var(--brand-accent)); }
+.sl-field[data-legacy][data-size="48"] { height: 48px; }
+.sl-field[data-legacy][data-size="32"] { height: 32px; }
+/* space card: image with a blurred band; the CTA reveals on hover */
+.sl-card { position: relative; overflow: hidden; border-radius: 12px; background: hsl(var(--card)); isolation: isolate; }
+.sl-card > .sl-media { position: absolute; inset: 0; }
+.sl-card > .sl-media > * { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 500ms var(--motion-ease-out); }
+.sl-card:hover > .sl-media > * { transform: scale(1.03); }
+.sl-band { position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: 12px; padding: 24px 12px 12px; background: linear-gradient(to bottom, hsl(var(--neutral-950) / 0), hsl(var(--neutral-950) / 0.6)); backdrop-filter: blur(17px); -webkit-backdrop-filter: blur(17px); color: hsl(var(--neutral-50)); }
+.sl-band b { display: block; font: var(--type-body-16); }
+.sl-band span { display: block; font: var(--type-body-14); color: hsl(var(--neutral-300)); }
+.sl-reveal { max-height: 0; opacity: 0; overflow: hidden; transition: max-height var(--motion-duration-screen) var(--motion-ease-out), opacity var(--motion-duration-enter); }
+.sl-card:hover .sl-reveal, .sl-card:focus-within .sl-reveal { max-height: 48px; opacity: 1; }
+@media (hover: none) { .sl-reveal { max-height: 48px; opacity: 1; } }
+
+/* pending tile (older app): a pulsing muted tile */
+.sl-pending { display: grid; place-items: center; font: var(--type-body-14); color: hsl(var(--muted-foreground)); background: hsl(var(--muted)); animation: sl-pulse 1.6s ease-in-out infinite; }
+@keyframes sl-pulse { 50% { opacity: .55; } }
+
+/* promo banner: a card with a soft yellow glow, a title, a line and one action */
+.sl-banner-promo { padding: 48px; border-radius: 12px; background: radial-gradient(120% 140% at 80% 100%, var(--brand-accent-subtle), transparent 60%), hsl(var(--card)); display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.sl-banner-promo h3 { margin: 0; font: var(--type-display-28); }
+.sl-banner-promo p { margin: 0; max-width: 420px; font: var(--type-body-14); color: hsl(var(--muted-foreground)); }
+
+/* dialog: DS4 .sl-modal is radius 16; the older app's is radius 20 with a 32px close button */
+.sl-modal[data-legacy] { border-radius: 20px; box-shadow: var(--sl-shadow-float-app); padding: 0; }
+.sl-modal .sl-close { position: absolute; top: 12px; right: 12px; }
+.sl-gate { padding: 48px 24px 24px; text-align: center; display: grid; gap: 12px; }
+.sl-gate h2 { margin: 0; font: var(--type-display-28); }
+.sl-gate p { margin: 0 auto 8px; max-width: 374px; font: var(--type-caption-12); color: hsl(var(--muted-foreground)); }
+
+/* toast (older app): layer-3 fill and the toast shadow; slides up 8px */
+.sl-toast[data-legacy] { background: var(--layer-3); box-shadow: var(--sl-shadow-toast); min-width: 260px; padding: 12px 16px; animation: sl-toast-in var(--motion-duration-toast) var(--motion-ease-out); }
+@keyframes sl-toast-in { from { opacity: 0; transform: translateY(8px); } }
+
+/* older app composer: radius 20, bordered, floats; prompt and pills on the left, Generate on the right */
+.sl-composer[data-legacy] { border-radius: 20px; border: 1px solid hsl(var(--border)); box-shadow: var(--sl-shadow-float-app); display: flex; gap: 12px; align-items: flex-end; }
+.sl-composer[data-legacy] textarea { min-height: 72px; }
+
+/* older app phone tab bar: 61px, layer-1, a hairline on top, the current tab in yellow */
+.sl-tabbar[data-legacy] { position: relative; height: 61px; padding-top: 0; align-items: center; background: var(--layer-1); border-top: 1px solid var(--layer-line); }
+.sl-tabbar[data-legacy]::after { display: none; }
+.sl-tabbar[data-legacy] a { font: var(--type-caption-12); }
+.sl-tabbar[data-legacy] a[aria-current="page"] { color: hsl(var(--brand-accent)); }
+
+/* older app focus: a 2px ring outline, 2px off the edge (DS4 uses the focus shadow) */
+[data-legacy]:focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 2px; box-shadow: none; }
 
 </style>
 <style>
@@ -1534,6 +1626,13 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
 .ds-types tr.grp th { font: var(--type-caps-12); letter-spacing: var(--type-caps-tracking); text-transform: uppercase; color: hsl(var(--muted-foreground)); padding-top: 28px; }
 @media (max-width: 760px) { .ds-h2, .ds-cover h1 { font: var(--type-display-36); } }
 
+/* older-app marker: a variation kept beside DS4 until it's decided */
+.ds-old { display: inline-block; vertical-align: middle; margin-left: 8px; padding: 0 6px; border-radius: 6px; font: var(--type-caps-12); letter-spacing: var(--type-caps-tracking); text-transform: uppercase; font-style: normal; background: hsl(var(--muted)); color: hsl(var(--muted-foreground)); }
+.ds-h3 .ds-old { vertical-align: 3px; }
+.ds-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+.ds-cards .sl-card { height: 280px; }
+.ds-cards .ds-ph { display: block; width: 100%; height: 100%; }
+
 </style>
 </head>
 <body>
@@ -1613,11 +1712,11 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
         <tr><td><code>display-60</code></td><td class="sp">60 · 400 · 120%</td><td class="smp type-display-60">Sloosh V4</td><td class="use">Cover title</td></tr>
         <tr><td><code>display-48</code></td><td class="sp">48 · 400 · 120%</td><td class="smp type-display-48">$39</td><td class="use">Section titles, prices, the “You need” number</td></tr>
         <tr><td><code>display-36</code></td><td class="sp">36 · 400 · 120%</td><td class="smp type-display-36">Own the outcome</td><td class="use">Section titles on phones, ground headlines, animated titles</td></tr>
-        <tr><td><code>display-28</code></td><td class="sp">28 · 400 · 120%</td><td class="smp type-display-28">Pro</td><td class="use">Plan names, model tape, slider count, layer titles</td></tr>
+        <tr><td><code>display-28</code></td><td class="sp">28 · 400 · 120%</td><td class="smp type-display-28">Pro</td><td class="use">Plan names, model tape, slider count, dialog and promo-banner titles</td></tr>
         <tr><td><code>display-24</code></td><td class="sp">24 · 400 · 120%</td><td class="smp type-display-24"><s>$49</s></td><td class="use">Struck-through old price, critter names, register names</td></tr>
         <tr><td><code>display-20</code></td><td class="sp">20 · 400 · 120%</td><td class="smp type-display-20">200</td><td class="use">Compare-table numbers, question numbers, face headers</td></tr>
         <tr class="grp"><th colspan="4">SF Pro</th></tr>
-        <tr><td><code>title-20</code></td><td class="sp">20 · 600 · 120%</td><td class="smp type-title-20">What you make each month</td><td class="use">Card and group titles, FAQ questions, feed section headers</td></tr>
+        <tr><td><code>title-20</code></td><td class="sp">20 · 600 · 120%</td><td class="smp type-title-20">What you make each month</td><td class="use">Card and group titles, FAQ questions, section headings</td></tr>
         <tr><td><code>body-16</code></td><td class="sp">16 · 500 · 140%</td><td class="smp type-body-16">Start on your own and bring your team in later.</td><td class="use">Body, ledes, FAQ answers, billing toggle, 48 tabs, tile captions</td></tr>
         <tr><td><code>body-16-strong</code></td><td class="sp">16 · 600 · 140%</td><td class="smp type-body-16-strong">Subscribe to Pro</td><td class="use">Buttons 40 and 48, list titles, empty-state titles</td></tr>
         <tr><td><code>body-14</code></td><td class="sp">14 · 500 · 140%</td><td class="smp type-body-14">You save $120 per year</td><td class="use">Secondary text, specs, tables, fields, tabs, nav pills, menus, toasts</td></tr>
@@ -1735,7 +1834,7 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
     <div class="ds-cap"><b>Radii</b></div>
     <div class="ds-radii">
         <div><i style="border-radius:4px"></i><b>sm 4</b><small>thumbs in chips</small></div>
-        <div><i style="border-radius:8px"></i><b>lg 8</b><small>fields, chips</small></div>
+        <div class="off"><i style="border-radius:6px"></i><b>md 6</b><small>older app only</small></div><div><i style="border-radius:8px"></i><b>lg 8</b><small>fields, chips</small></div>
         <div><i style="border-radius:12px"></i><b>xl 12</b><small>every button, tiles, toasts</small></div>
         <div><i style="border-radius:16px"></i><b>2xl 16</b><small>cards, switch</small></div>
         <div><i style="border-radius:20px"></i><b>3xl 20</b><small>floating panels (Figma)</small></div>
@@ -1756,6 +1855,13 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
         <div style="box-shadow:var(--sl-shadow-halo)">halo · recommended</div>
         <div style="box-shadow:var(--sl-shadow-focus)">focus ring</div>
       </div>
+    <div class="ds-cap" style="margin-top:24px"><b>Shadows <i class="ds-old">older app</i></b></div>
+    <div class="ds-elev">
+        <div style="box-shadow:var(--sl-shadow-surface)">surface · composer</div>
+        <div style="box-shadow:var(--sl-shadow-panel)">panel</div>
+        <div style="box-shadow:var(--sl-shadow-float-app)">float · dialog</div>
+        <div style="box-shadow:var(--sl-shadow-toast)">toast</div>
+    </div>
     <p class="ds-spec">Menus, modals, focus. The halo is not used on pricing. Ink and the pointer never cast shadows.</p>
   </div>
 
@@ -1784,7 +1890,7 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
 <section class="ds-sec" id="buttons">
   <p class="ds-eyebrow">05</p>
   <h2 class="ds-h2">Buttons</h2>
-  <p class="ds-lede">One keycap, six styles, six sizes.</p>
+  <p class="ds-lede">One keycap, seven styles, six sizes.</p>
 
   <h3 class="ds-part">Tokens</h3>
   <div class="ds-grid ds-g2" style="margin-top:0">
@@ -1821,6 +1927,7 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
       <span class="ds-k">outline</span><span><button class="sl-btn" data-variant="outline" data-size="24">Subscribe</button></span><span><button class="sl-btn" data-variant="outline" data-size="28">Subscribe</button></span><span><button class="sl-btn" data-variant="outline" data-size="32">Subscribe</button></span><span><button class="sl-btn" data-variant="outline" data-size="36">Subscribe</button></span><span><button class="sl-btn" data-variant="outline" data-size="40">Subscribe</button></span><span><button class="sl-btn" data-variant="outline" data-size="48">Subscribe</button></span>
       <span class="ds-k">ghost</span><span><button class="sl-btn" data-variant="ghost" data-size="24">View all →</button></span><span><button class="sl-btn" data-variant="ghost" data-size="28">View all →</button></span><span><button class="sl-btn" data-variant="ghost" data-size="32">View all →</button></span><span><button class="sl-btn" data-variant="ghost" data-size="36">View all →</button></span><span><button class="sl-btn" data-variant="ghost" data-size="40">View all →</button></span><span><button class="sl-btn" data-variant="ghost" data-size="48">View all →</button></span>
       <span class="ds-k">tinted</span><span><button class="sl-btn" data-variant="tinted" data-size="24">✦ 80 Credits</button></span><span><button class="sl-btn" data-variant="tinted" data-size="28">✦ 80 Credits</button></span><span><button class="sl-btn" data-variant="tinted" data-size="32">✦ 80 Credits</button></span><span><button class="sl-btn" data-variant="tinted" data-size="36">✦ 80 Credits</button></span><span><button class="sl-btn" data-variant="tinted" data-size="40">✦ 80 Credits</button></span><span><button class="sl-btn" data-variant="tinted" data-size="48">✦ 80 Credits</button></span>
+      <span class="ds-k">default</span><span><button class="sl-btn" data-variant="default" data-size="24">Try Spacelab</button></span><span><button class="sl-btn" data-variant="default" data-size="28">Try Spacelab</button></span><span><button class="sl-btn" data-variant="default" data-size="32">Try Spacelab</button></span><span><button class="sl-btn" data-variant="default" data-size="36">Try Spacelab</button></span><span><button class="sl-btn" data-variant="default" data-size="40">Try Spacelab</button></span><span><button class="sl-btn" data-variant="default" data-size="48">Try Spacelab</button></span>
     </div>
     <div class="ds-bsz on-ground">
       <span class="ds-k">ink (on yellow)</span><span><button class="sl-btn" data-variant="ink" data-size="24">Subscribe</button></span><span><button class="sl-btn" data-variant="ink" data-size="28">Subscribe</button></span><span><button class="sl-btn" data-variant="ink" data-size="32">Subscribe</button></span><span><button class="sl-btn" data-variant="ink" data-size="36">Subscribe</button></span><span><button class="sl-btn" data-variant="ink" data-size="40">Subscribe</button></span><span><button class="sl-btn" data-variant="ink" data-size="48">Subscribe</button></span>
@@ -1828,6 +1935,18 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
     <div class="ds-row"><span class="ds-k">with cost</span><button class="sl-btn" data-variant="primary" data-size="36">Run Space <span class="sl-cost">✦ 25</span></button><button class="sl-btn" data-variant="primary" data-size="48">Generate <span class="sl-cost">✦ 25</span></button></div>
     <div class="ds-row"><span class="ds-k">loading</span><button class="sl-btn" data-variant="primary" data-size="36" aria-busy="true" style="width:140px"><span class="sl-btn-label">Generate</span><span class="sl-btn-eyes"><span class="sl-eyes" style="--s:12px"><i></i><i></i></span></span></button><span class="ds-k" style="min-width:0">eyes replace the label, width held</span></div>
     <div class="ds-row"><span class="ds-k">disabled</span><button class="sl-btn" data-variant="primary" data-size="36" disabled>Publish</button><span class="sl-btn-note">needs a name first</span></div>
+  </div>
+  <div class="ds-plate" style="margin-top:16px;display:grid;gap:18px">
+    <div class="ds-cap"><b>Buttons <i class="ds-old">older app</i></b><span>sm 28 · md 36 · lg 48 · radius 8 · press scales to 0.97</span></div>
+    <div class="ds-row"><span class="ds-k">brand</span><button class="sl-btn" data-legacy data-variant="primary" data-size="28">Sign up</button><button class="sl-btn" data-legacy data-variant="primary" data-size="36">Sign up</button><button class="sl-btn" data-legacy data-variant="primary" data-size="48">Sign up</button></div>
+    <div class="ds-row"><span class="ds-k">default</span><button class="sl-btn" data-legacy data-variant="default" data-size="28">Try Spacelab</button><button class="sl-btn" data-legacy data-variant="default" data-size="36">Try Spacelab</button><button class="sl-btn" data-legacy data-variant="default" data-size="48">Try Spacelab</button></div>
+    <div class="ds-row"><span class="ds-k">secondary</span><button class="sl-btn" data-legacy data-variant="secondary" data-size="28">Login</button><button class="sl-btn" data-legacy data-variant="secondary" data-size="36">Login</button><button class="sl-btn" data-legacy data-variant="secondary" data-size="48">Login</button></div>
+    <div class="ds-row"><span class="ds-k">ghost</span><button class="sl-btn" data-legacy data-variant="ghost" data-size="28">View all</button><button class="sl-btn" data-legacy data-variant="ghost" data-size="36">View all</button><button class="sl-btn" data-legacy data-variant="ghost" data-size="48">View all</button></div>
+    <div class="ds-row"><span class="ds-k">disabled</span><button class="sl-btn" data-legacy data-variant="primary" data-size="36" disabled>Check Access</button><span class="ds-k" style="min-width:0">fades to 50%</span></div>
+  </div>
+  <div class="ds-plate" style="margin-top:16px">
+    <div class="ds-cap"><b>Icon buttons</b><span>28, radius 12 · 32, radius 8 <i class="ds-old">older app</i></span></div>
+    <div class="ds-row"><button class="sl-icon-btn" aria-label="Close">✕</button><button class="sl-icon-btn" data-size="32" data-legacy aria-label="Close">✕</button></div>
   </div>
 
   <h3 class="ds-part">Usage</h3>
@@ -1897,6 +2016,24 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
       <details class="ds-q" open><summary>Do unused credits roll over?<span class="pm" aria-hidden="true">+</span></summary><p>On Pro and Max, unused credits roll over for 3 months.</p></details>
       <details class="ds-q"><summary>Can I change plans later?<span class="pm" aria-hidden="true">+</span></summary><p>Yes. Upgrades apply now; downgrades apply at the next bill.</p></details>
       <p class="ds-spec">Question 20 semibold, radius 18. The yellow + turns 45° into a black × on the ui spring. One open at a time.</p>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Filter pills</b><span>the nav pill as a toggle · with search</span></div>
+      <div class="sl-pills"><button class="sl-pill" aria-pressed="true">Recommended</button><button class="sl-pill" aria-pressed="false">Community</button><input class="sl-field" data-legacy data-size="32" type="search" placeholder="Search" aria-label="Search" style="max-width:200px;margin-left:auto"></div>
+      <div class="sl-pills" style="margin-top:14px"><button class="sl-pill" aria-pressed="true">Image</button><button class="sl-pill" aria-pressed="false">Video</button><button class="sl-pill" aria-pressed="false">Prism Image</button><button class="sl-pill" aria-pressed="false">1:1</button></div>
+      <p class="ds-spec">Spaces, Studio and the composer. One selected per group.</p>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Fields <i class="ds-old">older app</i></b><span>40 · 48 · 32, a 1px edge on the page background</span></div>
+      <div style="display:grid;gap:14px">
+        <input class="sl-field" data-legacy placeholder="Search" aria-label="Search">
+        <input class="sl-field" data-legacy data-size="48" type="email" placeholder="Email ID" aria-label="Email">
+      </div>
+      <p class="ds-spec">Focus turns the edge yellow. DS4 fields are 36 with a muted fill and no edge.</p>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Text area</b><span>muted fill, radius 8, 68 minimum</span></div>
+      <textarea class="sl-field" placeholder="Describe what to make" aria-label="Prompt" style="width:100%"></textarea>
     </div>
     <div class="ds-plate">
       <div class="ds-cap"><b>Savings chip</b><span>one style on every ground</span></div>
@@ -2101,7 +2238,22 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
     </table>
   </div>
 
-  <h3 class="ds-part">Usage</h3>
+    <div class="ds-plate ds-matrix-wrap" style="margin-top:16px">
+    <div class="ds-cap"><b>Motion <i class="ds-old">older app</i></b><span>used by the merged components</span></div>
+    <table class="ds-matrix">
+      <thead><tr><th>Token</th><th>Value</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><th>motion-duration-micro</th><td>150ms</td><td>Button press, pill colour</td></tr>
+        <tr><th>motion-duration-enter · exit</th><td>200ms</td><td>Overlay fade, card reveal fade</td></tr>
+        <tr><th>motion-duration-toast</th><td>220ms</td><td>Toast slides up 8px</td></tr>
+        <tr><th>motion-duration-screen</th><td>280ms</td><td>Screen change, dialog rise, card reveal</td></tr>
+        <tr><th>motion-ease-out · ease-in</th><td>(0.32, 0.72, 0, 1) · (0.4, 0, 1, 1)</td><td>Everything above</td></tr>
+        <tr><th>press-scale</th><td>0.97</td><td>Older app buttons on press (DS4 drops by the lip)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+<h3 class="ds-part">Usage</h3>
   <p class="ds-spec">Ink arrives drawn, then coloured, then given a face, and leaves at 40% of its arrival time. Nothing alive moves more than 4px at rest. Nothing tilts on the way in. Under reduced motion everything simply appears, except the keycap press.</p>
   <div class="ds-grid ds-g2">
     <div class="ds-plate" id="tt-demo">
@@ -2127,6 +2279,15 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
   <h3 class="ds-h3">Nav bar</h3>
   <p class="ds-lede">61px. Logo eyes follow the cursor; the pointer's dock sits by the credits. Hover on pills is colour only.</p>
   <div class="ds-navwrap" style="margin-top:14px"><nav class="sl-nav"><span data-logo data-height="32"></span><span class="sl-links"><a class="sl-pill">Explore</a><a class="sl-pill">Image</a><a class="sl-pill">Video</a><span class="sl-gap"></span><a class="sl-pill" aria-current="page">Spaces</a><a class="sl-pill">Spacelab</a><a class="sl-pill">Studio</a><span class="sl-gap"></span><a class="sl-pill">Assets</a><a class="sl-pill">MCP</a><a class="sl-pill">Pricing</a></span><span class="sl-right"><span data-dock></span><span class="sl-credit">✦ 80 Credits</span><span class="sl-avatar"><span data-critter="cat" data-size="20" data-gaze="none" style="margin-top:3px"></span></span></span></nav></div>
+  <div class="ds-navwrap" style="margin-top:10px"><nav class="sl-nav"><span data-logo data-height="32"></span><span class="sl-links"><a class="sl-pill" aria-current="page">Explore</a><a class="sl-pill">Spaces</a><a class="sl-pill">Studio</a><a class="sl-pill">Assets</a><a class="sl-pill">Upgrade</a></span><span class="sl-right"><button class="sl-btn" data-variant="secondary" data-size="28">Login</button><button class="sl-btn" data-variant="primary" data-size="28">Sign up</button></span></nav></div>
+  <p class="ds-spec">Signed out: Login and Sign up at 28 in place of the dock, credits and avatar.</p>
+
+  <h3 class="ds-h3">Section heading</h3>
+  <p class="ds-lede">A row title with its link. Two versions of the link.</p>
+  <div class="ds-plate" style="margin-top:14px;padding:0">
+    <div class="sl-sec-h">Popular this week<span class="sl-viewall">View all →</span></div>
+    <div class="sl-sec-h" style="padding-top:0">Trending models <span class="ds-old" style="margin-right:auto">older app</span><button class="sl-btn" data-legacy data-variant="ghost" data-size="28">View all</button></div>
+  </div>
 
   <h3 class="ds-h3">Media tiles</h3>
   <p class="ds-lede">Media stays clean. Ink lives at the edges. Hover the first tile.</p>
@@ -2139,6 +2300,16 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
     </div>
   </div>
 
+  <h3 class="ds-h3">Space cards <i class="ds-old">older app</i></h3>
+  <p class="ds-lede">Spaces, models and templates. A blurred band carries the title; the action shows on hover.</p>
+  <div class="ds-cards" style="margin-top:14px">
+    <article class="sl-card" tabindex="0"><div class="sl-media"><span class="ds-ph ph2"></span></div><div class="sl-band"><div><b>On-Model Studio Shoot</b><span>Your garment on a model</span></div><div class="sl-reveal"><button class="sl-btn" data-variant="primary" data-size="36">Run Space</button></div></div></article>
+    <article class="sl-card" tabindex="0"><div class="sl-media"><span class="ds-ph ph3"></span></div><div class="sl-band"><div><b>Prism Image</b><span>Image</span></div><div class="sl-reveal"><button class="sl-btn" data-variant="primary" data-size="36">Try model</button></div></div></article>
+    <article class="sl-card" tabindex="0"><div class="sl-media"><span class="ds-ph ph4"></span></div><div class="sl-band"><div class="sl-reveal"><button class="sl-btn" data-variant="primary" data-size="36" style="width:100%">Recreate</button></div></div></article>
+    <div class="sl-card sl-pending">Generating…</div>
+  </div>
+  <p class="ds-spec">Generating in the older app is a pulsing muted tile. DS4 uses eyes and pencil progress (above).</p>
+
   <div class="ds-grid ds-g2">
     <div class="ds-plate" id="toasts-p" data-ink-root>
       <div class="ds-cap"><b>Toasts</b><span>critters bring good news only</span></div>
@@ -2146,6 +2317,7 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
         <div class="sl-toast" id="ts1"><span class="peek" id="ts-burb"></span><span id="ts-ck" style="width:22px;height:22px;position:relative;flex:none"></span><span style="flex:1">Video ready.</span><button class="sl-btn" data-variant="primary">View</button></div>
         <div class="sl-toast" id="ts2"><span class="peek2" id="ts-stash"></span><span style="flex:1"><b style="font-weight:600">+175 credits</b> <span class="sl-muted">added to your balance</span></span></div>
         <div class="sl-toast" id="ts3" style="box-shadow:inset 0 0 0 1px hsl(var(--destructive)),var(--sl-shadow-float)"><span style="flex:1">That run didn't finish. Credits are back.</span><button class="sl-btn" data-variant="secondary">Try again</button></div>
+        <div class="sl-toast" data-legacy><span style="flex:1">4 images ready</span><i class="ds-old">older app</i></div>
       </div>
       <p class="ds-spec">Errors arrive alone: no critter, no joke, a fix.</p>
     </div>
@@ -2188,6 +2360,39 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
     <div class="ds-plate">
       <div class="ds-cap"><b>Drop zone</b><span>Boof waits, the outline marches</span></div>
       <div class="ds-drop is-over" id="drop" data-ink-root><span style="font-size:20px" aria-hidden="true">↑</span><div>Drop it. I'll fetch.<small>Release to upload</small></div><span id="drop-boof" style="position:absolute;right:16px;bottom:-6px"></span></div>
+    </div>
+  </div>
+
+  <div class="ds-grid ds-g2">
+    <div class="ds-plate" style="padding:0;background:none">
+      <div class="sl-banner-promo"><h3>Create your custom space</h3><p>Build node-based generative workflows and bring your ideas to life.</p><button class="sl-btn" data-variant="default" data-size="36">Try Spacelab</button></div>
+      <p class="ds-spec" style="padding:0 4px">Promo banner on Explore: a card with a soft yellow glow, one action.</p>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Composer</b><span>DS4 above · older app below</span></div>
+      <div class="sl-composer"><textarea placeholder="Drop a prompt. @ for assets." aria-label="Prompt"></textarea><div class="sl-row"><span class="sl-chip">GPT Image 2</span><span class="sl-chip">16:9</span><span style="flex:1"></span><button class="sl-btn" data-variant="primary" data-size="36">Generate <span class="sl-cost">✦ 25</span></button></div></div>
+      <div class="sl-composer" data-legacy style="margin-top:16px"><div style="flex:1"><textarea placeholder="Drop a prompt. @ for assets." aria-label="Prompt"></textarea><div class="sl-pills"><button class="sl-pill" aria-pressed="true">Image</button><button class="sl-pill" aria-pressed="false">Video</button><button class="sl-pill" aria-pressed="false">1:1</button></div></div><button class="sl-btn" data-legacy data-variant="primary" data-size="48">Generate</button></div>
+    </div>
+  </div>
+  <div class="ds-grid ds-g2">
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Dialog</b><span>DS4 · radius 16</span></div>
+      <div class="sl-modal"><button class="sl-icon-btn sl-close" aria-label="Close">✕</button><div class="sl-gate" style="padding:28px 4px 4px"><span data-logo data-height="36" style="margin:0 auto 8px"></span><h2>Sloosh is invite-only for now</h2><p>Enter your email to check if you have beta access.</p><input class="sl-field" type="email" placeholder="Email ID" aria-label="Email"><button class="sl-btn" data-variant="primary" data-size="48">Check Access</button></div></div>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Dialog <i class="ds-old">older app</i></b><span>radius 20 · 540 wide · 32 close</span></div>
+      <div class="sl-modal" data-legacy><button class="sl-icon-btn sl-close" data-size="32" data-legacy aria-label="Close">✕</button><div class="sl-gate"><span data-logo data-height="36" style="margin:0 auto 8px"></span><h2>Sloosh is invite-only for now</h2><p>Enter your email to check if you have beta access.</p><input class="sl-field" data-legacy data-size="48" type="email" placeholder="Email ID" aria-label="Email"><button class="sl-btn" data-legacy data-variant="primary" data-size="48">Check Access</button></div></div>
+      <p class="ds-spec">Opens over an 80% overlay, rising 8px. Escape or the overlay closes it.</p>
+    </div>
+  </div>
+  <div class="ds-grid ds-g2">
+    <div class="ds-plate" style="padding:0;overflow:hidden">
+      <div class="ds-cap" style="padding:20px 20px 0"><b>Phone tab bar</b><span>DS4 · 98 with the home bar</span></div>
+      <div style="position:relative;height:110px"><nav class="sl-tabbar"><a aria-current="page">Explore</a><a>Spaces</a><a>Studio</a><a>Assets</a><a>Upgrade</a></nav></div>
+    </div>
+    <div class="ds-plate" style="padding:0;overflow:hidden">
+      <div class="ds-cap" style="padding:20px 20px 0"><b>Phone tab bar <i class="ds-old">older app</i></b><span>61 · layer-1</span></div>
+      <div style="padding-top:49px"><nav class="sl-tabbar" data-legacy><a aria-current="page">Explore</a><a>Spaces</a><a>Studio</a><a>Assets</a><a>Upgrade</a></nav></div>
     </div>
   </div>
 
@@ -2245,6 +2450,10 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
     <li><div><b>Gaps off the spacing scale</b><span>144, 40 and 22–28 are in use but aren't spacing primitives.</span></div></li>
     <li><div><b>Radii without tokens</b><span>28 for cards, 18 for the FAQ.</span></div></li>
     <li><div><b>Phone layers 3 and 4 match in dark</b><span>Both resolve to neutral-700. Pick a different step for one of them, or merge them.</span></div></li>
+    <li><div><b>Older app vs DS4: buttons</b><span>Radius 8 vs 12, press scales to 0.97 vs drops by the lip, weight 500 vs 600, ghost hover fills vs colour only, disabled at 50% vs muted fill.</span></div></li>
+    <li><div><b>Older app vs DS4: fields</b><span>40 with a 1px edge on the page background vs 36 with a muted fill.</span></div></li>
+    <li><div><b>Older app vs DS4: dialog, toast, composer, tab bar</b><span>Dialog radius 20 vs 16. Toast on layer-3 vs card. Composer bordered at radius 20 vs flat at 16. Tab bar 61 vs 98.</span></div></li>
+    <li><div><b>Older app vs DS4: generating and links</b><span>Pulsing tile vs eyes and pencil progress. “View all” as a ghost button vs a text link. Focus as an outline vs the focus shadow.</span></div></li>
     <li class="parked"><div><b>Which pricing rules go system-wide?</b><span>Parked. The 40px first-section minimum, 12px caps and 144px around transitions stay pricing-only for now.</span></div></li>
   </ol>
   <footer class="ds-foot"><span>Sloosh V4 design system</span></footer>
@@ -3298,6 +3507,11 @@ details.ds-q p { font: var(--type-body-16); margin: 0; padding: 0 20px 20px; col
     var t = saved || (cur === 'light' ? 'light' : 'dark');
     ROOT.setAttribute('data-theme', t);
     $('th-dark').setAttribute('aria-pressed', t !== 'light'); $('th-light').setAttribute('aria-pressed', t === 'light');
+  });
+
+  /* ── filter pills: one pressed per group ── */
+  safe('pills', function () {
+    document.addEventListener('click', function (e) { var b = e.target.closest('.sl-pills .sl-pill'); if (!b) return; b.parentElement.querySelectorAll('.sl-pill').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); });
   });
 
   /* ── index bar: mark the section in view ── */
