@@ -109,13 +109,13 @@
         g[2].forEach(function (t) {
           var d = document.createElement('div'), expr = t[2] === 'f' ? 'var(--' + t[0] + ')' : 'hsl(var(--' + t[0] + '))';
           if (t[3]) d.className = 'ext';
-          d.innerHTML = '<div class="pill" style="background:' + expr + '"></div><b>' + t[0] + '</b><code></code>' + (t[1] ? '<small>' + t[1] + '</small>' : '');
+          d.innerHTML = '<div class="chip" style="background:' + expr + '"></div><b>' + t[0] + '</b><code></code>' + (t[1] ? '<small>' + t[1] + '</small>' : '');
           grid.appendChild(d);
         });
         sec.appendChild(grid); host.appendChild(sec);
       });
     }
-    document.querySelectorAll('.ds-sw > div').forEach(function (d) { d.querySelector('code').textContent = toHex(getComputedStyle(d.querySelector('.pill')).backgroundColor); });
+    document.querySelectorAll('.ds-sw > div').forEach(function (d) { d.querySelector('code').textContent = toHex(getComputedStyle(d.querySelector('.chip')).backgroundColor); });
   }
   safe('swatches', paintSwatches);
   safe('budget', function () {
