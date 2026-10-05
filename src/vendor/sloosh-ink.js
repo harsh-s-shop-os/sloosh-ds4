@@ -323,7 +323,7 @@
   /* ───────────────────────── inkify: turn a flat SVG drawing into pen + crayon ───────────────────────── */
   // DS4 change (Oct 2026): critters default to a reduced hand ('low'); pass { hand: 'full' } or set SlooshInk.critterHand = 'full' for the original crayon look.
   var CRITTER_HAND = 'low';
-  var CONFETTI = ['var(--ink-fill)', 'var(--mark-check)', 'var(--mark-collaborator)', 'hsl(var(--violet-foreground))', 'var(--mark-spark)'];   // library colours, no stickers
+  var CONFETTI = ['hsl(var(--brand-accent))', 'var(--brand-filter-accent-1)', 'var(--brand-filter-accent-4)', 'hsl(var(--violet-foreground))', 'var(--brand-filter-accent-5)'];   // library colours, no stickers
   var YELLOWS = { '#FECC15': 'yellow', '#FECE00': 'yellow', '#FDD402': 'yellow', '#FAC01A': 'deep', '#FFE04D': 'yellow' };
   function inkShape(parent, t, a, fill, kpx, o) {
     o = o || {}; var d = shapeD(t, a), subs = sample(d, kpx); if (!subs.length) return null;
@@ -331,7 +331,7 @@
     var kind = YELLOWS[(fill || '').toUpperCase()];
     // DS4 change (Oct 2026): low-hand critters get a flat crayon fill, a near-clean edge and one outline stroke.
     if (o.low) {
-      if (kind) path.style.fill = kind === 'deep' ? 'var(--ink-fill-deep)' : 'var(--ink-fill)'; else if (fill) path.setAttribute('fill', fill);
+      if (kind) path.style.fill = kind === 'deep' ? 'hsl(var(--brand-accent))' : 'hsl(var(--brand-accent))'; else if (fill) path.setAttribute('fill', fill);
       if (o.outline !== false) {
         var gl = mk('g', { 'class': 'pen' }, parent);
         subs.filter(function (s) { return s.L * kpx > 34; }).forEach(function (s) { mk('path', { d: penD(s, kpx, nextSeed(), 1.03, [0, 0], .35), 'class': 'ink-pen-bold' }, gl); });
@@ -670,7 +670,7 @@
     o = o || {}; defs(); var size = o.size || 28, kpx = size / 40;
     var svg = mk('svg', { viewBox: '0 0 40 40', 'class': 'sl-ink' });
     var body = mk('g', { 'class': 'nub-body' }, svg);
-    var fill = mk('path', { d: NUB_BODY }, body); fill.style.fill = 'var(--ink-fill)';
+    var fill = mk('path', { d: NUB_BODY }, body); fill.style.fill = 'hsl(var(--brand-accent))';
     var outl = [mk('path', { d: NUB_BODY, 'class': 'ink-pen-bold' }, body)];
     var eyes = mk('g', { 'class': 'nub-eyes' }, body), pupils = [], lids = [];
     [[9.2, 16.4], [14.4, 18.6]].forEach(function (c) {
@@ -678,7 +678,7 @@
       var pg = mk('g', { 'class': 'nub-pupil' }, eyes); mk('circle', { cx: c[0] - .3, cy: c[1] - .4, r: 1.35, fill: '#0A0A0A' }, pg); mk('circle', { cx: c[0] + .15, cy: c[1] - .9, r: .4, fill: '#FFFFFF' }, pg);
       pg.style.transition = 'transform 140ms ease-out'; pupils.push(pg);
       // the lid is body-coloured, sits above the eye top; scaleY(2) covers it
-      var lid = mk('ellipse', { cx: c[0], cy: c[1] - 3.1, rx: 2.6, ry: 1.6 }, eyes); lid.style.fill = 'var(--ink-fill)';
+      var lid = mk('ellipse', { cx: c[0], cy: c[1] - 3.1, rx: 2.6, ry: 1.6 }, eyes); lid.style.fill = 'hsl(var(--brand-accent))';
       lid.style.transformBox = 'fill-box'; lid.style.transformOrigin = '50% 0'; lid.style.transform = 'scaleY(0)'; lid.style.transition = 'transform 110ms'; lids.push(lid);
     });
     return { svg: svg, body: body, fill: fill, outline: outl, pupils: pupils, lids: lids };

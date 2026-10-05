@@ -21,7 +21,7 @@ Sources: `sloosh-design-system-v4.zip` (DESIGN.md, tokens, the SlooshInk engine)
 ## Colour: two systems (Oct 2026)
 
 - **shadcn** (`src/vendor/tokens.css`): Figma's "Primitives" (every ramp, incl. `creative-gen-accent-50..800`, the Sloosh yellow, and the separate Tailwind-style `yellow-*`) as HSL triples used as `hsl(var(--x))`, plus the shadcn/ui semantic set with shadcn names (`background`, `foreground`, `card`, `popover`, `primary`, `secondary`, `muted`, `accent`, `destructive`, `border`, `input`, `ring`, `chart-1..5`, `sidebar-*`). Light values are Figma's "Color System"; dark values are the app's shadcn dark (the Figma paste had light only). Extensions follow the same `x` / `x-foreground` / `x-border` pattern: status, `status-yellow`, `violet` (Figma status/brand), `agent`, `agents-*`, `brand-accent*`, `layer-*`, `data-*`.
-- **Ink** (`src/vendor/ink-tokens.css`): `ink-*`, `sticker-*`, `glow-*`, full colours, kept separate.
+- **Brand** (in `tokens.css`): every brand colour sits under `brand-*` on the creative-gen-accent ramp: the yellow (`brand-accent*`), the drawn layer (`brand-line*`, `brand-note*`, `brand-eye-*`, `brand-shadow`; neutral so they follow the theme), glows (`brand-glow*`) and filter accents (`brand-filter-accent-1..6`, straight from the Tailwind ramps). There is no separate ink or marks set.
 - Also from Figma: `--rounded-*`, `--spacing-*`, typography tokens and one class per text style (`.text-14px-medium` …), not yet applied to the page.
 
 Buttons: one size scale for every style, 24 / 28 / 32 / 36 / 40 / 48 (`data-size`), radius 12 at every size. Tabs outside the top nav: a dark well with equal-width segments, the selected one muted.

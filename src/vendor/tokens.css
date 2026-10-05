@@ -1,5 +1,5 @@
 /* Sloosh design tokens v4. Colours: Figma primitives + the shadcn/ui semantic set (light from Figma "Color System", dark from the app's .dark).
-   Ink colours live in ink-tokens.css and point back at these. Hand-edited, Oct 2026. */
+   Brand colours (yellow, the drawn layer, glows, filter accents) live in the brand block. Hand-edited, Oct 2026. */
 /* Dark is default (every Figma frame is dark). data-theme="light" for light, data-theme="system" to follow the OS. */
 
 :root {
@@ -177,12 +177,33 @@
   --brand-accent: var(--creative-gen-accent-500);
   --brand-accent-foreground: var(--neutral-950);
   --brand-accent-edge: var(--creative-gen-accent-700);
-  --brand-accent-text: var(--yellow-400);
-  --brand-accent-subtle: hsl(var(--yellow-400) / 0.2);   /* full colour */
-  --brand-accent-subtle-hover: hsl(var(--yellow-400) / 0.3);   /* full colour: tinted button hover (DS4 change) */
+  --brand-accent-text: var(--creative-gen-accent-500);
+  --brand-accent-subtle: hsl(var(--creative-gen-accent-500) / 0.2);   /* full colour */
+  --brand-accent-subtle-hover: hsl(var(--creative-gen-accent-500) / 0.3);   /* full colour: tinted button hover */
   --brand-accent-ring: var(--creative-gen-accent-100);
-  --brand-accent-chip: hsl(var(--neutral-50) / 0.48);   /* full colour: a pill on the yellow fill */
+  --brand-accent-chip: hsl(var(--creative-gen-accent-50) / 0.48);   /* full colour: a pill on the yellow fill */
   --brand-accent-glow: hsl(var(--creative-gen-accent-500) / 0.35);   /* full colour, DS4 only: halo and running-node glow */
+  /* brand: the drawn layer (formerly ink) — lines and faces stay neutral so they follow the theme */
+  --brand-accent-light: hsl(var(--creative-gen-accent-300));   /* full colour: hatch strokes on drawn marks */
+  --brand-line: hsl(var(--foreground));                        /* full colour: outlines, handwriting, arrows */
+  --brand-line-soft: hsl(var(--muted-foreground));             /* full colour: asides, second pen pass */
+  --brand-line-faint: hsl(var(--border-strong));               /* full colour: sketch boxes, trails */
+  --brand-note: hsl(var(--card));                              /* full colour: the pointer's note card */
+  --brand-note-foreground: hsl(var(--card-foreground));
+  --brand-eye-pupil: hsl(var(--neutral-950));                  /* full colour: pupils, never change with the theme */
+  --brand-eye-white: hsl(var(--neutral-0));
+  --brand-shadow: hsl(var(--muted-foreground) / 0.3);          /* full colour: ground shadow under critters */
+  /* brand: glows (Stage, the ember gradient) */
+  --brand-glow-light: hsl(var(--creative-gen-accent-400));
+  --brand-glow: hsl(var(--creative-gen-accent-600));
+  --brand-glow-deep: hsl(var(--creative-gen-accent-800));
+  /* brand: filter accents, small drawn accents straight from the Tailwind ramps */
+  --brand-filter-accent-1: hsl(var(--emerald-400));   /* drawn checks */
+  --brand-filter-accent-2: hsl(var(--red-400));       /* hearts, tears */
+  --brand-filter-accent-3: hsl(var(--blue-300));      /* drops, bubbles */
+  --brand-filter-accent-4: hsl(var(--blue-400));      /* another person's marks */
+  --brand-filter-accent-5: hsl(var(--amber-400));     /* sparks, the notice dot */
+  --brand-filter-accent-6: hsl(var(--red-300));       /* critter cheeks */
   --brand-favorite: hsl(var(--creative-gen-accent-500));
   --dialog-overlay: hsl(var(--neutral-950) / 0.8);
   --dialog-overlay-strong: hsl(var(--neutral-950) / 0.8);
@@ -296,8 +317,8 @@
   --press-scale: 0.97;
   --sl-gradient-scrim: linear-gradient(to bottom, hsl(var(--neutral-950) / 0) 0%, hsl(var(--neutral-950) / 0.6) 100%);
   --sl-gradient-fade-up: linear-gradient(to top, hsl(var(--background)) 7.2%, hsl(var(--neutral-950) / 0) 54.5%);
-  --sl-gradient-glow-amber: radial-gradient(120% 140% at 70% 0%, var(--glow-400) 0%, var(--glow-700) 38%, var(--glow-900) 70%, var(--glow-950) 100%);
-  --sl-gradient-glow-ember: linear-gradient(135deg, var(--glow-950) 0%, hsl(var(--amber-900)) 40%, var(--glow-ember) 100%);
+  --sl-gradient-glow-amber: radial-gradient(120% 140% at 70% 0%, var(--brand-glow) 0%, var(--brand-glow-deep) 45%, hsl(var(--background)) 100%);
+  --sl-gradient-glow-ember: linear-gradient(135deg, hsl(var(--background)) 0%, var(--brand-glow-deep) 40%, var(--brand-glow) 100%);
   /* motion */
   --sl-dur-instant: 80ms;
   --sl-dur-fast: 120ms;
@@ -436,12 +457,16 @@
   --brand-accent: var(--creative-gen-accent-500);
   --brand-accent-foreground: var(--neutral-950);
   --brand-accent-edge: var(--creative-gen-accent-700);
-  --brand-accent-text: var(--creative-gen-accent-700);   /* DS4 light only: the app keeps yellow-400, which fails on white */
-  --brand-accent-subtle: hsl(var(--yellow-400) / 0.2);   /* full colour */
-  --brand-accent-subtle-hover: hsl(var(--yellow-400) / 0.3);   /* full colour: tinted button hover (DS4 change) */
+  --brand-accent-text: var(--creative-gen-accent-700);   /* light: 500 fails on white */
+  --brand-accent-subtle: hsl(var(--creative-gen-accent-500) / 0.2);   /* full colour */
+  --brand-accent-subtle-hover: hsl(var(--creative-gen-accent-500) / 0.3);   /* full colour: tinted button hover */
   --brand-accent-ring: var(--creative-gen-accent-100);
-  --brand-accent-chip: hsl(var(--neutral-50) / 0.48);   /* full colour: a pill on the yellow fill */
+  --brand-accent-chip: hsl(var(--creative-gen-accent-50) / 0.48);   /* full colour: a pill on the yellow fill */
   --brand-accent-glow: hsl(var(--creative-gen-accent-500) / 0.45);   /* full colour, DS4 only: halo and running-node glow */
+  --brand-filter-accent-1: hsl(var(--emerald-700));
+  --brand-filter-accent-2: hsl(var(--red-700));
+  --brand-filter-accent-4: hsl(var(--blue-700));
+  --brand-filter-accent-5: hsl(var(--amber-700));
   --brand-favorite: hsl(var(--creative-gen-accent-500));
   --dialog-overlay: hsl(var(--neutral-950) / 0.8);
   --dialog-overlay-strong: hsl(var(--neutral-950) / 0.8);
@@ -538,12 +563,16 @@
     --brand-accent: var(--creative-gen-accent-500);
     --brand-accent-foreground: var(--neutral-950);
     --brand-accent-edge: var(--creative-gen-accent-700);
-    --brand-accent-text: var(--creative-gen-accent-700);   /* DS4 light only: the app keeps yellow-400, which fails on white */
-    --brand-accent-subtle: hsl(var(--yellow-400) / 0.2);   /* full colour */
-  --brand-accent-subtle-hover: hsl(var(--yellow-400) / 0.3);   /* full colour: tinted button hover (DS4 change) */
+    --brand-accent-text: var(--creative-gen-accent-700);   /* light: 500 fails on white */
+    --brand-accent-subtle: hsl(var(--creative-gen-accent-500) / 0.2);   /* full colour */
+  --brand-accent-subtle-hover: hsl(var(--creative-gen-accent-500) / 0.3);   /* full colour: tinted button hover */
     --brand-accent-ring: var(--creative-gen-accent-100);
-    --brand-accent-chip: hsl(var(--neutral-50) / 0.48);   /* full colour: a pill on the yellow fill */
+    --brand-accent-chip: hsl(var(--creative-gen-accent-50) / 0.48);   /* full colour: a pill on the yellow fill */
     --brand-accent-glow: hsl(var(--creative-gen-accent-500) / 0.45);   /* full colour, DS4 only: halo and running-node glow */
+    --brand-filter-accent-1: hsl(var(--emerald-700));
+    --brand-filter-accent-2: hsl(var(--red-700));
+    --brand-filter-accent-4: hsl(var(--blue-700));
+    --brand-filter-accent-5: hsl(var(--amber-700));
     --brand-favorite: hsl(var(--creative-gen-accent-500));
     --dialog-overlay: hsl(var(--neutral-950) / 0.8);
     --dialog-overlay-strong: hsl(var(--neutral-950) / 0.8);
