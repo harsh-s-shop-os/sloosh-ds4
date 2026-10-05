@@ -957,7 +957,7 @@
       var off = function () { if (!cur) return; var c = cur; cur = null; c.remove(); };
       n.addEventListener('pointerenter', on); n.addEventListener('pointerleave', off); n.addEventListener('focus', on); n.addEventListener('blur', off); });
     root.querySelectorAll('[data-ink-press]').forEach(function (n) { if (n._inkPress) return; n._inkPress = true;
-      n.addEventListener('pointerdown', function (e) { if (n.disabled) return; sfx.unlock(); var c = scopeOf(n), r = c.getBoundingClientRect(), sx = c.offsetWidth / (r.width || 1); burst(c, (e.clientX - r.left) * sx, (e.clientY - r.top) * sx, { n: 7 }); sfx.play('pop'); }); });
+      n.addEventListener('pointerdown', function (e) { if (n.disabled) return; sfx.unlock(); var c = scopeOf(n), r = c.getBoundingClientRect(), sx = c.offsetWidth / (r.width || 1); /* no burst on button press (removed, Oct 2026) */ sfx.play('pop'); }); });
     root.querySelectorAll('[data-ink-write]').forEach(function (n) { if (n._inkW) return; n._inkW = true; var t = n.getAttribute('data-ink-write') || n.textContent; write(n, t, { per: +n.getAttribute('data-per') || 38 }); });
     root.querySelectorAll('.sl-tabs[data-sliding]').forEach(function (n) { if (n._tabs) return; n._tabs = tabs(n); });
     return api;
