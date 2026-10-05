@@ -161,7 +161,7 @@
   --agents-green: var(--green-600);
   --agents-blue: var(--blue-400);
   --agents-yellow: var(--yellow-500);
-  --text-shimmer-base: #A1A1A1;   /* full colour: Figma text/shimmer */
+  --text-shimmer-base: hsl(var(--neutral-400));
   /* data types (node ports and tags): status tokens, so they follow the theme */
   --data-text: var(--success);
   --data-text-foreground: var(--success-foreground);
@@ -188,59 +188,46 @@
   --dialog-overlay-strong: hsl(var(--neutral-950) / 0.8);
   --drawer-overlay: hsl(var(--neutral-950) / 0.8);
   /* layers: the Sloosh mobile prototype's surface ladder (full colours) */
-  --layer-1: hsl(0 0% 8%);
-  --layer-2: hsl(0 0% 11%);
-  --layer-3: hsl(0 0% 15%);
-  --layer-4: hsl(0 0% 19%);
-  --layer-line: hsl(0 0% 100% / 0.08);
-  --layer-line-strong: hsl(0 0% 100% / 0.14);
-  --layer-dim: hsl(0 0% 44%);
-  --layer-scrim: hsl(0 0% 0% / 0.6);
-  --layer-warn: hsl(48 49% 15%);
-  --layer-warn-foreground: hsl(47 76% 80%);
+  --layer-1: hsl(var(--popover));
+  --layer-2: hsl(var(--muted));
+  --layer-3: hsl(var(--accent));
+  --layer-4: hsl(var(--border-strong));
+  --layer-line: hsl(var(--neutral-0) / 0.08);
+  --layer-line-strong: hsl(var(--neutral-0) / 0.14);
+  --layer-dim: hsl(var(--muted-foreground));
+  --layer-scrim: hsl(var(--neutral-950) / 0.6);
+  --layer-warn: hsl(var(--warning));
+  --layer-warn-foreground: hsl(var(--warning-foreground));
   /* type */
   --sl-font-sans: 'SF Pro Text', 'SF Pro', -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, ui-sans-serif, system-ui, sans-serif;
   --sl-font-hand: 'Caveat', 'Segoe Print', 'Bradley Hand', 'Comic Neue', cursive;
   --sl-font-display: 'Bowlby One', 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --sl-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --font-sans: var(--sl-font-sans);
   --font-hand: var(--sl-font-hand);
   --font-display: var(--sl-font-display);
-  --font-mono: var(--sl-font-mono);
-  --sl-text-micro: 11px; --sl-leading-micro: 14px; --sl-weight-micro: 510; --sl-tracking-micro: 0.01em;
-  --sl-text-caption: 12px; --sl-leading-caption: 18px; --sl-weight-caption: 400; --sl-tracking-caption: 0em;
-  --sl-text-label: 12px; --sl-leading-label: 18px; --sl-weight-label: 510; --sl-tracking-label: 0em;
-  --sl-text-body-sm: 14px; --sl-leading-body-sm: 20px; --sl-weight-body-sm: 400; --sl-tracking-body-sm: 0em;
-  --sl-text-body-md: 14px; --sl-leading-body-md: 20px; --sl-weight-body-md: 510; --sl-tracking-body-md: 0em;
-  --sl-text-body: 16px; --sl-leading-body: 24px; --sl-weight-body: 400; --sl-tracking-body: 0em;
-  --sl-text-title: 20px; --sl-leading-title: 30px; --sl-weight-title: 400; --sl-tracking-title: 0em;
-  --sl-text-title-md: 20px; --sl-leading-title-md: 30px; --sl-weight-title-md: 500; --sl-tracking-title-md: 0em;
-  --sl-text-h1: 24px; --sl-leading-h1: 32px; --sl-weight-h1: 500; --sl-tracking-h1: -0.01em;
-  --sl-text-h-hero: 28px; --sl-leading-h-hero: 36px; --sl-weight-h-hero: 600; --sl-tracking-h-hero: -0.01em;
-  --sl-text-display-sm: 40px; --sl-leading-display-sm: 44px; --sl-weight-display-sm: 700; --sl-tracking-display-sm: -0.02em;
-  --sl-text-display: 64px; --sl-leading-display: 64px; --sl-weight-display: 800; --sl-tracking-display: -0.03em;
-  --sl-text-hand-xs: 15px; --sl-leading-hand-xs: 16px; --sl-weight-hand-xs: 600; --sl-tracking-hand-xs: 0.01em;
-  --sl-text-hand-sm: 18px; --sl-leading-hand-sm: 20px; --sl-weight-hand-sm: 600; --sl-tracking-hand-sm: 0.01em;
-  --sl-text-hand-md: 22px; --sl-leading-hand-md: 24px; --sl-weight-hand-md: 600; --sl-tracking-hand-md: 0em;
-  --sl-text-hand-lg: 30px; --sl-leading-hand-lg: 30px; --sl-weight-hand-lg: 700; --sl-tracking-hand-lg: 0em;
-  --sl-text-hand-xl: 44px; --sl-leading-hand-xl: 42px; --sl-weight-hand-xl: 700; --sl-tracking-hand-xl: -0.01em;
-  /* typography: Figma "Typography" collection (tokens only; the page's own type is unchanged for now) */
-  --font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --weight-regular: 400;
-  --weight-medium: 500;
-  --weight-semibold: 600;
-  --weight-bold: 700;
-  --text-fontsize-12: 12px; --text-lineheight-12: 18px;
-  --text-fontsize-14: 14px; --text-lineheight-14: 20px;
-  --text-fontsize-16: 16px; --text-lineheight-16: 140%;   /* Figma variable says 140; the Regular and Medium styles use 24px */
-  --text-fontsize-20: 20px; --text-lineheight-20: 30px;
-  --display-fontsize-24: 24px; --display-lineheight-24: 32px;
-  --display-fontsize-28: 28px; --display-lineheight-28: 36px;
-  --display-fontsize-32: 32px; --display-lineheight-32: 40px;
-  --display-fontsize-36: 36px; --display-lineheight-36: 44px;
-  --display-fontsize-48: 48px; --display-lineheight-48: 60px;
-  --display-fontsize-60: 60px; --display-lineheight-60: 72px;
-  --display-fontsize-72: 72px; --display-lineheight-72: 90px;
+  /* type tokens (DS4): every text style in Sloosh. Sizes 12–48 (60 held back), weights 500 / 600 / 700 (Bowlby One: 400),
+     line height 120% for titles and handwriting, 140% for everything else. Use as font: var(--type-x). */
+  --type-display-60: 400 60px/120% var(--sl-font-display);
+  --type-display-48: 400 48px/120% var(--sl-font-display);
+  --type-display-36: 400 36px/120% var(--sl-font-display);
+  --type-display-28: 400 28px/120% var(--sl-font-display);
+  --type-display-24: 400 24px/120% var(--sl-font-display);
+  --type-display-20: 400 20px/120% var(--sl-font-display);
+  --type-title-20: 600 20px/120% var(--sl-font-sans);
+  --type-body-16: 500 16px/140% var(--sl-font-sans);
+  --type-body-16-strong: 600 16px/140% var(--sl-font-sans);
+  --type-body-14: 500 14px/140% var(--sl-font-sans);
+  --type-body-14-strong: 600 14px/140% var(--sl-font-sans);
+  --type-num-14: 700 14px/140% var(--sl-font-sans);
+  --type-caption-12: 500 12px/140% var(--sl-font-sans);
+  --type-caption-12-strong: 600 12px/140% var(--sl-font-sans);
+  --type-caps-12: 600 12px/140% var(--sl-font-sans);
+  --type-caps-tracking: .04em;
+  --type-hand-48: 700 48px/120% var(--sl-font-hand);
+  --type-hand-28: 700 28px/120% var(--sl-font-hand);
+  --type-hand-24: 700 24px/120% var(--sl-font-hand);
+  --type-hand-20: 600 20px/120% var(--sl-font-hand);
+  --type-hand-16: 600 16px/120% var(--sl-font-hand);
   /* shape, space: Figma "Radius" and "Spacing" collections (px), shadcn's --radius base; the --sl-* names alias them */
   --radius: 0.5rem;
   --rounded-none: 0px;
@@ -289,14 +276,14 @@
   --sl-shadow-lip: inset 0 -2px 0 0 hsl(var(--brand-accent-edge));
   --sl-shadow-lip-lg: inset 0 -4px 0 0 hsl(var(--brand-accent-edge));
   --sl-shadow-lip-muted: inset 0 -2px 0 0 hsl(var(--card));
-  --sl-shadow-float: 0 12px 32px -6px rgba(0,0,0,0.55), 0 0 0 1px hsl(var(--border));
-  --sl-shadow-modal: 0 24px 64px -12px rgba(0,0,0,0.65), 0 0 0 1px hsl(var(--border));
+  --sl-shadow-float: 0 12px 32px -6px hsl(var(--neutral-950) / 0.55), 0 0 0 1px hsl(var(--border));
+  --sl-shadow-modal: 0 24px 64px -12px hsl(var(--neutral-950) / 0.65), 0 0 0 1px hsl(var(--border));
   --sl-shadow-halo: 0 0 0 1px hsl(var(--brand-accent)), 0 0 24px -4px var(--brand-accent-glow);
   --sl-shadow-focus: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--brand-accent));
-  --sl-gradient-scrim: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
-  --sl-gradient-fade-up: linear-gradient(to top, hsl(var(--background)) 7.2%, rgba(0,0,0,0) 54.5%);
+  --sl-gradient-scrim: linear-gradient(to bottom, hsl(var(--neutral-950) / 0) 0%, hsl(var(--neutral-950) / 0.6) 100%);
+  --sl-gradient-fade-up: linear-gradient(to top, hsl(var(--background)) 7.2%, hsl(var(--neutral-950) / 0) 54.5%);
   --sl-gradient-glow-amber: radial-gradient(120% 140% at 70% 0%, var(--glow-400) 0%, var(--glow-700) 38%, var(--glow-900) 70%, var(--glow-950) 100%);
-  --sl-gradient-glow-ember: linear-gradient(135deg, var(--glow-950) 0%, #7A3A05 40%, var(--glow-ember) 100%);
+  --sl-gradient-glow-ember: linear-gradient(135deg, var(--glow-950) 0%, hsl(var(--amber-900)) 40%, var(--glow-ember) 100%);
   /* motion */
   --sl-dur-instant: 80ms;
   --sl-dur-fast: 120ms;
@@ -430,7 +417,7 @@
   --agents-green: var(--green-600);
   --agents-blue: var(--blue-400);
   --agents-yellow: var(--yellow-500);
-  --text-shimmer-base: #A1A1A1;   /* full colour: Figma text/shimmer */
+  --text-shimmer-base: hsl(var(--neutral-400));
   /* brand accent: the app's [data-brand="sloosh"] block, on Figma's creative-gen-accent ramp */
   --brand-accent: var(--creative-gen-accent-500);
   --brand-accent-foreground: var(--neutral-950);
@@ -457,8 +444,8 @@
   --layer-warn: hsl(var(--warning));
   --layer-warn-foreground: hsl(var(--warning-foreground));
   --sl-shadow-lip-muted: inset 0 -2px 0 0 hsl(var(--border));
-  --sl-shadow-float: 0 12px 32px -8px rgba(10,10,10,0.18), 0 0 0 1px hsl(var(--border));
-  --sl-shadow-modal: 0 24px 64px -12px rgba(10,10,10,0.25), 0 0 0 1px hsl(var(--border));
+  --sl-shadow-float: 0 12px 32px -8px hsl(var(--neutral-950) / 0.18), 0 0 0 1px hsl(var(--border));
+  --sl-shadow-modal: 0 24px 64px -12px hsl(var(--neutral-950) / 0.25), 0 0 0 1px hsl(var(--border));
   --sl-shadow-focus: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--foreground));
 }
 
@@ -532,7 +519,7 @@
     --agents-green: var(--green-600);
     --agents-blue: var(--blue-400);
     --agents-yellow: var(--yellow-500);
-    --text-shimmer-base: #A1A1A1;   /* full colour: Figma text/shimmer */
+    --text-shimmer-base: hsl(var(--neutral-400));
     /* brand accent: the app's [data-brand="sloosh"] block, on Figma's creative-gen-accent ramp */
     --brand-accent: var(--creative-gen-accent-500);
     --brand-accent-foreground: var(--neutral-950);
@@ -559,8 +546,8 @@
     --layer-warn: hsl(var(--warning));
     --layer-warn-foreground: hsl(var(--warning-foreground));
     --sl-shadow-lip-muted: inset 0 -2px 0 0 hsl(var(--border));
-    --sl-shadow-float: 0 12px 32px -8px rgba(10,10,10,0.18), 0 0 0 1px hsl(var(--border));
-    --sl-shadow-modal: 0 24px 64px -12px rgba(10,10,10,0.25), 0 0 0 1px hsl(var(--border));
+    --sl-shadow-float: 0 12px 32px -8px hsl(var(--neutral-950) / 0.18), 0 0 0 1px hsl(var(--border));
+    --sl-shadow-modal: 0 24px 64px -12px hsl(var(--neutral-950) / 0.25), 0 0 0 1px hsl(var(--border));
     --sl-shadow-focus: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--foreground));
   }
 }
@@ -577,7 +564,27 @@
           --sl-dur-write-title: 0ms; --sl-dur-burst: 0ms; }
 }
 
-/* Figma text styles, one class each: .text-12px-regular … .display-60px-semibold. Not applied to the page yet. */
+/* one class per type token, for samples and one-offs: .type-body-14 … */
+.type-display-60 { font: var(--type-display-60); }
+.type-display-48 { font: var(--type-display-48); }
+.type-display-36 { font: var(--type-display-36); }
+.type-display-28 { font: var(--type-display-28); }
+.type-display-24 { font: var(--type-display-24); }
+.type-display-20 { font: var(--type-display-20); }
+.type-title-20 { font: var(--type-title-20); }
+.type-body-16 { font: var(--type-body-16); }
+.type-body-16-strong { font: var(--type-body-16-strong); }
+.type-body-14 { font: var(--type-body-14); }
+.type-body-14-strong { font: var(--type-body-14-strong); }
+.type-num-14 { font: var(--type-num-14); }
+.type-caption-12 { font: var(--type-caption-12); }
+.type-caption-12-strong { font: var(--type-caption-12-strong); }
+.type-caps-12 { font: var(--type-caps-12); letter-spacing: var(--type-caps-tracking); text-transform: uppercase; }
+.type-hand-48 { font: var(--type-hand-48); }
+.type-hand-28 { font: var(--type-hand-28); }
+.type-hand-24 { font: var(--type-hand-24); }
+.type-hand-20 { font: var(--type-hand-20); }
+.type-hand-16 { font: var(--type-hand-16); }
 .text-12px-regular { font-family: var(--font-family); font-size: 12px; font-weight: 400; line-height: 18px; }
 .text-12px-medium { font-family: var(--font-family); font-size: 12px; font-weight: 500; line-height: 18px; }
 .text-14px-regular { font-family: var(--font-family); font-size: 14px; font-weight: 400; line-height: 20px; }

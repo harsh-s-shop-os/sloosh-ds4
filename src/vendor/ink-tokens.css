@@ -22,12 +22,12 @@
   --mark-collaborator: hsl(var(--info-foreground));      /* another person's marks */
   --mark-spark: hsl(var(--warning-foreground));          /* sparks, the notice dot */
   --mark-cheek: hsl(var(--red-300));                     /* critter cheeks */
-  /* glow: Stage and the ember gradient only (not in the library yet) */
-  --glow-950: #190C03;
-  --glow-900: #241204;
-  --glow-800: #371C07;
-  --glow-700: #603610;
-  --glow-400: #CF892A;
-  --glow-300: #E7AB44;
-  --glow-ember: #FC9001;
+  /* glow: Stage and the ember gradient only, on the amber ramp */
+  --glow-950: hsl(var(--neutral-950));
+  --glow-900: hsl(var(--neutral-900));
+  --glow-800: hsl(var(--amber-950));
+  --glow-700: hsl(var(--amber-900));
+  --glow-400: hsl(var(--amber-600));
+  --glow-300: hsl(var(--amber-400));
+  --glow-ember: hsl(var(--amber-500));
 }

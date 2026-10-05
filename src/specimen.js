@@ -92,15 +92,16 @@
     ['Data types', 'node ports and tags', [['data-text','text'],['data-text-foreground','tag text, port ring'],['data-image','image'],['data-image-foreground','tag text, port ring'],['data-video','video'],['data-video-foreground','tag text, port ring'],['data-audio','audio'],['data-audio-foreground','tag text, port ring'],['data-any','any'],['data-any-foreground','tag text, port ring']]],
     ['Ink', 'the drawn layer: critters, the pointer, rings, notes', [['ink-line','outlines, handwriting','f'],['ink-line-soft','asides','f'],['ink-line-faint','sketches, trails','f'],['ink-fill','critter and Nub body','f'],['ink-fill-light','hatch strokes','f'],['ink-fill-deep','Burb, Fin','f'],['ink-tag','pointer tag','f'],['ink-note','pointer note','f'],['ink-note-foreground','note text','f'],['ink-pupil','pupils','f'],['ink-eye-white','eye whites','f'],['ink-shadow','ground shadow','f']]],
     ['Marks', 'small drawn accents', [['mark-check','drawn checks','f'],['mark-heart','hearts, tears','f'],['mark-drop','drops, bubbles','f'],['mark-collaborator','another person\'s marks','f'],['mark-spark','sparks, notice dot','f'],['mark-cheek','critter cheeks','f']]],
-    ['Glow', 'Stage and the ember gradient only', [['glow-950','','f',1],['glow-900','','f',1],['glow-800','','f',1],['glow-700','','f',1],['glow-400','','f',1],['glow-300','','f',1],['glow-ember','','f',1]]]
+    ['Glow', 'Stage and the ember gradient only', [['glow-950','','f'],['glow-900','','f'],['glow-800','','f'],['glow-700','','f'],['glow-400','','f'],['glow-300','','f'],['glow-ember','','f']]]
   ];
   function toHex(c) { var m = c.match(/rgba?\(([^)]+)\)/); if (!m) return c; var p = m[1].split(/[ ,\/]+/).filter(Boolean).map(Number);
     var h = '#' + p.slice(0, 3).map(function (v) { return ('0' + Math.round(v).toString(16)).slice(-2); }).join('').toUpperCase(); return p.length > 3 && p[3] < 1 ? h + ' · ' + Math.round(p[3] * 100) + '%' : h; }
   function paintSwatches() {
-    var first = $('sw-prim'); if (!first) return; var host = first;
-    if (!first.firstChild) {
+    var tok = $('sw-tok'); if (!tok) return; var host = null;   // primitives are shadcn's; only the tokens are shown
+    if (!tok.firstChild) {
       SW.forEach(function (g) {
         if (g[0] === '§') { host = $(g[1]); return; }
+        if (!host) return;
         var sec = document.createElement('div'); sec.className = 'ds-sw-group';
         sec.innerHTML = '<h4>' + g[0] + ' <span>' + g[1] + '</span></h4>';
         var grid = document.createElement('div'); grid.className = 'ds-sw' + (g[3] === 'ramp' ? ' ramp' : '');
@@ -219,16 +220,6 @@
         var pw = document.createElement('span'); pw.style.cssText = 'position:absolute;left:0;top:0;pointer-events:none;transition:transform 300ms linear'; host.appendChild(pw);   // pencil doodle retired; the yellow line draws on its own
         var v = 0, set = function (x) { p.style.transition = 'stroke-dashoffset 300ms linear'; p.style.strokeDashoffset = len * (1 - x); var pt = p.getPointAtLength(len * x); pw.style.transform = 'translate(' + (pt.x - 5) + 'px,' + (pt.y - 23) + 'px)'; };
         set(0); if (!RM) loopWhileVisible(host, function () { v = v >= 1 ? 0 : v + .05; set(v); }, 320); else set(.6);
-      });
-    });
-
-    /* ── digits ── */
-    safe('digits', function () {
-      ['dg-d', 'dg-s'].forEach(function (id) {
-        var col = $(id), sp = col.querySelectorAll('span'), a = sp[0].getBoundingClientRect().width, b = sp[1].getBoundingClientRect().width;
-        var left = Math.min(sp[0].offsetLeft, sp[1].offsetLeft);
-        [sp[0], sp[1]].forEach(function (s) { var i = document.createElement('i'); i.style.left = s.offsetLeft + 'px'; col.appendChild(i); });
-        $(id + '-note').textContent += ' · ' + Math.round(a) + 'px vs ' + Math.round(b) + 'px';
       });
     });
 
@@ -408,14 +399,14 @@
       D.forEach(function (d) {
         var v = cssVar('--sl-dur-' + d[0]); var ms = parseFloat(v) || 0;
         var row = document.createElement('div');
-        row.innerHTML = '<span><b style="font-weight:510;color:hsl(var(--foreground))">' + d[0] + '</b><br>' + d[1] + '</span><i style="width:' + Math.max(1, Math.sqrt(ms / max) * 100) + '%"></i><em>' + Math.round(ms) + 'ms</em>';
+        row.innerHTML = '<span><b style="font-weight:600;color:hsl(var(--foreground))">' + d[0] + '</b><br>' + d[1] + '</span><i style="width:' + Math.max(1, Math.sqrt(ms / max) * 100) + '%"></i><em>' + Math.round(ms) + 'ms</em>';
         host.appendChild(row);
       });
       var E = [['out', 'default'], ['in-out', 'sheets, carousels'], ['hop', 'pops, hops, tags'], ['lip', 'keycap press'], ['draw', 'pen strokes'], ['squash', 'squash and stretch'], ['fly', 'the pointer\'s arc']];
       var eh = $('eases'), dots = [];
       E.forEach(function (e) {
         var row = document.createElement('div');
-        row.innerHTML = '<span><b style="font-weight:510">' + e[0] + '</b><small>' + e[1] + '</small></span><div class="track"><span class="dot"></span></div>';
+        row.innerHTML = '<span><b style="font-weight:600">' + e[0] + '</b><small>' + e[1] + '</small></span><div class="track"><span class="dot"></span></div>';
         eh.appendChild(row); dots.push([row.querySelector('.dot'), cssVar('--sl-ease-' + e[0])]);
       });
       var go = function () {
