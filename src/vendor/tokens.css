@@ -179,6 +179,7 @@
   --brand-accent-edge: var(--creative-gen-accent-700);
   --brand-accent-text: var(--yellow-400);
   --brand-accent-subtle: hsl(var(--yellow-400) / 0.2);   /* full colour */
+  --brand-accent-subtle-hover: hsl(var(--yellow-400) / 0.3);   /* full colour: tinted button hover (DS4 change) */
   --brand-accent-ring: var(--creative-gen-accent-100);
   --brand-accent-chip: hsl(var(--neutral-50) / 0.48);   /* full colour: a pill on the yellow fill */
   --brand-accent-glow: hsl(var(--creative-gen-accent-500) / 0.35);   /* full colour, DS4 only: halo and running-node glow */
@@ -436,6 +437,7 @@
   --brand-accent-edge: var(--creative-gen-accent-700);
   --brand-accent-text: var(--creative-gen-accent-700);   /* DS4 light only: the app keeps yellow-400, which fails on white */
   --brand-accent-subtle: hsl(var(--yellow-400) / 0.2);   /* full colour */
+  --brand-accent-subtle-hover: hsl(var(--yellow-400) / 0.3);   /* full colour: tinted button hover (DS4 change) */
   --brand-accent-ring: var(--creative-gen-accent-100);
   --brand-accent-chip: hsl(var(--neutral-50) / 0.48);   /* full colour: a pill on the yellow fill */
   --brand-accent-glow: hsl(var(--creative-gen-accent-500) / 0.45);   /* full colour, DS4 only: halo and running-node glow */
@@ -537,6 +539,7 @@
     --brand-accent-edge: var(--creative-gen-accent-700);
     --brand-accent-text: var(--creative-gen-accent-700);   /* DS4 light only: the app keeps yellow-400, which fails on white */
     --brand-accent-subtle: hsl(var(--yellow-400) / 0.2);   /* full colour */
+  --brand-accent-subtle-hover: hsl(var(--yellow-400) / 0.3);   /* full colour: tinted button hover (DS4 change) */
     --brand-accent-ring: var(--creative-gen-accent-100);
     --brand-accent-chip: hsl(var(--neutral-50) / 0.48);   /* full colour: a pill on the yellow fill */
     --brand-accent-glow: hsl(var(--creative-gen-accent-500) / 0.45);   /* full colour, DS4 only: halo and running-node glow */

@@ -948,6 +948,8 @@
   /* ───────────────────────── auto-binding: data attributes ───────────────────────── */
   function auto(root) {
     root = root || D; defs(); ambient(); boil(true);
+    // DS4 change (Oct 2026): a loading or aria-disabled button does nothing on click, keyboard included
+    if (!D._slInert) { D._slInert = true; D.addEventListener('click', function (e) { var b = e.target.closest && e.target.closest('.sl-btn'); if (b && (b.disabled || b.getAttribute('aria-busy') === 'true' || b.getAttribute('aria-disabled') === 'true')) { e.preventDefault(); e.stopImmediatePropagation(); } }, true); }
     root.querySelectorAll('[data-critter]:not(.sl-critter):not([data-ink-ready])').forEach(function (n) { n.setAttribute('data-ink-ready', '');
       var c = critter(n.getAttribute('data-critter'), { size: +n.getAttribute('data-size') || 96, mood: n.getAttribute('data-mood') || 'default', flip: n.hasAttribute('data-flip'), ink: n.getAttribute('data-ink') !== 'false', gaze: n.getAttribute('data-gaze') || 'cursor', enter: n.getAttribute('data-enter') }); n.appendChild(c.el); n._critter = c; });
     root.querySelectorAll('[data-crew]:not([data-ink-ready])').forEach(function (n) { n.setAttribute('data-ink-ready', ''); var c = crew(n.getAttribute('data-crew'), { size: +n.getAttribute('data-size') || 64, loop: true }); n.appendChild(c.el); n._crew = c; if (n.getAttribute('data-play')) c.play(n.getAttribute('data-play')); });

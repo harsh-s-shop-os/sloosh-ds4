@@ -187,6 +187,7 @@
   --brand-accent-edge: var(--creative-gen-accent-700);
   --brand-accent-text: var(--yellow-400);
   --brand-accent-subtle: hsl(var(--yellow-400) / 0.2);   /* full colour */
+  --brand-accent-subtle-hover: hsl(var(--yellow-400) / 0.3);   /* full colour: tinted button hover (DS4 change) */
   --brand-accent-ring: var(--creative-gen-accent-100);
   --brand-accent-chip: hsl(var(--neutral-50) / 0.48);   /* full colour: a pill on the yellow fill */
   --brand-accent-glow: hsl(var(--creative-gen-accent-500) / 0.35);   /* full colour, DS4 only: halo and running-node glow */
@@ -444,6 +445,7 @@
   --brand-accent-edge: var(--creative-gen-accent-700);
   --brand-accent-text: var(--creative-gen-accent-700);   /* DS4 light only: the app keeps yellow-400, which fails on white */
   --brand-accent-subtle: hsl(var(--yellow-400) / 0.2);   /* full colour */
+  --brand-accent-subtle-hover: hsl(var(--yellow-400) / 0.3);   /* full colour: tinted button hover (DS4 change) */
   --brand-accent-ring: var(--creative-gen-accent-100);
   --brand-accent-chip: hsl(var(--neutral-50) / 0.48);   /* full colour: a pill on the yellow fill */
   --brand-accent-glow: hsl(var(--creative-gen-accent-500) / 0.45);   /* full colour, DS4 only: halo and running-node glow */
@@ -545,6 +547,7 @@
     --brand-accent-edge: var(--creative-gen-accent-700);
     --brand-accent-text: var(--creative-gen-accent-700);   /* DS4 light only: the app keeps yellow-400, which fails on white */
     --brand-accent-subtle: hsl(var(--yellow-400) / 0.2);   /* full colour */
+  --brand-accent-subtle-hover: hsl(var(--yellow-400) / 0.3);   /* full colour: tinted button hover (DS4 change) */
     --brand-accent-ring: var(--creative-gen-accent-100);
     --brand-accent-chip: hsl(var(--neutral-50) / 0.48);   /* full colour: a pill on the yellow fill */
     --brand-accent-glow: hsl(var(--creative-gen-accent-500) / 0.45);   /* full colour, DS4 only: halo and running-node glow */
@@ -714,7 +717,15 @@
 .sl-btn[data-variant="ghost"] { background: transparent; color: hsl(var(--muted-foreground)); }
 .sl-btn[data-variant="ghost"]:hover { color: hsl(var(--foreground)); }
 .sl-btn[data-variant="tinted"] { background: var(--brand-accent-subtle); color: hsl(var(--brand-accent-text)); }
+.sl-btn[data-variant="tinted"]:hover { background: var(--brand-accent-subtle-hover); }
+/* DS4 change (Oct 2026): one press for every style. The face drops by the lip, same distance, same 80ms, on all of them. */
+.sl-btn[data-variant="outline"]:active, .sl-btn[data-variant="ghost"]:active, .sl-btn[data-variant="tinted"]:active { transform: translateY(var(--lip)); }
 .sl-btn[disabled], .sl-btn[aria-disabled="true"] { background: hsl(var(--muted)); color: hsl(var(--disabled-foreground)); box-shadow: none; cursor: not-allowed; transform: none; }
+/* DS4 change (Oct 2026): disabled and loading are inert. No hover, no press, no motion; nothing happens on click.
+   Disabled changes the cursor (not-allowed) and nothing else. Loading takes no pointer at all. Keyboard clicks are blocked in sloosh-ink.js. */
+.sl-btn.sl-btn:is([disabled], [aria-disabled="true"]):is(:hover, :active, .is-pressed) { background: hsl(var(--muted)); color: hsl(var(--disabled-foreground)); box-shadow: none; transform: none; }
+.sl-btn:is([disabled], [aria-disabled="true"], [aria-busy="true"]) { transition: none; }
+.sl-btn[aria-busy="true"] { pointer-events: none; }
 .sl-btn .sl-cost { display: inline-flex; align-items: center; gap: 4px; padding: 1px 6px; border-radius: 6px; background: hsl(var(--neutral-950) / 0.12); font-size: 12px; line-height: 16px; font-weight: 600; }
 .sl-btn[data-variant="primary"] .sl-cost { background: var(--brand-accent-chip); }
 .sl-btn[aria-busy="true"] > .sl-btn-label { visibility: hidden; }
@@ -3205,6 +3216,8 @@ details.ds-q p { margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 
   /* ───────────────────────── auto-binding: data attributes ───────────────────────── */
   function auto(root) {
     root = root || D; defs(); ambient(); boil(true);
+    // DS4 change (Oct 2026): a loading or aria-disabled button does nothing on click, keyboard included
+    if (!D._slInert) { D._slInert = true; D.addEventListener('click', function (e) { var b = e.target.closest && e.target.closest('.sl-btn'); if (b && (b.disabled || b.getAttribute('aria-busy') === 'true' || b.getAttribute('aria-disabled') === 'true')) { e.preventDefault(); e.stopImmediatePropagation(); } }, true); }
     root.querySelectorAll('[data-critter]:not(.sl-critter):not([data-ink-ready])').forEach(function (n) { n.setAttribute('data-ink-ready', '');
       var c = critter(n.getAttribute('data-critter'), { size: +n.getAttribute('data-size') || 96, mood: n.getAttribute('data-mood') || 'default', flip: n.hasAttribute('data-flip'), ink: n.getAttribute('data-ink') !== 'false', gaze: n.getAttribute('data-gaze') || 'cursor', enter: n.getAttribute('data-enter') }); n.appendChild(c.el); n._critter = c; });
     root.querySelectorAll('[data-crew]:not([data-ink-ready])').forEach(function (n) { n.setAttribute('data-ink-ready', ''); var c = crew(n.getAttribute('data-crew'), { size: +n.getAttribute('data-size') || 64, loop: true }); n.appendChild(c.el); n._crew = c; if (n.getAttribute('data-play')) c.play(n.getAttribute('data-play')); });
