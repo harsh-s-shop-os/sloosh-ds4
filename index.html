@@ -589,18 +589,22 @@
    the selected one a muted fill with foreground text; no yellow, no lip, no underline. */
 .sl-tabs { display: inline-grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 0; padding: 4px; border-radius: 16px;
   background: hsl(var(--background)); position: relative; }
-.sl-tab { height: 32px; min-width: 0; padding: 0 16px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; border: 0; background: none;
+.sl-tab { min-width: 0; padding: 0 16px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; border: 0; background: none;
   color: hsl(var(--muted-foreground)); font: 500 14px/20px var(--slx-sans); cursor: pointer; position: relative; z-index: 1; white-space: nowrap; transition: color var(--sl-dur-base, 200ms); }
 .sl-tab:hover { color: hsl(var(--foreground)); }
 .sl-tab[aria-selected="true"] { color: hsl(var(--foreground)); }
 .sl-tabs:not([data-sliding]) .sl-tab[aria-selected="true"] { background: hsl(var(--muted)); }
-.sl-tabs .sl-tab-pill { position: absolute; left: 0; top: 4px; height: 32px; border-radius: 12px; background: hsl(var(--muted)); z-index: 0;
+.sl-tabs .sl-tab-pill { position: absolute; left: 0; top: 4px; border-radius: 12px; background: hsl(var(--muted)); z-index: 0;
   transition: transform var(--sl-dur-base, 200ms) var(--sl-ease-in-out, ease), width var(--sl-dur-base, 200ms) var(--sl-ease-in-out, ease); }
-.sl-tabs[data-size="sm"] { border-radius: 14px; padding: 3px; }
-.sl-tabs[data-size="sm"] .sl-tab, .sl-tabs[data-size="sm"] .sl-tab-pill { height: 28px; border-radius: 12px; }
-.sl-tabs[data-size="sm"] .sl-tab-pill { top: 3px; }
+/* Tab bar heights run 36 to 48 (Oct 2026): 36, 40 (default), 48. The well pads 4px, so tabs are 28, 32, 40. sm = 36. */
+.sl-tabs[data-size="36"], .sl-tabs[data-size="sm"] { --tab: 28px; }
+.sl-tabs, .sl-tabs[data-size="40"] { --tab: 32px; }
+.sl-tabs[data-size="48"] { --tab: 40px; }
+.sl-tabs .sl-tab, .sl-tabs .sl-tab-pill { height: var(--tab); }
+.sl-tabs[data-size="48"] .sl-tab { font-size: 16px; line-height: 24px; padding: 0 20px; }
 /* a wrapping filter list is not a tab bar: plain chips */
 .sl-tabs[data-plain] { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 0; background: none; border-radius: 0; }
+.sl-tabs[data-plain] .sl-tab { height: 36px; }
 .sl-chip { height: 28px; display: inline-flex; align-items: center; gap: 6px; padding: 0 8px 0 4px; border-radius: 8px; background: hsl(var(--muted));
   color: hsl(var(--foreground-subtle)); font: 400 12px/18px var(--slx-sans); border: 0; cursor: pointer; white-space: nowrap; }
 .sl-chip.sl-chip-icon { width: 28px; padding: 0; justify-content: center; }
@@ -1017,13 +1021,6 @@ table.ds-matrix { width: 100%; min-width: 560px; border-collapse: collapse; font
 .ds-sticky { background: var(--ink-sticky); color: hsl(var(--neutral-950)); border-radius: var(--sl-radius-wobble); padding: 22px 22px; font: 700 22px/1.1 var(--ds-hand); transform: rotate(-2deg); max-width: 220px; }
 
 /* ── controls from the prototype ── */
-.ds-toggle { display: inline-flex; padding: 4px; border-radius: 16px; background: hsl(var(--background)); box-shadow: inset 0 0 0 1px hsl(var(--border)); position: relative; }
-.ds-toggle button { position: relative; z-index: 1; height: 42px; padding: 0 18px; border: 0; border-radius: 12px; background: none; color: hsl(var(--muted-foreground)); font: 510 15px/1 var(--ds-sans); cursor: pointer; transition: color var(--sl-dur-base); }
-.ds-toggle button[aria-pressed="true"] { color: hsl(var(--neutral-950)); font-weight: 600; }
-.ds-toggle .pill { position: absolute; top: 4px; height: 42px; border-radius: 12px; background: var(--g-yellow); box-shadow: inset 0 -3px 0 0 var(--g-lip); transition: transform var(--sl-dur-base) var(--sl-ease-in-out), width var(--sl-dur-base) var(--sl-ease-in-out); }
-.ds-toggle .save { color: var(--g-mint); font: 700 12.5px/1 var(--ds-sans); margin-left: 4px; }
-:root[data-theme="light"] .ds-toggle .save { color: #0E7A50; }
-.ds-toggle button[aria-pressed="true"] .save { color: hsl(var(--neutral-950)); opacity: .7; }
 .ds-stepper { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border-radius: 12px; background: hsl(var(--muted)); }
 .ds-stepper button { width: 32px; height: 32px; border: 0; border-radius: 9px; background: transparent; color: hsl(var(--foreground)); cursor: pointer; display: grid; place-items: center; font-size: 18px; line-height: 1; }
 .ds-stepper button:hover { background: hsl(var(--accent)); }
@@ -1317,8 +1314,6 @@ details.ds-q p { margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 
 .ds-plan .sl-btn { border-radius: 12px; }
 
 /* billing toggle: 40px, dark-green chip */
-.ds-toggle button, .ds-toggle .pill { height: 40px; }
-.ds-toggle .save, :root[data-theme="light"] .ds-toggle .save, .ds-toggle button[aria-pressed="true"] .save { display: inline-block; padding: 1px 7px; border-radius: 6px; background: var(--g-save); color: hsl(var(--neutral-50)); opacity: 1; font: 700 14px/18px var(--ds-sans); margin-left: 6px; }
 
 /* model tape: white */
 .ds-band { background: hsl(var(--neutral-0)); }
@@ -1359,6 +1354,14 @@ details.ds-q p { margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 
 .ds-fc h6 { line-height: 120%; } .ds-fc .f, .ds-fc .sv { line-height: 140%; }
 
 .ds-hcmp { display: flex; align-items: flex-end; gap: 14px; flex-wrap: wrap; min-height: 96px; }
+
+/* Billing toggle = the standard tab component (Oct 2026): dark well, equal segments, muted selection,
+   foreground text, no yellow, no lip. 48 bar (40 segments), the top of the 36 to 48 tab range. */
+.ds-toggle { display: inline-grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); padding: 4px; border-radius: 16px; background: hsl(var(--background)); position: relative; }
+.ds-toggle button { position: relative; z-index: 1; height: 40px; padding: 0 20px; border: 0; border-radius: 12px; background: none; color: hsl(var(--muted-foreground)); font: 500 16px/24px var(--ds-sans); cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; transition: color var(--sl-dur-base); }
+.ds-toggle button:hover, .ds-toggle button[aria-pressed="true"] { color: hsl(var(--foreground)); }
+.ds-toggle .pill { position: absolute; left: 0; top: 4px; height: 40px; border-radius: 12px; background: hsl(var(--muted)); transition: transform var(--sl-dur-base) var(--sl-ease-in-out), width var(--sl-dur-base) var(--sl-ease-in-out); }
+.ds-toggle .save { display: inline-block; padding: 1px 7px; border-radius: 6px; background: var(--g-save); color: hsl(var(--neutral-50)); font: 700 14px/18px var(--ds-sans); margin-left: 8px; }
 
 </style>
 </head>
@@ -1693,11 +1696,11 @@ details.ds-q p { margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 
   <p class="ds-lede">All precise, all Figma. The only ink on controls: a hand "new" beside a newly added filter, once per user. No drawn underlines anywhere.</p>
   <div class="ds-grid ds-g2">
     <div class="ds-plate" data-ink-root>
-      <div class="ds-cap"><b>Standard tabs</b><span>everywhere but the top nav · 40 (32 tabs), sm 34 (28 tabs)</span></div>
+      <div class="ds-cap"><b>Standard tabs</b><span>everywhere but the top nav · bar heights 48 · 40 · 36</span></div>
       <div style="display:grid;gap:14px">
-        <div class="sl-tabs" data-sliding id="tabs-m" style="width:260px"><button class="sl-tab">Image</button><button class="sl-tab" aria-selected="true">Video</button></div>
-        <div class="sl-tabs" data-sliding id="tabs-a"><button class="sl-tab" aria-selected="true">Info</button><button class="sl-tab">Templates</button><button class="sl-tab">Canvas</button><button class="sl-tab">Generations</button></div>
-        <div class="sl-tabs" data-size="sm" data-sliding id="tabs-b"><button class="sl-tab" aria-selected="true">Outputs</button><button class="sl-tab">Character</button><button class="sl-tab">Poses</button><button class="sl-tab" id="tab-new">Backgrounds</button></div>
+        <div class="sl-tabs" data-size="48" data-sliding id="tabs-m" style="width:300px"><button class="sl-tab">Image</button><button class="sl-tab" aria-selected="true">Video</button></div>
+        <div class="sl-tabs" data-size="40" data-sliding id="tabs-a"><button class="sl-tab" aria-selected="true">Info</button><button class="sl-tab">Templates</button><button class="sl-tab">Canvas</button><button class="sl-tab">Generations</button></div>
+        <div class="sl-tabs" data-size="36" data-sliding id="tabs-b"><button class="sl-tab" aria-selected="true">Outputs</button><button class="sl-tab">Character</button><button class="sl-tab">Poses</button><button class="sl-tab" id="tab-new">Backgrounds</button></div>
       </div>
     </div>
     <div class="ds-plate">
@@ -1714,9 +1717,9 @@ details.ds-q p { margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 
       <p class="ds-spec">Errors are plain: a 1px danger outline and a fix. No ink, no critter.</p>
     </div>
     <div class="ds-plate">
-      <div class="ds-cap"><b>Billing toggle</b><span>shipped · 40px yellow keycap pill</span></div>
+      <div class="ds-cap"><b>Billing toggle</b><span>the standard tab component · 48</span></div>
       <div class="ds-toggle" id="bill" role="group" aria-label="Billing"><span class="pill" aria-hidden="true"></span><button type="button" aria-pressed="false">Monthly</button><button type="button" aria-pressed="true">Yearly <span class="save">−20%</span></button></div>
-      <p class="ds-spec">40px tall in the hero (36 elsewhere). The −20% is the dark-green savings chip at 14px, not mint text. On the yellow band the pill turns black. The compare table no longer repeats the toggle.</p>
+      <p class="ds-spec">Same as every tab bar: dark well, equal segments, the selected one muted with foreground text. No yellow pill, no lip. The −20% stays the dark-green savings chip at 14px. The compare table no longer repeats the toggle.</p>
       <div class="ds-row" style="margin-top:18px"><span class="ds-k">seat stepper</span><div class="ds-stepper"><button type="button" id="st-m" aria-label="Fewer seats">−</button><output id="st-o">3 seats</output><button type="button" id="st-p" aria-label="More seats">+</button></div></div>
     </div>
     <div class="ds-plate">
@@ -2001,7 +2004,7 @@ details.ds-q p { margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 
   <div class="ds-proto" data-ink-root>
     <div class="ds-row" style="justify-content:space-between">
       <div style="font:400 clamp(28px,3.4vw,44px)/1.05 var(--ds-display)">Upgrade your <span style="color:var(--g-yellow);position:relative;display:inline-block" id="pr-hl">plan.</span></div>
-      <div class="ds-toggle" id="bill2" role="group" aria-label="Billing" style="background:hsl(var(--neutral-900));box-shadow:inset 0 0 0 1px hsl(var(--neutral-800))"><span class="pill" aria-hidden="true"></span><button type="button" aria-pressed="false" style="color:hsl(var(--neutral-400))">Monthly</button><button type="button" aria-pressed="true">Yearly <span class="save">−20%</span></button></div>
+      <div class="ds-toggle" id="bill2" role="group" aria-label="Billing" style="background:hsl(var(--neutral-900))"><span class="pill" aria-hidden="true"></span><button type="button" aria-pressed="false">Monthly</button><button type="button" aria-pressed="true">Yearly <span class="save">−20%</span></button></div>
     </div>
     <div class="ds-plans" id="plans">
       <div class="ds-plan z-black" data-plan="creator"><div class="flock"></div><h4>Creator</h4><p>For one person making things.</p><div class="price"><span class="was">$19</span><span class="amt" data-m="19" data-y="15">$15</span><span class="per">per month</span></div><p class="bill">Billed <b>$180</b> once a year</p><button class="sl-btn" data-variant="secondary" data-size="lg">Subscribe to Creator</button><p class="keep">You save <i class="ds-save">$48</i> per year</p></div>
@@ -2736,20 +2739,21 @@ details.ds-q p { margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 
   // a doodled arrow cursor in yellow crayon with the logo's eyes on its body. Tip = hotspot at (4,3).
   var NUB_BODY = 'M4 3L4.6 31.5C4.7 33 6.2 33.4 7.2 32.4L12 27.6L16.2 36.4C16.8 37.6 18.2 38 19.3 37.4L21.4 36.3C22.4 35.7 22.8 34.4 22.2 33.3L18 24.8L25.4 24.2C26.9 24.1 27.5 22.3 26.4 21.3L6.3 2.2C5.4 1.3 4 1.9 4 3Z';
   function nubSVG(o) {
+    // DS4 change (Oct 2026): Nub matches the low-hand critters: flat crayon fill, one clean cream outline,
+    // no hatch, no second pen pass, no boil; eyes are white with a black pupil and a highlight, no black rim.
     o = o || {}; defs(); var size = o.size || 28, kpx = size / 40;
-    var svg = mk('svg', { viewBox: '0 0 40 40', 'class': 'sl-ink' + (o.boil === false ? '' : ' ink-boil') });
+    var svg = mk('svg', { viewBox: '0 0 40 40', 'class': 'sl-ink' });
     var body = mk('g', { 'class': 'nub-body' }, svg);
-    var fill = mk('path', { d: rough(NUB_BODY, { kpx: kpx, amp: .5 }), fill: hatch('yellow', kpx, 3.2) }, body);
-    var outl = pen(body, NUB_BODY, { kpx: kpx, cls: 'ink-pen-bold', amp: .55 });
+    var fill = mk('path', { d: NUB_BODY }, body); fill.style.fill = 'var(--ink-crayon)';
+    var outl = [mk('path', { d: NUB_BODY, 'class': 'ink-pen-bold' }, body)];
     var eyes = mk('g', { 'class': 'nub-eyes' }, body), pupils = [], lids = [];
-    [[9.2, 16.4], [14.4, 18.6]].forEach(function (c, i) {
-      mk('ellipse', { cx: c[0], cy: c[1], rx: 2.7, ry: 3.4, fill: '#0A0A0A' }, eyes);
-      mk('ellipse', { cx: c[0], cy: c[1], rx: 2.15, ry: 2.85, fill: '#FFFFFF' }, eyes);
-      var pg = mk('g', { 'class': 'nub-pupil' }, eyes); mk('circle', { cx: c[0] - .4, cy: c[1] - .6, r: 1.25, fill: '#0A0A0A' }, pg); mk('circle', { cx: c[0] - .05, cy: c[1] - 1, r: .38, fill: '#FFFFFF' }, pg);
+    [[9.2, 16.4], [14.4, 18.6]].forEach(function (c) {
+      mk('ellipse', { cx: c[0], cy: c[1], rx: 2.5, ry: 3.1, fill: '#FFFFFF' }, eyes);
+      var pg = mk('g', { 'class': 'nub-pupil' }, eyes); mk('circle', { cx: c[0] - .3, cy: c[1] - .4, r: 1.35, fill: '#0A0A0A' }, pg); mk('circle', { cx: c[0] + .15, cy: c[1] - .9, r: .4, fill: '#FFFFFF' }, pg);
       pg.style.transition = 'transform 140ms ease-out'; pupils.push(pg);
-      var lid = mk('ellipse', { cx: c[0], cy: c[1] - 3.4, rx: 2.7, ry: 3.4, fill: '#0A0A0A' }, eyes); lid.style.transformBox = 'fill-box'; lid.style.transformOrigin = '50% 0'; lid.style.transform = 'scaleY(0)'; lid.style.transition = 'transform 110ms'; lids.push(lid);
-      // lid sits above the eye top; scaleY(2) covers it
-      lid.setAttribute('cy', c[1] - 3.4); lid.setAttribute('ry', 1.7);
+      // the lid is body-coloured, sits above the eye top; scaleY(2) covers it
+      var lid = mk('ellipse', { cx: c[0], cy: c[1] - 3.1, rx: 2.6, ry: 1.6 }, eyes); lid.style.fill = 'var(--ink-crayon)';
+      lid.style.transformBox = 'fill-box'; lid.style.transformOrigin = '50% 0'; lid.style.transform = 'scaleY(0)'; lid.style.transition = 'transform 110ms'; lids.push(lid);
     });
     return { svg: svg, body: body, fill: fill, outline: outl, pupils: pupils, lids: lids };
   }
@@ -3330,7 +3334,7 @@ details.ds-q p { margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 
         var on = root.querySelector('button[aria-pressed="true"]'), r = on.getBoundingClientRect(), pr = root.getBoundingClientRect();
         if (instant) pill.style.transition = 'none';
         pill.style.width = r.width + 'px'; pill.style.transform = 'translateX(' + (r.left - pr.left) + 'px)';
-        bs.forEach(function (b) { b.style.color = b === on ? '#0A0A0A' : ''; });
+        // selected text colour comes from CSS (standard tab: foreground on muted)
         if (instant) requestAnimationFrame(function () { pill.style.transition = ''; });
       };
       bs.forEach(function (b) { b.addEventListener('click', function () { bs.forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); sync(); if (onChange) onChange(b.textContent.indexOf('Yearly') === 0); }); });

@@ -272,7 +272,7 @@
         var on = root.querySelector('button[aria-pressed="true"]'), r = on.getBoundingClientRect(), pr = root.getBoundingClientRect();
         if (instant) pill.style.transition = 'none';
         pill.style.width = r.width + 'px'; pill.style.transform = 'translateX(' + (r.left - pr.left) + 'px)';
-        bs.forEach(function (b) { b.style.color = b === on ? '#0A0A0A' : ''; });
+        // selected text colour comes from CSS (standard tab: foreground on muted)
         if (instant) requestAnimationFrame(function () { pill.style.transition = ''; });
       };
       bs.forEach(function (b) { b.addEventListener('click', function () { bs.forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); sync(); if (onChange) onChange(b.textContent.indexOf('Yearly') === 0); }); });

@@ -191,13 +191,6 @@ table.ds-matrix { width: 100%; min-width: 560px; border-collapse: collapse; font
 .ds-sticky { background: var(--ink-sticky); color: hsl(var(--neutral-950)); border-radius: var(--sl-radius-wobble); padding: 22px 22px; font: 700 22px/1.1 var(--ds-hand); transform: rotate(-2deg); max-width: 220px; }
 
 /* ── controls from the prototype ── */
-.ds-toggle { display: inline-flex; padding: 4px; border-radius: 16px; background: hsl(var(--background)); box-shadow: inset 0 0 0 1px hsl(var(--border)); position: relative; }
-.ds-toggle button { position: relative; z-index: 1; height: 42px; padding: 0 18px; border: 0; border-radius: 12px; background: none; color: hsl(var(--muted-foreground)); font: 510 15px/1 var(--ds-sans); cursor: pointer; transition: color var(--sl-dur-base); }
-.ds-toggle button[aria-pressed="true"] { color: hsl(var(--neutral-950)); font-weight: 600; }
-.ds-toggle .pill { position: absolute; top: 4px; height: 42px; border-radius: 12px; background: var(--g-yellow); box-shadow: inset 0 -3px 0 0 var(--g-lip); transition: transform var(--sl-dur-base) var(--sl-ease-in-out), width var(--sl-dur-base) var(--sl-ease-in-out); }
-.ds-toggle .save { color: var(--g-mint); font: 700 12.5px/1 var(--ds-sans); margin-left: 4px; }
-:root[data-theme="light"] .ds-toggle .save { color: #0E7A50; }
-.ds-toggle button[aria-pressed="true"] .save { color: hsl(var(--neutral-950)); opacity: .7; }
 .ds-stepper { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border-radius: 12px; background: hsl(var(--muted)); }
 .ds-stepper button { width: 32px; height: 32px; border: 0; border-radius: 9px; background: transparent; color: hsl(var(--foreground)); cursor: pointer; display: grid; place-items: center; font-size: 18px; line-height: 1; }
 .ds-stepper button:hover { background: hsl(var(--accent)); }
@@ -491,8 +484,6 @@ details.ds-q p { margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 
 .ds-plan .sl-btn { border-radius: 12px; }
 
 /* billing toggle: 40px, dark-green chip */
-.ds-toggle button, .ds-toggle .pill { height: 40px; }
-.ds-toggle .save, :root[data-theme="light"] .ds-toggle .save, .ds-toggle button[aria-pressed="true"] .save { display: inline-block; padding: 1px 7px; border-radius: 6px; background: var(--g-save); color: hsl(var(--neutral-50)); opacity: 1; font: 700 14px/18px var(--ds-sans); margin-left: 6px; }
 
 /* model tape: white */
 .ds-band { background: hsl(var(--neutral-0)); }
@@ -533,3 +524,11 @@ details.ds-q p { margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 
 .ds-fc h6 { line-height: 120%; } .ds-fc .f, .ds-fc .sv { line-height: 140%; }
 
 .ds-hcmp { display: flex; align-items: flex-end; gap: 14px; flex-wrap: wrap; min-height: 96px; }
+
+/* Billing toggle = the standard tab component (Oct 2026): dark well, equal segments, muted selection,
+   foreground text, no yellow, no lip. 48 bar (40 segments), the top of the 36 to 48 tab range. */
+.ds-toggle { display: inline-grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); padding: 4px; border-radius: 16px; background: hsl(var(--background)); position: relative; }
+.ds-toggle button { position: relative; z-index: 1; height: 40px; padding: 0 20px; border: 0; border-radius: 12px; background: none; color: hsl(var(--muted-foreground)); font: 500 16px/24px var(--ds-sans); cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; transition: color var(--sl-dur-base); }
+.ds-toggle button:hover, .ds-toggle button[aria-pressed="true"] { color: hsl(var(--foreground)); }
+.ds-toggle .pill { position: absolute; left: 0; top: 4px; height: 40px; border-radius: 12px; background: hsl(var(--muted)); transition: transform var(--sl-dur-base) var(--sl-ease-in-out), width var(--sl-dur-base) var(--sl-ease-in-out); }
+.ds-toggle .save { display: inline-block; padding: 1px 7px; border-radius: 6px; background: var(--g-save); color: hsl(var(--neutral-50)); font: 700 14px/18px var(--ds-sans); margin-left: 8px; }

@@ -95,18 +95,22 @@
    the selected one a muted fill with foreground text; no yellow, no lip, no underline. */
 .sl-tabs { display: inline-grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 0; padding: 4px; border-radius: 16px;
   background: hsl(var(--background)); position: relative; }
-.sl-tab { height: 32px; min-width: 0; padding: 0 16px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; border: 0; background: none;
+.sl-tab { min-width: 0; padding: 0 16px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; border: 0; background: none;
   color: hsl(var(--muted-foreground)); font: 500 14px/20px var(--slx-sans); cursor: pointer; position: relative; z-index: 1; white-space: nowrap; transition: color var(--sl-dur-base, 200ms); }
 .sl-tab:hover { color: hsl(var(--foreground)); }
 .sl-tab[aria-selected="true"] { color: hsl(var(--foreground)); }
 .sl-tabs:not([data-sliding]) .sl-tab[aria-selected="true"] { background: hsl(var(--muted)); }
-.sl-tabs .sl-tab-pill { position: absolute; left: 0; top: 4px; height: 32px; border-radius: 12px; background: hsl(var(--muted)); z-index: 0;
+.sl-tabs .sl-tab-pill { position: absolute; left: 0; top: 4px; border-radius: 12px; background: hsl(var(--muted)); z-index: 0;
   transition: transform var(--sl-dur-base, 200ms) var(--sl-ease-in-out, ease), width var(--sl-dur-base, 200ms) var(--sl-ease-in-out, ease); }
-.sl-tabs[data-size="sm"] { border-radius: 14px; padding: 3px; }
-.sl-tabs[data-size="sm"] .sl-tab, .sl-tabs[data-size="sm"] .sl-tab-pill { height: 28px; border-radius: 12px; }
-.sl-tabs[data-size="sm"] .sl-tab-pill { top: 3px; }
+/* Tab bar heights run 36 to 48 (Oct 2026): 36, 40 (default), 48. The well pads 4px, so tabs are 28, 32, 40. sm = 36. */
+.sl-tabs[data-size="36"], .sl-tabs[data-size="sm"] { --tab: 28px; }
+.sl-tabs, .sl-tabs[data-size="40"] { --tab: 32px; }
+.sl-tabs[data-size="48"] { --tab: 40px; }
+.sl-tabs .sl-tab, .sl-tabs .sl-tab-pill { height: var(--tab); }
+.sl-tabs[data-size="48"] .sl-tab { font-size: 16px; line-height: 24px; padding: 0 20px; }
 /* a wrapping filter list is not a tab bar: plain chips */
 .sl-tabs[data-plain] { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 0; background: none; border-radius: 0; }
+.sl-tabs[data-plain] .sl-tab { height: 36px; }
 .sl-chip { height: 28px; display: inline-flex; align-items: center; gap: 6px; padding: 0 8px 0 4px; border-radius: 8px; background: hsl(var(--muted));
   color: hsl(var(--foreground-subtle)); font: 400 12px/18px var(--slx-sans); border: 0; cursor: pointer; white-space: nowrap; }
 .sl-chip.sl-chip-icon { width: 28px; padding: 0; justify-content: center; }

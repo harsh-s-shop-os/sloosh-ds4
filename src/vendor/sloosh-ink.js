@@ -664,20 +664,21 @@
   // a doodled arrow cursor in yellow crayon with the logo's eyes on its body. Tip = hotspot at (4,3).
   var NUB_BODY = 'M4 3L4.6 31.5C4.7 33 6.2 33.4 7.2 32.4L12 27.6L16.2 36.4C16.8 37.6 18.2 38 19.3 37.4L21.4 36.3C22.4 35.7 22.8 34.4 22.2 33.3L18 24.8L25.4 24.2C26.9 24.1 27.5 22.3 26.4 21.3L6.3 2.2C5.4 1.3 4 1.9 4 3Z';
   function nubSVG(o) {
+    // DS4 change (Oct 2026): Nub matches the low-hand critters: flat crayon fill, one clean cream outline,
+    // no hatch, no second pen pass, no boil; eyes are white with a black pupil and a highlight, no black rim.
     o = o || {}; defs(); var size = o.size || 28, kpx = size / 40;
-    var svg = mk('svg', { viewBox: '0 0 40 40', 'class': 'sl-ink' + (o.boil === false ? '' : ' ink-boil') });
+    var svg = mk('svg', { viewBox: '0 0 40 40', 'class': 'sl-ink' });
     var body = mk('g', { 'class': 'nub-body' }, svg);
-    var fill = mk('path', { d: rough(NUB_BODY, { kpx: kpx, amp: .5 }), fill: hatch('yellow', kpx, 3.2) }, body);
-    var outl = pen(body, NUB_BODY, { kpx: kpx, cls: 'ink-pen-bold', amp: .55 });
+    var fill = mk('path', { d: NUB_BODY }, body); fill.style.fill = 'var(--ink-crayon)';
+    var outl = [mk('path', { d: NUB_BODY, 'class': 'ink-pen-bold' }, body)];
     var eyes = mk('g', { 'class': 'nub-eyes' }, body), pupils = [], lids = [];
-    [[9.2, 16.4], [14.4, 18.6]].forEach(function (c, i) {
-      mk('ellipse', { cx: c[0], cy: c[1], rx: 2.7, ry: 3.4, fill: '#0A0A0A' }, eyes);
-      mk('ellipse', { cx: c[0], cy: c[1], rx: 2.15, ry: 2.85, fill: '#FFFFFF' }, eyes);
-      var pg = mk('g', { 'class': 'nub-pupil' }, eyes); mk('circle', { cx: c[0] - .4, cy: c[1] - .6, r: 1.25, fill: '#0A0A0A' }, pg); mk('circle', { cx: c[0] - .05, cy: c[1] - 1, r: .38, fill: '#FFFFFF' }, pg);
+    [[9.2, 16.4], [14.4, 18.6]].forEach(function (c) {
+      mk('ellipse', { cx: c[0], cy: c[1], rx: 2.5, ry: 3.1, fill: '#FFFFFF' }, eyes);
+      var pg = mk('g', { 'class': 'nub-pupil' }, eyes); mk('circle', { cx: c[0] - .3, cy: c[1] - .4, r: 1.35, fill: '#0A0A0A' }, pg); mk('circle', { cx: c[0] + .15, cy: c[1] - .9, r: .4, fill: '#FFFFFF' }, pg);
       pg.style.transition = 'transform 140ms ease-out'; pupils.push(pg);
-      var lid = mk('ellipse', { cx: c[0], cy: c[1] - 3.4, rx: 2.7, ry: 3.4, fill: '#0A0A0A' }, eyes); lid.style.transformBox = 'fill-box'; lid.style.transformOrigin = '50% 0'; lid.style.transform = 'scaleY(0)'; lid.style.transition = 'transform 110ms'; lids.push(lid);
-      // lid sits above the eye top; scaleY(2) covers it
-      lid.setAttribute('cy', c[1] - 3.4); lid.setAttribute('ry', 1.7);
+      // the lid is body-coloured, sits above the eye top; scaleY(2) covers it
+      var lid = mk('ellipse', { cx: c[0], cy: c[1] - 3.1, rx: 2.6, ry: 1.6 }, eyes); lid.style.fill = 'var(--ink-crayon)';
+      lid.style.transformBox = 'fill-box'; lid.style.transformOrigin = '50% 0'; lid.style.transform = 'scaleY(0)'; lid.style.transition = 'transform 110ms'; lids.push(lid);
     });
     return { svg: svg, body: body, fill: fill, outline: outl, pupils: pupils, lids: lids };
   }
