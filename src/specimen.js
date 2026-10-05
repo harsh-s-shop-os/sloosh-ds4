@@ -71,17 +71,17 @@
 
   /* ── swatches, read live from the tokens ── */
   var SW = [
-    ['§', 'Palette', 'every colour comes from these ramps'],
+    ['§', 'sw-prim'],
     ['Neutral', '', [['neutral-0',''],['neutral-50',''],['neutral-100',''],['neutral-150',''],['neutral-200',''],['neutral-300',''],['neutral-400',''],['neutral-500',''],['neutral-600',''],['neutral-700',''],['neutral-800',''],['neutral-900',''],['neutral-950','']], 'ramp'],
     ['Sloosh yellow', 'creative-gen-accent', [['creative-gen-accent-50',''],['creative-gen-accent-100',''],['creative-gen-accent-200',''],['creative-gen-accent-300',''],['creative-gen-accent-400',''],['creative-gen-accent-500',''],['creative-gen-accent-600',''],['creative-gen-accent-700',''],['creative-gen-accent-800','']], 'ramp'],
-    ['Yellow', 'a second yellow; only 400 is used (yellow text)', [['yellow-50',''],['yellow-100',''],['yellow-200',''],['yellow-300',''],['yellow-400',''],['yellow-500',''],['yellow-600',''],['yellow-700',''],['yellow-800',''],['yellow-900',''],['yellow-950','']], 'ramp'],
+    ['Yellow', 'yellow text only (400)', [['yellow-50',''],['yellow-100',''],['yellow-200',''],['yellow-300',''],['yellow-400',''],['yellow-500',''],['yellow-600',''],['yellow-700',''],['yellow-800',''],['yellow-900',''],['yellow-950','']], 'ramp'],
     ['Red', '', [['red-50',''],['red-100',''],['red-200',''],['red-300',''],['red-400',''],['red-500',''],['red-600',''],['red-700',''],['red-800',''],['red-900',''],['red-950','']], 'ramp'],
     ['Amber', '', [['amber-50',''],['amber-100',''],['amber-200',''],['amber-300',''],['amber-400',''],['amber-500',''],['amber-600',''],['amber-700',''],['amber-800',''],['amber-900',''],['amber-950','']], 'ramp'],
     ['Emerald', '', [['emerald-50',''],['emerald-100',''],['emerald-200',''],['emerald-300',''],['emerald-400',''],['emerald-500',''],['emerald-600',''],['emerald-700',''],['emerald-800',''],['emerald-900',''],['emerald-950','']], 'ramp'],
     ['Blue', '', [['blue-50',''],['blue-100',''],['blue-200',''],['blue-300',''],['blue-400',''],['blue-500',''],['blue-600',''],['blue-700',''],['blue-800',''],['blue-900',''],['blue-950','']], 'ramp'],
     ['Violet', '', [['violet-50',''],['violet-100',''],['violet-200',''],['violet-300',''],['violet-400',''],['violet-500',''],['violet-600',''],['violet-700',''],['violet-800',''],['violet-900',''],['violet-950','']], 'ramp'],
     ['Green', '', [['green-600','']], 'ramp'],
-    ['§', 'Where each colour is used', 'the token, what it is for, and what it points at'],
+    ['§', 'sw-tok'],
     ['Surfaces', '', [['background','page'],['card','cards, panels, notes'],['popover','menus'],['muted','fields, chips, selected tab'],['accent','hover on muted'],['primary','inverse fill'],['surface-disabled','disabled controls']]],
     ['Text', '', [['foreground','primary text'],['foreground-subtle','secondary text'],['muted-foreground','muted text, idle tabs'],['disabled-foreground','disabled'],['brand-accent-text','yellow text and lines'],['text-shimmer-base','loading shimmer','f']]],
     ['Lines', '', [['border','default border'],['border-strong','hover edge, meters'],['input','field edge'],['ring','focus ring'],['layer-line','hairlines on phone sheets','f']]],
@@ -89,18 +89,18 @@
     ['Status', '', [['success','success fill'],['success-foreground','success text, savings'],['destructive','errors, failed runs'],['destructive-subtle','error fill'],['warning','warning fill'],['warning-foreground','warning text'],['info','info fill'],['info-foreground','links, info text'],['violet','brand status fill'],['violet-foreground','brand status text']]],
     ['Phone layers', 'sheets and screens below 768px', [['layer-1','sheets','f'],['layer-2','raised rows','f'],['layer-3','','f'],['layer-4','handles, pressed','f'],['layer-scrim','sheet scrim','f'],['dialog-overlay','modal backdrop','f']]],
     ['Agents', 'one colour per agent', [['agents-amber',''],['agents-red',''],['agents-green',''],['agents-blue',''],['agents-yellow',''],['agent','agent status']]],
-    ['Data types', 'node ports and tags', [['data-text','text · success'],['data-text-foreground','success-foreground'],['data-image','image · info'],['data-image-foreground','info-foreground'],['data-video','video · violet'],['data-video-foreground','violet-foreground'],['data-audio','audio · warning'],['data-audio-foreground','warning-foreground'],['data-any','any · muted'],['data-any-foreground','muted-foreground']]],
-    ['Ink', 'the drawn layer: critters, the pointer, rings, notes', [['ink-line','outlines, handwriting · foreground','f'],['ink-line-soft','asides · muted-foreground','f'],['ink-line-faint','sketches, trails · border-strong','f'],['ink-fill','critter and Nub body · brand-accent','f'],['ink-fill-light','hatch strokes · creative-gen-accent-300','f'],['ink-fill-deep','Burb, Fin · yellow-400','f'],['ink-tag','pointer tag · brand-accent','f'],['ink-note','pointer note · card','f'],['ink-note-foreground','note text · card-foreground','f'],['ink-pupil','pupils · neutral-950','f'],['ink-eye-white','eye whites · neutral-0','f'],['ink-shadow','ground shadow · muted-foreground 30%','f']]],
-    ['Marks', 'small drawn accents', [['mark-check','drawn checks · success-foreground','f'],['mark-heart','hearts, tears · destructive-subtle-foreground','f'],['mark-drop','drops, bubbles · blue-300','f'],['mark-collaborator','another person\'s marks · info-foreground','f'],['mark-spark','sparks, notice dot · warning-foreground','f'],['mark-cheek','critter cheeks · red-300','f']]],
-    ['Glow', 'Stage and the ember gradient only; not in the library yet', [['glow-950','','f',1],['glow-900','','f',1],['glow-800','','f',1],['glow-700','','f',1],['glow-400','','f',1],['glow-300','','f',1],['glow-ember','','f',1]]]
+    ['Data types', 'node ports and tags', [['data-text','text'],['data-text-foreground','tag text, port ring'],['data-image','image'],['data-image-foreground','tag text, port ring'],['data-video','video'],['data-video-foreground','tag text, port ring'],['data-audio','audio'],['data-audio-foreground','tag text, port ring'],['data-any','any'],['data-any-foreground','tag text, port ring']]],
+    ['Ink', 'the drawn layer: critters, the pointer, rings, notes', [['ink-line','outlines, handwriting','f'],['ink-line-soft','asides','f'],['ink-line-faint','sketches, trails','f'],['ink-fill','critter and Nub body','f'],['ink-fill-light','hatch strokes','f'],['ink-fill-deep','Burb, Fin','f'],['ink-tag','pointer tag','f'],['ink-note','pointer note','f'],['ink-note-foreground','note text','f'],['ink-pupil','pupils','f'],['ink-eye-white','eye whites','f'],['ink-shadow','ground shadow','f']]],
+    ['Marks', 'small drawn accents', [['mark-check','drawn checks','f'],['mark-heart','hearts, tears','f'],['mark-drop','drops, bubbles','f'],['mark-collaborator','another person\'s marks','f'],['mark-spark','sparks, notice dot','f'],['mark-cheek','critter cheeks','f']]],
+    ['Glow', 'Stage and the ember gradient only', [['glow-950','','f',1],['glow-900','','f',1],['glow-800','','f',1],['glow-700','','f',1],['glow-400','','f',1],['glow-300','','f',1],['glow-ember','','f',1]]]
   ];
   function toHex(c) { var m = c.match(/rgba?\(([^)]+)\)/); if (!m) return c; var p = m[1].split(/[ ,\/]+/).filter(Boolean).map(Number);
     var h = '#' + p.slice(0, 3).map(function (v) { return ('0' + Math.round(v).toString(16)).slice(-2); }).join('').toUpperCase(); return p.length > 3 && p[3] < 1 ? h + ' · ' + Math.round(p[3] * 100) + '%' : h; }
   function paintSwatches() {
-    var host = $('swatches'); if (!host) return;
-    if (!host.firstChild) {
+    var first = $('sw-prim'); if (!first) return; var host = first;
+    if (!first.firstChild) {
       SW.forEach(function (g) {
-        if (g[0] === '§') { var hh = document.createElement('h3'); hh.className = 'ds-sw-sys'; hh.innerHTML = g[1] + ' <span>' + g[2] + '</span>'; host.appendChild(hh); return; }
+        if (g[0] === '§') { host = $(g[1]); return; }
         var sec = document.createElement('div'); sec.className = 'ds-sw-group';
         sec.innerHTML = '<h4>' + g[0] + ' <span>' + g[1] + '</span></h4>';
         var grid = document.createElement('div'); grid.className = 'ds-sw' + (g[3] === 'ramp' ? ' ramp' : '');
@@ -113,26 +113,12 @@
         sec.appendChild(grid); host.appendChild(sec);
       });
     }
-    host.querySelectorAll('.ds-sw > div').forEach(function (d) { d.querySelector('code').textContent = toHex(getComputedStyle(d.querySelector('.chip')).backgroundColor); });
+    document.querySelectorAll('.ds-sw > div').forEach(function (d) { d.querySelector('code').textContent = toHex(getComputedStyle(d.querySelector('.chip')).backgroundColor); });
   }
   safe('swatches', paintSwatches);
   safe('budget', function () {
     var b = $('budget'); for (var i = 0; i < 100; i++) { var x = document.createElement('i'); if (i === 37 || i === 62) x.className = 'y'; b.appendChild(x); }
   });
-
-  /* ── SF Pro scale from the tokens ── */
-  safe('sans-scale', function () {
-    var rows = [['micro', 'Image · Video'], ['caption', 'JPEG and PNG, up to 2GB'], ['label', 'Additional context'], ['body-sm', 'Your generated assets will appear here.'], ['body-md', 'Run Space'],
-      ['body', 'Start on your own and bring your team in when the work grows.'], ['title', 'Popular this week'], ['title-md', 'Usage and billing'], ['h1', 'Create your custom space'], ['h-hero', 'Need this at scale?']];
-    var host = $('sans-scale');
-    rows.forEach(function (r) {
-      var sz = cssVar('--sl-text-' + r[0]), lh = cssVar('--sl-leading-' + r[0]), wt = cssVar('--sl-weight-' + r[0]);
-      var d = document.createElement('div');
-      d.innerHTML = '<span class="lab"><b>' + r[0] + '</b>' + sz + ' / ' + lh + ' · ' + wt + '</span><span class="s" style="font:' + wt + ' ' + sz + '/' + lh + ' var(--ds-sans)">' + r[1] + '</span>';
-      host.appendChild(d);
-    });
-  });
-
 
   /* ── Pricing v4 · settled: title letters, cards rising, the recommended-card carousel ── */
   var POP = cssVar('--spring-pop') || 'cubic-bezier(.34,1.56,.64,1)', CARD = cssVar('--spring-card') || 'cubic-bezier(.23,1,.32,1)';
@@ -330,15 +316,6 @@
     $('hand-again').addEventListener('click', writeAll);
 
     /* ── doodles: retired (Oct 2026). Icons come from Hugeicons. ── */
-    safe('hand-compare', function () {
-      ['bird', 'cat', 'squirrel', 'dog'].forEach(function (k) {
-        [['hand-low', 'low'], ['hand-full', 'full']].forEach(function (h) {
-          var w = document.createElement('span'); $(h[0]).appendChild(w);
-          S.critter(k, { size: 72, mount: w, gaze: 'none', hand: h[1], flip: k === 'cat' || k === 'dog' || k === 'squirrel' });
-        });
-      });
-    });
-
     /* ── the flock ── */
     safe('flock', function () {
       var order = ['bird', 'chick', 'cat', 'dog', 'mouse', 'squirrel', 'fish'];

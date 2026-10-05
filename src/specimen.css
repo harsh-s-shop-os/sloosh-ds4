@@ -543,3 +543,17 @@ details.ds-q p { margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 
 .ds-tstyles code, .ds-tstyles small { font: 400 12px/18px var(--ds-sans); color: hsl(var(--muted-foreground)); }
 .ds-tstyles .w { display: flex; gap: 20px; flex-wrap: wrap; min-width: 0; color: hsl(var(--foreground)); }
 @media (max-width: 720px) { .ds-tstyles .r { grid-template-columns: 1fr; gap: 4px; } }
+
+/* ── section parts (Oct 2026): every section runs primitives → tokens or components → usage ── */
+.ds-part { margin: 56px 0 16px; font: 600 12px/140% var(--ds-sans); letter-spacing: .08em; text-transform: uppercase; color: hsl(var(--brand-accent-text)); display: flex; align-items: center; gap: 10px; }
+.ds-part::after { content: ""; flex: 1; height: 1px; background: hsl(var(--border)); }
+.ds-sec > .ds-part:first-of-type { margin-top: 40px; }
+.ds-part + .ds-spec { margin-top: 0; margin-bottom: 16px; }
+.ds-prims { display: grid; gap: 12px; }
+.ds-prims div { display: grid; grid-template-columns: 120px 1fr; gap: 12px; align-items: baseline; }
+.ds-prims b { font: 500 14px/140% var(--ds-sans); }
+.ds-prims span { font: 500 14px/140% var(--ds-sans); color: hsl(var(--muted-foreground)); }
+.ds-space { display: grid; gap: 8px; }
+.ds-space div { display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: center; }
+.ds-space b { font: 500 12px/140% var(--ds-sans); color: hsl(var(--muted-foreground)); font-variant-numeric: tabular-nums; }
+.ds-space i { display: block; height: 12px; border-radius: 2px; background: hsl(var(--brand-accent)); }
