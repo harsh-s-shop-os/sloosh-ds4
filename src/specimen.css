@@ -15,8 +15,8 @@
   --g-black-2: #141414;
   --g-white: hsl(var(--neutral-0));
   --g-paper: #F6F4EE;
-  --g-yellow: hsl(var(--yellow-500));
-  --g-lip: hsl(var(--yellow-700));
+  --g-yellow: hsl(var(--creative-gen-accent-500));
+  --g-lip: hsl(var(--creative-gen-accent-700));
   --g-cream: #F3EBD3;
   --g-mint: #55DB9C;
 }
@@ -134,6 +134,11 @@ table.ds-matrix { width: 100%; min-width: 560px; border-collapse: collapse; font
 
 /* ── colour ── */
 .ds-sw-group { margin-top: 36px; }
+.ds-sw-sys { margin: 64px 0 0; padding-top: 24px; border-top: 1px solid hsl(var(--border)); font: 600 20px/30px var(--ds-sans); }
+.ds-sw-sys span { font-weight: 400; font-size: 14px; color: hsl(var(--muted-foreground)); margin-left: 8px; }
+.ds-sw.ramp { grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: 8px; }
+.ds-sw.ramp .chip { height: 44px; border-radius: 8px; }
+.ds-sw.ramp b { font-size: 12px; line-height: 16px; }
 .ds-sw-group h4 { margin: 0 0 12px; font: 510 14px/20px var(--ds-sans); display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
 .ds-sw-group h4 span { font-weight: 400; font-size: 13px; color: hsl(var(--muted-foreground)); }
 .ds-sw { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
@@ -152,11 +157,11 @@ table.ds-matrix { width: 100%; min-width: 560px; border-collapse: collapse; font
 .gr { position: relative; padding: clamp(36px, 5vw, 56px) clamp(20px, 4vw, 48px) clamp(56px, 7vw, 80px); }
 .gr.black { background: var(--g-black); color: hsl(var(--neutral-50)); --ink-pen: #F3EBD3; --ink-pen-soft: #CFC6AE; --brand-accent-text: var(--yellow-400); --muted-foreground: var(--neutral-400); }
 .gr.yellow { background: var(--g-yellow); color: hsl(var(--neutral-950));
-  --background: var(--yellow-500); --card: 47 100% 72%; --muted: 0 0% 4% / 0.08; --foreground: var(--neutral-950); --muted-foreground: 46.9 76.2% 16.5%; --border: 0 0% 4% / 0.14;
+  --background: var(--creative-gen-accent-500); --card: 47 100% 72%; --muted: 0 0% 4% / 0.08; --foreground: var(--neutral-950); --muted-foreground: 46.9 76.2% 16.5%; --border: 0 0% 4% / 0.14;
   --brand-accent-text: var(--neutral-950); --ink-pen: #0A0A0A; --ink-pen-soft: #2B2724; --ink-pen-faint: rgba(10,10,10,.3); --ink-shadow: rgba(10,10,10,.22); }
 .gr.white { background: var(--g-white); color: hsl(var(--neutral-950));
   --background: var(--neutral-0); --card: var(--neutral-100); --muted: var(--neutral-150); --foreground: var(--neutral-950); --muted-foreground: var(--neutral-600); --border: var(--neutral-200);
-  --brand-accent-text: var(--yellow-700); --ink-pen: #2B2724; --ink-pen-soft: #6E675D; --ink-pen-faint: #C9C1B2; --ink-shadow: rgba(120,110,90,.28); }
+  --brand-accent-text: var(--creative-gen-accent-700); --ink-pen: #2B2724; --ink-pen-soft: #6E675D; --ink-pen-faint: #C9C1B2; --ink-shadow: rgba(120,110,90,.28); }
 .gr .k { font: 510 12px/1 var(--ds-sans); letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
 .gr h3 { margin: 12px 0 0; font: 400 clamp(30px, 4.4vw, 52px)/1 var(--ds-display); letter-spacing: -.015em; max-width: 16ch; }
 .gr p { margin: 12px 0 0; max-width: 46ch; color: hsl(var(--muted-foreground)); font-size: 16px; line-height: 24px; }
@@ -168,12 +173,12 @@ table.ds-matrix { width: 100%; min-width: 560px; border-collapse: collapse; font
 
 /* prototype keycap variants */
 /* xl (56) is retired: it now renders at 48, the top of the scale */
-.sl-btn[data-variant="ink"] { background: hsl(var(--neutral-950)); color: hsl(var(--yellow-500)); box-shadow: inset 0 calc(var(--lip) * -1) 0 0 hsl(var(--neutral-700)); }
+.sl-btn[data-variant="ink"] { background: hsl(var(--neutral-950)); color: hsl(var(--creative-gen-accent-500)); box-shadow: inset 0 calc(var(--lip) * -1) 0 0 hsl(var(--neutral-700)); }
 .sl-btn[data-variant="ink"]:hover { background: var(--layer-2); }
 .sl-btn[data-variant="ink"]:active { transform: translateY(var(--lip)); box-shadow: none; }
 .ds-bsz { display: grid; grid-template-columns: 92px repeat(6, max-content); gap: 18px 14px; align-items: center; overflow-x: auto; padding-bottom: 6px; }
 .ds-bsz .hd { font-size: 12px; line-height: 18px; color: hsl(var(--muted-foreground)); font-variant-numeric: tabular-nums; }
-.ds-bsz.on-ground { padding: 18px; border-radius: 12px; background: hsl(var(--yellow-500)); grid-template-columns: 92px repeat(6, max-content); }
+.ds-bsz.on-ground { padding: 18px; border-radius: 12px; background: hsl(var(--creative-gen-accent-500)); grid-template-columns: 92px repeat(6, max-content); }
 .ds-bsz.on-ground .ds-k { color: hsl(var(--neutral-950)); }
 
 /* ── shape ── */
@@ -414,7 +419,7 @@ details.ds-q p { margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 
    plus overrides that bring the older plates in line with what shipped.
    ============================================================ */
 :root {
-  --g-accent-600: hsl(var(--yellow-600)); --g-accent-700: hsl(var(--yellow-700)); --g-n300: hsl(var(--neutral-300));
+  --g-accent-600: hsl(var(--creative-gen-accent-600)); --g-accent-700: hsl(var(--creative-gen-accent-700)); --g-n300: hsl(var(--neutral-300));
   --g-save: hsl(var(--emerald-700));   /* emerald-700 (the app's light success-foreground) */
   --spring-pop: linear(0, 0.0237, 0.0854, 0.174, 0.2798, 0.3943, 0.5106, 0.623, 0.7276, 0.8213, 0.9025, 0.9702, 1.0244, 1.0657, 1.0951, 1.1138, 1.1234, 1.1255, 1.1215, 1.1131, 1.1015, 1.0879, 1.0734, 1.0589, 1.0449, 1.032, 1.0205, 1.0106, 1.0024, 0.9959, 0.991, 0.9875, 0.9854, 0.9844, 0.9843, 0.9849, 0.986, 0.9875, 0.9893, 0.9911, 0.9929, 0.9947, 0.9963, 0.9977, 0.9989, 0.9999, 1.0006, 1.0012, 1);
   --spring-card: linear(0, 0.0138, 0.0478, 0.0981, 0.1565, 0.2208, 0.2902, 0.3578, 0.4241, 0.49, 0.5502, 0.6063, 0.6598, 0.7068, 0.7492, 0.7885, 0.8221, 0.8526, 0.8783, 0.9006, 0.9204, 0.9367, 0.9505, 0.9624, 0.972, 0.9799, 0.9865, 0.9916, 0.9957, 0.9989, 1.0013, 1.0031, 1.0044, 1.0052, 1.0057, 1.006, 1.006, 1.0059, 1.0056, 1.0053, 1.005, 1.0046, 1.0042, 1.0037, 1.0033, 1.003, 1.0026, 1.0023, 1);
@@ -532,3 +537,9 @@ details.ds-q p { margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 
 .ds-toggle button:hover, .ds-toggle button[aria-pressed="true"] { color: hsl(var(--foreground)); }
 .ds-toggle .pill { position: absolute; left: 0; top: 4px; height: 40px; border-radius: 12px; background: hsl(var(--muted)); transition: transform var(--sl-dur-base) var(--sl-ease-in-out), width var(--sl-dur-base) var(--sl-ease-in-out); }
 .ds-toggle .save { display: inline-block; padding: 1px 7px; border-radius: 6px; background: var(--g-save); color: hsl(var(--neutral-50)); font: 700 14px/18px var(--ds-sans); margin-left: 8px; }
+
+.ds-tstyles { display: grid; gap: 14px; }
+.ds-tstyles .r { display: grid; grid-template-columns: 120px 120px minmax(0, 1fr); gap: 12px; align-items: baseline; }
+.ds-tstyles code, .ds-tstyles small { font: 400 12px/18px var(--ds-sans); color: hsl(var(--muted-foreground)); }
+.ds-tstyles .w { display: flex; gap: 20px; flex-wrap: wrap; min-width: 0; color: hsl(var(--foreground)); }
+@media (max-width: 720px) { .ds-tstyles .r { grid-template-columns: 1fr; gap: 4px; } }

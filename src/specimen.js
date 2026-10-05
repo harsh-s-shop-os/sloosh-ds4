@@ -71,21 +71,33 @@
 
   /* ── swatches, read live from the tokens ── */
   var SW = [
-    ['Neutral', 'primitives, the app\'s ramp', [['neutral-0',''],['neutral-50',''],['neutral-100',''],['neutral-150',''],['neutral-200',''],['neutral-300',''],['neutral-400',''],['neutral-500',''],['neutral-600',''],['neutral-700',''],['neutral-800',''],['neutral-900',''],['neutral-950','']]],
-    ['Yellow', 'the app has four steps', [['yellow-100','accent ring'],['yellow-400','yellow text and lines'],['yellow-500','keycap face, fills'],['yellow-700','keycap lip'],['yellow-600','DS4 only: card shadow on yellow', 't', 1]]],
-    ['Surfaces', 'semantic, follow the theme', [['background','page'],['card','cards, panels'],['popover','menus'],['muted','fields, chips, active tab'],['secondary',''],['accent','hover on muted'],['primary','inverse fill'],['surface-disabled','']]],
-    ['Text', '', [['foreground','primary text'],['foreground-subtle','secondary text'],['muted-foreground','muted text'],['disabled-foreground','disabled'],['primary-foreground','text on inverse'],['layer-dim','placeholder','f']]],
-    ['Lines', '', [['border','default border'],['border-strong','hover, meters'],['input','field edge'],['ring','focus'],['layer-line','hairline','f'],['layer-line-strong','strong hairline','f']]],
+    ['§', 'shadcn colour system', 'Figma primitives and Color System, shadcn/ui names'],
+    ['Neutral', 'primitives', [['neutral-0',''],['neutral-50',''],['neutral-100',''],['neutral-150',''],['neutral-200',''],['neutral-300',''],['neutral-400',''],['neutral-500',''],['neutral-600',''],['neutral-700',''],['neutral-800',''],['neutral-900',''],['neutral-950','']], 'ramp'],
+    ['Creative gen accent', 'the Sloosh yellow: brand-accent is 500', [['creative-gen-accent-50',''],['creative-gen-accent-100',''],['creative-gen-accent-200',''],['creative-gen-accent-300',''],['creative-gen-accent-400',''],['creative-gen-accent-500',''],['creative-gen-accent-600',''],['creative-gen-accent-700',''],['creative-gen-accent-800','']], 'ramp'],
+    ['Yellow', 'a separate ramp: 400 is brand-accent-text, 500 is #FECE00 (not the brand yellow)', [['yellow-50',''],['yellow-100',''],['yellow-200',''],['yellow-300',''],['yellow-400',''],['yellow-500',''],['yellow-600',''],['yellow-700',''],['yellow-800',''],['yellow-900',''],['yellow-950','']], 'ramp'],
+    ['Red', '', [['red-50',''],['red-100',''],['red-200',''],['red-300',''],['red-400',''],['red-500',''],['red-600',''],['red-700',''],['red-800',''],['red-900',''],['red-950','']], 'ramp'],
+    ['Amber', '', [['amber-50',''],['amber-100',''],['amber-200',''],['amber-300',''],['amber-400',''],['amber-500',''],['amber-600',''],['amber-700',''],['amber-800',''],['amber-900',''],['amber-950','']], 'ramp'],
+    ['Emerald', '', [['emerald-50',''],['emerald-100',''],['emerald-200',''],['emerald-300',''],['emerald-400',''],['emerald-500',''],['emerald-600',''],['emerald-700',''],['emerald-800',''],['emerald-900',''],['emerald-950','']], 'ramp'],
+    ['Blue', '', [['blue-50',''],['blue-100',''],['blue-200',''],['blue-300',''],['blue-400',''],['blue-500',''],['blue-600',''],['blue-700',''],['blue-800',''],['blue-900',''],['blue-950','']], 'ramp'],
+    ['Violet', '', [['violet-50',''],['violet-100',''],['violet-200',''],['violet-300',''],['violet-400',''],['violet-500',''],['violet-600',''],['violet-700',''],['violet-800',''],['violet-900',''],['violet-950','']], 'ramp'],
+    ['Green and orange', 'green-600 is Figma (agents); orange-400 is not in Figma', [['green-600',''],['orange-400','audio ports','t',1]], 'ramp'],
+    ['shadcn core', 'names exactly as shadcn/ui', [['background','page'],['foreground','text'],['card','cards, panels'],['card-foreground',''],['popover','menus'],['popover-foreground',''],['primary','inverse fill'],['primary-foreground',''],['secondary',''],['secondary-foreground',''],['muted','fields, chips, active tab'],['muted-foreground','muted text'],['accent','hover on muted'],['accent-foreground',''],['destructive','errors'],['destructive-foreground',''],['border','default border'],['input','field edge'],['ring','focus']]],
+    ['Charts', '', [['chart-1',''],['chart-2',''],['chart-3',''],['chart-4',''],['chart-5','']]],
+    ['Sidebar', '', [['sidebar',''],['sidebar-foreground',''],['sidebar-primary',''],['sidebar-primary-foreground',''],['sidebar-accent',''],['sidebar-accent-foreground',''],['sidebar-border',''],['sidebar-ring','']]],
+    ['Text, surfaces and lines', 'extensions in the shadcn pattern', [['foreground-subtle','secondary text'],['disabled-foreground','disabled'],['surface-disabled',''],['disabled-border',''],['border-strong','hover, meters'],['border-light','Figma line/borderlight'],['text-shimmer-base','loading shimmer','f']]],
+    ['Status', 'x, x-foreground, x-border', [['destructive-subtle',''],['destructive-subtle-foreground',''],['destructive-border',''],['success',''],['success-foreground',''],['success-border',''],['warning',''],['warning-foreground',''],['warning-border',''],['info',''],['info-foreground',''],['info-border',''],['violet',''],['violet-foreground',''],['violet-border',''],['status-yellow',''],['status-yellow-foreground',''],['status-yellow-border','']]],
+    ['Agents', 'Figma Agents and status/agent; same in both themes', [['agent',''],['agents-amber',''],['agents-red',''],['agents-green',''],['agents-blue',''],['agents-yellow',''],['action-brand-foreground','Figma action/brandforeground']]],
     ['Brand accent', 'the app\'s [data-brand="sloosh"]', [['brand-accent','fills'],['brand-accent-foreground','text on yellow'],['brand-accent-edge','keycap lip'],['brand-accent-text','yellow text and lines'],['brand-accent-subtle','credit chip, tinted','f'],['brand-accent-ring',''],['brand-accent-chip','pill on a yellow button','f'],['brand-accent-glow','DS4 only: halo','f',1]]],
     ['Layers', 'the mobile prototype\'s ladder', [['layer-1','sheets','f'],['layer-2','','f'],['layer-3','','f'],['layer-4','','f'],['layer-scrim','sheet scrim','f'],['dialog-overlay','modal backdrop','f']]],
-    ['Status', 'plain, never ink', [['success','fill'],['success-foreground','text, savings'],['destructive','errors, failed runs'],['destructive-subtle','error fill'],['warning',''],['warning-foreground',''],['info',''],['info-foreground','links'],['violet',''],['violet-foreground','']]],
-    ['Data types', 'DS4 only, built from app primitives', [['data-text','','t',1],['data-text-foreground','','t',1],['data-image','','t',1],['data-image-foreground','','t',1],['data-video','','t',1],['data-video-foreground','','t',1],['data-audio','','t',1],['data-audio-foreground','orange-400, not in the app','t',1],['data-any','','t',1],['data-any-foreground','','t',1]]],
-    ['Ink', 'DS4 only: the pencil layer', [
-      ['ink-pen', 'lines, handwriting','f',1], ['ink-pen-soft', 'asides','f',1], ['ink-pen-faint', 'sketches, tracks','f',1], ['ink-crayon', 'critter fill','f',1], ['ink-crayon-line', 'hatch strokes','f',1], ['ink-crayon-deep', 'Burb, Fin','f',1],
-      ['ink-sticky', 'pointer tag','f',1], ['ink-note', 'paper note','f',1], ['ink-note-fg', 'note text','f',1], ['ink-eye', 'pupils, rims','f',1], ['ink-eye-white', 'eye whites','f',1]]],
-    ['Supporting inks', 'DS4 only, small and purposeful', [
-      ['ink-mint', 'drawn checks','f',1], ['ink-rose', 'hearts, tears','f',1], ['ink-sky', 'drops, bubbles','f',1], ['ink-blue', 'collaborator marks','f',1], ['ink-ember', 'sparks, notice dot','f',1], ['ink-blush', 'cheeks','f',1]]],
-    ['Stickers', 'DS4 only, confetti on Stage', [['sticker-lavender','','f',1],['sticker-mint','','f',1],['sticker-blue','','f',1],['sticker-ember','','f',1],['sticker-violet','','f',1]]]
+    ['Data types', 'DS4 only, built from primitives', [['data-text','','t',1],['data-text-foreground','','t',1],['data-image','','t',1],['data-image-foreground','','t',1],['data-video','','t',1],['data-video-foreground','','t',1],['data-audio','','t',1],['data-audio-foreground','','t',1],['data-any','','t',1],['data-any-foreground','','t',1]]],
+    ['§', 'Ink colour system', 'kept separate from shadcn: ink-tokens.css'],
+    ['Ink', 'the pencil layer', [
+      ['ink-pen', 'lines, handwriting','f'], ['ink-pen-soft', 'asides','f'], ['ink-pen-faint', 'sketches, tracks','f'], ['ink-crayon', 'critter fill','f'], ['ink-crayon-line', 'hatch strokes','f'], ['ink-crayon-deep', 'Burb, Fin','f'],
+      ['ink-sticky', 'pointer tag','f'], ['ink-note', 'paper note','f'], ['ink-note-fg', 'note text','f'], ['ink-eye', 'pupils, rims','f'], ['ink-eye-white', 'eye whites','f']]],
+    ['Supporting inks', 'small and purposeful', [
+      ['ink-mint', 'drawn checks','f'], ['ink-rose', 'hearts, tears','f'], ['ink-sky', 'drops, bubbles','f'], ['ink-blue', 'collaborator marks','f'], ['ink-ember', 'sparks, notice dot','f'], ['ink-blush', 'cheeks','f']]],
+    ['Stickers', 'confetti on Stage', [['sticker-lavender','','f'],['sticker-mint','','f'],['sticker-blue','','f'],['sticker-ember','','f'],['sticker-violet','','f']]],
+    ['Glow', 'Stage and the ember gradient', [['glow-950','','f'],['glow-900','','f'],['glow-800','','f'],['glow-700','','f'],['glow-400','','f'],['glow-300','','f'],['glow-ember','','f']]]
   ];
   function toHex(c) { var m = c.match(/rgba?\(([^)]+)\)/); if (!m) return c; var p = m[1].split(/[ ,\/]+/).filter(Boolean).map(Number);
     var h = '#' + p.slice(0, 3).map(function (v) { return ('0' + Math.round(v).toString(16)).slice(-2); }).join('').toUpperCase(); return p.length > 3 && p[3] < 1 ? h + ' · ' + Math.round(p[3] * 100) + '%' : h; }
@@ -93,9 +105,10 @@
     var host = $('swatches'); if (!host) return;
     if (!host.firstChild) {
       SW.forEach(function (g) {
+        if (g[0] === '§') { var hh = document.createElement('h3'); hh.className = 'ds-sw-sys'; hh.innerHTML = g[1] + ' <span>' + g[2] + '</span>'; host.appendChild(hh); return; }
         var sec = document.createElement('div'); sec.className = 'ds-sw-group';
         sec.innerHTML = '<h4>' + g[0] + ' <span>' + g[1] + '</span></h4>';
-        var grid = document.createElement('div'); grid.className = 'ds-sw';
+        var grid = document.createElement('div'); grid.className = 'ds-sw' + (g[3] === 'ramp' ? ' ramp' : '');
         g[2].forEach(function (t) {
           var d = document.createElement('div'), expr = t[2] === 'f' ? 'var(--' + t[0] + ')' : 'hsl(var(--' + t[0] + '))';
           if (t[3]) d.className = 'ext';

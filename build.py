@@ -3,7 +3,7 @@
 
     python3 build.py
 
-Reads  src/vendor/tokens.css, src/vendor/sloosh-ink.css, src/vendor/sloosh-ink.js  (copied unchanged from the V4 zip)
+Reads  src/vendor/tokens.css, src/vendor/ink-tokens.css, src/vendor/sloosh-ink.css, src/vendor/sloosh-ink.js  (copied unchanged from the V4 zip)
 and    src/specimen.css, src/specimen.body.html, src/specimen.js                   (this page)
 Writes index.html (open it in any browser).
 
@@ -20,7 +20,7 @@ def read(p):
 
 
 def parts():
-    tokens, ink_css, engine = read('vendor/tokens.css'), read('vendor/sloosh-ink.css'), read('vendor/sloosh-ink.js')
+    tokens, ink_css, engine = read('vendor/tokens.css') + '\n' + read('vendor/ink-tokens.css'), read('vendor/sloosh-ink.css'), read('vendor/sloosh-ink.js')
     css, body, js = read('specimen.css'), read('specimen.body.html'), read('specimen.js')
     for name, s in (('engine', engine), ('specimen.js', js)):
         assert '</script' not in s.lower(), name + ' contains a closing script tag'

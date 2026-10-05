@@ -191,13 +191,27 @@
       </tbody>
     </table>
   </div>
+  <h3 class="ds-h3">Figma text styles</h3>
+  <p class="ds-spec" style="max-width:72ch">Added as tokens and one class per style (<code>.text-14px-medium</code>, <code>.display-48px-semibold</code>…), straight from Figma. <b>Not applied to the page yet.</b> SF Pro; Regular 400, Medium 500, Semibold 600, Bold 700 (in the variables, no style uses it). Display 72/90 exists as a variable only.</p>
+  <div class="ds-plate ds-tstyles" style="margin-top:16px">
+        <div class="r"><code>text-12px</code><small>12 / 18</small><div class="w"><span class="text-12px-regular">Regular</span><span class="text-12px-medium">Medium</span></div></div>
+        <div class="r"><code>text-14px</code><small>14 / 20</small><div class="w"><span class="text-14px-regular">Regular</span><span class="text-14px-medium">Medium</span></div></div>
+        <div class="r"><code>text-16px</code><small>16 / 24 · semibold 140%</small><div class="w"><span class="text-16px-regular">Regular</span><span class="text-16px-medium">Medium</span><span class="text-16px-semibold">Semibold</span></div></div>
+        <div class="r"><code>text-20px</code><small>20 / 30</small><div class="w"><span class="text-20px-regular">Regular</span><span class="text-20px-medium">Medium</span><span class="text-20px-semibold">Semibold</span></div></div>
+        <div class="r"><code>display-24px</code><small>24 / 32</small><div class="w"><span class="display-24px-regular">Regular</span><span class="display-24px-medium">Medium</span><span class="display-24px-semibold">Semibold</span></div></div>
+        <div class="r"><code>display-28px</code><small>28 / 36</small><div class="w"><span class="display-28px-regular">Regular</span><span class="display-28px-medium">Medium</span><span class="display-28px-semibold">Semibold</span></div></div>
+        <div class="r"><code>display-32px</code><small>32 / 40</small><div class="w"><span class="display-32px-regular">Regular</span><span class="display-32px-medium">Medium</span><span class="display-32px-semibold">Semibold</span></div></div>
+        <div class="r"><code>display-36px</code><small>36 / 44</small><div class="w"><span class="display-36px-regular">Regular</span><span class="display-36px-medium">Medium</span><span class="display-36px-semibold">Semibold</span></div></div>
+        <div class="r"><code>display-48px</code><small>48 / 60</small><div class="w"><span class="display-48px-regular">Regular</span><span class="display-48px-medium">Medium</span><span class="display-48px-semibold">Semibold</span></div></div>
+        <div class="r"><code>display-60px</code><small>60 / 72</small><div class="w"><span class="display-60px-regular">Regular</span><span class="display-60px-medium">Medium</span><span class="display-60px-semibold">Semibold</span></div></div>
+  </div>
 </section>
 
 <!-- ═════════ COLOUR ═════════ -->
 <section class="ds-sec" id="colour">
   <p class="ds-eyebrow">Colour</p>
   <h2 class="ds-h2">Dark studio, one yellow, cream ink</h2>
-  <p class="ds-lede">Names and values are the Sloosh app's (packages/ui): primitives as HSL triples, the semantic set on top (background, card, muted, foreground, border…), the brand accent from its <code>[data-brand="sloosh"]</code> block and the layer ladder from the mobile prototype. Read live, so they flip with the theme switch. Swatches marked <b>DS4</b> are not in the app yet: ink, stickers, data types, the glow and yellow-600.</p>
+  <p class="ds-lede">Two systems. <b>shadcn</b>: Figma's primitives and Color System under shadcn/ui names (background, foreground, card, muted, primary, accent, border, ring, chart, sidebar), extended in the same pattern for status, agents and the Sloosh brand accent. Light is Figma's; dark is the app's shadcn dark, since the Figma paste has light only. <b>Ink</b>: the pencil layer's own colours, kept separate. Read live, so they flip with the theme switch. <b>DS4</b> marks tokens that are in neither Figma nor the app.</p>
   <div id="swatches"></div>
   <div class="ds-grid ds-g2" style="margin-top:36px">
     <div class="ds-plate">
@@ -211,7 +225,7 @@
         <span style="display:inline-block;width:64px;height:40px;border-radius:8px;background:hsl(var(--brand-accent));box-shadow:inset 0 -2px 0 0 hsl(var(--brand-accent-edge))"></span>
         <svg width="120" height="40" viewBox="0 0 120 40" aria-hidden="true"><path d="M4 26 C 30 10, 60 34, 116 16" fill="none" stroke="hsl(var(--brand-accent-text))" stroke-width="2.4" stroke-linecap="round"/></svg>
       </div>
-      <p class="ds-spec">Fills use <b>brand-accent</b> (yellow-500 #FECC15) in both themes. Lines and yellow text use <b>brand-accent-text</b>: yellow-400 #FAC01A on dark, yellow-700 #AF8705 on light. The app is dark-only and keeps yellow-400; the light value is DS4's. Eyes never change colour.</p>
+      <p class="ds-spec">Fills use <b>brand-accent</b> (creative-gen-accent-500 #FECC15) in both themes. Lines and yellow text use <b>brand-accent-text</b>: yellow-400 #FAC01A on dark, creative-gen-accent-700 #AF8705 on light. The app is dark-only and keeps yellow-400; the light value is DS4's. Eyes never change colour.</p>
     </div>
   </div>
 </section>
@@ -237,12 +251,12 @@
       <p>Ink turns black. Keycaps turn black with yellow labels. Critters stay yellow and keep a black outline.</p>
       <div class="row"><button class="sl-btn" data-variant="ink" data-size="48">Book a deployment call</button><span class="aside">takes 30s</span></div>
       <span class="crit" data-critter="dog" data-size="84" data-gaze="none" data-flip></span>
-      <svg class="edge" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true" style="color:hsl(var(--yellow-500))"><path d="M0 0H1440V22C1360 44 1290 44 1200 30C1100 14 1040 12 940 28C830 46 760 48 660 34C560 20 500 10 400 22C290 36 230 50 130 44C80 41 40 32 0 24Z"/></svg>
+      <svg class="edge" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true" style="color:hsl(var(--creative-gen-accent-500))"><path d="M0 0H1440V22C1360 44 1290 44 1200 30C1100 14 1040 12 940 28C830 46 760 48 660 34C560 20 500 10 400 22C290 36 230 50 130 44C80 41 40 32 0 24Z"/></svg>
     </div>
     <div class="gr white" id="gr-white">
       <span class="k">White ground</span>
       <h3>Which plan fits your month?</h3>
-      <p>Ink turns charcoal #2B2724. Yellow strokes darken to yellow-700 #AF8705. Paper panels use #F6F4EE.</p>
+      <p>Ink turns charcoal #2B2724. Yellow strokes darken to creative-gen-accent-700 #AF8705. Paper panels use #F6F4EE.</p>
       <div class="row"><button class="sl-btn" data-variant="primary" data-size="48">Subscribe to Pro</button><span class="aside">most picked</span></div>
       <span class="crit" data-critter="cat" data-size="84" data-gaze="none"></span>
     </div>
@@ -262,6 +276,7 @@
         <div><i style="border-radius:8px"></i><b>lg 8</b><small>fields, chips</small></div>
         <div><i style="border-radius:12px"></i><b>xl 12</b><small>every button, tiles, toasts</small></div>
         <div><i style="border-radius:16px"></i><b>2xl 16</b><small>cards, switch</small></div>
+        <div><i style="border-radius:20px"></i><b>3xl 20</b><small>floating panels (Figma)</small></div>
         <div><i style="border-radius:24px"></i><b>sheet 24</b><small>sheets, modals</small></div>
         <div><i style="border-radius:9999px"></i><b>full</b><small>pills, chips</small></div>
         <div><i style="border-radius:var(--sl-radius-wobble);background:var(--ink-sticky);box-shadow:none"></i><b>wobble</b><small>sticky notes, Stage</small></div>

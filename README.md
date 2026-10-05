@@ -20,8 +20,10 @@ Sources: `sloosh-design-system-v4.zip` (DESIGN.md, tokens, the SlooshInk engine)
 - Theme: `data-theme="dark|light"` on `<html>`; the switch in the top bar sets it and remembers it per browser.
 - Don't wrap the page in `.sl-root`: its `button { font: inherit }` rule overrides the keycap type.
 
-## Colour tokens follow the Sloosh app (Oct 2026)
+## Colour: two systems (Oct 2026)
 
-`src/vendor/tokens.css` now uses the app's names and values (packages/ui `primitive-tokens.css`, `semantic-tokens.css`, the `[data-brand="sloosh"]` block): HSL triples used as `hsl(var(--x))` (`--neutral-*`, `--yellow-*`, `--background`, `--card`, `--muted`, `--foreground`, `--muted-foreground`, `--border`, `--brand-accent*`, status) and full colours used as `var(--x)` (`--layer-*`, `--brand-accent-subtle`, `--brand-accent-chip`, overlays). The old `--sl-*` colour names are gone. DS4-only tokens, not in the app yet: `--yellow-600` (#D9AA0A, card shadow on yellow), `--orange-400`, `--glow-*`, `--brand-accent-glow`, `--data-*`, `--sticker-*`, `--ink-*`. Non-colour tokens (type, motion, radius, space, shadows) keep their `--sl-` names for now.
+- **shadcn** (`src/vendor/tokens.css`): Figma's "Primitives" (every ramp, incl. `creative-gen-accent-50..800`, the Sloosh yellow, and the separate Tailwind-style `yellow-*`) as HSL triples used as `hsl(var(--x))`, plus the shadcn/ui semantic set with shadcn names (`background`, `foreground`, `card`, `popover`, `primary`, `secondary`, `muted`, `accent`, `destructive`, `border`, `input`, `ring`, `chart-1..5`, `sidebar-*`). Light values are Figma's "Color System"; dark values are the app's shadcn dark (the Figma paste had light only). Extensions follow the same `x` / `x-foreground` / `x-border` pattern: status, `status-yellow`, `violet` (Figma status/brand), `agent`, `agents-*`, `brand-accent*`, `layer-*`, `data-*`.
+- **Ink** (`src/vendor/ink-tokens.css`): `ink-*`, `sticker-*`, `glow-*`, full colours, kept separate.
+- Also from Figma: `--rounded-*`, `--spacing-*`, typography tokens and one class per text style (`.text-14px-medium` …), not yet applied to the page.
 
 Buttons: one size scale for every style, 24 / 28 / 32 / 36 / 40 / 48 (`data-size`), radius 12 at every size. Tabs outside the top nav: a dark well with equal-width segments, the selected one muted.

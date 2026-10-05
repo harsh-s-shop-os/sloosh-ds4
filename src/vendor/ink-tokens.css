@@ -1,0 +1,83 @@
+/* Sloosh ink colour system (DS4). Kept separate from the shadcn colours in tokens.css: the pencil layer, critters, stickers and glow.
+   Full colours (hex), used as var(--x). Dark is default; light under data-theme="light" or "system". */
+
+:root {
+  /* ink (dark) */
+  --ink-pen: #F3EBD3;
+  --ink-pen-soft: #BDB4A0;
+  --ink-pen-faint: #5E584D;
+  --ink-crayon: #FECC15;
+  --ink-crayon-line: #FFE04D;
+  --ink-crayon-deep: #FAC01A;
+  --ink-blue: #8AB8FF;
+  --ink-mint: #55DB9C;
+  --ink-rose: #F48A93;
+  --ink-sky: #7EC8F5;
+  --ink-ember: #FF8A3D;
+  --ink-blush: #EE8F92;
+  --ink-eye: #0A0A0A;
+  --ink-eye-white: #FFFFFF;
+  --ink-shadow: rgba(168,159,138,0.35);
+  --ink-sticky: #FECC15;
+  --ink-note: #1E1C18;
+  --ink-note-fg: #F3EBD3;
+  /* stickers: confetti on Stage */
+  --sticker-lavender: #E9CCFF;
+  --sticker-mint: #55DB9C;
+  --sticker-blue: #4DA2FF;
+  --sticker-ember: #FB4903;
+  --sticker-violet: #5C4ADE;
+  /* glow ramp: Stage and the ember gradient */
+  --glow-950: #190C03;              /* glow ramp, full colours: Stage and the ember gradient only */
+  --glow-900: #241204;
+  --glow-800: #371C07;
+  --glow-700: #603610;
+  --glow-400: #CF892A;
+  --glow-300: #E7AB44;
+  --glow-ember: #FC9001;
+}
+
+:root[data-theme="light"] {
+  /* ink (light) */
+  --ink-pen: #2B2724;
+  --ink-pen-soft: #6E675D;
+  --ink-pen-faint: #C9C1B2;
+  --ink-crayon: #FECC15;
+  --ink-crayon-line: #E9B308;
+  --ink-crayon-deep: #F2A60F;
+  --ink-blue: #2346C8;
+  --ink-mint: #0E7A50;
+  --ink-rose: #C2364A;
+  --ink-sky: #236E9F;
+  --ink-ember: #C2410C;
+  --ink-blush: #EE8F92;
+  --ink-eye: #0A0A0A;
+  --ink-eye-white: #FFFFFF;
+  --ink-shadow: rgba(120,110,90,0.28);
+  --ink-sticky: #FECC15;
+  --ink-note: #FFFBEA;
+  --ink-note-fg: #2B2724;
+}
+
+@media (prefers-color-scheme: light) {
+  :root[data-theme="system"] {
+    --ink-pen: #2B2724;
+    --ink-pen-soft: #6E675D;
+    --ink-pen-faint: #C9C1B2;
+    --ink-crayon: #FECC15;
+    --ink-crayon-line: #E9B308;
+    --ink-crayon-deep: #F2A60F;
+    --ink-blue: #2346C8;
+    --ink-mint: #0E7A50;
+    --ink-rose: #C2364A;
+    --ink-sky: #236E9F;
+    --ink-ember: #C2410C;
+    --ink-blush: #EE8F92;
+    --ink-eye: #0A0A0A;
+    --ink-eye-white: #FFFFFF;
+    --ink-shadow: rgba(120,110,90,0.28);
+    --ink-sticky: #FECC15;
+    --ink-note: #FFFBEA;
+    --ink-note-fg: #2B2724;
+  }
+}

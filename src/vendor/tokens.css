@@ -1,72 +1,104 @@
-/* Sloosh design tokens v4. Colour names and values follow the Sloosh app (packages/ui, Oct 2026); hand-edited since then. */
+/* Sloosh design tokens v4. Colours: Figma primitives + the shadcn/ui semantic set (light from Figma "Color System", dark from the app's .dark).
+   The ink colour system lives on its own in ink-tokens.css. Hand-edited, Oct 2026. */
 /* Dark is default (every Figma frame is dark). data-theme="light" for light, data-theme="system" to follow the OS. */
 
 :root {
   color-scheme: dark;
-  /* ── colour primitives: the app's (packages/ui primitive-tokens.css). HSL triples, used as hsl(var(--x)) ── */
-  --neutral-0: 0 0% 100%;
-  --neutral-50: 0 0% 98%;
-  --neutral-100: 0 0% 96%;
-  --neutral-150: 0 0% 92%;
-  --neutral-200: 0 0% 90%;
-  --neutral-300: 0 0% 83%;
-  --neutral-400: 0 0% 64%;
-  --neutral-500: 0 0% 45%;
-  --neutral-600: 0 0% 32%;
-  --neutral-700: 0 0% 25%;
-  --neutral-800: 0 0% 15%;
-  --neutral-900: 0 0% 9%;
-  --neutral-950: 0 0% 4%;
-  --red-50: 0 86% 97%;
-  --red-200: 0 96% 89%;
-  --red-400: 0 91% 71%;
-  --red-600: 0 72% 51%;
-  --red-700: 0 74% 42%;
-  --red-800: 0 70% 35%;
-  --red-950: 0 75% 15%;
-  --blue-50: 214 100% 97%;
-  --blue-200: 213 97% 87%;
-  --blue-400: 213 94% 68%;
-  --blue-700: 224 76% 48%;
-  --blue-800: 226 71% 40%;
-  --blue-950: 226 57% 21%;
-  --amber-50: 48 100% 96%;
-  --amber-200: 48 97% 77%;
-  --amber-400: 43 96% 56%;
-  --amber-700: 26 90% 37%;
-  --amber-800: 23 83% 31%;
-  --amber-950: 21 92% 14%;
-  --emerald-50: 152 81% 96%;
-  --emerald-200: 152 76% 80%;
-  --emerald-400: 158 64% 52%;
-  --emerald-700: 163 94% 24%;
-  --emerald-800: 163 88% 20%;
-  --emerald-950: 166 91% 9%;
-  --violet-50: 250 100% 98%;
-  --violet-200: 251 95% 92%;
-  --violet-400: 255 92% 76%;
-  --violet-700: 263 70% 50%;
-  --violet-800: 263 69% 42%;
-  --indigo-950: 244 47% 20%;
-  /* Sloosh's accent ramp (creative-gen-accent in Figma) */
-  --yellow-100: 50.3 97.1% 86.3%;
-  --yellow-400: 44.5 95.7% 54.1%;
-  --yellow-500: 47.1 99.1% 53.9%;
-  --yellow-700: 45.9 94.4% 35.3%;
-  /* ── DS4-only primitives: NOT in the app yet. Add to packages/ui or drop. ── */
-  --yellow-600: 46.4 91.2% 44.5%;   /* #D9AA0A: card shadow on yellow grounds (pricing, asked for lighter than 700). The app has no 600. */
-  --orange-400: 27 96% 61%;         /* #FB923C: audio ports. The app has no orange. */
-  --glow-950: #190C03;              /* glow ramp, full colours: Stage and the ember gradient only */
-  --glow-900: #241204;
-  --glow-800: #371C07;
-  --glow-700: #603610;
-  --glow-400: #CF892A;
-  --glow-300: #E7AB44;
-  --glow-ember: #FC9001;
-  /* ── semantic: the app's .dark (semantic-tokens.css). HSL triples ── */
+  /* ── primitives: Figma "Primitives" collection, as HSL triples used as hsl(var(--x)). Hex in the comment. ── */
+  --neutral-0: 0 0% 100%;   /* #FFFFFF */
+  --neutral-50: 0 0% 98%;   /* #FAFAFA */
+  --neutral-100: 0 0% 96%;   /* #F5F5F5 */
+  --neutral-150: 0 0% 91.8%;   /* #EAEAEA */
+  --neutral-200: 0 0% 89.8%;   /* #E5E5E5 */
+  --neutral-300: 0 0% 83%;   /* #D4D4D4 */
+  --neutral-400: 0 0% 64%;   /* #A3A3A3 */
+  --neutral-500: 0 0% 45%;   /* #737373 */
+  --neutral-600: 0 0% 32%;   /* #525252 */
+  --neutral-700: 0 0% 25%;   /* #404040 */
+  --neutral-800: 0 0% 15%;   /* #262626 */
+  --neutral-900: 0 0% 9%;   /* #171717 */
+  --neutral-950: 0 0% 4%;   /* #0A0A0A */
+  --creative-gen-accent-50: 52.2 100% 95.5%;   /* #FFFCE8 */
+  --creative-gen-accent-100: 50.3 97.1% 86.3%;   /* #FEF3BA */
+  --creative-gen-accent-200: 49.8 98.4% 75.3%;   /* #FEE982 */
+  --creative-gen-accent-300: 49.7 98.9% 65.5%;   /* #FEE050 */
+  --creative-gen-accent-400: 47.9 99.1% 58.6%;   /* #FED42D */
+  --creative-gen-accent-500: 47.1 99.1% 53.9%;   /* #FECC15 */
+  --creative-gen-accent-600: 46.4 91.2% 44.5%;   /* #D9AA0A */
+  --creative-gen-accent-700: 45.9 94.4% 35.3%;   /* #AF8705 */
+  --creative-gen-accent-800: 45 97% 25.9%;   /* #826202 */
+  --yellow-50: 55 92% 95%;   /* #FEFCE7 */
+  --yellow-100: 52.8 96.7% 88.2%;   /* #FEF7C4 */
+  --yellow-200: 50.7 98.3% 76.9%;   /* #FEEC8A */
+  --yellow-300: 48.4 97.9% 62.7%;   /* #FDD943 */
+  --yellow-400: 44.5 95.7% 54.1%;   /* #FAC01A */
+  --yellow-500: 48.7 100% 49.8%;   /* #FECE00 */
+  --yellow-600: 40.6 96.1% 40.4%;   /* #CA8A04 */
+  --yellow-700: 35.2 91.7% 33.1%;   /* #A26207 */
+  --yellow-800: 32.3 81% 28.8%;   /* #854E0E */
+  --yellow-900: 28.4 72.5% 25.7%;   /* #713F12 */
+  --yellow-950: 27 83.3% 14.1%;   /* #422106 */
+  --red-50: 0 85.7% 97.3%;   /* #FEF2F2 */
+  --red-100: 0 100% 94.3%;   /* #FFE2E2 */
+  --red-200: 0 96.3% 89.4%;   /* #FECACA */
+  --red-300: 0 93.5% 81.8%;   /* #FCA5A5 */
+  --red-400: 0 90.6% 70.8%;   /* #F87171 */
+  --red-500: 0 84.2% 60.2%;   /* #EF4444 */
+  --red-600: 0 72.2% 50.6%;   /* #DC2626 */
+  --red-700: 0 73.7% 41.8%;   /* #B91C1C */
+  --red-800: 0 70% 35.3%;   /* #991B1B */
+  --red-900: 0 62.8% 30.6%;   /* #7F1D1D */
+  --red-950: 0 74.7% 15.5%;   /* #450A0A */
+  --amber-50: 48 100% 96%;   /* #FFFBEB */
+  --amber-100: 48 96.5% 88.8%;   /* #FEF3C7 */
+  --amber-200: 48 96.6% 76.7%;   /* #FDE68A */
+  --amber-300: 45.9 96.7% 64.5%;   /* #FCD34D */
+  --amber-400: 43.3 96.4% 56.3%;   /* #FBBF24 */
+  --amber-500: 37.7 92.1% 50.2%;   /* #F59E0B */
+  --amber-600: 32.1 94.6% 43.7%;   /* #D97706 */
+  --amber-700: 26 90.5% 37.1%;   /* #B45309 */
+  --amber-800: 22.7 82.5% 31.4%;   /* #92400E */
+  --amber-900: 21.7 77.8% 26.5%;   /* #78350F */
+  --amber-950: 21 92% 14%;   /* #451A03 */
+  --emerald-50: 151.8 81% 95.9%;   /* #ECFDF5 */
+  --emerald-100: 149 80% 90%;   /* #D1FAE5 */
+  --emerald-200: 152.4 76% 80.4%;   /* #A7F3D0 */
+  --emerald-300: 156 72% 67%;   /* #6EE7B7 */
+  --emerald-400: 158.1 64.4% 51.6%;   /* #34D399 */
+  --emerald-500: 160.1 84.1% 39.4%;   /* #10B981 */
+  --emerald-600: 161.4 93.5% 30.4%;   /* #059669 */
+  --emerald-700: 162.9 93.5% 24.3%;   /* #047857 */
+  --emerald-800: 163.1 88.1% 19.8%;   /* #065F46 */
+  --emerald-900: 164.2 85.7% 16.5%;   /* #064E3B */
+  --emerald-950: 166 91% 9%;   /* #022C22 */
+  --green-600: 153.2 91% 30.4%;   /* #079455 */
+  --blue-50: 213.8 100% 96.9%;   /* #EFF6FF */
+  --blue-100: 214.3 94.6% 92.7%;   /* #DBEAFE */
+  --blue-200: 213.3 96.9% 87.3%;   /* #BFDBFE */
+  --blue-300: 211.7 96.4% 78.4%;   /* #93C5FD */
+  --blue-400: 213.1 93.9% 67.8%;   /* #60A5FA */
+  --blue-500: 217.2 91.2% 59.8%;   /* #3B82F6 */
+  --blue-600: 221.2 83.2% 53.3%;   /* #2563EB */
+  --blue-700: 224.3 76.3% 48%;   /* #1D4ED8 */
+  --blue-800: 225.9 70.7% 40.2%;   /* #1E40AF */
+  --blue-900: 224.4 64.3% 32.9%;   /* #1E3A8A */
+  --blue-950: 226 57% 21%;   /* #172554 */
+  --violet-50: 250 100% 97.6%;   /* #F5F3FF */
+  --violet-100: 251.4 91.3% 95.5%;   /* #EDE9FE */
+  --violet-200: 250.5 95.2% 91.8%;   /* #DDD6FE */
+  --violet-300: 252.5 94.7% 85.1%;   /* #C4B5FD */
+  --violet-400: 255.1 91.7% 76.3%;   /* #A78BFA */
+  --violet-500: 258.3 89.5% 66.3%;   /* #8B5CF6 */
+  --violet-600: 262.1 83.3% 57.8%;   /* #7C3AED */
+  --violet-700: 263.4 70% 50.4%;   /* #6D28D9 */
+  --violet-800: 263.4 69.3% 42.2%;   /* #5B21B6 */
+  --violet-900: 263.5 67.4% 34.9%;   /* #4C1D95 */
+  --violet-950: 244 47% 20%;   /* #1E1B4B */
+  /* not in Figma: kept for the audio data type */
+  --orange-400: 27 96% 61%;   /* #FB923C */
+  /* ── shadcn: the core set, names exactly as shadcn/ui. HSL triples ── */
   --background: var(--neutral-950);
   --foreground: var(--neutral-50);
-  --foreground-subtle: var(--neutral-300);
   --card: var(--neutral-900);
   --card-foreground: var(--neutral-50);
   --popover: var(--neutral-900);
@@ -79,18 +111,34 @@
   --muted-foreground: var(--neutral-400);
   --accent: var(--neutral-700);
   --accent-foreground: var(--neutral-50);
+  --destructive: var(--red-600);
+  --destructive-foreground: var(--neutral-0);
   --border: var(--neutral-800);
-  --border-strong: var(--neutral-700);
   --input: var(--neutral-700);
   --ring: var(--neutral-300);
+  --chart-1: var(--neutral-50);
+  --chart-2: var(--neutral-300);
+  --chart-3: var(--neutral-500);
+  --chart-4: var(--neutral-700);
+  --chart-5: var(--neutral-800);
+  --sidebar: var(--neutral-800);
+  --sidebar-foreground: var(--neutral-50);
+  --sidebar-primary: var(--neutral-50);
+  --sidebar-primary-foreground: var(--neutral-950);
+  --sidebar-accent: var(--neutral-700);
+  --sidebar-accent-foreground: var(--neutral-50);
+  --sidebar-border: var(--neutral-700);
+  --sidebar-ring: var(--neutral-300);
+  /* ── extensions in the shadcn pattern (x, x-foreground, x-border): Figma "Color System" ── */
+  --foreground-subtle: var(--neutral-300);
+  --border-strong: var(--neutral-700);
+  --border-light: var(--neutral-800);   /* dark: DS4 guess, the Figma paste has light values only */
   --surface-disabled: var(--neutral-800);
   --disabled-foreground: var(--neutral-600);
   --disabled-border: var(--neutral-700);
-  --destructive: var(--red-600);
-  --destructive-foreground: var(--neutral-0);
-  --destructive-border: var(--red-800);
   --destructive-subtle: var(--red-950);
   --destructive-subtle-foreground: var(--red-400);
+  --destructive-border: var(--red-800);
   --success: var(--emerald-950);
   --success-foreground: var(--emerald-400);
   --success-border: var(--emerald-800);
@@ -100,18 +148,32 @@
   --info: var(--blue-950);
   --info-foreground: var(--blue-400);
   --info-border: var(--blue-800);
-  --violet: var(--indigo-950);
+  --violet: var(--violet-950);
   --violet-foreground: var(--violet-400);
   --violet-border: var(--violet-800);
-  /* brand accent: the app's [data-brand="sloosh"] block */
-  --brand-accent: var(--yellow-500);
+  --status-yellow: var(--yellow-950);   /* dark: DS4 guess, the Figma paste has light values only */
+  --status-yellow-foreground: var(--yellow-400);
+  --status-yellow-border: var(--yellow-800);
+  /* Figma status/brand = shadcn-style violet above; action/brandforeground kept by its own name */
+  --action-brand-foreground: var(--violet-50);
+  /* agents: Figma "Agents" group and status/agent, same in both themes */
+  --agent: var(--red-400);
+  --agents-amber: var(--amber-500);
+  --agents-red: var(--red-600);
+  --agents-green: var(--green-600);
+  --agents-blue: var(--blue-400);
+  --agents-yellow: var(--yellow-500);
+  --text-shimmer-base: #A1A1A1;   /* full colour: Figma text/shimmer */
+  /* brand accent: the app's [data-brand="sloosh"] block, on Figma's creative-gen-accent ramp */
+  --brand-accent: var(--creative-gen-accent-500);
   --brand-accent-foreground: var(--neutral-950);
-  --brand-accent-edge: var(--yellow-700);
+  --brand-accent-edge: var(--creative-gen-accent-700);
   --brand-accent-text: var(--yellow-400);
   --brand-accent-subtle: hsl(var(--yellow-400) / 0.2);   /* full colour */
-  --brand-accent-ring: var(--yellow-100);
+  --brand-accent-ring: var(--creative-gen-accent-100);
   --brand-accent-chip: hsl(var(--neutral-50) / 0.48);   /* full colour: a pill on the yellow fill */
-  --brand-favorite: hsl(var(--yellow-500));
+  --brand-accent-glow: hsl(var(--creative-gen-accent-500) / 0.35);   /* full colour, DS4 only: halo and running-node glow */
+  --brand-favorite: hsl(var(--creative-gen-accent-500));
   --dialog-overlay: hsl(var(--neutral-950) / 0.8);
   --dialog-overlay-strong: hsl(var(--neutral-950) / 0.8);
   --drawer-overlay: hsl(var(--neutral-950) / 0.8);
@@ -126,42 +188,17 @@
   --layer-scrim: hsl(0 0% 0% / 0.6);
   --layer-warn: hsl(48 49% 15%);
   --layer-warn-foreground: hsl(47 76% 80%);
-  /* ── DS4-only, not in the app: glow, data types, stickers, ink ── */
-  --brand-accent-glow: hsl(var(--yellow-500) / 0.35);   /* full colour: halo and running-node glow */
+  /* data types (node ports and tags), DS4 only, built from primitives */
   --data-text: var(--emerald-950);
   --data-text-foreground: var(--emerald-400);
   --data-image: var(--blue-950);
   --data-image-foreground: var(--blue-400);
-  --data-video: var(--indigo-950);
+  --data-video: var(--violet-950);
   --data-video-foreground: var(--violet-400);
   --data-audio: var(--amber-950);
   --data-audio-foreground: var(--orange-400);
   --data-any: var(--neutral-800);
   --data-any-foreground: var(--neutral-400);
-  --sticker-lavender: #E9CCFF;
-  --sticker-mint: #55DB9C;
-  --sticker-blue: #4DA2FF;
-  --sticker-ember: #FB4903;
-  --sticker-violet: #5C4ADE;
-  /* ink (dark), full colours */
-  --ink-pen: #F3EBD3;
-  --ink-pen-soft: #BDB4A0;
-  --ink-pen-faint: #5E584D;
-  --ink-crayon: #FECC15;
-  --ink-crayon-line: #FFE04D;
-  --ink-crayon-deep: #FAC01A;
-  --ink-blue: #8AB8FF;
-  --ink-mint: #55DB9C;
-  --ink-rose: #F48A93;
-  --ink-sky: #7EC8F5;
-  --ink-ember: #FF8A3D;
-  --ink-blush: #EE8F92;
-  --ink-eye: #0A0A0A;
-  --ink-eye-white: #FFFFFF;
-  --ink-shadow: rgba(168,159,138,0.35);
-  --ink-sticky: #FECC15;
-  --ink-note: #1E1C18;
-  --ink-note-fg: #F3EBD3;
   /* type */
   --sl-font-sans: 'SF Pro Text', 'SF Pro', -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, ui-sans-serif, system-ui, sans-serif;
   --sl-font-hand: 'Caveat', 'Segoe Print', 'Bradley Hand', 'Comic Neue', cursive;
@@ -188,26 +225,67 @@
   --sl-text-hand-md: 22px; --sl-leading-hand-md: 24px; --sl-weight-hand-md: 600; --sl-tracking-hand-md: 0em;
   --sl-text-hand-lg: 30px; --sl-leading-hand-lg: 30px; --sl-weight-hand-lg: 700; --sl-tracking-hand-lg: 0em;
   --sl-text-hand-xl: 44px; --sl-leading-hand-xl: 42px; --sl-weight-hand-xl: 700; --sl-tracking-hand-xl: -0.01em;
-  /* shape, space */
-  --sl-radius-sm: 4px;
-  --sl-radius-lg: 8px;
-  --sl-radius-xl: 12px;
-  --sl-radius-2xl: 16px;
-  --sl-radius-sheet: 24px;
-  --sl-radius-full: 9999px;
-  --sl-space-0: 0px;
-  --sl-space-4: 4px;
-  --sl-space-8: 8px;
-  --sl-space-12: 12px;
-  --sl-space-16: 16px;
-  --sl-space-20: 20px;
-  --sl-space-24: 24px;
-  --sl-space-32: 32px;
-  --sl-space-36: 36px;
-  --sl-space-48: 48px;
-  --sl-space-64: 64px;
-  --sl-space-80: 80px;
-  --sl-space-96: 96px;
+  /* typography: Figma "Typography" collection (tokens only; the page's own type is unchanged for now) */
+  --font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --text-fontsize-12: 12px; --text-lineheight-12: 18px;
+  --text-fontsize-14: 14px; --text-lineheight-14: 20px;
+  --text-fontsize-16: 16px; --text-lineheight-16: 140%;   /* Figma variable says 140; the Regular and Medium styles use 24px */
+  --text-fontsize-20: 20px; --text-lineheight-20: 30px;
+  --display-fontsize-24: 24px; --display-lineheight-24: 32px;
+  --display-fontsize-28: 28px; --display-lineheight-28: 36px;
+  --display-fontsize-32: 32px; --display-lineheight-32: 40px;
+  --display-fontsize-36: 36px; --display-lineheight-36: 44px;
+  --display-fontsize-48: 48px; --display-lineheight-48: 60px;
+  --display-fontsize-60: 60px; --display-lineheight-60: 72px;
+  --display-fontsize-72: 72px; --display-lineheight-72: 90px;
+  /* shape, space: Figma "Radius" and "Spacing" collections (px), shadcn's --radius base; the --sl-* names alias them */
+  --radius: 0.5rem;
+  --rounded-none: 0px;
+  --rounded-sm: 4px;
+  --rounded-lg: 8px;
+  --rounded-xl: 12px;
+  --rounded-2xl: 16px;
+  --rounded-3xl: 20px;
+  --rounded-full: 9999px;
+  --spacing-0: 0px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-36: 36px;
+  --spacing-48: 48px;
+  --spacing-56: 56px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-96: 96px;
+  --spacing-128: 128px;
+  --spacing-160: 160px;
+  --sl-radius-sm: var(--rounded-sm);
+  --sl-radius-lg: var(--rounded-lg);
+  --sl-radius-xl: var(--rounded-xl);
+  --sl-radius-2xl: var(--rounded-2xl);
+  --sl-radius-sheet: 24px;   /* DS4 only: not a Figma radius */
+  --sl-radius-full: var(--rounded-full);
+  --sl-space-0: var(--spacing-0);
+  --sl-space-4: var(--spacing-4);
+  --sl-space-8: var(--spacing-8);
+  --sl-space-12: var(--spacing-12);
+  --sl-space-16: var(--spacing-16);
+  --sl-space-20: var(--spacing-20);
+  --sl-space-24: var(--spacing-24);
+  --sl-space-32: var(--spacing-32);
+  --sl-space-36: var(--spacing-36);
+  --sl-space-48: var(--spacing-48);
+  --sl-space-64: var(--spacing-64);
+  --sl-space-80: var(--spacing-80);
+  --sl-space-96: var(--spacing-96);
   /* elevation */
   --sl-shadow-lip: inset 0 -2px 0 0 hsl(var(--brand-accent-edge));
   --sl-shadow-lip-lg: inset 0 -4px 0 0 hsl(var(--brand-accent-edge));
@@ -286,10 +364,9 @@
 
 :root[data-theme="light"] {
   color-scheme: light;
-  /* ── semantic: the app's :root (light; the Sloosh app itself never runs light) (semantic-tokens.css). HSL triples ── */
+  /* ── shadcn: the core set, names exactly as shadcn/ui. HSL triples ── */
   --background: var(--neutral-0);
   --foreground: var(--neutral-950);
-  --foreground-subtle: var(--neutral-700);
   --card: var(--neutral-100);
   --card-foreground: var(--neutral-950);
   --popover: var(--neutral-0);
@@ -302,18 +379,34 @@
   --muted-foreground: var(--neutral-600);
   --accent: var(--neutral-300);
   --accent-foreground: var(--neutral-950);
-  --border: var(--neutral-200);
-  --border-strong: var(--neutral-300);
+  --destructive: var(--red-600);
+  --destructive-foreground: var(--neutral-0);
+  --border: var(--neutral-300);
   --input: var(--neutral-300);
   --ring: var(--neutral-950);
+  --chart-1: var(--neutral-950);
+  --chart-2: var(--neutral-700);
+  --chart-3: var(--neutral-500);
+  --chart-4: var(--neutral-300);
+  --chart-5: var(--neutral-150);
+  --sidebar: var(--neutral-100);
+  --sidebar-foreground: var(--neutral-950);
+  --sidebar-primary: var(--neutral-950);
+  --sidebar-primary-foreground: var(--neutral-0);
+  --sidebar-accent: var(--neutral-150);
+  --sidebar-accent-foreground: var(--neutral-950);
+  --sidebar-border: var(--neutral-200);
+  --sidebar-ring: var(--neutral-950);
+  /* ── extensions in the shadcn pattern (x, x-foreground, x-border): Figma "Color System" ── */
+  --foreground-subtle: var(--neutral-700);
+  --border-strong: var(--neutral-300);
+  --border-light: var(--neutral-300);
   --surface-disabled: var(--neutral-150);
   --disabled-foreground: var(--neutral-400);
   --disabled-border: var(--neutral-300);
-  --destructive: var(--red-600);
-  --destructive-foreground: var(--neutral-0);
-  --destructive-border: var(--red-200);
   --destructive-subtle: var(--red-50);
   --destructive-subtle-foreground: var(--red-700);
+  --destructive-border: var(--red-200);
   --success: var(--emerald-50);
   --success-foreground: var(--emerald-700);
   --success-border: var(--emerald-200);
@@ -326,15 +419,29 @@
   --violet: var(--violet-50);
   --violet-foreground: var(--violet-700);
   --violet-border: var(--violet-200);
-  /* brand accent: the app's [data-brand="sloosh"] block */
-  --brand-accent: var(--yellow-500);
+  --status-yellow: var(--yellow-50);
+  --status-yellow-foreground: var(--yellow-700);
+  --status-yellow-border: var(--yellow-200);
+  /* Figma status/brand = shadcn-style violet above; action/brandforeground kept by its own name */
+  --action-brand-foreground: var(--violet-50);
+  /* agents: Figma "Agents" group and status/agent, same in both themes */
+  --agent: var(--red-400);
+  --agents-amber: var(--amber-500);
+  --agents-red: var(--red-600);
+  --agents-green: var(--green-600);
+  --agents-blue: var(--blue-400);
+  --agents-yellow: var(--yellow-500);
+  --text-shimmer-base: #A1A1A1;   /* full colour: Figma text/shimmer */
+  /* brand accent: the app's [data-brand="sloosh"] block, on Figma's creative-gen-accent ramp */
+  --brand-accent: var(--creative-gen-accent-500);
   --brand-accent-foreground: var(--neutral-950);
-  --brand-accent-edge: var(--yellow-700);
-  --brand-accent-text: var(--yellow-700);   /* DS4 light only: the app keeps yellow-400, which fails on white */
+  --brand-accent-edge: var(--creative-gen-accent-700);
+  --brand-accent-text: var(--creative-gen-accent-700);   /* DS4 light only: the app keeps yellow-400, which fails on white */
   --brand-accent-subtle: hsl(var(--yellow-400) / 0.2);   /* full colour */
-  --brand-accent-ring: var(--yellow-100);
+  --brand-accent-ring: var(--creative-gen-accent-100);
   --brand-accent-chip: hsl(var(--neutral-50) / 0.48);   /* full colour: a pill on the yellow fill */
-  --brand-favorite: hsl(var(--yellow-500));
+  --brand-accent-glow: hsl(var(--creative-gen-accent-500) / 0.45);   /* full colour, DS4 only: halo and running-node glow */
+  --brand-favorite: hsl(var(--creative-gen-accent-500));
   --dialog-overlay: hsl(var(--neutral-950) / 0.8);
   --dialog-overlay-strong: hsl(var(--neutral-950) / 0.8);
   --drawer-overlay: hsl(var(--neutral-950) / 0.8);
@@ -349,27 +456,6 @@
   --layer-scrim: var(--drawer-overlay);
   --layer-warn: hsl(var(--warning));
   --layer-warn-foreground: hsl(var(--warning-foreground));
-  /* ── DS4-only, not in the app: glow, data types, stickers, ink ── */
-  --brand-accent-glow: hsl(var(--yellow-500) / 0.45);   /* full colour: halo and running-node glow */
-  /* ink (light) */
-  --ink-pen: #2B2724;
-  --ink-pen-soft: #6E675D;
-  --ink-pen-faint: #C9C1B2;
-  --ink-crayon: #FECC15;
-  --ink-crayon-line: #E9B308;
-  --ink-crayon-deep: #F2A60F;
-  --ink-blue: #2346C8;
-  --ink-mint: #0E7A50;
-  --ink-rose: #C2364A;
-  --ink-sky: #236E9F;
-  --ink-ember: #C2410C;
-  --ink-blush: #EE8F92;
-  --ink-eye: #0A0A0A;
-  --ink-eye-white: #FFFFFF;
-  --ink-shadow: rgba(120,110,90,0.28);
-  --ink-sticky: #FECC15;
-  --ink-note: #FFFBEA;
-  --ink-note-fg: #2B2724;
   --sl-shadow-lip-muted: inset 0 -2px 0 0 hsl(var(--border));
   --sl-shadow-float: 0 12px 32px -8px rgba(10,10,10,0.18), 0 0 0 1px hsl(var(--border));
   --sl-shadow-modal: 0 24px 64px -12px rgba(10,10,10,0.25), 0 0 0 1px hsl(var(--border));
@@ -379,10 +465,9 @@
 @media (prefers-color-scheme: light) {
   :root[data-theme="system"] {
     color-scheme: light;
-    /* ── semantic: the app's :root (light; the Sloosh app itself never runs light) (semantic-tokens.css). HSL triples ── */
+    /* ── shadcn: the core set, names exactly as shadcn/ui. HSL triples ── */
     --background: var(--neutral-0);
     --foreground: var(--neutral-950);
-    --foreground-subtle: var(--neutral-700);
     --card: var(--neutral-100);
     --card-foreground: var(--neutral-950);
     --popover: var(--neutral-0);
@@ -395,18 +480,34 @@
     --muted-foreground: var(--neutral-600);
     --accent: var(--neutral-300);
     --accent-foreground: var(--neutral-950);
-    --border: var(--neutral-200);
-    --border-strong: var(--neutral-300);
+    --destructive: var(--red-600);
+    --destructive-foreground: var(--neutral-0);
+    --border: var(--neutral-300);
     --input: var(--neutral-300);
     --ring: var(--neutral-950);
+    --chart-1: var(--neutral-950);
+    --chart-2: var(--neutral-700);
+    --chart-3: var(--neutral-500);
+    --chart-4: var(--neutral-300);
+    --chart-5: var(--neutral-150);
+    --sidebar: var(--neutral-100);
+    --sidebar-foreground: var(--neutral-950);
+    --sidebar-primary: var(--neutral-950);
+    --sidebar-primary-foreground: var(--neutral-0);
+    --sidebar-accent: var(--neutral-150);
+    --sidebar-accent-foreground: var(--neutral-950);
+    --sidebar-border: var(--neutral-200);
+    --sidebar-ring: var(--neutral-950);
+    /* ── extensions in the shadcn pattern (x, x-foreground, x-border): Figma "Color System" ── */
+    --foreground-subtle: var(--neutral-700);
+    --border-strong: var(--neutral-300);
+    --border-light: var(--neutral-300);
     --surface-disabled: var(--neutral-150);
     --disabled-foreground: var(--neutral-400);
     --disabled-border: var(--neutral-300);
-    --destructive: var(--red-600);
-    --destructive-foreground: var(--neutral-0);
-    --destructive-border: var(--red-200);
     --destructive-subtle: var(--red-50);
     --destructive-subtle-foreground: var(--red-700);
+    --destructive-border: var(--red-200);
     --success: var(--emerald-50);
     --success-foreground: var(--emerald-700);
     --success-border: var(--emerald-200);
@@ -419,15 +520,29 @@
     --violet: var(--violet-50);
     --violet-foreground: var(--violet-700);
     --violet-border: var(--violet-200);
-    /* brand accent: the app's [data-brand="sloosh"] block */
-    --brand-accent: var(--yellow-500);
+    --status-yellow: var(--yellow-50);
+    --status-yellow-foreground: var(--yellow-700);
+    --status-yellow-border: var(--yellow-200);
+    /* Figma status/brand = shadcn-style violet above; action/brandforeground kept by its own name */
+    --action-brand-foreground: var(--violet-50);
+    /* agents: Figma "Agents" group and status/agent, same in both themes */
+    --agent: var(--red-400);
+    --agents-amber: var(--amber-500);
+    --agents-red: var(--red-600);
+    --agents-green: var(--green-600);
+    --agents-blue: var(--blue-400);
+    --agents-yellow: var(--yellow-500);
+    --text-shimmer-base: #A1A1A1;   /* full colour: Figma text/shimmer */
+    /* brand accent: the app's [data-brand="sloosh"] block, on Figma's creative-gen-accent ramp */
+    --brand-accent: var(--creative-gen-accent-500);
     --brand-accent-foreground: var(--neutral-950);
-    --brand-accent-edge: var(--yellow-700);
-    --brand-accent-text: var(--yellow-700);   /* DS4 light only: the app keeps yellow-400, which fails on white */
+    --brand-accent-edge: var(--creative-gen-accent-700);
+    --brand-accent-text: var(--creative-gen-accent-700);   /* DS4 light only: the app keeps yellow-400, which fails on white */
     --brand-accent-subtle: hsl(var(--yellow-400) / 0.2);   /* full colour */
-    --brand-accent-ring: var(--yellow-100);
+    --brand-accent-ring: var(--creative-gen-accent-100);
     --brand-accent-chip: hsl(var(--neutral-50) / 0.48);   /* full colour: a pill on the yellow fill */
-    --brand-favorite: hsl(var(--yellow-500));
+    --brand-accent-glow: hsl(var(--creative-gen-accent-500) / 0.45);   /* full colour, DS4 only: halo and running-node glow */
+    --brand-favorite: hsl(var(--creative-gen-accent-500));
     --dialog-overlay: hsl(var(--neutral-950) / 0.8);
     --dialog-overlay-strong: hsl(var(--neutral-950) / 0.8);
     --drawer-overlay: hsl(var(--neutral-950) / 0.8);
@@ -442,27 +557,6 @@
     --layer-scrim: var(--drawer-overlay);
     --layer-warn: hsl(var(--warning));
     --layer-warn-foreground: hsl(var(--warning-foreground));
-    /* ── DS4-only, not in the app: glow, data types, stickers, ink ── */
-    --brand-accent-glow: hsl(var(--yellow-500) / 0.45);   /* full colour: halo and running-node glow */
-    /* ink (light) */
-    --ink-pen: #2B2724;
-    --ink-pen-soft: #6E675D;
-    --ink-pen-faint: #C9C1B2;
-    --ink-crayon: #FECC15;
-    --ink-crayon-line: #E9B308;
-    --ink-crayon-deep: #F2A60F;
-    --ink-blue: #2346C8;
-    --ink-mint: #0E7A50;
-    --ink-rose: #C2364A;
-    --ink-sky: #236E9F;
-    --ink-ember: #C2410C;
-    --ink-blush: #EE8F92;
-    --ink-eye: #0A0A0A;
-    --ink-eye-white: #FFFFFF;
-    --ink-shadow: rgba(120,110,90,0.28);
-    --ink-sticky: #FECC15;
-    --ink-note: #FFFBEA;
-    --ink-note-fg: #2B2724;
     --sl-shadow-lip-muted: inset 0 -2px 0 0 hsl(var(--border));
     --sl-shadow-float: 0 12px 32px -8px rgba(10,10,10,0.18), 0 0 0 1px hsl(var(--border));
     --sl-shadow-modal: 0 24px 64px -12px rgba(10,10,10,0.25), 0 0 0 1px hsl(var(--border));
@@ -481,3 +575,33 @@
           --sl-dur-ring: 0ms; --sl-dur-underline: 0ms; --sl-dur-draw: 0ms; --sl-dur-pop: 0ms; --sl-dur-write: 0ms;
           --sl-dur-write-title: 0ms; --sl-dur-burst: 0ms; }
 }
+
+/* Figma text styles, one class each: .text-12px-regular … .display-60px-semibold. Not applied to the page yet. */
+.text-12px-regular { font-family: var(--font-family); font-size: 12px; font-weight: 400; line-height: 18px; }
+.text-12px-medium { font-family: var(--font-family); font-size: 12px; font-weight: 500; line-height: 18px; }
+.text-14px-regular { font-family: var(--font-family); font-size: 14px; font-weight: 400; line-height: 20px; }
+.text-14px-medium { font-family: var(--font-family); font-size: 14px; font-weight: 500; line-height: 20px; }
+.text-16px-regular { font-family: var(--font-family); font-size: 16px; font-weight: 400; line-height: 24px; }
+.text-16px-medium { font-family: var(--font-family); font-size: 16px; font-weight: 500; line-height: 24px; }
+.text-16px-semibold { font-family: var(--font-family); font-size: 16px; font-weight: 600; line-height: 140%; }
+.text-20px-regular { font-family: var(--font-family); font-size: 20px; font-weight: 400; line-height: 30px; }
+.text-20px-medium { font-family: var(--font-family); font-size: 20px; font-weight: 500; line-height: 30px; }
+.text-20px-semibold { font-family: var(--font-family); font-size: 20px; font-weight: 600; line-height: 30px; }
+.display-24px-regular { font-family: var(--font-family); font-size: 24px; font-weight: 400; line-height: 32px; }
+.display-24px-medium { font-family: var(--font-family); font-size: 24px; font-weight: 500; line-height: 32px; }
+.display-24px-semibold { font-family: var(--font-family); font-size: 24px; font-weight: 600; line-height: 32px; }
+.display-28px-regular { font-family: var(--font-family); font-size: 28px; font-weight: 400; line-height: 36px; }
+.display-28px-medium { font-family: var(--font-family); font-size: 28px; font-weight: 500; line-height: 36px; }
+.display-28px-semibold { font-family: var(--font-family); font-size: 28px; font-weight: 600; line-height: 36px; }
+.display-32px-regular { font-family: var(--font-family); font-size: 32px; font-weight: 400; line-height: 40px; }
+.display-32px-medium { font-family: var(--font-family); font-size: 32px; font-weight: 500; line-height: 40px; }
+.display-32px-semibold { font-family: var(--font-family); font-size: 32px; font-weight: 600; line-height: 40px; }
+.display-36px-regular { font-family: var(--font-family); font-size: 36px; font-weight: 400; line-height: 44px; }
+.display-36px-medium { font-family: var(--font-family); font-size: 36px; font-weight: 500; line-height: 44px; }
+.display-36px-semibold { font-family: var(--font-family); font-size: 36px; font-weight: 600; line-height: 44px; }
+.display-48px-regular { font-family: var(--font-family); font-size: 48px; font-weight: 400; line-height: 60px; }
+.display-48px-medium { font-family: var(--font-family); font-size: 48px; font-weight: 500; line-height: 60px; }
+.display-48px-semibold { font-family: var(--font-family); font-size: 48px; font-weight: 600; line-height: 60px; }
+.display-60px-regular { font-family: var(--font-family); font-size: 60px; font-weight: 400; line-height: 72px; }
+.display-60px-medium { font-family: var(--font-family); font-size: 60px; font-weight: 500; line-height: 72px; }
+.display-60px-semibold { font-family: var(--font-family); font-size: 60px; font-weight: 600; line-height: 72px; }
