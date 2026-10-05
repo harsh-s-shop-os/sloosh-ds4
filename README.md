@@ -24,4 +24,8 @@ Sources: `sloosh-design-system-v4.zip` (DESIGN.md, tokens, the SlooshInk engine)
 - **Brand** (in `tokens.css`): every brand colour sits under `brand-*` on the creative-gen-accent ramp: the yellow (`brand-accent*`), the drawn layer (`brand-line*`, `brand-note*`, `brand-eye-*`, `brand-shadow`; neutral so they follow the theme), glows (`brand-glow*`) and filter accents (`brand-filter-accent-1..6`, straight from the Tailwind ramps). There is no separate ink or marks set.
 - Also from Figma: `--rounded-*`, `--spacing-*`, typography tokens and one class per text style (`.text-14px-medium` …), not yet applied to the page.
 
-Buttons: one size scale for every style, 24 / 28 / 32 / 36 / 40 / 48 (`data-size`), radius 12 at every size. Tabs outside the top nav: a dark well with equal-width segments, the selected one muted.
+Buttons: seven styles (primary, secondary, outline, ghost, tinted, default, ink) at 24 / 28 / 32 / 36 / 40 / 48 (`data-size`), radius 12; lip 2px up to 36, 4px at 40 and 48; secondary has no lip; every style has its own disabled state. Icon buttons share the sizes.
+
+## Names (Oct 2026)
+
+Token names follow the older app (`Sloosh-design-main`): type `text-caption`, `text-sm`, `text-base`, `text-text-20`, `text-display-*`, `text-hand-*` (each a full `font` shorthand, unlike the app, where they hold sizes); radius `radius-sm/md/lg/xl/2xl/panel/sheet/full/wobble`; shadows `shadow-float/modal/halo/lip`; motion `motion-duration-*`, `motion-ease-*`, `motion-spring-*`. One type scale for every face: 12 14 16 20 24 36 48 60. Spacing and radii always snap to their scales (ties go up, nothing past the top step). Focus is a 2px outline in `ring`. Pills (nav, filter, filled, credit, savings, cost) are one family at radius 12. Fields: filled 36, bordered 32/40/48, text area, each with `aria-invalid` errors.

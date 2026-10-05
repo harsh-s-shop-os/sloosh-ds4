@@ -112,7 +112,6 @@
   --destructive: var(--red-600);
   --destructive-foreground: var(--neutral-0);
   --border: var(--neutral-800);
-  --input: var(--neutral-700);
   --ring: var(--neutral-300);
   --chart-1: var(--neutral-50);
   --chart-2: var(--neutral-300);
@@ -130,10 +129,7 @@
   /* ── extensions in the shadcn pattern (x, x-foreground, x-border): Figma "Color System" ── */
   --foreground-subtle: var(--neutral-300);
   --border-strong: var(--neutral-700);
-  --border-light: var(--neutral-800);   /* dark: DS4 guess, the Figma paste has light values only */
-  --surface-disabled: var(--neutral-800);
   --disabled-foreground: var(--neutral-600);
-  --disabled-border: var(--neutral-700);
   --destructive-subtle: var(--red-950);
   --destructive-subtle-foreground: var(--red-400);
   --destructive-border: var(--red-800);
@@ -181,7 +177,7 @@
   --brand-accent-subtle: hsl(var(--creative-gen-accent-500) / 0.2);   /* full colour */
   --brand-accent-subtle-hover: hsl(var(--creative-gen-accent-500) / 0.3);   /* full colour: tinted button hover */
   --brand-accent-ring: var(--creative-gen-accent-100);
-  --brand-accent-chip: hsl(var(--creative-gen-accent-50) / 0.48);   /* full colour: a pill on the yellow fill */
+  --brand-accent-pill: hsl(var(--creative-gen-accent-50) / 0.48);   /* full colour: a pill on the yellow fill */
   --brand-accent-glow: hsl(var(--creative-gen-accent-500) / 0.35);   /* full colour, DS4 only: halo and running-node glow */
   /* brand: the drawn layer (formerly ink) — lines and faces stay neutral so they follow the theme */
   --brand-accent-light: hsl(var(--creative-gen-accent-300));   /* full colour: hatch strokes on drawn marks */
@@ -189,8 +185,6 @@
   --brand-line-soft: hsl(var(--muted-foreground));             /* full colour: asides, second pen pass */
   --brand-line-faint: hsl(var(--border-strong));               /* full colour: sketch boxes, trails */
   --brand-note: hsl(var(--card));                              /* full colour: the pointer's note card */
-  --brand-note-foreground: hsl(var(--card-foreground));
-  --brand-eye-pupil: hsl(var(--neutral-950));                  /* full colour: pupils, never change with the theme */
   --brand-eye-white: hsl(var(--neutral-0));
   --brand-shadow: hsl(var(--muted-foreground) / 0.3);          /* full colour: ground shadow under critters */
   /* brand: glows (Stage, the ember gradient) */
@@ -206,19 +200,8 @@
   --brand-filter-accent-6: hsl(var(--red-300));       /* critter cheeks */
   --brand-favorite: hsl(var(--creative-gen-accent-500));
   --dialog-overlay: hsl(var(--neutral-950) / 0.8);
-  --dialog-overlay-strong: hsl(var(--neutral-950) / 0.8);
-  --drawer-overlay: hsl(var(--neutral-950) / 0.8);
   /* layers: the Sloosh mobile prototype's surface ladder (full colours) */
-  --layer-1: hsl(var(--popover));
-  --layer-2: hsl(var(--muted));
-  --layer-3: hsl(var(--accent));
-  --layer-4: hsl(var(--border-strong));
   --layer-line: hsl(var(--neutral-0) / 0.08);
-  --layer-line-strong: hsl(var(--neutral-0) / 0.14);
-  --layer-dim: hsl(var(--muted-foreground));
-  --layer-scrim: hsl(var(--neutral-950) / 0.6);
-  --layer-warn: hsl(var(--warning));
-  --layer-warn-foreground: hsl(var(--warning-foreground));
   /* type */
   --sl-font-sans: 'SF Pro Text', 'SF Pro', -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, ui-sans-serif, system-ui, sans-serif;
   --sl-font-hand: 'Caveat', 'Segoe Print', 'Bradley Hand', 'Comic Neue', cursive;
@@ -226,38 +209,40 @@
   --font-sans: var(--sl-font-sans);
   --font-hand: var(--sl-font-hand);
   --font-display: var(--sl-font-display);
-  /* type tokens (DS4): every text style in Sloosh. Sizes 12–48 (60 held back), weights 500 / 600 / 700 (Bowlby One: 400),
-     line height 120% for titles and handwriting, 140% for everything else. Use as font: var(--type-x). */
-  --type-display-60: 400 60px/120% var(--sl-font-display);
-  --type-display-48: 400 48px/120% var(--sl-font-display);
-  --type-display-36: 400 36px/120% var(--sl-font-display);
-  --type-display-28: 400 28px/120% var(--sl-font-display);
-  --type-display-24: 400 24px/120% var(--sl-font-display);
-  --type-display-20: 400 20px/120% var(--sl-font-display);
-  --type-title-20: 600 20px/120% var(--sl-font-sans);
-  --type-body-16: 500 16px/140% var(--sl-font-sans);
-  --type-body-16-strong: 600 16px/140% var(--sl-font-sans);
-  --type-body-14: 500 14px/140% var(--sl-font-sans);
-  --type-body-14-strong: 600 14px/140% var(--sl-font-sans);
-  --type-num-14: 700 14px/140% var(--sl-font-sans);
-  --type-caption-12: 500 12px/140% var(--sl-font-sans);
-  --type-caption-12-strong: 600 12px/140% var(--sl-font-sans);
-  --type-caps-12: 600 12px/140% var(--sl-font-sans);
-  --type-caps-tracking: .04em;
-  --type-hand-48: 700 48px/120% var(--sl-font-hand);
-  --type-hand-28: 700 28px/120% var(--sl-font-hand);
-  --type-hand-24: 700 24px/120% var(--sl-font-hand);
-  --type-hand-20: 600 20px/120% var(--sl-font-hand);
-  --type-hand-16: 600 16px/120% var(--sl-font-hand);
+  /* type: every text style in Sloosh, named as in the app (text-caption, text-sm, text-base, text-text-20, text-display-*).
+     One scale for every face: 12 · 14 · 16 · 20 · 24 · 36 · 48 · 60. Weights 500 / 600 / 700 (Bowlby One: 400).
+     Line height 120% for titles and handwriting, 140% for everything else. Each token is a full font: font: var(--text-sm). */
+  --text-display-60: 400 60px/120% var(--sl-font-display);
+  --text-display-48: 400 48px/120% var(--sl-font-display);
+  --text-display-36: 400 36px/120% var(--sl-font-display);
+  --text-display-24: 400 24px/120% var(--sl-font-display);
+  --text-display-20: 400 20px/120% var(--sl-font-display);
+  --text-text-20: 600 20px/120% var(--sl-font-sans);
+  --text-base: 500 16px/140% var(--sl-font-sans);
+  --text-base-strong: 600 16px/140% var(--sl-font-sans);
+  --text-sm: 500 14px/140% var(--sl-font-sans);
+  --text-sm-strong: 600 14px/140% var(--sl-font-sans);
+  --text-sm-num: 700 14px/140% var(--sl-font-sans);
+  --text-caption: 500 12px/140% var(--sl-font-sans);
+  --text-caption-strong: 600 12px/140% var(--sl-font-sans);
+  --text-caption-caps: 600 12px/140% var(--sl-font-sans);
+  --text-caption-caps-tracking: .04em;
+  --text-hand-48: 700 48px/120% var(--sl-font-hand);
+  --text-hand-36: 700 36px/120% var(--sl-font-hand);
+  --text-hand-24: 700 24px/120% var(--sl-font-hand);
+  --text-hand-20: 600 20px/120% var(--sl-font-hand);
+  --text-hand-16: 600 16px/120% var(--sl-font-hand);
   /* shape, space: Figma "Radius" and "Spacing" collections (px), shadcn's --radius base; the --sl-* names alias them */
   --radius: 0.5rem;
-  --rounded-none: 0px;
-  --rounded-sm: 4px;
-  --rounded-lg: 8px;
-  --rounded-xl: 12px;
-  --rounded-2xl: 16px;
-  --rounded-3xl: 20px;
-  --rounded-full: 9999px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-panel: 20px;
+  --radius-sheet: 24px;
+  --radius-full: 9999px;
+  --radius-wobble: 255px 18px 225px 18px / 18px 225px 18px 255px;   /* sticky notes, Stage */
   --spacing-0: 0px;
   --spacing-4: 4px;
   --spacing-8: 8px;
@@ -274,75 +259,52 @@
   --spacing-96: 96px;
   --spacing-128: 128px;
   --spacing-160: 160px;
-  --sl-radius-sm: var(--rounded-sm);
-  --sl-radius-lg: var(--rounded-lg);
-  --sl-radius-xl: var(--rounded-xl);
-  --sl-radius-2xl: var(--rounded-2xl);
-  --sl-radius-sheet: 24px;   /* DS4 only: not a Figma radius */
-  --sl-radius-full: var(--rounded-full);
-  --sl-space-0: var(--spacing-0);
-  --sl-space-4: var(--spacing-4);
-  --sl-space-8: var(--spacing-8);
-  --sl-space-12: var(--spacing-12);
-  --sl-space-16: var(--spacing-16);
-  --sl-space-20: var(--spacing-20);
-  --sl-space-24: var(--spacing-24);
-  --sl-space-32: var(--spacing-32);
-  --sl-space-36: var(--spacing-36);
-  --sl-space-48: var(--spacing-48);
-  --sl-space-64: var(--spacing-64);
-  --sl-space-80: var(--spacing-80);
-  --sl-space-96: var(--spacing-96);
   /* elevation */
-  --sl-shadow-lip: inset 0 -2px 0 0 hsl(var(--brand-accent-edge));
-  --sl-shadow-lip-lg: inset 0 -4px 0 0 hsl(var(--brand-accent-edge));
-  --sl-shadow-lip-muted: inset 0 -2px 0 0 hsl(var(--card));
-  --sl-shadow-float: 0 12px 32px -6px hsl(var(--neutral-950) / 0.55), 0 0 0 1px hsl(var(--border));
-  --sl-shadow-modal: 0 24px 64px -12px hsl(var(--neutral-950) / 0.65), 0 0 0 1px hsl(var(--border));
-  --sl-shadow-halo: 0 0 0 1px hsl(var(--brand-accent)), 0 0 24px -4px var(--brand-accent-glow);
-  --sl-shadow-focus: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--brand-accent));
-  /* older app (Sloosh-design-main): kept beside DS4 until the contradictions are sorted (DS4 change, Oct 2026) */
-  --sl-shadow-surface: 0 12px 16px 0 hsl(var(--neutral-950) / 0.02);
-  --sl-shadow-panel: 0 4px 24px 0 hsl(var(--neutral-950) / 0.12);
-  --sl-shadow-toast: 0 12px 12px 0 hsl(var(--neutral-950) / 0.5);
-  --sl-shadow-float-app: 0 12px 24px 0 hsl(var(--neutral-950) / 0.5);
-  --sl-radius-md: 6px;
-  --motion-duration-micro: 150ms;
-  --motion-duration-enter: 200ms;
-  --motion-duration-exit: 200ms;
-  --motion-duration-toast: 220ms;
-  --motion-duration-screen: 280ms;
-  --motion-ease-out: cubic-bezier(0.32, 0.72, 0, 1);
-  --motion-ease-in: cubic-bezier(0.4, 0, 1, 1);
-  --press-scale: 0.97;
+  --shadow-lip: inset 0 -2px 0 0 hsl(var(--brand-accent-edge));
+  --shadow-lip-lg: inset 0 -4px 0 0 hsl(var(--brand-accent-edge));
+  --shadow-float: 0 12px 32px -6px hsl(var(--neutral-950) / 0.55), 0 0 0 1px hsl(var(--border));
+  --shadow-modal: 0 24px 64px -12px hsl(var(--neutral-950) / 0.65), 0 0 0 1px hsl(var(--border));
+  --shadow-halo: 0 0 0 1px hsl(var(--brand-accent)), 0 0 24px -4px var(--brand-accent-glow);
   --sl-gradient-scrim: linear-gradient(to bottom, hsl(var(--neutral-950) / 0) 0%, hsl(var(--neutral-950) / 0.6) 100%);
   --sl-gradient-fade-up: linear-gradient(to top, hsl(var(--background)) 7.2%, hsl(var(--neutral-950) / 0) 54.5%);
   --sl-gradient-glow-amber: radial-gradient(120% 140% at 70% 0%, var(--brand-glow) 0%, var(--brand-glow-deep) 45%, hsl(var(--background)) 100%);
   --sl-gradient-glow-ember: linear-gradient(135deg, hsl(var(--background)) 0%, var(--brand-glow-deep) 40%, var(--brand-glow) 100%);
   /* motion */
-  --sl-dur-instant: 80ms;
-  --sl-dur-fast: 120ms;
-  --sl-dur-base: 200ms;
-  --sl-dur-slow: 320ms;
-  --sl-dur-lazy: 600ms;
-  --sl-dur-fly: 520ms;
-  --sl-dur-ring: 260ms;
-  --sl-dur-underline: 650ms;
-  --sl-dur-draw: 800ms;
-  --sl-dur-pop: 560ms;
-  --sl-dur-write: 38ms;
-  --sl-dur-write-title: 70ms;
-  --sl-dur-burst: 560ms;
-  --sl-dur-breathe: 3400ms;
-  --sl-dur-boil: 154ms;
-  --sl-dur-undraw-ratio: 0.4;
-  --sl-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --sl-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --sl-ease-hop: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --sl-ease-lip: cubic-bezier(0.3, 0, 0.2, 1);
-  --sl-ease-draw: cubic-bezier(0.33, 1, 0.68, 1);
-  --sl-ease-squash: cubic-bezier(0.3, 0.7, 0.3, 1);
-  --sl-ease-fly: cubic-bezier(0.45, 0, 0.2, 1);
+  /* motion: one set, named as in the app (motion-duration-*, motion-ease-*, motion-spring-*) */
+  --motion-duration-instant: 80ms;    /* keycap press */
+  --motion-duration-fast: 120ms;      /* hover, colour */
+  --motion-duration-micro: 150ms;     /* pill colour, small fades */
+  --motion-duration-enter: 200ms;     /* menus, tabs, overlays, card reveal */
+  --motion-duration-exit: 200ms;      /* leaving */
+  --motion-duration-toast: 220ms;     /* toast slides up 8px */
+  --motion-duration-ring: 260ms;      /* rings, brackets */
+  --motion-duration-screen: 280ms;    /* screen change, dialog rise */
+  --motion-duration-slow: 320ms;      /* modals, toasts */
+  --motion-duration-fly: 520ms;       /* pointer flight */
+  --motion-duration-pop: 560ms;       /* critter pop-in, bursts */
+  --motion-duration-lazy: 600ms;      /* critter entrances */
+  --motion-duration-underline: 650ms;
+  --motion-duration-draw: 800ms;      /* a figure drawing itself */
+  --motion-duration-breathe: 3400ms;  /* critter idle */
+  --motion-duration-boil: 154ms;      /* line jitter frame */
+  --motion-duration-write: 38ms;      /* a letter of handwriting */
+  --motion-duration-write-title: 70ms;
+  --motion-undraw-ratio: 0.4;         /* ink leaves in 40% of its arrival time */
+  --motion-ease-out: cubic-bezier(0.32, 0.72, 0, 1);    /* screens, dialogs, toasts, card reveal */
+  --motion-ease-in: cubic-bezier(0.4, 0, 1, 1);         /* leaving */
+  --motion-ease-settle: cubic-bezier(0.2, 0.8, 0.2, 1); /* ink, meters, tiles */
+  --motion-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* sheets, carousels, tab pill */
+  --motion-ease-hop: cubic-bezier(0.34, 1.56, 0.64, 1); /* pops, hops, tags; overshoots */
+  --motion-ease-lip: cubic-bezier(0.3, 0, 0.2, 1);      /* keycap press */
+  --motion-ease-draw: cubic-bezier(0.33, 1, 0.68, 1);   /* pen strokes */
+  --motion-ease-squash: cubic-bezier(0.3, 0.7, 0.3, 1); /* squash and stretch */
+  --motion-ease-fly: cubic-bezier(0.45, 0, 0.2, 1);     /* the pointer's arc */
+  --motion-spring-pop: linear(0, 0.0237, 0.0854, 0.174, 0.2798, 0.3943, 0.5106, 0.623, 0.7276, 0.8213, 0.9025, 0.9702, 1.0244, 1.0657, 1.0951, 1.1138, 1.1234, 1.1255, 1.1215, 1.1131, 1.1015, 1.0879, 1.0734, 1.0589, 1.0449, 1.032, 1.0205, 1.0106, 1.0024, 0.9959, 0.991, 0.9875, 0.9854, 0.9844, 0.9843, 0.9849, 0.986, 0.9875, 0.9893, 0.9911, 0.9929, 0.9947, 0.9963, 0.9977, 0.9989, 0.9999, 1.0006, 1.0012, 1);
+  --motion-spring-card: linear(0, 0.0138, 0.0478, 0.0981, 0.1565, 0.2208, 0.2902, 0.3578, 0.4241, 0.49, 0.5502, 0.6063, 0.6598, 0.7068, 0.7492, 0.7885, 0.8221, 0.8526, 0.8783, 0.9006, 0.9204, 0.9367, 0.9505, 0.9624, 0.972, 0.9799, 0.9865, 0.9916, 0.9957, 0.9989, 1.0013, 1.0031, 1.0044, 1.0052, 1.0057, 1.006, 1.006, 1.0059, 1.0056, 1.0053, 1.005, 1.0046, 1.0042, 1.0037, 1.0033, 1.003, 1.0026, 1.0023, 1);
+  --motion-spring-ui: linear(0, 0.0278, 0.0978, 0.193, 0.3006, 0.411, 0.5175, 0.6159, 0.7034, 0.779, 0.8424, 0.8942, 0.9352, 0.9668, 0.9901, 1.0067, 1.0177, 1.0243, 1.0276, 1.0284, 1.0274, 1.0254, 1.0226, 1.0195, 1.0164, 1.0134, 1.0106, 1.0082, 1.0061, 1.0043, 1.0029, 1.0017, 1.0009, 1.0002, 0.9998, 0.9995, 0.9993, 0.9992, 0.9992, 0.9992, 1);
+  --motion-spring-card-duration: 550ms;   /* bounce 0.15, overshoot under 1%: cards rising in */
+  --motion-spring-pop-duration: 450ms;    /* bounce 0.45, overshoot about 12%: critters, pills, title letters */
+  --motion-spring-ui-duration: 400ms;     /* bounce 0.25, overshoot about 3%: toggles, steppers, the FAQ × */
   /* ink geometry */
   --sl-ink-w-fine: 1.2px;
   --sl-ink-w: 1.6px;
@@ -356,7 +318,6 @@
   --sl-ink-boil-scale: 2.4;
   --sl-ink-boil-frequency: 0.02;
   --sl-ink-idle-max: 4px;
-  --sl-radius-wobble: 255px 18px 225px 18px / 18px 225px 18px 255px;
   --sl-z-base: 0;
   --sl-z-sticky: 40;
   --sl-z-dropdown: 50;
@@ -403,7 +364,6 @@
   --destructive: var(--red-600);
   --destructive-foreground: var(--neutral-0);
   --border: var(--neutral-300);
-  --input: var(--neutral-300);
   --ring: var(--neutral-950);
   --chart-1: var(--neutral-950);
   --chart-2: var(--neutral-700);
@@ -421,10 +381,7 @@
   /* ── extensions in the shadcn pattern (x, x-foreground, x-border): Figma "Color System" ── */
   --foreground-subtle: var(--neutral-700);
   --border-strong: var(--neutral-300);
-  --border-light: var(--neutral-300);
-  --surface-disabled: var(--neutral-150);
   --disabled-foreground: var(--neutral-400);
-  --disabled-border: var(--neutral-300);
   --destructive-subtle: var(--red-50);
   --destructive-subtle-foreground: var(--red-700);
   --destructive-border: var(--red-200);
@@ -461,7 +418,7 @@
   --brand-accent-subtle: hsl(var(--creative-gen-accent-500) / 0.2);   /* full colour */
   --brand-accent-subtle-hover: hsl(var(--creative-gen-accent-500) / 0.3);   /* full colour: tinted button hover */
   --brand-accent-ring: var(--creative-gen-accent-100);
-  --brand-accent-chip: hsl(var(--creative-gen-accent-50) / 0.48);   /* full colour: a pill on the yellow fill */
+  --brand-accent-pill: hsl(var(--creative-gen-accent-50) / 0.48);   /* full colour: a pill on the yellow fill */
   --brand-accent-glow: hsl(var(--creative-gen-accent-500) / 0.45);   /* full colour, DS4 only: halo and running-node glow */
   --brand-filter-accent-1: hsl(var(--emerald-700));
   --brand-filter-accent-2: hsl(var(--red-700));
@@ -469,23 +426,10 @@
   --brand-filter-accent-5: hsl(var(--amber-700));
   --brand-favorite: hsl(var(--creative-gen-accent-500));
   --dialog-overlay: hsl(var(--neutral-950) / 0.8);
-  --dialog-overlay-strong: hsl(var(--neutral-950) / 0.8);
-  --drawer-overlay: hsl(var(--neutral-950) / 0.8);
   /* layers on light: the app's non-Sloosh defaults (its Sloosh values are dark-only) */
-  --layer-1: hsl(var(--popover));
-  --layer-2: hsl(var(--muted));
-  --layer-3: hsl(var(--accent));
-  --layer-4: hsl(var(--border-strong));
   --layer-line: hsl(var(--border));
-  --layer-line-strong: hsl(var(--border-strong));
-  --layer-dim: hsl(var(--muted-foreground));
-  --layer-scrim: var(--drawer-overlay);
-  --layer-warn: hsl(var(--warning));
-  --layer-warn-foreground: hsl(var(--warning-foreground));
-  --sl-shadow-lip-muted: inset 0 -2px 0 0 hsl(var(--border));
-  --sl-shadow-float: 0 12px 32px -8px hsl(var(--neutral-950) / 0.18), 0 0 0 1px hsl(var(--border));
-  --sl-shadow-modal: 0 24px 64px -12px hsl(var(--neutral-950) / 0.25), 0 0 0 1px hsl(var(--border));
-  --sl-shadow-focus: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--foreground));
+  --shadow-float: 0 12px 32px -8px hsl(var(--neutral-950) / 0.18), 0 0 0 1px hsl(var(--border));
+  --shadow-modal: 0 24px 64px -12px hsl(var(--neutral-950) / 0.25), 0 0 0 1px hsl(var(--border));
 }
 
 @media (prefers-color-scheme: light) {
@@ -509,7 +453,6 @@
     --destructive: var(--red-600);
     --destructive-foreground: var(--neutral-0);
     --border: var(--neutral-300);
-    --input: var(--neutral-300);
     --ring: var(--neutral-950);
     --chart-1: var(--neutral-950);
     --chart-2: var(--neutral-700);
@@ -527,10 +470,7 @@
     /* ── extensions in the shadcn pattern (x, x-foreground, x-border): Figma "Color System" ── */
     --foreground-subtle: var(--neutral-700);
     --border-strong: var(--neutral-300);
-    --border-light: var(--neutral-300);
-    --surface-disabled: var(--neutral-150);
     --disabled-foreground: var(--neutral-400);
-    --disabled-border: var(--neutral-300);
     --destructive-subtle: var(--red-50);
     --destructive-subtle-foreground: var(--red-700);
     --destructive-border: var(--red-200);
@@ -567,7 +507,7 @@
     --brand-accent-subtle: hsl(var(--creative-gen-accent-500) / 0.2);   /* full colour */
   --brand-accent-subtle-hover: hsl(var(--creative-gen-accent-500) / 0.3);   /* full colour: tinted button hover */
     --brand-accent-ring: var(--creative-gen-accent-100);
-    --brand-accent-chip: hsl(var(--creative-gen-accent-50) / 0.48);   /* full colour: a pill on the yellow fill */
+    --brand-accent-pill: hsl(var(--creative-gen-accent-50) / 0.48);   /* full colour: a pill on the yellow fill */
     --brand-accent-glow: hsl(var(--creative-gen-accent-500) / 0.45);   /* full colour, DS4 only: halo and running-node glow */
     --brand-filter-accent-1: hsl(var(--emerald-700));
     --brand-filter-accent-2: hsl(var(--red-700));
@@ -575,23 +515,10 @@
     --brand-filter-accent-5: hsl(var(--amber-700));
     --brand-favorite: hsl(var(--creative-gen-accent-500));
     --dialog-overlay: hsl(var(--neutral-950) / 0.8);
-    --dialog-overlay-strong: hsl(var(--neutral-950) / 0.8);
-    --drawer-overlay: hsl(var(--neutral-950) / 0.8);
     /* layers on light: the app's non-Sloosh defaults (its Sloosh values are dark-only) */
-    --layer-1: hsl(var(--popover));
-    --layer-2: hsl(var(--muted));
-    --layer-3: hsl(var(--accent));
-    --layer-4: hsl(var(--border-strong));
     --layer-line: hsl(var(--border));
-    --layer-line-strong: hsl(var(--border-strong));
-    --layer-dim: hsl(var(--muted-foreground));
-    --layer-scrim: var(--drawer-overlay);
-    --layer-warn: hsl(var(--warning));
-    --layer-warn-foreground: hsl(var(--warning-foreground));
-    --sl-shadow-lip-muted: inset 0 -2px 0 0 hsl(var(--border));
-    --sl-shadow-float: 0 12px 32px -8px hsl(var(--neutral-950) / 0.18), 0 0 0 1px hsl(var(--border));
-    --sl-shadow-modal: 0 24px 64px -12px hsl(var(--neutral-950) / 0.25), 0 0 0 1px hsl(var(--border));
-    --sl-shadow-focus: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--foreground));
+    --shadow-float: 0 12px 32px -8px hsl(var(--neutral-950) / 0.18), 0 0 0 1px hsl(var(--border));
+    --shadow-modal: 0 24px 64px -12px hsl(var(--neutral-950) / 0.25), 0 0 0 1px hsl(var(--border));
   }
 }
 
@@ -602,29 +529,28 @@
 [data-type="any"] { --_fill: hsl(var(--data-any)); --_fg: hsl(var(--data-any-foreground)); }
 
 @media (prefers-reduced-motion: reduce) {
-  :root { --sl-dur-fast: 0ms; --sl-dur-base: 0ms; --sl-dur-slow: 0ms; --sl-dur-lazy: 0ms; --sl-dur-fly: 0ms;
-          --sl-dur-ring: 0ms; --sl-dur-underline: 0ms; --sl-dur-draw: 0ms; --sl-dur-pop: 0ms; --sl-dur-write: 0ms;
-          --sl-dur-write-title: 0ms; --sl-dur-burst: 0ms; }
+  :root { --motion-duration-fast: 0ms; --motion-duration-micro: 0ms; --motion-duration-enter: 0ms; --motion-duration-exit: 0ms; --motion-duration-toast: 0ms;
+          --motion-duration-ring: 0ms; --motion-duration-screen: 0ms; --motion-duration-slow: 0ms; --motion-duration-fly: 0ms; --motion-duration-pop: 0ms;
+          --motion-duration-lazy: 0ms; --motion-duration-underline: 0ms; --motion-duration-draw: 0ms; --motion-duration-write: 0ms; --motion-duration-write-title: 0ms; }
 }
 
-/* one class per type token, for samples and one-offs: .type-body-14 … */
-.type-display-60 { font: var(--type-display-60); }
-.type-display-48 { font: var(--type-display-48); }
-.type-display-36 { font: var(--type-display-36); }
-.type-display-28 { font: var(--type-display-28); }
-.type-display-24 { font: var(--type-display-24); }
-.type-display-20 { font: var(--type-display-20); }
-.type-title-20 { font: var(--type-title-20); }
-.type-body-16 { font: var(--type-body-16); }
-.type-body-16-strong { font: var(--type-body-16-strong); }
-.type-body-14 { font: var(--type-body-14); }
-.type-body-14-strong { font: var(--type-body-14-strong); }
-.type-num-14 { font: var(--type-num-14); }
-.type-caption-12 { font: var(--type-caption-12); }
-.type-caption-12-strong { font: var(--type-caption-12-strong); }
-.type-caps-12 { font: var(--type-caps-12); letter-spacing: var(--type-caps-tracking); text-transform: uppercase; }
-.type-hand-48 { font: var(--type-hand-48); }
-.type-hand-28 { font: var(--type-hand-28); }
-.type-hand-24 { font: var(--type-hand-24); }
-.type-hand-20 { font: var(--type-hand-20); }
-.type-hand-16 { font: var(--type-hand-16); }
+/* one class per type token, for samples and one-offs: .text-sm … */
+.text-display-60 { font: var(--text-display-60); }
+.text-display-48 { font: var(--text-display-48); }
+.text-display-36 { font: var(--text-display-36); }
+.text-display-24 { font: var(--text-display-24); }
+.text-display-20 { font: var(--text-display-20); }
+.text-text-20 { font: var(--text-text-20); }
+.text-base { font: var(--text-base); }
+.text-base-strong { font: var(--text-base-strong); }
+.text-sm { font: var(--text-sm); }
+.text-sm-strong { font: var(--text-sm-strong); }
+.text-sm-num { font: var(--text-sm-num); }
+.text-caption { font: var(--text-caption); }
+.text-caption-strong { font: var(--text-caption-strong); }
+.text-caption-caps { font: var(--text-caption-caps); letter-spacing: var(--text-caption-caps-tracking); text-transform: uppercase; }
+.text-hand-48 { font: var(--text-hand-48); }
+.text-hand-36 { font: var(--text-hand-36); }
+.text-hand-24 { font: var(--text-hand-24); }
+.text-hand-20 { font: var(--text-hand-20); }
+.text-hand-16 { font: var(--text-hand-16); }

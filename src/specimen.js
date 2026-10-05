@@ -87,12 +87,11 @@
     ['Violet', '', [['violet-50',''],['violet-100',''],['violet-200',''],['violet-300',''],['violet-400',''],['violet-500',''],['violet-600',''],['violet-700',''],['violet-800',''],['violet-900',''],['violet-950','']], 'ramp'],
     ['Green', '', [['green-600','']], 'ramp'],
     ['§', 'sw-tok'],
-    ['Surfaces', '', [['background','page'],['card','cards, panels, notes'],['popover','menus'],['muted','fields, chips, selected tab'],['accent','hover on muted'],['primary','inverse fill'],['surface-disabled','disabled controls']]],
+    ['Surfaces', '', [['background','page'],['card','cards, panels, notes'],['popover','menus'],['muted','fields, pills, selected tab'],['accent','hover on muted'],['primary','inverse fill, default button'],['dialog-overlay','behind dialogs and sheets','f']]],
     ['Text', '', [['foreground','primary text'],['foreground-subtle','secondary text'],['muted-foreground','muted text, idle tabs'],['disabled-foreground','disabled'],['brand-accent-text','yellow text and lines'],['text-shimmer-base','loading shimmer','f']]],
-    ['Lines', '', [['border','default border'],['border-strong','hover edge, meters'],['input','field edge'],['ring','focus ring'],['layer-line','hairlines on phone sheets','f']]],
-    ['Brand', 'every brand colour, on the creative-gen-accent ramp; drawn lines and faces stay neutral', [['brand-accent','primary buttons, fills, critter bodies, the pointer tag'],['brand-accent-foreground','text on yellow'],['brand-accent-edge','button lip'],['brand-accent-light','hatch strokes on drawn marks','f'],['brand-accent-subtle','credit chip, tinted button','f'],['brand-accent-subtle-hover','tinted button hover','f'],['brand-accent-chip','pill on a yellow button','f'],['brand-accent-ring','soft yellow ring'],['brand-accent-glow','halo, running node','f'],['brand-glow-light','Stage glow, light','f'],['brand-glow','Stage glow','f'],['brand-glow-deep','Stage glow, deep','f'],['brand-line','outlines, handwriting','f'],['brand-line-soft','asides','f'],['brand-line-faint','sketches, trails','f'],['brand-note','pointer note','f'],['brand-note-foreground','note text','f'],['brand-eye-pupil','pupils','f'],['brand-eye-white','eye whites','f'],['brand-shadow','ground shadow','f'],['brand-filter-accent-1','drawn checks','f'],['brand-filter-accent-2','hearts, tears','f'],['brand-filter-accent-3','drops, bubbles','f'],['brand-filter-accent-4','another person\'s marks','f'],['brand-filter-accent-5','sparks, notice dot','f'],['brand-filter-accent-6','critter cheeks','f']]],
+    ['Lines', '', [['border','default border'],['border-strong','hover edge, field edge, meters'],['ring','focus outline'],['layer-line','hairlines on phone sheets','f']]],
+    ['Brand', 'every brand colour, on the creative-gen-accent ramp; drawn lines and faces stay neutral', [['brand-accent','primary buttons, fills, critter bodies, the pointer tag'],['brand-accent-foreground','text on yellow, pupils'],['brand-accent-edge','button lip'],['brand-accent-light','hatch strokes on drawn marks','f'],['brand-accent-subtle','credit pill, tinted button','f'],['brand-accent-subtle-hover','tinted button hover','f'],['brand-accent-pill','pill on a yellow button','f'],['brand-accent-ring','soft yellow ring'],['brand-accent-glow','halo, running node','f'],['brand-glow-light','Stage glow, light','f'],['brand-glow','Stage glow','f'],['brand-glow-deep','Stage glow, deep','f'],['brand-line','outlines, handwriting, note text','f'],['brand-line-soft','asides','f'],['brand-line-faint','sketches, trails','f'],['brand-note','pointer note','f'],['brand-eye-white','eye whites','f'],['brand-shadow','ground shadow','f'],['brand-filter-accent-1','drawn checks','f'],['brand-filter-accent-2','hearts, tears','f'],['brand-filter-accent-3','drops, bubbles','f'],['brand-filter-accent-4','another person\'s marks','f'],['brand-filter-accent-5','sparks, notice dot','f'],['brand-filter-accent-6','critter cheeks','f']]],
     ['Status', '', [['success','success fill'],['success-foreground','success text, savings'],['destructive','errors, failed runs'],['destructive-subtle','error fill'],['warning','warning fill'],['warning-foreground','warning text'],['info','info fill'],['info-foreground','links, info text'],['violet','brand status fill'],['violet-foreground','brand status text']]],
-    ['Phone layers', 'sheets and screens below 768px', [['layer-1','sheets','f'],['layer-2','raised rows','f'],['layer-3','','f'],['layer-4','handles, pressed','f'],['layer-scrim','sheet scrim','f'],['dialog-overlay','modal backdrop','f']]],
     ['Agents', 'one colour per agent', [['agents-amber',''],['agents-red',''],['agents-green',''],['agents-blue',''],['agents-yellow',''],['agent','agent status']]],
     ['Data types', 'node ports and tags', [['data-text','text'],['data-text-foreground','tag text, port ring'],['data-image','image'],['data-image-foreground','tag text, port ring'],['data-video','video'],['data-video-foreground','tag text, port ring'],['data-audio','audio'],['data-audio-foreground','tag text, port ring'],['data-any','any'],['data-any-foreground','tag text, port ring']]],
   ];
@@ -110,13 +109,13 @@
         g[2].forEach(function (t) {
           var d = document.createElement('div'), expr = t[2] === 'f' ? 'var(--' + t[0] + ')' : 'hsl(var(--' + t[0] + '))';
           if (t[3]) d.className = 'ext';
-          d.innerHTML = '<div class="chip" style="background:' + expr + '"></div><b>' + t[0] + '</b><code></code>' + (t[1] ? '<small>' + t[1] + '</small>' : '');
+          d.innerHTML = '<div class="pill" style="background:' + expr + '"></div><b>' + t[0] + '</b><code></code>' + (t[1] ? '<small>' + t[1] + '</small>' : '');
           grid.appendChild(d);
         });
         sec.appendChild(grid); host.appendChild(sec);
       });
     }
-    document.querySelectorAll('.ds-sw > div').forEach(function (d) { d.querySelector('code').textContent = toHex(getComputedStyle(d.querySelector('.chip')).backgroundColor); });
+    document.querySelectorAll('.ds-sw > div').forEach(function (d) { d.querySelector('code').textContent = toHex(getComputedStyle(d.querySelector('.pill')).backgroundColor); });
   }
   safe('swatches', paintSwatches);
   safe('budget', function () {
@@ -124,7 +123,7 @@
   });
 
   /* ── Pricing v4 · settled: title letters, cards rising, the recommended-card carousel ── */
-  var POP = cssVar('--spring-pop') || 'cubic-bezier(.34,1.56,.64,1)', CARD = cssVar('--spring-card') || 'cubic-bezier(.23,1,.32,1)';
+  var POP = cssVar('--motion-spring-pop') || 'cubic-bezier(.34,1.56,.64,1)', CARD = cssVar('--motion-spring-card') || 'cubic-bezier(.23,1,.32,1)';
   safe('title-letters', function () {
     var h = $('tt-h'), chars = [];
     h.setAttribute('aria-label', h.textContent);
@@ -392,33 +391,6 @@
         });
       });
       onView($('logo-big'), function () { if (!RM) L.drawOn().then(function () { return wait(600); }).then(function () { now.textContent = 'swoosh'; L.swoosh(); }); });
-    });
-
-    /* ── motion ── */
-    safe('motion', function () {
-      var D = [['instant', 'keycap press'], ['fast', 'hover, colour'], ['base', 'menus, tabs'], ['ring', 'ring or brackets'], ['slow', 'modals, toasts'], ['fly', 'pointer flight'], ['pop', 'critter pop-in'], ['lazy', 'critter entrances'], ['draw', 'a figure draws itself'], ['breathe', 'idle breath']];
-      var host = $('durs'), max = 3400;
-      D.forEach(function (d) {
-        var v = cssVar('--sl-dur-' + d[0]); var ms = parseFloat(v) || 0;
-        var row = document.createElement('div');
-        row.innerHTML = '<span><b style="font-weight:600;color:hsl(var(--foreground))">' + d[0] + '</b><br>' + d[1] + '</span><i style="width:' + Math.max(1, Math.sqrt(ms / max) * 100) + '%"></i><em>' + Math.round(ms) + 'ms</em>';
-        host.appendChild(row);
-      });
-      var E = [['out', 'default'], ['in-out', 'sheets, carousels'], ['hop', 'pops, hops, tags'], ['lip', 'keycap press'], ['draw', 'pen strokes'], ['squash', 'squash and stretch'], ['fly', 'the pointer\'s arc']];
-      var eh = $('eases'), dots = [];
-      E.forEach(function (e) {
-        var row = document.createElement('div');
-        row.innerHTML = '<span><b style="font-weight:600">' + e[0] + '</b><small>' + e[1] + '</small></span><div class="track"><span class="dot"></span></div>';
-        eh.appendChild(row); dots.push([row.querySelector('.dot'), cssVar('--sl-ease-' + e[0])]);
-      });
-      var go = function () {
-        dots.forEach(function (d) {
-          var tr = d[0].parentNode.clientWidth - 28;
-          d[0].animate([{ transform: 'translateX(0)' }, { transform: 'translateX(' + tr + 'px)' }], { duration: RM ? 0 : 1100, easing: d[1] || 'ease', fill: 'forwards' });
-        });
-      };
-      $('ease-go').addEventListener('click', go);
-      onView(eh, go);
     });
 
     /* ── components ── */

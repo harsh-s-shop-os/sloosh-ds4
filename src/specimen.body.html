@@ -59,7 +59,7 @@
     </div>
   </div>
   <div class="ds-plate ds-prims" style="margin-top:16px">
-    <div><b>Sizes</b><span>12 · 14 · 16 · 20 · 24 · 28 · 36 · 48 · 60 in reserve</span></div>
+    <div><b>Sizes</b><span>12 · 14 · 16 · 20 · 24 · 36 · 48 · 60, one scale for every face</span></div>
     <div><b>Weights</b><span>500 · 600 · 700 (Bowlby One has 400 only)</span></div>
     <div><b>Line height</b><span>120% for titles · 140% for everything else</span></div>
   </div>
@@ -71,28 +71,27 @@
       <thead><tr><th>Token</th><th>Size · weight · line height</th><th>Sample</th><th>Used in</th></tr></thead>
       <tbody>
         <tr class="grp"><th colspan="4">Bowlby One</th></tr>
-        <tr><td><code>display-60</code></td><td class="sp">60 · 400 · 120%</td><td class="smp type-display-60">Sloosh V4</td><td class="use">Cover title</td></tr>
-        <tr><td><code>display-48</code></td><td class="sp">48 · 400 · 120%</td><td class="smp type-display-48">$39</td><td class="use">Section titles, prices, the “You need” number</td></tr>
-        <tr><td><code>display-36</code></td><td class="sp">36 · 400 · 120%</td><td class="smp type-display-36">Own the outcome</td><td class="use">Section titles on phones, ground headlines, animated titles</td></tr>
-        <tr><td><code>display-28</code></td><td class="sp">28 · 400 · 120%</td><td class="smp type-display-28">Pro</td><td class="use">Plan names, model tape, slider count, dialog and promo-banner titles</td></tr>
-        <tr><td><code>display-24</code></td><td class="sp">24 · 400 · 120%</td><td class="smp type-display-24"><s>$49</s></td><td class="use">Struck-through old price, critter names, register names</td></tr>
-        <tr><td><code>display-20</code></td><td class="sp">20 · 400 · 120%</td><td class="smp type-display-20">200</td><td class="use">Compare-table numbers, question numbers, face headers</td></tr>
+        <tr><td><code>text-display-60</code></td><td class="sp">60 · 400 · 120%</td><td class="smp text-display-60">Sloosh V4</td><td class="use">Cover title</td></tr>
+        <tr><td><code>text-display-48</code></td><td class="sp">48 · 400 · 120%</td><td class="smp text-display-48">$39</td><td class="use">Section titles, prices, the “You need” number</td></tr>
+        <tr><td><code>text-display-36</code></td><td class="sp">36 · 400 · 120%</td><td class="smp text-display-36">Own the outcome</td><td class="use">Section titles on phones, ground headlines, animated titles</td></tr>
+        <tr><td><code>text-display-24</code></td><td class="sp">24 · 400 · 120%</td><td class="smp text-display-24">Pro</td><td class="use">Plan names, model tape, slider count, dialog titles, old prices, critter names</td></tr>
+        <tr><td><code>text-display-20</code></td><td class="sp">20 · 400 · 120%</td><td class="smp text-display-20">200</td><td class="use">Compare-table numbers, question numbers, face headers</td></tr>
         <tr class="grp"><th colspan="4">SF Pro</th></tr>
-        <tr><td><code>title-20</code></td><td class="sp">20 · 600 · 120%</td><td class="smp type-title-20">What you make each month</td><td class="use">Card and group titles, FAQ questions, section headings</td></tr>
-        <tr><td><code>body-16</code></td><td class="sp">16 · 500 · 140%</td><td class="smp type-body-16">Start on your own and bring your team in later.</td><td class="use">Body, ledes, FAQ answers, billing toggle, 48 tabs, tile captions</td></tr>
-        <tr><td><code>body-16-strong</code></td><td class="sp">16 · 600 · 140%</td><td class="smp type-body-16-strong">Subscribe to Pro</td><td class="use">Buttons 40 and 48, list titles, empty-state titles</td></tr>
-        <tr><td><code>body-14</code></td><td class="sp">14 · 500 · 140%</td><td class="smp type-body-14">You save $120 per year</td><td class="use">Secondary text, specs, tables, fields, tabs, nav pills, menus, toasts</td></tr>
-        <tr><td><code>body-14-strong</code></td><td class="sp">14 · 600 · 140%</td><td class="smp type-body-14-strong">Run Space</td><td class="use">Buttons 28 to 36, card captions, token names</td></tr>
-        <tr><td><code>num-14</code></td><td class="sp">14 · 700 · 140%</td><td class="smp type-num-14">−20%</td><td class="use">Savings chip, stepper value</td></tr>
-        <tr><td><code>caption-12</code></td><td class="sp">12 · 500 · 140%</td><td class="smp type-caption-12">JPEG and PNG, up to 2GB</td><td class="use">Captions, chips, credit chip, hex values, table headers, site banner</td></tr>
-        <tr><td><code>caption-12-strong</code></td><td class="sp">12 · 600 · 140%</td><td class="smp type-caption-12-strong">✦ 25</td><td class="use">Cost pill on a button, buttons in a pointer tag</td></tr>
-        <tr><td><code>caps-12</code></td><td class="sp">12 · 600 · 140% · caps +0.04em</td><td class="smp type-caps-12">Recommended</td><td class="use">Buttons at 24, eyebrows, part labels, plan tags, status badges</td></tr>
+        <tr><td><code>text-text-20</code></td><td class="sp">20 · 600 · 120%</td><td class="smp text-text-20">What you make each month</td><td class="use">Card and group titles, FAQ questions, section headings</td></tr>
+        <tr><td><code>text-base</code></td><td class="sp">16 · 500 · 140%</td><td class="smp text-base">Start on your own and bring your team in later.</td><td class="use">Body, ledes, FAQ answers, billing toggle, 48 tabs, card titles</td></tr>
+        <tr><td><code>text-base-strong</code></td><td class="sp">16 · 600 · 140%</td><td class="smp text-base-strong">Subscribe to Pro</td><td class="use">Buttons 40 and 48, list titles, empty-state titles</td></tr>
+        <tr><td><code>text-sm</code></td><td class="sp">14 · 500 · 140%</td><td class="smp text-sm">You save $120 per year</td><td class="use">Secondary text, specs, tables, fields, tabs, pills, menus, toasts, banners</td></tr>
+        <tr><td><code>text-sm-strong</code></td><td class="sp">14 · 600 · 140%</td><td class="smp text-sm-strong">Run Space</td><td class="use">Buttons 28 to 36, card captions, promo-banner titles</td></tr>
+        <tr><td><code>text-sm-num</code></td><td class="sp">14 · 700 · 140%</td><td class="smp text-sm-num">−20%</td><td class="use">Savings pill, stepper value</td></tr>
+        <tr><td><code>text-caption</code></td><td class="sp">12 · 500 · 140%</td><td class="smp text-caption">JPEG and PNG, up to 2GB</td><td class="use">Captions, pills in the composer, credit pill, hex values, table headers, field errors</td></tr>
+        <tr><td><code>text-caption-strong</code></td><td class="sp">12 · 600 · 140%</td><td class="smp text-caption-strong">✦ 25</td><td class="use">Cost pill on a button, buttons in a pointer tag</td></tr>
+        <tr><td><code>text-caption-caps</code></td><td class="sp">12 · 600 · 140% · caps +0.04em</td><td class="smp text-caption-caps">Recommended</td><td class="use">Buttons at 24, eyebrows, part labels, plan tags, status badges</td></tr>
         <tr class="grp"><th colspan="4">Caveat</th></tr>
-        <tr><td><code>hand-48</code></td><td class="sp">48 · 700 · 120%</td><td class="smp type-hand-48">you made a thing!</td><td class="use">Celebrations</td></tr>
-        <tr><td><code>hand-28</code></td><td class="sp">28 · 700 · 120%</td><td class="smp type-hand-28">precise at rest</td><td class="use">The motto, big handwritten titles</td></tr>
-        <tr><td><code>hand-24</code></td><td class="sp">24 · 700 · 120%</td><td class="smp type-hand-24">most picked</td><td class="use">Pointer note titles, asides on grounds, “most picked”, sticky notes</td></tr>
-        <tr><td><code>hand-20</code></td><td class="sp">20 · 600 · 120%</td><td class="smp type-hand-20">try this one</td><td class="use">Pointer tags, handwritten labels, product sticky notes</td></tr>
-        <tr><td><code>hand-16</code></td><td class="sp">16 · 600 · 120%</td><td class="smp type-hand-16">needs a name first</td><td class="use">Notes beside buttons, tiny captions</td></tr>
+        <tr><td><code>text-hand-48</code></td><td class="sp">48 · 700 · 120%</td><td class="smp text-hand-48">you made a thing!</td><td class="use">Celebrations</td></tr>
+        <tr><td><code>text-hand-36</code></td><td class="sp">36 · 700 · 120%</td><td class="smp text-hand-36">precise at rest</td><td class="use">The motto, big handwritten titles</td></tr>
+        <tr><td><code>text-hand-24</code></td><td class="sp">24 · 700 · 120%</td><td class="smp text-hand-24">most picked</td><td class="use">Pointer note titles, asides on grounds, “most picked”, sticky notes</td></tr>
+        <tr><td><code>text-hand-20</code></td><td class="sp">20 · 600 · 120%</td><td class="smp text-hand-20">try this one</td><td class="use">Pointer tags, handwritten labels, product sticky notes</td></tr>
+        <tr><td><code>text-hand-16</code></td><td class="sp">16 · 600 · 120%</td><td class="smp text-hand-16">needs a name first</td><td class="use">Notes beside buttons, tiny captions</td></tr>
       </tbody>
     </table>
   </div>
@@ -112,7 +111,7 @@
     <div class="ds-plate">
       <div class="ds-cap"><b>Yellow budget</b><span>about 2% of a Studio screen</span></div>
       <div class="ds-budget" id="budget" aria-hidden="true"></div>
-      <p class="ds-spec">A drawn ring counts as yellow. If a screen already shows a primary keycap and the credit chip, the ring goes on the keycap or nowhere.</p>
+      <p class="ds-spec">A drawn ring counts as yellow. If a screen already shows a primary keycap and the credit pill, the ring goes on the keycap or nowhere.</p>
     </div>
     <div class="ds-plate">
       <div class="ds-cap"><b>Yellow strokes vs yellow fills</b><span>contrast</span></div>
@@ -170,13 +169,13 @@
     <table class="ds-matrix">
       <thead><tr><th>Relationship</th><th>Desktop</th><th>Phone (≤760)</th></tr></thead>
       <tbody>
-        <tr><th>Content ↔ section transition (tape or wave), both sides</th><td>144</td><td>96</td></tr>
+        <tr><th>Content ↔ section transition (tape or wave), both sides</th><td>160</td><td>96</td></tr>
         <tr><th>Section title → first content</th><td>56</td><td>32</td></tr>
         <tr><th>Title → its lede, kicker → title (a title group)</th><td>16</td><td>16</td></tr>
-        <tr><th>Card or group title → its content</th><td>32</td><td>28</td></tr>
+        <tr><th>Card or group title → its content</th><td>32</td><td>32</td></tr>
         <tr><th>Item ↔ item inside a group</th><td>24</td><td>20</td></tr>
         <tr><th>Group ↔ group in a column</th><td>48</td><td>48</td></tr>
-        <tr><th>Card padding, and card edge or full-width rule ↔ nearest item</th><td>40</td><td>22–28</td></tr>
+        <tr><th>Card padding, and card edge or full-width rule ↔ nearest item</th><td>36</td><td>24</td></tr>
         <tr><th>Plan name → "for" line</th><td>4</td><td>4</td></tr>
         <tr><th>Footer column label → links</th><td>16</td><td>16</td></tr>
       </tbody>
@@ -193,18 +192,17 @@
 
   <h3 class="ds-part">Primitives</h3>
   <div class="ds-plate">
-    <div class="ds-cap"><b>Radii</b></div>
+    <div class="ds-cap"><b>Radii</b><span>anything off this scale snaps to it; when two values compete, the larger wins</span></div>
     <div class="ds-radii">
-        <div><i style="border-radius:4px"></i><b>sm 4</b><small>thumbs in chips</small></div>
-        <div class="off"><i style="border-radius:6px"></i><b>md 6</b><small>older app only</small></div><div><i style="border-radius:8px"></i><b>lg 8</b><small>fields, chips</small></div>
-        <div><i style="border-radius:12px"></i><b>xl 12</b><small>every button, tiles, toasts</small></div>
-        <div><i style="border-radius:16px"></i><b>2xl 16</b><small>cards, switch</small></div>
-        <div><i style="border-radius:20px"></i><b>3xl 20</b><small>floating panels (Figma)</small></div>
-        <div><i style="border-radius:24px"></i><b>sheet 24</b><small>sheets, modals</small></div>
-        <div><i style="border-radius:9999px"></i><b>full</b><small>pills, chips</small></div>
-        <div><i style="border-radius:var(--sl-radius-wobble);background:hsl(var(--brand-accent));box-shadow:none"></i><b>wobble</b><small>sticky notes, Stage</small></div>
-        <div class="off"><i style="border-radius:28px"></i><b>28</b><small>plan and calculator cards · no token yet</small></div>
-        <div class="off"><i style="border-radius:18px"></i><b>18</b><small>FAQ accordion · no token yet</small></div>
+        <div><i style="border-radius:4px"></i><b>radius-sm · 4</b><small>thumbs in pills</small></div>
+        <div><i style="border-radius:6px"></i><b>radius-md · 6</b><small>small marks</small></div>
+        <div><i style="border-radius:8px"></i><b>radius-lg · 8</b><small>fields, text areas</small></div>
+        <div><i style="border-radius:12px"></i><b>radius-xl · 12</b><small>buttons, pills, tiles, toasts</small></div>
+        <div><i style="border-radius:16px"></i><b>radius-2xl · 16</b><small>cards, switch</small></div>
+        <div><i style="border-radius:20px"></i><b>radius-panel · 20</b><small>dialogs, composers, the FAQ</small></div>
+        <div><i style="border-radius:24px"></i><b>radius-sheet · 24</b><small>sheets, plan cards</small></div>
+        <div><i style="border-radius:9999px"></i><b>radius-full · full</b><small>dots, avatars</small></div>
+        <div><i style="border-radius:var(--radius-wobble);background:hsl(var(--brand-accent));box-shadow:none"></i><b>radius-wobble</b><small>sticky notes, Stage</small></div>
     </div>
   </div>
 
@@ -212,19 +210,11 @@
   <div class="ds-plate">
     <div class="ds-cap"><b>Shadows</b></div>
       <div class="ds-elev">
-        <div style="box-shadow:var(--sl-shadow-float)">float · menus</div>
-        <div style="box-shadow:var(--sl-shadow-modal)">modal</div>
-        <div style="box-shadow:var(--sl-shadow-halo)">halo · recommended</div>
-        <div style="box-shadow:var(--sl-shadow-focus)">focus ring</div>
+        <div style="box-shadow:var(--shadow-float)">shadow-float · menus, toasts, composers</div>
+        <div style="box-shadow:var(--shadow-modal)">shadow-modal · dialogs, sheets</div>
+        <div style="box-shadow:var(--shadow-halo)">shadow-halo · running node</div>
       </div>
-    <div class="ds-cap" style="margin-top:24px"><b>Shadows <i class="ds-old">older app</i></b></div>
-    <div class="ds-elev">
-        <div style="box-shadow:var(--sl-shadow-surface)">surface · composer</div>
-        <div style="box-shadow:var(--sl-shadow-panel)">panel</div>
-        <div style="box-shadow:var(--sl-shadow-float-app)">float · dialog</div>
-        <div style="box-shadow:var(--sl-shadow-toast)">toast</div>
-    </div>
-    <p class="ds-spec">Menus, modals, focus. The halo is not used on pricing. Ink and the pointer never cast shadows.</p>
+    <p class="ds-spec">Focus is an outline, not a shadow: 2px in <b>ring</b>, 2px off the edge. Ink and the pointer never cast shadows.</p>
   </div>
 
   <h3 class="ds-part">Usage</h3>
@@ -252,7 +242,7 @@
 <section class="ds-sec" id="buttons">
   <p class="ds-eyebrow">05</p>
   <h2 class="ds-h2">Buttons</h2>
-  <p class="ds-lede">One keycap, seven styles, six sizes.</p>
+  <p class="ds-lede">One keycap, seven styles, six sizes. Icon buttons share the sizes.</p>
 
   <h3 class="ds-part">Tokens</h3>
   <div class="ds-grid ds-g2" style="margin-top:0">
@@ -270,9 +260,8 @@
       <table class="ds-matrix">
         <thead><tr><th>Height</th><th>Label</th><th>Lip</th></tr></thead>
         <tbody>
-          <tr><th>24</th><td>12 semibold, caps</td><td>2</td></tr>
-          <tr><th>28 · 32 · 36</th><td>14 semibold</td><td>2</td></tr>
-          <tr><th>40</th><td>16 semibold</td><td>3</td></tr>
+          <tr><th>24 to 36</th><td>14 semibold (24: 12 caps)</td><td>2</td></tr>
+          <tr><th>40</th><td>16 semibold</td><td>4</td></tr>
           <tr><th>48</th><td>16 semibold</td><td>4</td></tr>
         </tbody>
       </table>
@@ -280,7 +269,7 @@
   </div>
 
   <h3 class="ds-part">Components</h3>
-  <div class="ds-plate" style="margin-top:32px;display:grid;gap:22px" data-ink-root>
+  <div class="ds-plate" style="margin-top:32px;display:grid;gap:24px" data-ink-root>
     <div class="ds-cap"><b>Every style, every size</b><span>24 · 28 · 32 · 36 · 40 · 48, radius 12 at all of them</span></div>
     <div class="ds-bsz">
       <span></span><span class="hd">24</span><span class="hd">28</span><span class="hd">32</span><span class="hd">36</span><span class="hd">40</span><span class="hd">48</span>
@@ -296,19 +285,16 @@
     </div>
     <div class="ds-row"><span class="ds-k">with cost</span><button class="sl-btn" data-variant="primary" data-size="36">Run Space <span class="sl-cost">✦ 25</span></button><button class="sl-btn" data-variant="primary" data-size="48">Generate <span class="sl-cost">✦ 25</span></button></div>
     <div class="ds-row"><span class="ds-k">loading</span><button class="sl-btn" data-variant="primary" data-size="36" aria-busy="true" style="width:140px"><span class="sl-btn-label">Generate</span><span class="sl-btn-eyes"><span class="sl-eyes" style="--s:12px"><i></i><i></i></span></span></button><span class="ds-k" style="min-width:0">eyes replace the label, width held</span></div>
-    <div class="ds-row"><span class="ds-k">disabled</span><button class="sl-btn" data-variant="primary" data-size="36" disabled>Publish</button><span class="sl-btn-note">needs a name first</span></div>
-  </div>
-  <div class="ds-plate" style="margin-top:16px;display:grid;gap:18px">
-    <div class="ds-cap"><b>Buttons <i class="ds-old">older app</i></b><span>sm 28 · md 36 · lg 48 · radius 8 · press scales to 0.97</span></div>
-    <div class="ds-row"><span class="ds-k">brand</span><button class="sl-btn" data-legacy data-variant="primary" data-size="28">Sign up</button><button class="sl-btn" data-legacy data-variant="primary" data-size="36">Sign up</button><button class="sl-btn" data-legacy data-variant="primary" data-size="48">Sign up</button></div>
-    <div class="ds-row"><span class="ds-k">default</span><button class="sl-btn" data-legacy data-variant="default" data-size="28">Try Spacelab</button><button class="sl-btn" data-legacy data-variant="default" data-size="36">Try Spacelab</button><button class="sl-btn" data-legacy data-variant="default" data-size="48">Try Spacelab</button></div>
-    <div class="ds-row"><span class="ds-k">secondary</span><button class="sl-btn" data-legacy data-variant="secondary" data-size="28">Login</button><button class="sl-btn" data-legacy data-variant="secondary" data-size="36">Login</button><button class="sl-btn" data-legacy data-variant="secondary" data-size="48">Login</button></div>
-    <div class="ds-row"><span class="ds-k">ghost</span><button class="sl-btn" data-legacy data-variant="ghost" data-size="28">View all</button><button class="sl-btn" data-legacy data-variant="ghost" data-size="36">View all</button><button class="sl-btn" data-legacy data-variant="ghost" data-size="48">View all</button></div>
-    <div class="ds-row"><span class="ds-k">disabled</span><button class="sl-btn" data-legacy data-variant="primary" data-size="36" disabled>Check Access</button><span class="ds-k" style="min-width:0">fades to 50%</span></div>
-  </div>
-  <div class="ds-plate" style="margin-top:16px">
-    <div class="ds-cap"><b>Icon buttons</b><span>28, radius 12 · 32, radius 8 <i class="ds-old">older app</i></span></div>
-    <div class="ds-row"><button class="sl-icon-btn" aria-label="Close">✕</button><button class="sl-icon-btn" data-size="32" data-legacy aria-label="Close">✕</button></div>
+    <div class="ds-bsz">
+      <span class="ds-k">icon</span><span><button class="sl-icon-btn" data-size="24" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></span><span><button class="sl-icon-btn" data-size="28" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></span><span><button class="sl-icon-btn" data-size="32" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></span><span><button class="sl-icon-btn" data-size="36" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></span><span><button class="sl-icon-btn" data-size="40" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></span><span><button class="sl-icon-btn" data-size="48" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></span>
+    </div>
+    <div class="ds-bsz">
+      <span class="ds-k">disabled</span><span><button class="sl-btn" data-variant="primary" data-size="36" disabled>Publish</button></span><span><button class="sl-btn" data-variant="secondary" data-size="36" disabled>See plans</button></span><span><button class="sl-btn" data-variant="outline" data-size="36" disabled>Subscribe</button></span><span><button class="sl-btn" data-variant="ghost" data-size="36" disabled>View all →</button></span><span><button class="sl-btn" data-variant="tinted" data-size="36" disabled>✦ 80 Credits</button></span><span><button class="sl-btn" data-variant="default" data-size="36" disabled>Try Spacelab</button></span>
+    </div>
+    <div class="ds-bsz on-ground">
+      <span class="ds-k">ink, disabled</span><span><button class="sl-btn" data-variant="ink" data-size="36" disabled>Subscribe</button></span><span><button class="sl-icon-btn" data-size="36" disabled aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="ds-row"><span class="ds-k">note</span><button class="sl-btn" data-variant="primary" data-size="36" disabled>Publish</button><span class="sl-btn-note">needs a name first</span></div>
   </div>
 
   <h3 class="ds-part">Usage</h3>
@@ -324,7 +310,7 @@
     </div>
     <div class="ds-plate">
       <div class="ds-cap"><b>States</b></div>
-      <p class="ds-spec" style="margin:0">Hover changes colour only. Disabled: no hover, no press, not-allowed cursor. Loading: eyes replace the label, width held, nothing happens on click. No burst or confetti on any button. Never wobble, tilt or handwrite a button.</p>
+      <p class="ds-spec" style="margin:0">Hover changes colour only. Every style, icon buttons included, has its own disabled state with no lip: filled styles go muted, outline keeps a grey edge, ghost keeps only the text. Disabled shows a not-allowed cursor and does nothing else. Loading: eyes replace the label, width held, nothing happens on click. Focus: a 2px outline. Secondary has no lip. No burst or confetti on any button. Never wobble, tilt or handwrite a button.</p>
     </div>
   </div>
 </section>
@@ -333,36 +319,51 @@
 <section class="ds-sec" id="controls">
   <p class="ds-eyebrow">06</p>
   <h2 class="ds-h2">Controls</h2>
-  <p class="ds-lede">Tabs, chips, fields, toggles, steppers, inputs and the FAQ. No ink, except a handwritten “new” above a newly added tab, once per user.</p>
+  <p class="ds-lede">Tabs, pills, fields, the seat stepper, calculator inputs and the FAQ. No ink, except a handwritten “new” above a newly added tab, once per user.</p>
 
   <h3 class="ds-part">Components</h3>
   <div class="ds-grid ds-g2" style="margin-top:0">
     <div class="ds-plate" data-ink-root>
-      <div class="ds-cap"><b>Standard tabs</b><span>everywhere but the top nav · bar heights 48 · 40 · 36</span></div>
-      <div style="display:grid;gap:14px">
+      <div class="ds-cap"><b>Tabs</b><span>everywhere but the top nav · 48 · 40 · 36</span></div>
+      <div style="display:grid;gap:16px">
         <div class="sl-tabs" data-size="48" data-sliding id="tabs-m" style="width:300px"><button class="sl-tab">Image</button><button class="sl-tab" aria-selected="true">Video</button></div>
         <div class="sl-tabs" data-size="40" data-sliding id="tabs-a"><button class="sl-tab" aria-selected="true">Info</button><button class="sl-tab">Templates</button><button class="sl-tab">Canvas</button><button class="sl-tab">Generations</button></div>
         <div class="sl-tabs" data-size="36" data-sliding id="tabs-b"><button class="sl-tab" aria-selected="true">Outputs</button><button class="sl-tab">Character</button><button class="sl-tab">Poses</button><button class="sl-tab" id="tab-new">Backgrounds</button></div>
-      </div>
-    </div>
-    <div class="ds-plate">
-      <div class="ds-cap"><b>Chips and switch</b><span>28px chips, radius 8</span></div>
-      <div class="ds-row"><button class="sl-chip sl-chip-icon" aria-label="Add">+</button><button class="sl-chip"><span class="sl-thumb"></span>GPT Image 2</button><button class="sl-chip">16:9</button><button class="sl-chip">2K</button><button class="sl-chip">4 outputs</button></div>
-      <div class="sl-switch" style="margin-top:16px;max-width:260px;background:hsl(var(--background))" id="sw"><button aria-pressed="true">Image</button><button aria-pressed="false">Video</button></div>
-    </div>
-    <div class="ds-plate">
-      <div class="ds-cap"><b>Fields</b><span>36px, muted fill, radius 8</span></div>
-      <div style="display:grid;gap:14px">
-        <div><label class="sl-label" for="f-email">Email</label><input class="sl-field" id="f-email" placeholder="Try: maya@studio.com" style="width:100%"></div>
-        <div><label class="sl-label" for="f-err" style="color:hsl(var(--destructive))">Email</label><input class="sl-field" id="f-err" value="maya@" style="width:100%;box-shadow:inset 0 0 0 1px hsl(var(--destructive))"><div style="font:var(--type-caption-12);color:hsl(var(--destructive));margin-top:6px">That email looks short of a domain.</div></div>
-      </div>
-      <p class="ds-spec">Errors are plain: a 1px danger outline and a fix. No ink, no critter.</p>
-    </div>
-    <div class="ds-plate">
-      <div class="ds-cap"><b>Billing toggle</b><span>the standard tab component · 48</span></div>
       <div class="ds-toggle" id="bill" role="group" aria-label="Billing"><span class="pill" aria-hidden="true"></span><button type="button" aria-pressed="false">Monthly</button><button type="button" aria-pressed="true">Yearly <span class="save">−20%</span></button></div>
-      <p class="ds-spec">The standard tab bar at 48: dark well, equal segments, the selected one muted. The −20% is the savings chip.</p>
-      <div class="ds-row" style="margin-top:18px"><span class="ds-k">seat stepper</span><div class="ds-stepper"><button type="button" id="st-m" aria-label="Fewer seats">−</button><output id="st-o">3 seats</output><button type="button" id="st-p" aria-label="More seats">+</button></div></div>
+      <div class="sl-switch" style="max-width:260px;background:hsl(var(--background))" id="sw"><button aria-pressed="true">Image</button><button aria-pressed="false">Video</button></div>
+      </div>
+      <p class="ds-spec">One component: a dark well, equal segments, the selected one muted. The billing toggle is the 48 bar with a savings pill; the Image/Video switch is the same idea at full width.</p>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Pills</b><span>28 tall, radius 12, one name for all of them</span></div>
+      <div style="display:grid;gap:16px">
+        <div class="sl-pills"><a class="sl-pill" aria-current="page">Explore</a><a class="sl-pill">Spaces</a><a class="sl-pill">Studio</a></div>
+        <div class="sl-pills"><button class="sl-pill" aria-pressed="true">Recommended</button><button class="sl-pill" aria-pressed="false">Community</button><input class="sl-field" data-variant="bordered" data-size="32" type="search" placeholder="Search" aria-label="Search" style="max-width:200px;margin-left:auto"></div>
+      <div class="sl-pills"><button class="sl-pill sl-pill-icon" data-variant="filled" aria-label="Add">+</button><button class="sl-pill" data-variant="filled"><span class="sl-thumb"></span>GPT Image 2</button><button class="sl-pill" data-variant="filled">16:9</button><button class="sl-pill" data-variant="filled">2K</button><button class="sl-pill" data-variant="filled">4 outputs</button></div>
+        <div class="sl-pills"><span class="sl-credit">✦ 80 Credits</span><i class="ds-save">−20%</i><i class="ds-save">$120</i></div>
+      </div>
+      <p class="ds-spec">Nav and filter pills toggle one per group. Filled pills carry choices in the composer. The credit pill and the savings pill are pills too.</p>
+    </div>
+    <div class="ds-plate" style="grid-column:1/-1">
+      <div class="ds-cap"><b>Fields</b><span>filled 36 · bordered 32, 40, 48 · text area · each with its error</span></div>
+      <div class="ds-fields">
+        <div><label class="sl-label" for="f-email">Filled · 36</label><input class="sl-field" id="f-email" placeholder="Try: maya@studio.com"></div>
+        <div><label class="sl-label" for="f-err" data-invalid>Filled · 36 · error</label><input class="sl-field" id="f-err" value="maya@" aria-invalid="true"><div class="sl-field-error">That email looks short of a domain.</div></div>
+        <div><label class="sl-label" for="b32">Bordered · 32</label><input class="sl-field" data-variant="bordered" data-size="32" id="b32" type="search" placeholder="Search"></div>
+        <div><label class="sl-label" for="b32e" data-invalid>Bordered · 32 · error</label><input class="sl-field" data-variant="bordered" data-size="32" id="b32e" value="lighting studio ##" aria-invalid="true"><div class="sl-field-error">Remove the # signs.</div></div>
+        <div><label class="sl-label" for="b40">Bordered · 40</label><input class="sl-field" data-variant="bordered" id="b40" placeholder="Space name"></div>
+        <div><label class="sl-label" for="b40e" data-invalid>Bordered · 40 · error</label><input class="sl-field" data-variant="bordered" id="b40e" value="" placeholder="Space name" aria-invalid="true"><div class="sl-field-error">Give the space a name.</div></div>
+        <div><label class="sl-label" for="b48">Bordered · 48</label><input class="sl-field" data-variant="bordered" data-size="48" id="b48" type="email" placeholder="Email ID"></div>
+        <div><label class="sl-label" for="b48e" data-invalid>Bordered · 48 · error</label><input class="sl-field" data-variant="bordered" data-size="48" id="b48e" type="email" value="maya@studio" aria-invalid="true"><div class="sl-field-error">That email isn't on the invite list.</div></div>
+        <div><label class="sl-label" for="ta">Text area</label><textarea class="sl-field" id="ta" placeholder="Describe what to make"></textarea></div>
+        <div><label class="sl-label" for="tae" data-invalid>Text area · error</label><textarea class="sl-field" id="tae" aria-invalid="true">a</textarea><div class="sl-field-error">Add a few more words.</div></div>
+      </div>
+      <p class="ds-spec">Errors are plain: the label and edge turn destructive and a one-line fix sits underneath. No ink, no critter. Focus is the 2px outline.</p>
+    </div>
+    <div class="ds-plate">
+      <div class="ds-cap"><b>Seat stepper</b><span>pricing</span></div>
+      <div class="ds-row"><div class="ds-stepper"><button type="button" id="st-m" aria-label="Fewer seats">−</button><output id="st-o">3 seats</output><button type="button" id="st-p" aria-label="More seats">+</button></div></div>
+      <p class="ds-spec">Its own component: − and + keep a 24 face with a 40×40 tap area; the count sits between.</p>
     </div>
     <div class="ds-plate">
       <div class="ds-cap"><b>Calculator inputs</b><span>on white</span></div>
@@ -377,34 +378,7 @@
       <div class="ds-cap"><b>Accordion</b><span>FAQ</span></div>
       <details class="ds-q" open><summary>Do unused credits roll over?<span class="pm" aria-hidden="true">+</span></summary><p>On Pro and Max, unused credits roll over for 3 months.</p></details>
       <details class="ds-q"><summary>Can I change plans later?<span class="pm" aria-hidden="true">+</span></summary><p>Yes. Upgrades apply now; downgrades apply at the next bill.</p></details>
-      <p class="ds-spec">Question 20 semibold, radius 18. The yellow + turns 45° into a black × on the ui spring. One open at a time.</p>
-    </div>
-    <div class="ds-plate">
-      <div class="ds-cap"><b>Filter pills</b><span>the nav pill as a toggle · with search</span></div>
-      <div class="sl-pills"><button class="sl-pill" aria-pressed="true">Recommended</button><button class="sl-pill" aria-pressed="false">Community</button><input class="sl-field" data-legacy data-size="32" type="search" placeholder="Search" aria-label="Search" style="max-width:200px;margin-left:auto"></div>
-      <div class="sl-pills" style="margin-top:14px"><button class="sl-pill" aria-pressed="true">Image</button><button class="sl-pill" aria-pressed="false">Video</button><button class="sl-pill" aria-pressed="false">Prism Image</button><button class="sl-pill" aria-pressed="false">1:1</button></div>
-      <p class="ds-spec">Spaces, Studio and the composer. One selected per group.</p>
-    </div>
-    <div class="ds-plate">
-      <div class="ds-cap"><b>Fields <i class="ds-old">older app</i></b><span>40 · 48 · 32, a 1px edge on the page background</span></div>
-      <div style="display:grid;gap:14px">
-        <input class="sl-field" data-legacy placeholder="Search" aria-label="Search">
-        <input class="sl-field" data-legacy data-size="48" type="email" placeholder="Email ID" aria-label="Email">
-      </div>
-      <p class="ds-spec">Focus turns the edge yellow. DS4 fields are 36 with a muted fill and no edge.</p>
-    </div>
-    <div class="ds-plate">
-      <div class="ds-cap"><b>Text area</b><span>muted fill, radius 8, 68 minimum</span></div>
-      <textarea class="sl-field" placeholder="Describe what to make" aria-label="Prompt" style="width:100%"></textarea>
-    </div>
-    <div class="ds-plate">
-      <div class="ds-cap"><b>Savings chip</b><span>one style on every ground</span></div>
-      <div class="ds-chipdemo">
-        <span class="g y">You save <i class="ds-save">$120</i> per year</span>
-        <span class="g k">You save <i class="ds-save">$48</i> per year</span>
-        <span class="g w">You save <i class="ds-save">$240</i> per year</span>
-      </div>
-      <p class="ds-spec">Dark green (emerald-700) with neutral-50 text, 5.5:1. The same chip on every ground.</p>
+      <p class="ds-spec">Question 20 semibold, radius 20. The yellow + turns 45° into a black × on the ui spring. One open at a time.</p>
     </div>
   </div>
 </section>
@@ -428,17 +402,17 @@
   <div class="ds-plate" style="margin-top:32px" id="hand-plate">
     <button class="ds-again" type="button" id="hand-again">write again</button>
     <div class="ds-hands">
-      <div><span class="lab"><b>hand-48</b>48 · 700</span><span class="w sl-hand-xl" data-w="you made a thing!" data-per="70"></span></div>
-      <div><span class="lab"><b>hand-28</b>28 · 700</span><span class="w sl-hand-lg" data-w="your first one!" data-per="70"></span></div>
-      <div><span class="lab"><b>hand-24</b>24 · 700</span><span class="w sl-hand-md" data-w="slooshing your workspace" data-per="38"></span></div>
-      <div><span class="lab"><b>hand-20</b>20 · 600</span><span class="w sl-hand-sm" data-w="try this one" data-per="38"></span></div>
-      <div><span class="lab"><b>hand-16</b>16 · 600</span><span class="w sl-hand-xs" data-w="needs a name first" data-per="38"></span></div>
+      <div><span class="lab"><b>text-hand-48</b>48 · 700</span><span class="w sl-hand-xl" data-w="you made a thing!" data-per="70"></span></div>
+      <div><span class="lab"><b>text-hand-36</b>36 · 700</span><span class="w sl-hand-lg" data-w="your first one!" data-per="70"></span></div>
+      <div><span class="lab"><b>text-hand-24</b>24 · 700</span><span class="w sl-hand-md" data-w="slooshing your workspace" data-per="38"></span></div>
+      <div><span class="lab"><b>text-hand-20</b>20 · 600</span><span class="w sl-hand-sm" data-w="try this one" data-per="38"></span></div>
+      <div><span class="lab"><b>text-hand-16</b>16 · 600</span><span class="w sl-hand-xs" data-w="needs a name first" data-per="38"></span></div>
     </div>
   </div>
   <div class="ds-grid ds-g3">
     <div class="ds-plate"><div class="ds-cap"><b>Statements</b><span>brand-line</span></div><span class="sl-hand-md sl-ink-text">start here</span></div>
     <div class="ds-plate"><div class="ds-cap"><b>Asides</b><span>brand-line-soft</span></div><span class="sl-hand-md sl-ink-soft-text">psst. tap one</span></div>
-    <div class="ds-plate"><div class="ds-cap"><b>On the yellow tag</b><span>brand-accent-foreground</span></div><span class="sl-hand-md" style="display:inline-block;background:hsl(var(--brand-accent));color:hsl(var(--neutral-950));padding:6px 12px;border-radius:6px;transform:rotate(-2deg)">sharpen this?</span></div>
+    <div class="ds-plate"><div class="ds-cap"><b>On the yellow tag</b><span>brand-accent-foreground</span></div><span class="sl-hand-md" style="display:inline-block;background:hsl(var(--brand-accent));color:hsl(var(--neutral-950));padding:8px 12px;border-radius:6px;transform:rotate(-2deg)">sharpen this?</span></div>
   </div>
 
   <h3 class="ds-part">Usage</h3>
@@ -473,10 +447,10 @@
 <section class="ds-sec" id="icons">
   <p class="ds-eyebrow">08</p>
   <h2 class="ds-h2">Icons</h2>
-  <p class="ds-lede">Hugeicons only, the library already in the product. No hand-drawn icons.</p>
+  <p class="ds-lede">Hugeicons only, the library already in the product, at 20px with a 1.5px stroke. No hand-drawn icons.</p>
 
   <h3 class="ds-part">Usage</h3>
-  <div class="ds-plate flat"><p class="ds-spec" style="margin:0">Banners, the loved heart on a tile, empty states and margin notes take a Hugeicons icon or nothing. Stroke weight and sizes: to be added.</p></div>
+  <div class="ds-plate flat"><p class="ds-spec" style="margin:0"><b>20px, 1.5px stroke</b>, everywhere: buttons, pills, nav, banners. The loved heart on a tile, empty states and margin notes take a Hugeicons icon or nothing. Inside a 24 icon button the icon drops to 16.</p></div>
 </section>
 
 <!-- ═════════ CRITTERS ═════════ -->
@@ -496,9 +470,9 @@
     <div class="ds-plate">
       <div class="ds-cap"><b>Who</b></div>
       <div class="sl-tabs" data-size="sm" data-plain id="mm-who"></div>
-      <div class="ds-cap" style="margin-top:18px"><b>Mood</b><span>critter.mood()</span></div>
+      <div class="ds-cap" style="margin-top:20px"><b>Mood</b><span>critter.mood()</span></div>
       <div class="ds-btns" id="mm-moods"></div>
-      <div class="ds-cap" style="margin-top:18px"><b>Move</b><span>critter.play()</span></div>
+      <div class="ds-cap" style="margin-top:20px"><b>Move</b><span>critter.play()</span></div>
       <div class="ds-btns" id="mm-moves"></div>
     </div>
   </div>
@@ -544,11 +518,11 @@
       <div class="ds-composer">
         <label class="ds-vh" for="pt-prompt">Prompt</label>
         <input class="sl-field" id="pt-prompt" placeholder="Describe what to make">
-        <div class="ds-row" style="justify-content:space-between"><span class="ds-row" style="gap:6px"><span class="sl-chip">GPT Image 2</span><span class="sl-chip">16:9</span></span><button class="sl-btn" data-variant="primary" data-size="md" id="pt-gen">Generate (25)</button></div>
+        <div class="ds-row" style="justify-content:space-between"><span class="ds-row" style="gap:8px"><span class="sl-pill" data-variant="filled">GPT Image 2</span><span class="sl-pill" data-variant="filled">16:9</span></span><button class="sl-btn" data-variant="primary" data-size="md" id="pt-gen">Generate (25)</button></div>
       </div>
     </div>
   </div>
-  <div class="ds-btns" id="ptr-ctrls" style="margin-top:14px"></div>
+  <div class="ds-btns" id="ptr-ctrls" style="margin-top:16px"></div>
 
   <h3 class="ds-part">Usage</h3>
   <p class="ds-spec">Never dims the page, covers the target or spends without a yes. At most one unprompted appearance every 90 seconds, three a session. On touch it draws itself at the target instead of flying.</p>
@@ -562,8 +536,8 @@
 
   <h3 class="ds-part">Components</h3>
   <div class="ds-plate" style="margin-top:32px">
-    <div class="ds-logo-stage"><div id="logo-big"></div><span class="ds-motto" id="logo-now" style="position:absolute;left:16px;top:12px;font:var(--type-hand-24);color:var(--brand-line-soft)"></span></div>
-    <div class="ds-btns" id="logo-ctrls" style="margin-top:14px"></div>
+    <div class="ds-logo-stage"><div id="logo-big"></div><span class="ds-motto" id="logo-now" style="position:absolute;left:16px;top:12px;font:var(--text-hand-24);color:var(--brand-line-soft)"></span></div>
+    <div class="ds-btns" id="logo-ctrls" style="margin-top:16px"></div>
   </div>
   <div class="ds-variants">
     <div style="background:hsl(var(--card))"><span data-logo data-height="32"></span><small>Flat · nav 32, phone 28</small></div>
@@ -582,40 +556,51 @@
   <h2 class="ds-h2">Motion</h2>
   <p class="ds-lede">Base moves like a tool, ink moves like a hand.</p>
 
-  <h3 class="ds-part">Primitives</h3>
-  <div class="ds-grid ds-g2" style="margin-top:0">
-    <div class="ds-plate"><div class="ds-cap"><b>Durations</b><span>tokens</span></div><div class="ds-durs" id="durs"></div></div>
-    <div class="ds-plate"><div class="ds-cap"><b>Easings</b><span><button class="sl-demo-btn" type="button" id="ease-go">play</button></span></div><div class="ds-eases" id="eases"></div></div>
-  </div>
-
   <h3 class="ds-part">Tokens</h3>
-  <div class="ds-plate ds-matrix-wrap" style="margin-top:16px">
-    <table class="ds-matrix">
-      <thead><tr><th>Spring</th><th>Duration · bounce</th><th>Overshoot</th><th>Used for</th></tr></thead>
+  <div class="ds-plate ds-matrix-wrap">
+    <div class="ds-cap"><b>Motion tokens</b><span>one set, named as in the app · springs carry their duration in a -duration token</span></div>
+    <table class="ds-types">
+      <thead><tr><th>Token</th><th>Value</th><th>Bounce · overshoot</th><th>Used for</th></tr></thead>
       <tbody>
-        <tr><th>card</th><td>0.55s · 0.15</td><td>under 1%</td><td>Cards rising in</td></tr>
-        <tr><th>pop</th><td>0.45s · 0.45</td><td>about 12%</td><td>Critters, chips, title letters</td></tr>
-        <tr><th>ui</th><td>0.40s · 0.25</td><td>about 3%</td><td>Toggles, steppers, the FAQ ×</td></tr>
+        <tr class="grp"><th colspan="4">Durations</th></tr>
+        <tr><td><code>motion-duration-instant</code></td><td class="sp">80ms</td><td class="sp">—</td><td class="use">Keycap press</td></tr>
+        <tr><td><code>motion-duration-fast</code></td><td class="sp">120ms</td><td class="sp">—</td><td class="use">Hover, colour</td></tr>
+        <tr><td><code>motion-duration-micro</code></td><td class="sp">150ms</td><td class="sp">—</td><td class="use">Pill colour, small fades</td></tr>
+        <tr><td><code>motion-duration-enter</code></td><td class="sp">200ms</td><td class="sp">—</td><td class="use">Menus, tabs, overlays, card reveal</td></tr>
+        <tr><td><code>motion-duration-exit</code></td><td class="sp">200ms</td><td class="sp">—</td><td class="use">Leaving</td></tr>
+        <tr><td><code>motion-duration-toast</code></td><td class="sp">220ms</td><td class="sp">—</td><td class="use">Toast slides up 8px</td></tr>
+        <tr><td><code>motion-duration-ring</code></td><td class="sp">260ms</td><td class="sp">—</td><td class="use">Rings, brackets</td></tr>
+        <tr><td><code>motion-duration-screen</code></td><td class="sp">280ms</td><td class="sp">—</td><td class="use">Screen change, dialog rise</td></tr>
+        <tr><td><code>motion-duration-slow</code></td><td class="sp">320ms</td><td class="sp">—</td><td class="use">Modals, toasts</td></tr>
+        <tr><td><code>motion-duration-fly</code></td><td class="sp">520ms</td><td class="sp">—</td><td class="use">Pointer flight</td></tr>
+        <tr><td><code>motion-duration-pop</code></td><td class="sp">560ms</td><td class="sp">—</td><td class="use">Critter pop-in, bursts</td></tr>
+        <tr><td><code>motion-duration-lazy</code></td><td class="sp">600ms</td><td class="sp">—</td><td class="use">Critter entrances</td></tr>
+        <tr><td><code>motion-duration-underline</code></td><td class="sp">650ms</td><td class="sp">—</td><td class="use">Underlines</td></tr>
+        <tr><td><code>motion-duration-draw</code></td><td class="sp">800ms</td><td class="sp">—</td><td class="use">A figure drawing itself</td></tr>
+        <tr><td><code>motion-duration-breathe</code></td><td class="sp">3400ms</td><td class="sp">—</td><td class="use">Critter idle</td></tr>
+        <tr><td><code>motion-duration-boil</code></td><td class="sp">154ms</td><td class="sp">—</td><td class="use">Line jitter, one frame</td></tr>
+        <tr><td><code>motion-duration-write</code></td><td class="sp">38ms</td><td class="sp">—</td><td class="use">One letter of handwriting</td></tr>
+        <tr><td><code>motion-duration-write-title</code></td><td class="sp">70ms</td><td class="sp">—</td><td class="use">One letter of a handwritten title</td></tr>
+        <tr><td><code>motion-undraw-ratio</code></td><td class="sp">0.4</td><td class="sp">—</td><td class="use">Ink leaves in 40% of its arrival time</td></tr>
+        <tr class="grp"><th colspan="4">Easings</th></tr>
+        <tr><td><code>motion-ease-out</code></td><td class="sp">(0.32, 0.72, 0, 1)</td><td class="sp">none</td><td class="use">Screens, dialogs, toasts, card reveal</td></tr>
+        <tr><td><code>motion-ease-in</code></td><td class="sp">(0.4, 0, 1, 1)</td><td class="sp">none</td><td class="use">Leaving</td></tr>
+        <tr><td><code>motion-ease-settle</code></td><td class="sp">(0.2, 0.8, 0.2, 1)</td><td class="sp">none</td><td class="use">Ink, meters, tiles</td></tr>
+        <tr><td><code>motion-ease-in-out</code></td><td class="sp">(0.65, 0, 0.35, 1)</td><td class="sp">none</td><td class="use">Sheets, carousels, the tab pill</td></tr>
+        <tr><td><code>motion-ease-hop</code></td><td class="sp">(0.34, 1.56, 0.64, 1)</td><td class="sp">overshoots about 10%</td><td class="use">Pops, hops, pointer tags</td></tr>
+        <tr><td><code>motion-ease-lip</code></td><td class="sp">(0.3, 0, 0.2, 1)</td><td class="sp">none</td><td class="use">Keycap press</td></tr>
+        <tr><td><code>motion-ease-draw</code></td><td class="sp">(0.33, 1, 0.68, 1)</td><td class="sp">none</td><td class="use">Pen strokes</td></tr>
+        <tr><td><code>motion-ease-squash</code></td><td class="sp">(0.3, 0.7, 0.3, 1)</td><td class="sp">none</td><td class="use">Squash and stretch</td></tr>
+        <tr><td><code>motion-ease-fly</code></td><td class="sp">(0.45, 0, 0.2, 1)</td><td class="sp">none</td><td class="use">The pointer's arc</td></tr>
+        <tr class="grp"><th colspan="4">Springs</th></tr>
+        <tr><td><code>motion-spring-card</code></td><td class="sp">550ms</td><td class="sp">bounce 0.15 · under 1%</td><td class="use">Cards rising in</td></tr>
+        <tr><td><code>motion-spring-pop</code></td><td class="sp">450ms</td><td class="sp">bounce 0.45 · about 12%</td><td class="use">Critters, pills, title letters</td></tr>
+        <tr><td><code>motion-spring-ui</code></td><td class="sp">400ms</td><td class="sp">bounce 0.25 · about 3%</td><td class="use">Toggles, steppers, the FAQ ×</td></tr>
       </tbody>
     </table>
   </div>
 
-    <div class="ds-plate ds-matrix-wrap" style="margin-top:16px">
-    <div class="ds-cap"><b>Motion <i class="ds-old">older app</i></b><span>used by the merged components</span></div>
-    <table class="ds-matrix">
-      <thead><tr><th>Token</th><th>Value</th><th>Used for</th></tr></thead>
-      <tbody>
-        <tr><th>motion-duration-micro</th><td>150ms</td><td>Button press, pill colour</td></tr>
-        <tr><th>motion-duration-enter · exit</th><td>200ms</td><td>Overlay fade, card reveal fade</td></tr>
-        <tr><th>motion-duration-toast</th><td>220ms</td><td>Toast slides up 8px</td></tr>
-        <tr><th>motion-duration-screen</th><td>280ms</td><td>Screen change, dialog rise, card reveal</td></tr>
-        <tr><th>motion-ease-out · ease-in</th><td>(0.32, 0.72, 0, 1) · (0.4, 0, 1, 1)</td><td>Everything above</td></tr>
-        <tr><th>press-scale</th><td>0.97</td><td>Older app buttons on press (DS4 drops by the lip)</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-<h3 class="ds-part">Usage</h3>
+  <h3 class="ds-part">Usage</h3>
   <p class="ds-spec">Ink arrives drawn, then coloured, then given a face, and leaves at 40% of its arrival time. Nothing alive moves more than 4px at rest. Nothing tilts on the way in. Under reduced motion everything simply appears, except the keycap press.</p>
   <div class="ds-grid ds-g2">
     <div class="ds-plate" id="tt-demo">
@@ -640,20 +625,19 @@
   <h3 class="ds-part">Components</h3>
   <h3 class="ds-h3">Nav bar</h3>
   <p class="ds-lede">61px. Logo eyes follow the cursor; the pointer's dock sits by the credits. Hover on pills is colour only.</p>
-  <div class="ds-navwrap" style="margin-top:14px"><nav class="sl-nav"><span data-logo data-height="32"></span><span class="sl-links"><a class="sl-pill">Explore</a><a class="sl-pill">Image</a><a class="sl-pill">Video</a><span class="sl-gap"></span><a class="sl-pill" aria-current="page">Spaces</a><a class="sl-pill">Spacelab</a><a class="sl-pill">Studio</a><span class="sl-gap"></span><a class="sl-pill">Assets</a><a class="sl-pill">MCP</a><a class="sl-pill">Pricing</a></span><span class="sl-right"><span data-dock></span><span class="sl-credit">✦ 80 Credits</span><span class="sl-avatar"><span data-critter="cat" data-size="20" data-gaze="none" style="margin-top:3px"></span></span></span></nav></div>
-  <div class="ds-navwrap" style="margin-top:10px"><nav class="sl-nav"><span data-logo data-height="32"></span><span class="sl-links"><a class="sl-pill" aria-current="page">Explore</a><a class="sl-pill">Spaces</a><a class="sl-pill">Studio</a><a class="sl-pill">Assets</a><a class="sl-pill">Upgrade</a></span><span class="sl-right"><button class="sl-btn" data-variant="secondary" data-size="28">Login</button><button class="sl-btn" data-variant="primary" data-size="28">Sign up</button></span></nav></div>
+  <div class="ds-navwrap" style="margin-top:16px"><nav class="sl-nav"><span data-logo data-height="32"></span><span class="sl-links"><a class="sl-pill">Explore</a><a class="sl-pill">Image</a><a class="sl-pill">Video</a><span class="sl-gap"></span><a class="sl-pill" aria-current="page">Spaces</a><a class="sl-pill">Spacelab</a><a class="sl-pill">Studio</a><span class="sl-gap"></span><a class="sl-pill">Assets</a><a class="sl-pill">MCP</a><a class="sl-pill">Pricing</a></span><span class="sl-right"><span data-dock></span><span class="sl-credit">✦ 80 Credits</span><span class="sl-avatar"><span data-critter="cat" data-size="20" data-gaze="none" style="margin-top:4px"></span></span></span></nav></div>
+  <div class="ds-navwrap" style="margin-top:12px"><nav class="sl-nav"><span data-logo data-height="32"></span><span class="sl-links"><a class="sl-pill" aria-current="page">Explore</a><a class="sl-pill">Spaces</a><a class="sl-pill">Studio</a><a class="sl-pill">Assets</a><a class="sl-pill">Upgrade</a></span><span class="sl-right"><button class="sl-btn" data-variant="secondary" data-size="28">Login</button><button class="sl-btn" data-variant="primary" data-size="28">Sign up</button></span></nav></div>
   <p class="ds-spec">Signed out: Login and Sign up at 28 in place of the dock, credits and avatar.</p>
 
   <h3 class="ds-h3">Section heading</h3>
-  <p class="ds-lede">A row title with its link. Two versions of the link.</p>
-  <div class="ds-plate" style="margin-top:14px;padding:0">
-    <div class="sl-sec-h">Popular this week<span class="sl-viewall">View all →</span></div>
-    <div class="sl-sec-h" style="padding-top:0">Trending models <span class="ds-old" style="margin-right:auto">older app</span><button class="sl-btn" data-legacy data-variant="ghost" data-size="28">View all</button></div>
+  <p class="ds-lede">A row title with “View all” as a ghost button.</p>
+  <div class="ds-plate" style="margin-top:16px;padding:0">
+    <div class="sl-sec-h">Popular this week<button class="sl-btn" data-variant="ghost" data-size="28">View all →</button></div>
   </div>
 
   <h3 class="ds-h3">Media tiles</h3>
   <p class="ds-lede">Media stays clean. Ink lives at the edges. Hover the first tile.</p>
-  <div class="ds-plate" style="margin-top:14px;padding:6px" id="tiles" data-ink-root>
+  <div class="ds-plate" style="margin-top:16px;padding:8px" id="tiles" data-ink-root>
     <div class="ds-tilegrid">
       <div><div class="sl-tile" data-ink-hover="brackets" tabindex="0"><div class="sl-media"><span class="ds-ph ph1"></span></div><div class="sl-cap"><b>Golden hour</b><span>Rest · hover me</span></div></div><div class="tl">Hover: corner brackets</div></div>
       <div><div class="sl-tile" id="tile-sel"><div class="sl-media"><span class="ds-ph ph5"></span></div><div class="sl-cap"><b>Violet set</b><span>Selected</span></div></div><div class="tl">Selected: ring with a lift gap + drawn check</div></div>
@@ -662,15 +646,13 @@
     </div>
   </div>
 
-  <h3 class="ds-h3">Space cards <i class="ds-old">older app</i></h3>
+  <h3 class="ds-h3">Space cards</h3>
   <p class="ds-lede">Spaces, models and templates. A blurred band carries the title; the action shows on hover.</p>
-  <div class="ds-cards" style="margin-top:14px">
+  <div class="ds-cards" style="margin-top:16px">
     <article class="sl-card" tabindex="0"><div class="sl-media"><span class="ds-ph ph2"></span></div><div class="sl-band"><div><b>On-Model Studio Shoot</b><span>Your garment on a model</span></div><div class="sl-reveal"><button class="sl-btn" data-variant="primary" data-size="36">Run Space</button></div></div></article>
     <article class="sl-card" tabindex="0"><div class="sl-media"><span class="ds-ph ph3"></span></div><div class="sl-band"><div><b>Prism Image</b><span>Image</span></div><div class="sl-reveal"><button class="sl-btn" data-variant="primary" data-size="36">Try model</button></div></div></article>
     <article class="sl-card" tabindex="0"><div class="sl-media"><span class="ds-ph ph4"></span></div><div class="sl-band"><div class="sl-reveal"><button class="sl-btn" data-variant="primary" data-size="36" style="width:100%">Recreate</button></div></div></article>
-    <div class="sl-card sl-pending">Generating…</div>
   </div>
-  <p class="ds-spec">Generating in the older app is a pulsing muted tile. DS4 uses eyes and pencil progress (above).</p>
 
   <div class="ds-grid ds-g2">
     <div class="ds-plate" id="toasts-p" data-ink-root>
@@ -678,26 +660,28 @@
       <div class="ds-toasts">
         <div class="sl-toast" id="ts1"><span class="peek" id="ts-burb"></span><span id="ts-ck" style="width:22px;height:22px;position:relative;flex:none"></span><span style="flex:1">Video ready.</span><button class="sl-btn" data-variant="primary">View</button></div>
         <div class="sl-toast" id="ts2"><span class="peek2" id="ts-stash"></span><span style="flex:1"><b style="font-weight:600">+175 credits</b> <span class="sl-muted">added to your balance</span></span></div>
-        <div class="sl-toast" id="ts3" style="box-shadow:inset 0 0 0 1px hsl(var(--destructive)),var(--sl-shadow-float)"><span style="flex:1">That run didn't finish. Credits are back.</span><button class="sl-btn" data-variant="secondary">Try again</button></div>
+        <div class="sl-toast" id="ts3" style="box-shadow:inset 0 0 0 1px hsl(var(--destructive)),var(--shadow-float)"><span style="flex:1">That run didn't finish. Credits are back.</span><button class="sl-btn" data-variant="secondary">Try again</button></div>
         <div class="sl-toast" data-legacy><span style="flex:1">4 images ready</span><i class="ds-old">older app</i></div>
       </div>
-      <p class="ds-spec">Errors arrive alone: no critter, no joke, a fix.</p>
+      <p class="ds-spec">One text size (text-sm), radius 12, 28 buttons. Critters bring good news only; errors arrive alone with a fix. The older app fills toasts with accent and slides them up 8px.</p>
     </div>
     <div class="ds-plate">
-      <div class="ds-cap"><b>Banners</b><span>money and data banners stay plain</span></div>
-      <div style="display:grid;gap:10px">
-        <div class="sl-banner-site" style="border-radius:8px">GPT Image 2 is now available in Studio. <u>Try now</u></div>
+      <div class="ds-cap"><b>Banners</b><span>site, inline, warning, promo · one text size: 14</span></div>
+      <div style="display:grid;gap:12px">
+        <div class="sl-banner-site" style="border-radius:12px">GPT Image 2 is now available in Studio. <u>Try now</u></div>
         <div class="sl-banner-inline"><span style="flex:1">You have 2 images left. Creator gives you 285 credits a month for $19.</span><button class="sl-btn" data-variant="primary">See plans</button></div>
         <div class="sl-banner-inline is-danger"><span style="flex:1">Outputs from July expire tomorrow.</span><button class="sl-btn" data-variant="secondary">Download all</button></div>
+        <div class="sl-banner-promo"><h3>Create your custom space</h3><p>Build node-based generative workflows and bring your ideas to life.</p><button class="sl-btn" data-variant="default" data-size="36">Try Spacelab</button></div>
       </div>
+      <p class="ds-spec">Every banner sets its text at text-sm; a promo title is the semibold of the same size. Money and data banners stay plain.</p>
     </div>
   </div>
 
   <div class="ds-grid ds-g3">
     <div class="ds-plate" id="prog" data-ink-root>
       <div class="ds-cap"><b>Credits meter</b><span>Stash rides the fill</span></div>
-      <div style="display:flex;justify-content:space-between;font:var(--type-body-14);margin-top:40px"><span>Credits</span><span class="sl-muted ds-num" id="cr-n">2,480 of 8,000 left</span></div>
-      <div class="ds-meter" id="cr-m" style="margin-top:8px"><i id="cr-f" style="width:31%"></i><span id="cr-stash" style="position:absolute;top:-50px;left:31%;transform:translateX(-50%);transition:left 600ms var(--sl-ease-out)"></span></div>
+      <div style="display:flex;justify-content:space-between;font:var(--text-sm);margin-top:36px"><span>Credits</span><span class="sl-muted ds-num" id="cr-n">2,480 of 8,000 left</span></div>
+      <div class="ds-meter" id="cr-m" style="margin-top:8px"><i id="cr-f" style="width:31%"></i><span id="cr-stash" style="position:absolute;top:-50px;left:31%;transform:translateX(-50%);transition:left 600ms var(--motion-ease-settle)"></span></div>
       <button class="sl-btn" data-variant="primary" style="margin-top:16px" id="cr-top">Top up credits</button>
     </div>
     <div class="ds-plate ds-pn" id="loader" data-ink-root style="min-height:260px">
@@ -726,25 +710,15 @@
   </div>
 
   <div class="ds-grid ds-g2">
-    <div class="ds-plate" style="padding:0;background:none">
-      <div class="sl-banner-promo"><h3>Create your custom space</h3><p>Build node-based generative workflows and bring your ideas to life.</p><button class="sl-btn" data-variant="default" data-size="36">Try Spacelab</button></div>
-      <p class="ds-spec" style="padding:0 4px">Promo banner on Explore: a card with a soft yellow glow, one action.</p>
-    </div>
     <div class="ds-plate">
       <div class="ds-cap"><b>Composer</b><span>DS4 above · older app below</span></div>
-      <div class="sl-composer"><textarea placeholder="Drop a prompt. @ for assets." aria-label="Prompt"></textarea><div class="sl-row"><span class="sl-chip">GPT Image 2</span><span class="sl-chip">16:9</span><span style="flex:1"></span><button class="sl-btn" data-variant="primary" data-size="36">Generate <span class="sl-cost">✦ 25</span></button></div></div>
-      <div class="sl-composer" data-legacy style="margin-top:16px"><div style="flex:1"><textarea placeholder="Drop a prompt. @ for assets." aria-label="Prompt"></textarea><div class="sl-pills"><button class="sl-pill" aria-pressed="true">Image</button><button class="sl-pill" aria-pressed="false">Video</button><button class="sl-pill" aria-pressed="false">1:1</button></div></div><button class="sl-btn" data-legacy data-variant="primary" data-size="48">Generate</button></div>
-    </div>
-  </div>
-  <div class="ds-grid ds-g2">
-    <div class="ds-plate">
-      <div class="ds-cap"><b>Dialog</b><span>DS4 · radius 16</span></div>
-      <div class="sl-modal"><button class="sl-icon-btn sl-close" aria-label="Close">✕</button><div class="sl-gate" style="padding:28px 4px 4px"><span data-logo data-height="36" style="margin:0 auto 8px"></span><h2>Sloosh is invite-only for now</h2><p>Enter your email to check if you have beta access.</p><input class="sl-field" type="email" placeholder="Email ID" aria-label="Email"><button class="sl-btn" data-variant="primary" data-size="48">Check Access</button></div></div>
+      <div class="sl-composer"><textarea placeholder="Drop a prompt. @ for assets." aria-label="Prompt"></textarea><div class="sl-row"><span class="sl-pill" data-variant="filled">GPT Image 2</span><span class="sl-pill" data-variant="filled">16:9</span><span style="flex:1"></span><button class="sl-btn" data-variant="primary" data-size="36">Generate <span class="sl-cost">✦ 25</span></button></div></div>
+      <div class="sl-composer" data-legacy style="margin-top:16px"><div style="flex:1"><textarea placeholder="Drop a prompt. @ for assets." aria-label="Prompt"></textarea><div class="sl-pills"><button class="sl-pill" aria-pressed="true">Image</button><button class="sl-pill" aria-pressed="false">Video</button><button class="sl-pill" aria-pressed="false">1:1</button></div></div><button class="sl-btn" data-variant="primary" data-size="48">Generate</button></div>
     </div>
     <div class="ds-plate">
-      <div class="ds-cap"><b>Dialog <i class="ds-old">older app</i></b><span>radius 20 · 540 wide · 32 close</span></div>
-      <div class="sl-modal" data-legacy><button class="sl-icon-btn sl-close" data-size="32" data-legacy aria-label="Close">✕</button><div class="sl-gate"><span data-logo data-height="36" style="margin:0 auto 8px"></span><h2>Sloosh is invite-only for now</h2><p>Enter your email to check if you have beta access.</p><input class="sl-field" data-legacy data-size="48" type="email" placeholder="Email ID" aria-label="Email"><button class="sl-btn" data-legacy data-variant="primary" data-size="48">Check Access</button></div></div>
-      <p class="ds-spec">Opens over an 80% overlay, rising 8px. Escape or the overlay closes it.</p>
+      <div class="ds-cap"><b>Dialog</b><span>radius 20 · 32 close</span></div>
+      <div class="sl-modal"><button class="sl-icon-btn sl-close" data-size="32" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button><div class="sl-gate" style="padding:32px 4px 4px"><span data-logo data-height="36" style="margin:0 auto 8px"></span><h2>Sloosh is invite-only for now</h2><p>Enter your email to check if you have beta access.</p><input class="sl-field" type="email" placeholder="Email ID" aria-label="Email"><button class="sl-btn" data-variant="primary" data-size="48">Check Access</button></div></div>
+      <p class="ds-spec">Opens over the 80% dialog-overlay, rising 8px. Escape or the overlay closes it.</p>
     </div>
   </div>
   <div class="ds-grid ds-g2">
@@ -753,14 +727,14 @@
       <div style="position:relative;height:110px"><nav class="sl-tabbar"><a aria-current="page">Explore</a><a>Spaces</a><a>Studio</a><a>Assets</a><a>Upgrade</a></nav></div>
     </div>
     <div class="ds-plate" style="padding:0;overflow:hidden">
-      <div class="ds-cap" style="padding:20px 20px 0"><b>Phone tab bar <i class="ds-old">older app</i></b><span>61 · layer-1</span></div>
-      <div style="padding-top:49px"><nav class="sl-tabbar" data-legacy><a aria-current="page">Explore</a><a>Spaces</a><a>Studio</a><a>Assets</a><a>Upgrade</a></nav></div>
+      <div class="ds-cap" style="padding:20px 20px 0"><b>Phone tab bar <i class="ds-old">older app</i></b><span>61 · popover</span></div>
+      <div style="padding-top:48px"><nav class="sl-tabbar" data-legacy><a aria-current="page">Explore</a><a>Spaces</a><a>Studio</a><a>Assets</a><a>Upgrade</a></nav></div>
     </div>
   </div>
 
-  <div class="ds-plate" id="celebrate" data-ink-root style="margin-top:16px;min-height:280px;display:grid;place-items:center;align-content:center;gap:10px">
+  <div class="ds-plate" id="celebrate" data-ink-root style="margin-top:16px;min-height:280px;display:grid;place-items:center;align-content:center;gap:12px">
     <div class="ds-cap" style="position:absolute;left:20px;top:20px;margin:0"><b>Celebration</b><span>&nbsp;once per milestone, never looped</span></div>
-    <div id="cel-fl" style="display:flex;align-items:flex-end;gap:6px;min-height:80px"></div>
+    <div id="cel-fl" style="display:flex;align-items:flex-end;gap:8px;min-height:80px"></div>
     <span class="sl-hand-xl sl-ink-text" id="cel-w" aria-label="you made a thing!"></span>
     <button class="ds-again" type="button" id="cel-again">again</button>
   </div>
@@ -775,7 +749,7 @@
   <h3 class="ds-part">Components</h3>
   <div class="ds-proto" data-ink-root>
     <div class="ds-row" style="justify-content:space-between">
-      <div style="font:var(--type-display-48)">Upgrade your <span style="color:var(--g-yellow);position:relative;display:inline-block" id="pr-hl">plan.</span></div>
+      <div style="font:var(--text-display-48)">Upgrade your <span style="color:var(--g-yellow);position:relative;display:inline-block" id="pr-hl">plan.</span></div>
       <div class="ds-toggle" id="bill2" role="group" aria-label="Billing" style="background:hsl(var(--neutral-900))"><span class="pill" aria-hidden="true"></span><button type="button" aria-pressed="false">Monthly</button><button type="button" aria-pressed="true">Yearly <span class="save">−20%</span></button></div>
     </div>
     <div class="ds-plans" id="plans">
@@ -790,10 +764,10 @@
         <p class="ds-spec" style="color:hsl(var(--neutral-400))">One card at a time, with a “Best fit” tag. When the answer changes, cards swing along a bent arc (bend 7, pricing only): moving up a plan enters from the right, down from the left. Enterprise shows “Custom” and one “Talk to us”.</p>
       </div>
       <div><h5>Compare table cells</h5>
-        <div style="display:grid;grid-template-columns:minmax(0,1fr) repeat(3,48px);gap:12px 8px;align-items:center;font:var(--type-body-14)" id="cmp">
-          <span style="color:hsl(var(--neutral-300))">4K outputs</span><span class="dash" style="width:14px;height:2px;background:hsl(var(--neutral-700));border-radius:2px"></span><svg class="ds-chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><svg class="ds-chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
-          <span style="color:hsl(var(--neutral-300))">Batch size</span><span style="font:var(--type-display-20)">1</span><span style="font:var(--type-display-20)">50</span><span style="font:var(--type-display-20)">200</span>
-          <span style="color:hsl(var(--neutral-300))">Agent MCP access</span><span style="width:14px;height:2px;background:hsl(var(--neutral-700));border-radius:2px"></span><svg class="ds-chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><svg class="ds-chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) repeat(3,48px);gap:12px 8px;align-items:center;font:var(--text-sm)" id="cmp">
+          <span style="color:hsl(var(--neutral-300))">4K outputs</span><span class="dash" style="width:14px;height:2px;background:hsl(var(--neutral-700));border-radius:4px"></span><svg class="ds-chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><svg class="ds-chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+          <span style="color:hsl(var(--neutral-300))">Batch size</span><span style="font:var(--text-display-20)">1</span><span style="font:var(--text-display-20)">50</span><span style="font:var(--text-display-20)">200</span>
+          <span style="color:hsl(var(--neutral-300))">Agent MCP access</span><span style="width:14px;height:2px;background:hsl(var(--neutral-700));border-radius:4px"></span><svg class="ds-chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><svg class="ds-chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
         </div>
         <p class="ds-spec" style="color:hsl(var(--neutral-400))">Yellow checks draw on one after another as the table enters.</p>
       </div>
@@ -807,16 +781,12 @@
   <h2 class="ds-h2">Open questions</h2>
   <p class="ds-lede">Need a decision before V4 is final. Most important first.</p>
   <ol class="ds-qs">
-    <li><div><b>Hugeicons settings</b><span>Stroke weight and sizes still to add.</span></div></li>
-    <li><div><b>Bowlby One</b><span>One weight and reads heavy. Keep it, or pick a display face with weights?</span></div></li>
-    <li><div><b>Gaps off the spacing scale</b><span>144, 40 and 22–28 are in use but aren't spacing primitives.</span></div></li>
-    <li><div><b>Radii without tokens</b><span>28 for cards, 18 for the FAQ.</span></div></li>
-    <li><div><b>Phone layers 3 and 4 match in dark</b><span>Both resolve to neutral-700. Pick a different step for one of them, or merge them.</span></div></li>
-    <li><div><b>Older app vs DS4: buttons</b><span>Radius 8 vs 12, press scales to 0.97 vs drops by the lip, weight 500 vs 600, ghost hover fills vs colour only, disabled at 50% vs muted fill.</span></div></li>
-    <li><div><b>Older app vs DS4: fields</b><span>40 with a 1px edge on the page background vs 36 with a muted fill.</span></div></li>
-    <li><div><b>Older app vs DS4: dialog, toast, composer, tab bar</b><span>Dialog radius 20 vs 16. Toast on layer-3 vs card. Composer bordered at radius 20 vs flat at 16. Tab bar 61 vs 98.</span></div></li>
-    <li><div><b>Older app vs DS4: generating and links</b><span>Pulsing tile vs eyes and pencil progress. “View all” as a ghost button vs a text link. Focus as an outline vs the focus shadow.</span></div></li>
-    <li class="parked"><div><b>Which pricing rules go system-wide?</b><span>Parked. The 40px first-section minimum, 12px caps and 144px around transitions stay pricing-only for now.</span></div></li>
+    <li class="done"><div><b>Hugeicons</b><span>20px, 1.5px stroke.</span></div></li>
+    <li class="done"><div><b>Bowlby One</b><span>Kept as the display face for now.</span></div></li>
+    <li class="done"><div><b>Spacing and radii</b><span>Everything snaps to the two scales, ties go to the larger step, nothing goes past the top step.</span></div></li>
+    <li class="done"><div><b>Generating, links, focus</b><span>Eyes and pencil progress. “View all” is a ghost button. Focus is a 2px outline.</span></div></li>
+    <li><div><b>Older app vs DS4: toast, composer, tab bar</b><span>Toast on accent vs card. Composer bordered with Generate on the right vs flat with Generate under the prompt. Tab bar 61 vs 98.</span></div></li>
+    <li class="parked"><div><b>Which pricing rules go system-wide?</b><span>Decided later. Pricing rules and components (plan cards, the model tape) stay in Pricing.</span></div></li>
   </ol>
   <footer class="ds-foot"><span>Sloosh V4 design system</span></footer>
 </section>
