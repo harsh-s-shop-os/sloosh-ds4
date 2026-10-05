@@ -422,7 +422,7 @@
   --brand-accent: var(--creative-gen-accent-500);
   --brand-accent-foreground: var(--neutral-950);
   --brand-accent-edge: var(--creative-gen-accent-700);
-  --brand-accent-text: var(--creative-gen-accent-700);   /* light: 500 fails on white */
+  --brand-accent-text: var(--creative-gen-accent-500);   /* the brand yellow in both themes; grounds remap it */
   --brand-accent-subtle: hsl(var(--creative-gen-accent-500) / 0.2);   /* full colour */
   --brand-accent-subtle-hover: hsl(var(--creative-gen-accent-500) / 0.3);   /* full colour: tinted button hover */
   --brand-accent-ring: var(--creative-gen-accent-100);
@@ -511,7 +511,7 @@
     --brand-accent: var(--creative-gen-accent-500);
     --brand-accent-foreground: var(--neutral-950);
     --brand-accent-edge: var(--creative-gen-accent-700);
-    --brand-accent-text: var(--creative-gen-accent-700);   /* light: 500 fails on white */
+    --brand-accent-text: var(--creative-gen-accent-500);   /* the brand yellow in both themes; grounds remap it */
     --brand-accent-subtle: hsl(var(--creative-gen-accent-500) / 0.2);   /* full colour */
   --brand-accent-subtle-hover: hsl(var(--creative-gen-accent-500) / 0.3);   /* full colour: tinted button hover */
     --brand-accent-ring: var(--creative-gen-accent-100);
@@ -1110,7 +1110,7 @@ table.ds-matrix { font: var(--text-sm); width: 100%; min-width: 560px; border-co
   --brand-accent-text: var(--neutral-950); --brand-line: hsl(var(--neutral-950)); --brand-line-soft: hsl(var(--neutral-800)); --brand-line-faint: hsl(var(--neutral-950) / 0.3); --brand-shadow: hsl(var(--neutral-950) / 0.22); }
 .gr.white { background: var(--g-white); color: hsl(var(--neutral-950));
   --background: var(--neutral-0); --card: var(--neutral-100); --muted: var(--neutral-150); --foreground: var(--neutral-950); --muted-foreground: var(--neutral-600); --border: var(--neutral-200);
-  --brand-accent-text: var(--creative-gen-accent-700); --brand-line: hsl(var(--neutral-950)); --brand-line-soft: hsl(var(--neutral-600)); --brand-line-faint: hsl(var(--neutral-300)); --brand-shadow: hsl(var(--neutral-950) / 0.12); }
+  --brand-accent-text: var(--creative-gen-accent-500); --brand-line: hsl(var(--neutral-950)); --brand-line-soft: hsl(var(--neutral-600)); --brand-line-faint: hsl(var(--neutral-300)); --brand-shadow: hsl(var(--neutral-950) / 0.12); }
 .gr .k { font: var(--text-caption-caps); letter-spacing: var(--text-caption-caps-tracking); text-transform: uppercase; opacity: .7; }
 .gr h3 { font: var(--text-display-36); margin: 12px 0 0; letter-spacing: -.015em; max-width: 16ch; }
 .gr p { font: var(--text-base); margin: 12px 0 0; max-width: 46ch; color: hsl(var(--muted-foreground)); }
@@ -1643,7 +1643,7 @@ details.ds-q p { font: var(--text-base); margin: 0; padding: 0 20px 20px; color:
         <span style="display:inline-block;width:64px;height:40px;border-radius:8px;background:hsl(var(--brand-accent));box-shadow:inset 0 -2px 0 0 hsl(var(--brand-accent-edge))"></span>
         <svg width="120" height="40" viewBox="0 0 120 40" aria-hidden="true"><path d="M4 26 C 30 10, 60 34, 116 16" fill="none" stroke="hsl(var(--brand-accent-text))" stroke-width="2.4" stroke-linecap="round"/></svg>
       </div>
-      <p class="ds-spec">Fills: <b>brand-accent</b>. Yellow lines and text: <b>brand-accent-text</b>, which darkens on light grounds. Eyes never change colour.</p>
+      <p class="ds-spec">Fills: <b>brand-accent</b>. Yellow lines and text: <b>brand-accent-text</b>, the same creative-gen-accent-500 in both themes; only the yellow ground swaps it for black. Eyes never change colour.</p>
     </div>
   </div>
   <div class="ds-plate flat" style="margin-top:16px">
@@ -1670,7 +1670,7 @@ details.ds-q p { font: var(--text-base); margin: 0; padding: 0 20px 20px; color:
     <div class="gr white" id="gr-white">
       <span class="k">White ground</span>
       <h3>Which plan fits your month?</h3>
-      <p>Ink turns neutral-950. Yellow strokes darken to creative-gen-accent-700 #AF8705. Paper panels use #F6F4EE.</p>
+      <p>Ink turns neutral-950. Yellow stays creative-gen-accent-500. Paper panels use #F6F4EE.</p>
       <div class="row"><button class="sl-btn" data-variant="primary" data-size="48">Subscribe to Pro</button><span class="aside">most picked</span></div>
       <span class="crit" data-critter="cat" data-size="84" data-gaze="none"></span>
     </div>
@@ -1963,7 +1963,7 @@ details.ds-q p { font: var(--text-base); margin: 0; padding: 0 20px 20px; color:
   </div>
   <div class="ds-dodont">
     <div class="ds-plate do"><div class="ds-cap"><b>Do</b></div><ul><li>Build the Figma screen first, then add ink in the four places</li><li>Draw a ring beside or around the target</li><li>Keep one lead critter per view</li><li>Write six words or fewer in the hand</li><li>Show every state in text or fill as well as in ink</li><li>Use brand-accent-text for yellow lines and yellow text</li></ul></div>
-    <div class="ds-plate dont"><div class="ds-cap"><b>Don't</b></div><ul><li>Restyle base components with wobbly borders or tilts</li><li>Dim the page or spotlight the target</li><li>Stack Sloo, Burb and Purl in one Studio screen</li><li>Put a paragraph, a price or an error in handwriting</li><li>Leave rings and trails on screen after their moment</li><li>Draw #FECC15 lines on white</li></ul></div>
+    <div class="ds-plate dont"><div class="ds-cap"><b>Don't</b></div><ul><li>Restyle base components with wobbly borders or tilts</li><li>Dim the page or spotlight the target</li><li>Stack Sloo, Burb and Purl in one Studio screen</li><li>Put a paragraph, a price or an error in handwriting</li><li>Leave rings and trails on screen after their moment</li><li>Set small body text in yellow on white</li></ul></div>
   </div>
 </section>
 

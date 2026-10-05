@@ -414,7 +414,7 @@
   --brand-accent: var(--creative-gen-accent-500);
   --brand-accent-foreground: var(--neutral-950);
   --brand-accent-edge: var(--creative-gen-accent-700);
-  --brand-accent-text: var(--creative-gen-accent-700);   /* light: 500 fails on white */
+  --brand-accent-text: var(--creative-gen-accent-500);   /* the brand yellow in both themes; grounds remap it */
   --brand-accent-subtle: hsl(var(--creative-gen-accent-500) / 0.2);   /* full colour */
   --brand-accent-subtle-hover: hsl(var(--creative-gen-accent-500) / 0.3);   /* full colour: tinted button hover */
   --brand-accent-ring: var(--creative-gen-accent-100);
@@ -503,7 +503,7 @@
     --brand-accent: var(--creative-gen-accent-500);
     --brand-accent-foreground: var(--neutral-950);
     --brand-accent-edge: var(--creative-gen-accent-700);
-    --brand-accent-text: var(--creative-gen-accent-700);   /* light: 500 fails on white */
+    --brand-accent-text: var(--creative-gen-accent-500);   /* the brand yellow in both themes; grounds remap it */
     --brand-accent-subtle: hsl(var(--creative-gen-accent-500) / 0.2);   /* full colour */
   --brand-accent-subtle-hover: hsl(var(--creative-gen-accent-500) / 0.3);   /* full colour: tinted button hover */
     --brand-accent-ring: var(--creative-gen-accent-100);

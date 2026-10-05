@@ -144,7 +144,7 @@ table.ds-matrix { font: var(--text-sm); width: 100%; min-width: 560px; border-co
   --brand-accent-text: var(--neutral-950); --brand-line: hsl(var(--neutral-950)); --brand-line-soft: hsl(var(--neutral-800)); --brand-line-faint: hsl(var(--neutral-950) / 0.3); --brand-shadow: hsl(var(--neutral-950) / 0.22); }
 .gr.white { background: var(--g-white); color: hsl(var(--neutral-950));
   --background: var(--neutral-0); --card: var(--neutral-100); --muted: var(--neutral-150); --foreground: var(--neutral-950); --muted-foreground: var(--neutral-600); --border: var(--neutral-200);
-  --brand-accent-text: var(--creative-gen-accent-700); --brand-line: hsl(var(--neutral-950)); --brand-line-soft: hsl(var(--neutral-600)); --brand-line-faint: hsl(var(--neutral-300)); --brand-shadow: hsl(var(--neutral-950) / 0.12); }
+  --brand-accent-text: var(--creative-gen-accent-500); --brand-line: hsl(var(--neutral-950)); --brand-line-soft: hsl(var(--neutral-600)); --brand-line-faint: hsl(var(--neutral-300)); --brand-shadow: hsl(var(--neutral-950) / 0.12); }
 .gr .k { font: var(--text-caption-caps); letter-spacing: var(--text-caption-caps-tracking); text-transform: uppercase; opacity: .7; }
 .gr h3 { font: var(--text-display-36); margin: 12px 0 0; letter-spacing: -.015em; max-width: 16ch; }
 .gr p { font: var(--text-base); margin: 12px 0 0; max-width: 46ch; color: hsl(var(--muted-foreground)); }
